@@ -47,11 +47,11 @@ const MCQSubmitSuccess = () => {
   }, [attemptId, navigate]);
 
   const handleProceedToTheory = () => {
-    navigate("/exam/theory", { state: { attemptId } });
+    navigate("/exam/theory", { state: { attemptId, examId } });
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#0B0F1A] px-4 py-20 overflow-hidden font-inter">
       {/* ── BACKGROUND MESH ── */}
       <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute top-[20%] left-[20%] h-[400px] w-[400px] rounded-full bg-emerald-600/10 blur-[120px] animate-pulse" />
@@ -104,9 +104,8 @@ const MCQSubmitSuccess = () => {
             onClick={handleProceedToTheory}
             className="w-full h-14 rounded-2xl bg-white text-primary hover:bg-white/90 font-extrabold shadow-elevated transition-transform active:scale-95"
           >
-            <FileText className="mr-2 h-5 w-5" />
-            Proceed to fully Written Theory
-            <ArrowRight className="ml-2 h-5 w-5" />
+            Take Full Written Theory
+            <FileText className="ml-2 h-5 w-5" />
           </Button>
           
           <button 
