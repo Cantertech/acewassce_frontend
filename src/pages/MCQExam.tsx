@@ -156,7 +156,13 @@ const MCQExam = () => {
       }
 
       // 4. Success!
-      navigate("/exam/mcq-success", { state: { attemptId } });
+      const answeredCount = Object.keys(answers).length;
+      navigate("/exam/mcq-success", { state: { 
+        attemptId, 
+        examId,
+        answeredCount,
+        totalCount: questions.length
+      } });
     } catch (error: any) {
       console.error("Submission error:", error.message);
       alert("Failed to submit exam. Please check your connection.");

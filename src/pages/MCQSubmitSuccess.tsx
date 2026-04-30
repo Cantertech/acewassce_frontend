@@ -7,8 +7,14 @@ import { supabase } from "@/lib/supabase";
 const MCQSubmitSuccess = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const state = location.state as { attemptId?: string } | null;
+  const state = location.state as { 
+    attemptId?: string, 
+    answeredCount?: number,
+    totalCount?: number 
+  } | null;
   const attemptId = state?.attemptId;
+  const answeredCount = state?.answeredCount || 0;
+  const totalCount = state?.totalCount || 50;
 
   const [status, setStatus] = useState<string>('pending');
   const [loading, setLoading] = useState(true);
@@ -72,7 +78,7 @@ const MCQSubmitSuccess = () => {
               <CheckCircle2 className="h-5 w-5" />
             </span>
             <p className="font-display text-2xl font-extrabold text-white">
-              {answeredQuestions}
+              {answeredCount} / {totalCount}
             </p>
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1">
               Answered
