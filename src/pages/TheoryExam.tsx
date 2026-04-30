@@ -109,6 +109,7 @@ const TheoryExam = () => {
   };
 
   const handleEndReading = () => {
+    console.log("Ending reading mode, opening upload confirmation...");
     setShowStartUploadConfirm(true);
   };
 
@@ -366,7 +367,7 @@ const TheoryExam = () => {
             {isLast ? (
               <Button
                 size="lg"
-                onClick={handleEndReading}
+                onClick={() => handleEndReading()}
                 className="rounded-xl px-6 sm:px-8 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow hover:scale-105 transition-transform border-0"
               >
                 <UploadCloud className="mr-2 h-5 w-5" /> Start Uploading Scans
