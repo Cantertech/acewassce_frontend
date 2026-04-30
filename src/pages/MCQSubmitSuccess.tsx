@@ -1,16 +1,47 @@
-import { useNavigate } from "react-router-dom";
-import { CheckCircle, ArrowRight, ShieldCheck, FileText, CheckCircle2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { CheckCircle, ArrowRight, ShieldCheck, FileText, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/lib/supabase";
 
 const MCQSubmitSuccess = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state as { attemptId?: string } | null;
+  const attemptId = state?.attemptId;
 
-  // In a real app, retrieve this from context or state
-  const totalQuestions = 50;
-  const answeredQuestions = 50;
+  const [status, setStatus] = useState<string>('pending');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!attemptId) {
+      navigate("/dashboard");
+      return;
+    }
+
+    const checkStatus = async () => {
+      const { data } = await supabase
+        .from('exam_attempts')
+        .select('status')
+        .eq('id', attemptId)
+        .single();
+      
+      if (data) {
+        setStatus(data.status);
+        if (data.status === 'graded') {
+          navigate("/exam/results", { state: { attemptId } });
+        }
+      }
+      setLoading(false);
+    };
+
+    checkStatus();
+    const interval = setInterval(checkStatus, 3000);
+    return () => clearInterval(interval);
+  }, [attemptId, navigate]);
 
   const handleProceedToTheory = () => {
-    navigate("/exam/theory");
+    navigate("/exam/theory", { state: { attemptId } });
   };
 
   return (

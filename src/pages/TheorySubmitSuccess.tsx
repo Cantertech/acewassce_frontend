@@ -12,6 +12,7 @@ const TheorySubmitSuccess = () => {
   const [mcqCompleted, setMcqCompleted] = useState(state?.mcqCompleted ?? true);
 
   const [markingStep, setMarkingStep] = useState(0);
+  const [markingStatus, setMarkingStatus] = useState<string>('pending');
   const [error, setError] = useState<string | null>(null);
 
   const MARKING_STEPS = [
@@ -37,6 +38,8 @@ const TheorySubmitSuccess = () => {
 
         if (fetchError) throw fetchError;
 
+        setMarkingStatus(data.status);
+
         if (data.status === 'graded') {
           navigate("/exam/results", { state: { attemptId } });
         }
@@ -60,39 +63,38 @@ const TheorySubmitSuccess = () => {
   }, [attemptId, navigate]);
 
   // --------------------------------------------------------
-  // STATE 1: MCQ NOT TAKEN
+  // STATE 1: THEORY MARKED BUT MCQ PENDING
   // --------------------------------------------------------
-  if (!mcqCompleted) {
+  if (markingStatus === 'theory_marked' || !mcqCompleted) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden relative">
         <button 
-          onClick={() => setMcqCompleted(true)} 
+          onClick={() => setMarkingStatus('pending')} 
           className="absolute top-4 right-4 text-[10px] text-white/20 underline"
         >
-          Dev: Toggle 'MCQs Taken'
+          Dev: Reset Status
         </button>
-
         <div className="pointer-events-none fixed inset-0 z-0">
-          <div className="absolute top-[20%] left-[20%] h-[400px] w-[400px] rounded-full bg-purple-600/10 blur-[120px]" />
+          <div className="absolute top-[20%] left-[20%] h-[400px] w-[400px] rounded-full bg-emerald-600/10 blur-[120px]" />
           <div className="absolute bottom-[20%] right-[20%] h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[100px]" />
         </div>
 
         <div className="relative z-10 w-full max-w-lg text-center animate-fade-up">
-          <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500/20 to-purple-400/5 ring-1 ring-purple-500/50 shadow-glow">
-            <CheckCircle className="h-10 w-10 text-purple-400 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]" />
+          <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-500/20 to-emerald-400/5 ring-1 ring-emerald-500/50 shadow-glow">
+            <CheckCircle className="h-10 w-10 text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Theory Recorded!
+            Theory Marked!
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base px-6 mb-10 leading-relaxed">
-            Your written answers have been safely uploaded. However, you still need to complete the <b>Objective (MCQ)</b> section for this paper to receive your final grade.
+            Your written answers have been graded by the AI. However, you still need to complete the <b>Objective (MCQ)</b> section to receive your final results report.
           </p>
 
           <div className="space-y-4">
             <Button
               size="lg"
-              onClick={() => navigate("/exam/mcq")}
+              onClick={() => navigate("/exam/mcq", { state: { attemptId, examId: state?.examId } })}
               className="w-full h-14 rounded-2xl bg-primary text-white font-extrabold shadow-elevated transition-transform active:scale-95"
             >
               Start Multiple Choice Section

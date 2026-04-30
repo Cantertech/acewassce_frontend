@@ -18,7 +18,20 @@ const TheoryExam = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   // 'reading' -> taking the exam, 'uploading' -> snapping pictures
-  const [mode, setMode] = useState<'reading' | 'uploading'>('reading');
+  const [mode, setMode] = useState<'reading' | 'uploading'>(() => {
+    if (state?.attemptId) {
+      const saved = localStorage.getItem(`acewassce_theory_mode_${state.attemptId}`);
+      if (saved === 'reading' || saved === 'uploading') return saved;
+    }
+    return 'reading';
+  });
+
+  // Persist mode whenever it changes
+  useEffect(() => {
+    if (attemptId) {
+      localStorage.setItem(`acewassce_theory_mode_${attemptId}`, mode);
+    }
+  }, [mode, attemptId]);
   
   // Reading mode state
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -113,6 +126,11 @@ const TheoryExam = () => {
     setShowStartUploadConfirm(true);
   };
 
+  // Tagging state
+  const [showTagModal, setShowTagModal] = useState(false);
+  const [currentFile, setCurrentFile] = useState<File | null>(null);
+  const [tagInput, setTagInput] = useState("");
+
   const handleCaptureImage = () => {
     if (!attemptId) return;
 
@@ -125,20 +143,36 @@ const TheoryExam = () => {
       const file = e.target.files[0];
       if (!file) return;
 
-      const newId = Math.random().toString(36).substr(2, 9);
-      setUploadQueue(prev => [...prev, { file, id: newId, progress: 0 }]);
-      
-      // Start background upload
-      processUpload(file, newId);
+      // Show tagging modal instead of immediate upload
+      setCurrentFile(file);
+      setTagInput("");
+      setShowTagModal(true);
     };
 
     input.click();
   };
 
-  const processUpload = async (file: File, id: string) => {
+  const handleConfirmTag = () => {
+    if (!currentFile || !tagInput.trim()) {
+      alert("Please enter the question numbers present on this page.");
+      return;
+    }
+
+    const newId = Math.random().toString(36).substr(2, 9);
+    setUploadQueue(prev => [...prev, { file: currentFile, id: newId, progress: 0 }]);
+    
+    // Start background upload with tags
+    processUpload(currentFile, newId, tagInput);
+    
+    setShowTagModal(false);
+    setCurrentFile(null);
+  };
+
+  const processUpload = async (file: File, id: string, tags: string) => {
     try {
       const formData = new FormData();
       formData.append('file', file);
+      formData.append('tags', tags); // Send manual tags to backend
 
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
       const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/upload-working?is_general=true`, {
@@ -149,7 +183,7 @@ const TheoryExam = () => {
       const result = await response.json();
       if (result.status === 'success') {
         setUploadQueue(prev => prev.map(item => 
-          item.id === id ? { ...item, progress: 100, url: result.image_url } : item
+          item.id === id ? { ...item, progress: 100, url: result.image_url, tags: tags } : item
         ));
       }
     } catch (err) {
@@ -170,6 +204,7 @@ const TheoryExam = () => {
 
     setIsSubmitting(true);
     localStorage.removeItem(`acewassce_theory_timer_${examId}`);
+    localStorage.removeItem(`acewassce_theory_mode_${attemptId}`);
     
     try {
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
@@ -392,7 +427,11 @@ const TheoryExam = () => {
               <p className="text-sm text-muted-foreground mb-6">Progress will be lost.</p>
               <div className="flex gap-3">
                 <Button variant="outline" onClick={() => setShowExitConfirm(false)} className="flex-1 rounded-xl">Cancel</Button>
-                <Button variant="destructive" onClick={() => navigate("/dashboard")} className="flex-1 rounded-xl">End Exam</Button>
+                <Button variant="destructive" onClick={() => {
+                  localStorage.removeItem(`acewassce_theory_timer_${examId}`);
+                  localStorage.removeItem(`acewassce_theory_mode_${attemptId}`);
+                  navigate("/dashboard");
+                }} className="flex-1 rounded-xl">End Exam</Button>
               </div>
             </div>
           </div>
@@ -497,7 +536,7 @@ const TheoryExam = () => {
           </button>
 
           {/* QUEUE ITEMS */}
-          {uploadQueue.map((item, i) => (
+          {uploadQueue.map((item: any, i) => (
             <div key={item.id} className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 bg-white/5 animate-fade-up">
               {item.url ? (
                 <>
@@ -505,6 +544,11 @@ const TheoryExam = () => {
                   <div className="absolute top-2 right-2 h-5 w-5 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-background shadow-glow">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
+                  {item.tags && (
+                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-primary/80 backdrop-blur-md rounded-lg border border-primary/20 shadow-lg">
+                       <p className="text-[8px] font-black text-white uppercase tracking-tighter">Q: {item.tags}</p>
+                    </div>
+                  )}
                 </>
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
@@ -515,7 +559,7 @@ const TheoryExam = () => {
                 </div>
               )}
               <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black/80 to-transparent flex items-center px-3">
-                <span className="text-[10px] font-bold text-white/50">Page {i + 1}</span>
+                <span className="text-[10px] font-bold text-white/50 italic">Page {i + 1}</span>
               </div>
             </div>
           ))}
@@ -539,6 +583,53 @@ const TheoryExam = () => {
           </Button>
         </div>
       </footer>
+
+      {/* ── QUESTION TAGGING MODAL ── */}
+      {showTagModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-background/90 backdrop-blur-md" />
+          <div className="relative w-full max-w-sm bg-card border border-white/10 rounded-[2.5rem] p-8 shadow-elevated animate-fade-up text-center">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-6">
+              <UploadCloud className="h-8 w-8" />
+            </div>
+            <h3 className="font-display text-2xl font-extrabold text-white mb-2">Identify Questions</h3>
+            <p className="text-sm text-muted-foreground mb-8">Which question(s) are solved on this page?</p>
+            
+            <div className="space-y-6">
+              <div className="relative group">
+                <input 
+                  type="text" 
+                  value={tagInput}
+                  onChange={(e) => setTagInput(e.target.value)}
+                  placeholder="e.g. 1, 2 or 5b, 5c"
+                  className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl px-5 text-lg font-bold text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-center"
+                  autoFocus
+                  onKeyDown={(e) => e.key === 'Enter' && handleConfirmTag()}
+                />
+                <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none opacity-20 group-focus-within:opacity-100 transition-opacity">
+                   <CheckCircle2 className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <Button 
+                  variant="outline" 
+                  onClick={() => { setShowTagModal(false); setCurrentFile(null); }} 
+                  className="flex-1 h-12 rounded-2xl border-white/10"
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  onClick={handleConfirmTag}
+                  className="flex-1 h-12 rounded-2xl bg-primary text-white font-bold shadow-glow"
+                >
+                  Save & Upload
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

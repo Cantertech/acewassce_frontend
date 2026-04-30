@@ -138,7 +138,21 @@ const MCQExam = () => {
 
       if (gradeError) throw gradeError;
 
-      // 3. Success!
+      // 3. Check if Theory has been submitted yet
+      const { count: theoryCount } = await supabase
+        .from('theory_submissions')
+        .select('id', { count: 'exact', head: true })
+        .eq('attempt_id', attemptId);
+
+      if (!theoryCount || theoryCount === 0) {
+        // Only MCQ is done, Theory is pending
+        await supabase
+          .from('exam_attempts')
+          .update({ status: 'mcq_marked' })
+          .eq('id', attemptId);
+      }
+
+      // 4. Success!
       navigate("/exam/mcq-success", { state: { attemptId } });
     } catch (error: any) {
       console.error("Submission error:", error.message);
