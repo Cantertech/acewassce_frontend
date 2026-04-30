@@ -37,10 +37,9 @@ const TheorySubmitSuccess = () => {
 
     const fetchData = async () => {
       try {
-        // Fetch attempt status and exam_id
         const { data, error: fetchError } = await supabase
           .from('exam_attempts')
-          .select('status, exam_id')
+          .select('status, exam_id, mcq_completed_at')
           .eq('id', attemptId)
           .single();
 
@@ -48,17 +47,10 @@ const TheorySubmitSuccess = () => {
 
         setMarkingStatus(data.status);
         if (!examId) setExamId(data.exam_id);
-
-        // Check if MCQ is completed (count responses)
-        const { count } = await supabase
-          .from('exam_responses')
-          .select('id', { count: 'exact', head: true })
-          .eq('attempt_id', attemptId);
-        
-        setMcqCompleted(count ? count > 0 : false);
+        if (data.mcq_completed_at) setMcqCompleted(true);
 
         if (data.status === 'graded') {
-          navigate("/exam/results", { state: { attemptId } });
+          // Final results ready
         }
       } catch (err: any) {
         console.error("Fetch error:", err.message);
@@ -161,9 +153,13 @@ const TheorySubmitSuccess = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-md text-center animate-fade-in">
-        <h2 className="font-display text-3xl font-extrabold text-white mb-2">Grading in Progress</h2>
-        <p className="text-sm text-muted-foreground mb-12 px-4">
-          Our AI examiner is currently reviewing your theory workings...
+        <h2 className="font-display text-3xl font-extrabold text-white mb-2">
+          {mcqCompleted ? "Mock Exam Complete!" : "Theory Submitted!"}
+        </h2>
+        <p className="text-sm text-muted-foreground mb-12 px-4 leading-relaxed font-medium">
+          {mcqCompleted 
+            ? "Great job! Both sections have been securely recorded. Our AI examiner is finishing your final report..."
+            : "Excellent work! Your written answers have been submitted. Our AI examiner is currently reviewing your theory workings..."}
         </p>
 
         {/* Dynamic Animation Area */}
@@ -191,13 +187,24 @@ const TheorySubmitSuccess = () => {
         </div>
 
         <div className="w-full flex flex-col gap-3">
-          {showSkip && !mcqCompleted && (
+          {showSkip && (
             <Button
               size="lg"
-              onClick={markingStatus === 'graded' ? () => navigate("/exam/results", { state: { attemptId } }) : handleStartMCQ}
-              className="w-full h-14 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow animate-fade-up"
+              disabled={mcqCompleted && markingStatus !== 'graded'}
+              onClick={() => {
+                if (markingStatus === 'graded') {
+                  navigate("/exam/results", { state: { attemptId } });
+                } else {
+                  handleStartMCQ();
+                }
+              }}
+              className="w-full h-14 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow animate-fade-up disabled:opacity-50"
             >
-              {markingStatus === 'graded' ? "View Final Results" : "Skip to MCQs"}
+              {markingStatus === 'graded' 
+                ? "View Final Results" 
+                : mcqCompleted 
+                  ? "Finalizing Final Results..." 
+                  : "Skip to MCQs"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}

@@ -7,16 +7,15 @@ import { supabase } from "@/lib/supabase";
 const MCQSubmitSuccess = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const state = location.state as { 
-    attemptId?: string, 
-    answeredCount?: number,
-    totalCount?: number 
-  } | null;
+  const state = location.state as { attemptId?: string; examId?: string; answeredCount?: number; totalCount?: number } | null;
   const attemptId = state?.attemptId;
+  const examId = state?.examId;
   const answeredCount = state?.answeredCount || 0;
   const totalCount = state?.totalCount || 50;
 
-  const [status, setStatus] = useState<string>('pending');
+  const [status, setStatus] = useState<'pending' | 'graded' | 'mcq_marked' | 'theory_marked'>('pending');
+  const [theoryCompleted, setTheoryCompleted] = useState(false);
+  const [mcqCompleted, setMcqCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,23 +25,26 @@ const MCQSubmitSuccess = () => {
     }
 
     const checkStatus = async () => {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from('exam_attempts')
-        .select('status')
+        .select('status, theory_completed_at, mcq_completed_at')
         .eq('id', attemptId)
         .single();
       
       if (data) {
         setStatus(data.status);
+        setTheoryCompleted(!!data.theory_completed_at);
+        setMcqCompleted(!!data.mcq_completed_at);
+
         if (data.status === 'graded') {
-          navigate("/exam/results", { state: { attemptId } });
+          // Both parts are done and marked
         }
       }
       setLoading(false);
     };
 
     checkStatus();
-    const interval = setInterval(checkStatus, 3000);
+    const interval = setInterval(checkStatus, 5000);
     return () => clearInterval(interval);
   }, [attemptId, navigate]);
 
@@ -59,17 +61,22 @@ const MCQSubmitSuccess = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-lg text-center animate-fade-up">
-        {/* SUCCESS ICON */}
-        <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-500/20 to-emerald-400/5 ring-1 ring-emerald-500/50 shadow-glow">
-          <CheckCircle className="h-10 w-10 text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
+        {/* SUCCESS ICON & TEXT */}
+        <div className="mb-12 text-center">
+          <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-[2.5rem] bg-emerald-500/10 border border-emerald-500/20 shadow-glow relative group">
+            <CheckCircle className="h-12 w-12 text-emerald-400 group-hover:scale-110 transition-transform" />
+            <Sparkles className="absolute -top-2 -right-2 h-6 w-6 text-amber-400 animate-pulse" />
+          </div>
+          
+          <h1 className="font-display text-4xl font-black text-white tracking-tight mb-3">
+            {theoryCompleted ? "Mock Exam Complete!" : "Objectives Submitted!"}
+          </h1>
+          <p className="text-muted-foreground text-sm max-w-[280px] mx-auto leading-relaxed font-medium">
+            {theoryCompleted 
+              ? "Great job! Both sections have been securely recorded. Your final report is being finalized."
+              : "Excellent work! Your objective answers have been securely recorded. Final grading will occur after you complete the Theory section."}
+          </p>
         </div>
-
-        <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-          Part 1 Complete!
-        </h1>
-        <p className="text-muted-foreground text-sm sm:text-base px-6 mb-10 leading-relaxed">
-          Great job! Your objective answers have been securely submitted and recorded. Final grading will occur after you complete the Theory section.
-        </p>
 
         {/* QUICK STATS PANEL */}
         <div className="glass-card flex items-center justify-between p-6 rounded-[2rem] border border-white/10 shadow-soft mb-10">
@@ -101,11 +108,22 @@ const MCQSubmitSuccess = () => {
         <div className="space-y-4">
           <Button
             size="lg"
-            onClick={status === 'graded' ? () => navigate("/exam/results", { state: { attemptId } }) : handleProceedToTheory}
-            className="w-full h-14 rounded-2xl bg-white text-primary hover:bg-white/90 font-extrabold shadow-elevated transition-transform active:scale-95"
+            disabled={theoryCompleted && status !== 'graded'}
+            onClick={() => {
+              if (status === 'graded') {
+                navigate("/exam/results", { state: { attemptId } });
+              } else {
+                handleProceedToTheory();
+              }
+            }}
+            className="w-full h-14 rounded-2xl bg-white text-primary hover:bg-white/90 font-extrabold shadow-elevated transition-transform active:scale-95 disabled:opacity-50"
           >
-            {status === 'graded' ? "View Final Results" : "Take Full Written Theory"}
-            <FileText className="ml-2 h-5 w-5" />
+            {status === 'graded' 
+              ? "View Final Results" 
+              : theoryCompleted 
+                ? "Finalizing Final Results..." 
+                : "Take Full Written Theory"}
+            {status === 'graded' ? <ArrowRight className="ml-2 h-5 w-5" /> : <FileText className="ml-2 h-5 w-5" />}
           </Button>
           
           <button 
