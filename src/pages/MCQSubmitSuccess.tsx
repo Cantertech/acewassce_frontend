@@ -159,6 +159,7 @@ const MCQSubmitSuccess = () => {
         </div>
       </>
     )}
+      </div>
     </div>
   );
 };
