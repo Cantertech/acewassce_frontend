@@ -7,6 +7,15 @@ import Index from "./pages/Index.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import Practice from "./pages/Practice.tsx";
+import Instructions from "./pages/Instructions.tsx";
+import MCQExam from "./pages/MCQExam.tsx";
+import MCQSubmitSuccess from "./pages/MCQSubmitSuccess.tsx";
+import TheoryExam from "./pages/TheoryExam.tsx";
+import TheorySubmitSuccess from "./pages/TheorySubmitSuccess.tsx";
+import ExamResults from "./pages/ExamResults.tsx";
+import Profile from "./pages/Profile.tsx";
+import History from "./pages/History.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -22,6 +31,15 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/practice" element={<Practice />} />
+          <Route path="/instructions" element={<Instructions />} />
+          <Route path="/exam/mcq" element={<MCQExam />} />
+          <Route path="/exam/mcq-success" element={<MCQSubmitSuccess />} />
+          <Route path="/exam/theory" element={<TheoryExam />} />
+          <Route path="/exam/theory-success" element={<TheorySubmitSuccess />} />
+          <Route path="/exam/results" element={<ExamResults />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/history" element={<History />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

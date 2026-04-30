@@ -1,34 +1,42 @@
 import { Link, NavLink } from "react-router-dom";
-import { GraduationCap } from "lucide-react";
+import logo from "@/assets/ace_logo.png";
 import { Button } from "@/components/ui/button";
 
-const Navbar = () => {
-  return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-hero text-primary-foreground shadow-soft">
-            <GraduationCap className="h-5 w-5" />
-          </span>
-          <span className="text-lg font-extrabold tracking-tight">
-            Ace<span className="text-primary">Wassce</span>
-          </span>
-        </Link>
-        <nav className="flex items-center gap-2 sm:gap-3">
-          <NavLink to="/login">
-            <Button variant="ghost" size="sm" className="font-semibold">
-              Log In
-            </Button>
-          </NavLink>
-          <NavLink to="/signup">
-            <Button size="sm" className="font-semibold shadow-soft">
-              Sign Up
-            </Button>
-          </NavLink>
-        </nav>
-      </div>
-    </header>
-  );
-};
+const Navbar = () => (
+  <header className="sticky top-0 z-50 w-full border-b border-white/8 bg-background/70 backdrop-blur-xl">
+    <div className="container flex h-16 items-center justify-between px-5">
+      {/* Logo */}
+      <Link to="/" className="flex items-center gap-2.5 group">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 shadow-soft overflow-hidden group-hover:scale-105 transition-transform">
+          <img src={logo} alt="AceWassce" className="h-full w-full object-cover" />
+        </span>
+        <span className="font-display text-base font-extrabold tracking-tight text-foreground">
+          Ace<span className="gradient-text">Wassce</span>
+        </span>
+      </Link>
+
+      {/* Nav */}
+      <nav className="flex items-center gap-2">
+        <NavLink to="/login">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="rounded-full font-semibold text-muted-foreground hover:text-foreground hover:bg-white/8 transition-all"
+          >
+            Log In
+          </Button>
+        </NavLink>
+        <NavLink to="/signup">
+          <Button
+            size="sm"
+            className="rounded-full bg-gradient-hero border-0 font-semibold text-white shadow-soft hover:opacity-90 transition-all"
+          >
+            Sign Up Free
+          </Button>
+        </NavLink>
+      </nav>
+    </div>
+  </header>
+);
 
 export default Navbar;
