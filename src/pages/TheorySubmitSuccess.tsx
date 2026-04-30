@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import { CheckCircle, ArrowRight, BrainCircuit, ScanSearch, FileCheck2, Loader2, Play, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const TheorySubmitSuccess = () => {
   const navigate = useNavigate();
