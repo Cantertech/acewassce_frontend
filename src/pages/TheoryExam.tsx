@@ -593,7 +593,11 @@ const TheoryExam = () => {
               <UploadCloud className="h-8 w-8" />
             </div>
             <h3 className="font-display text-2xl font-extrabold text-white mb-2">Identify Questions</h3>
-            <p className="text-sm text-muted-foreground mb-8">Which question(s) are solved on this page?</p>
+            <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
+              Enter the <span className="text-primary font-bold">Main Question Numbers</span> solved on this page. 
+              <br/>
+              <span className="text-[10px] opacity-60">e.g., Type "9" even if it's 9a or 9b.</span>
+            </p>
             
             <div className="space-y-6">
               <div className="relative group">
@@ -601,7 +605,7 @@ const TheoryExam = () => {
                   type="text" 
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
-                  placeholder="e.g. 1, 2 or 5b, 5c"
+                  placeholder="e.g. 1, 2, 9"
                   className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl px-5 text-lg font-bold text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-center"
                   autoFocus
                   onKeyDown={(e) => e.key === 'Enter' && handleConfirmTag()}
