@@ -131,12 +131,15 @@ const MCQExam = () => {
         if (resError) throw resError;
       }
 
-      // 2. Call the RPC to grade the exam instantly
-      const { error: gradeError } = await supabase.rpc('grade_mcq_attempt', {
-        p_attempt_id: attemptId
+      // 2. Call the Python backend to grade the exam instantly
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+      const gradeResponse = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade-mcq`, {
+        method: 'POST'
       });
-
-      if (gradeError) throw gradeError;
+      
+      if (!gradeResponse.ok) {
+        throw new Error("Failed to trigger MCQ grading on backend");
+      }
 
       // 3. Check if Theory has been submitted yet
       const { count: theoryCount } = await supabase
