@@ -133,7 +133,8 @@ const TheoryExam = () => {
         formData.append('question_number', qNum.toString());
 
         // Call your backend upload endpoint
-        const response = await fetch(`http://localhost:8000/api/v1/attempts/${attemptId}/upload-working?question_number=${qNum}`, {
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+        const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/upload-working?question_number=${qNum}`, {
           method: 'POST',
           body: formData,
         });
@@ -161,7 +162,8 @@ const TheoryExam = () => {
     
     try {
       // Trigger the AI Grading Engine on the backend
-      const response = await fetch(`http://localhost:8000/api/v1/attempts/${attemptId}/grade`, {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+      const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade`, {
         method: 'POST'
       });
       
