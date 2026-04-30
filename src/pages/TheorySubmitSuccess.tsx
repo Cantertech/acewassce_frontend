@@ -9,7 +9,7 @@ const TheorySubmitSuccess = () => {
   const location = useLocation();
   const state = location.state as { attemptId?: string, mcqCompleted?: boolean } | null;
   const attemptId = state?.attemptId;
-  const mcqCompleted = state?.mcqCompleted ?? true; // Default to true if not provided
+  const [mcqCompleted, setMcqCompleted] = useState(state?.mcqCompleted ?? true);
 
   const [markingStep, setMarkingStep] = useState(0);
   const [error, setError] = useState<string | null>(null);
