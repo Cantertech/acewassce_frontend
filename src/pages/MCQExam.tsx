@@ -61,9 +61,9 @@ const MCQExam = () => {
     if (isLoading || !examMetadata) return;
 
     // PERSISTENT TIMER LOGIC
-    const EXAM_KEY = `acewassce_mcq_timer_${examId}`;
+    const EXAM_KEY = `acewassce_mcq_timer_${attemptId || examId}`;
     const savedEndTime = localStorage.getItem(EXAM_KEY);
-    const DURATION = examMetadata.mcq_duration || 5400;
+    const DURATION = Number(examMetadata.mcq_duration) || 5400;
 
     if (savedEndTime) {
       const remaining = Math.max(0, Math.floor((parseInt(savedEndTime) - Date.now()) / 1000));

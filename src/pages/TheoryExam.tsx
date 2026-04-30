@@ -83,9 +83,9 @@ const TheoryExam = () => {
     if (isLoading || !examMetadata) return;
 
     // PERSISTENT TIMER LOGIC
-    const EXAM_KEY = `acewassce_theory_timer_${examId}`;
+    const EXAM_KEY = `acewassce_theory_timer_${attemptId || examId}`;
     const savedEndTime = localStorage.getItem(EXAM_KEY);
-    const DURATION = examMetadata.theory_duration || 9000;
+    const DURATION = Number(examMetadata.theory_duration) || 9000;
 
     if (savedEndTime) {
       const remaining = Math.max(0, Math.floor((parseInt(savedEndTime) - Date.now()) / 1000));

@@ -15,6 +15,13 @@ const TheorySubmitSuccess = () => {
   const [markingStep, setMarkingStep] = useState(0);
   const [markingStatus, setMarkingStatus] = useState<string>('pending');
   const [error, setError] = useState<string | null>(null);
+  const [showSkip, setShowSkip] = useState(false);
+
+  useEffect(() => {
+    // Reveal action buttons after 8 seconds of marking simulation
+    const timer = setTimeout(() => setShowSkip(true), 8000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const MARKING_STEPS = [
     { icon: ScanSearch, text: "Scanning handwriting and diagrams..." },
@@ -184,11 +191,11 @@ const TheorySubmitSuccess = () => {
         </div>
 
         <div className="w-full flex flex-col gap-3">
-          {!mcqCompleted && (
+          {showSkip && !mcqCompleted && (
             <Button
               size="lg"
               onClick={handleStartMCQ}
-              className="w-full h-14 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow animate-bounce-subtle"
+              className="w-full h-14 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow animate-fade-up"
             >
               Skip to MCQs
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -203,24 +210,26 @@ const TheorySubmitSuccess = () => {
           ) : (
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground font-semibold bg-white/5 rounded-2xl py-3 border border-white/10 mb-4">
               <Loader2 className="h-4 w-4 animate-spin text-primary" />
-              Please wait, generating final report...
+              {markingStatus === 'graded' ? "Finalizing report..." : "Please wait, generating final report..."}
             </div>
           )}
 
-          <div className="flex justify-center gap-6 mt-4">
-            <button 
-              onClick={() => navigate("/dashboard")}
-              className="text-sm font-semibold text-muted-foreground hover:text-white transition-colors underline underline-offset-4"
-            >
-              Continue Later
-            </button>
-            <button 
-              onClick={() => navigate("/")}
-              className="text-sm font-semibold text-muted-foreground hover:text-white transition-colors underline underline-offset-4"
-            >
-              Home
-            </button>
-          </div>
+          {showSkip && (
+            <div className="flex justify-center gap-6 mt-4 animate-fade-in">
+              <button 
+                onClick={() => navigate("/dashboard")}
+                className="text-sm font-semibold text-muted-foreground hover:text-white transition-colors underline underline-offset-4"
+              >
+                Continue Later
+              </button>
+              <button 
+                onClick={() => navigate("/")}
+                className="text-sm font-semibold text-muted-foreground hover:text-white transition-colors underline underline-offset-4"
+              >
+                Home
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
