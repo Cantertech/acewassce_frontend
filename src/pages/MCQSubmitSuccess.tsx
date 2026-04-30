@@ -101,10 +101,10 @@ const MCQSubmitSuccess = () => {
         <div className="space-y-4">
           <Button
             size="lg"
-            onClick={handleProceedToTheory}
+            onClick={status === 'graded' ? () => navigate("/exam/results", { state: { attemptId } }) : handleProceedToTheory}
             className="w-full h-14 rounded-2xl bg-white text-primary hover:bg-white/90 font-extrabold shadow-elevated transition-transform active:scale-95"
           >
-            Take Full Written Theory
+            {status === 'graded' ? "View Final Results" : "Take Full Written Theory"}
             <FileText className="ml-2 h-5 w-5" />
           </Button>
           

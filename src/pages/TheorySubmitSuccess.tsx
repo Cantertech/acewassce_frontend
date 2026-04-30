@@ -194,10 +194,10 @@ const TheorySubmitSuccess = () => {
           {showSkip && !mcqCompleted && (
             <Button
               size="lg"
-              onClick={handleStartMCQ}
+              onClick={markingStatus === 'graded' ? () => navigate("/exam/results", { state: { attemptId } }) : handleStartMCQ}
               className="w-full h-14 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow animate-fade-up"
             >
-              Skip to MCQs
+              {markingStatus === 'graded' ? "View Final Results" : "Skip to MCQs"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}
