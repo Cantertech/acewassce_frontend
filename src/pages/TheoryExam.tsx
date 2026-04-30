@@ -108,6 +108,10 @@ const TheoryExam = () => {
     return `${m}m ${s}s`;
   };
 
+  const handleEndReading = () => {
+    setShowStartUploadConfirm(true);
+  };
+
   const handleCaptureImage = () => {
     if (!attemptId) return;
 
