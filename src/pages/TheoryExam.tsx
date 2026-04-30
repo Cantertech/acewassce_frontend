@@ -139,8 +139,6 @@ const TheoryExam = () => {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      // We don't send question_number yet, AI will determine it
-      formData.append('is_general', 'true');
 
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
       const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/upload-working?is_general=true`, {
