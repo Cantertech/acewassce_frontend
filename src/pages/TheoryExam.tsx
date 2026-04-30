@@ -30,8 +30,7 @@ const TheoryExam = () => {
   const [showStartUploadConfirm, setShowStartUploadConfirm] = useState(false);
 
   // Upload state
-  const [uploadIdx, setUploadIdx] = useState(0);
-  const [uploads, setUploads] = useState<Record<number, string>>({}); 
+  const [uploadQueue, setUploadQueue] = useState<{file: File, id: string, progress: number, url?: string}[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
 
@@ -109,71 +108,76 @@ const TheoryExam = () => {
     return `${m}m ${s}s`;
   };
 
-  const handleEndReading = () => {
-    setShowStartUploadConfirm(true);
-  };
-
-  const handleRealUpload = async (qId: string, qNum: number) => {
+  const handleCaptureImage = () => {
     if (!attemptId) return;
 
-    // Create a hidden file input to trigger camera/gallery
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
-    input.capture = 'environment'; // Hint for mobile to use camera
+    input.capture = 'environment';
     
     input.onchange = async (e: any) => {
       const file = e.target.files[0];
       if (!file) return;
 
-      try {
-        setIsSubmitting(true);
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('question_number', qNum.toString());
-
-        // Call your backend upload endpoint
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
-        const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/upload-working?question_number=${qNum}`, {
-          method: 'POST',
-          body: formData,
-        });
-
-        const result = await response.json();
-        if (result.status === 'success') {
-          setUploads({ ...uploads, [qId]: result.image_url });
-        }
-      } catch (err) {
-        console.error("Upload failed:", err);
-        alert("Failed to upload image. Please try again.");
-      } finally {
-        setIsSubmitting(false);
-      }
+      const newId = Math.random().toString(36).substr(2, 9);
+      setUploadQueue(prev => [...prev, { file, id: newId, progress: 0 }]);
+      
+      // Start background upload
+      processUpload(file, newId);
     };
 
     input.click();
   };
 
+  const processUpload = async (file: File, id: string) => {
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      // We don't send question_number yet, AI will determine it
+      formData.append('is_general', 'true');
+
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+      const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/upload-working?is_general=true`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+      if (result.status === 'success') {
+        setUploadQueue(prev => prev.map(item => 
+          item.id === id ? { ...item, progress: 100, url: result.image_url } : item
+        ));
+      }
+    } catch (err) {
+      console.error("Background upload failed:", err);
+      setUploadQueue(prev => prev.filter(item => item.id !== id));
+      alert("Failed to upload image. Please try again.");
+    }
+  };
+
   const handleFinishAll = async () => {
     if (!attemptId) return;
     
+    const allDone = uploadQueue.every(item => item.progress === 100);
+    if (!allDone) {
+      alert("Please wait for all images to finish uploading.");
+      return;
+    }
+
     setIsSubmitting(true);
     localStorage.removeItem(`acewassce_theory_timer_${examId}`);
     
     try {
-      // Trigger the AI Grading Engine on the backend
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
       const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade`, {
         method: 'POST'
       });
       
       if (!response.ok) throw new Error("Failed to trigger AI grading");
-
-      // Navigate to success page
       navigate("/exam/theory-success", { state: { attemptId } });
     } catch (err) {
       console.error("Finalization error:", err);
-      alert("Submission failed. Your scans are safe, but AI grading couldn't start.");
       setIsSubmitting(false);
     }
   };
@@ -453,126 +457,83 @@ const TheoryExam = () => {
   }
 
   // ----------------------------------------------------
-  // GUIDED UPLOAD MODE
+  // BULK UPLOAD MODE
   // ----------------------------------------------------
-  const currentQ = questions[uploadIdx];
-  const isUploaded = !!uploads[currentQ.id];
-  const isLastUpload = uploadIdx === questions.length - 1;
-  const totalUploaded = Object.keys(uploads).length;
-  const allUploaded = totalUploaded === questions.length;
+  const totalUploaded = uploadQueue.filter(i => i.progress === 100).length;
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col pb-24 overflow-x-hidden">
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/10">
-        <div className="container max-w-md flex h-16 items-center justify-between px-4">
-          <div className="font-display text-sm font-extrabold text-white">Scan & Upload</div>
-          <div className="text-sm font-bold text-muted-foreground">
-            <span className="text-emerald-400">{totalUploaded}</span> / {questions.length} Done
+        <div className="container max-w-2xl flex h-16 items-center justify-between px-4">
+          <div className="font-display text-sm font-extrabold text-white uppercase tracking-tight">Bulk Scanner</div>
+          <div className="text-xs font-bold text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-white/10">
+            <span className="text-emerald-400">{totalUploaded}</span> / {uploadQueue.length} Synced
           </div>
         </div>
       </header>
 
-      <main className="flex-1 container max-w-md px-4 py-8 flex flex-col items-center text-center animate-fade-in">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-xs font-bold text-blue-400 mb-6">
-          Step {uploadIdx + 1} of {questions.length}
-        </span>
-        
-        <h2 className="font-display text-2xl font-extrabold text-white mb-2">
-          Snap Question {currentQ.question_number}
-        </h2>
-        <p className="text-sm text-muted-foreground mb-8">
-          Ensure your handwriting is clear, well-lit, and the entire working is in the frame.
-        </p>
+      <main className="flex-1 container max-w-2xl px-4 py-8 flex flex-col animate-fade-in">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-2xl font-extrabold text-white mb-2 italic">Capture All Workings</h2>
+          <p className="text-xs text-muted-foreground leading-relaxed px-6">
+            Snap your pages in any order. <span className="text-primary font-bold">Write the question number clearly</span> on top of each page so our AI can sort them.
+          </p>
+        </div>
 
-        {isUploaded ? (
-          <div className="w-full aspect-[3/4] sm:aspect-square flex flex-col items-center justify-center rounded-[2rem] border-2 border-dashed border-emerald-500 bg-emerald-500/5 p-6 mb-8">
-            <div className="h-20 w-20 bg-emerald-500/20 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle2 className="h-10 w-10 text-emerald-400" />
-            </div>
-            <p className="font-bold text-emerald-400">Scan Saved Successfully</p>
-            <button 
-              onClick={() => {
-                const newUploads = {...uploads};
-                delete newUploads[currentQ.id];
-                setUploads(newUploads);
-              }}
-              className="mt-3 text-xs text-muted-foreground underline hover:text-white"
-            >
-              Retake picture
-            </button>
-          </div>
-        ) : (
+        {/* UPLOAD GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+          {/* CAMERA TRIGGER */}
           <button 
-            onClick={() => handleRealUpload(currentQ.id, parseInt(currentQ.question_number))}
-            className="w-full aspect-[3/4] sm:aspect-square flex flex-col items-center justify-center rounded-[2rem] border-2 border-dashed border-white/20 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all p-6 mb-8 group"
+            onClick={handleCaptureImage}
+            className="aspect-[3/4] flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/40 bg-primary/5 hover:bg-primary/10 hover:border-primary transition-all group"
           >
-            <div className="h-20 w-20 bg-primary/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Camera className="h-8 w-8 text-primary" />
+            <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Camera className="h-6 w-6 text-primary" />
             </div>
-            <p className="font-display text-lg font-bold text-white mb-1">Open Camera</p>
-            <p className="text-xs text-muted-foreground">Tap to take a picture of your paper</p>
+            <p className="text-[10px] font-black uppercase text-primary tracking-widest">Snap Page</p>
           </button>
-        )}
+
+          {/* QUEUE ITEMS */}
+          {uploadQueue.map((item, i) => (
+            <div key={item.id} className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 bg-white/5 animate-fade-up">
+              {item.url ? (
+                <>
+                  <img src={item.url} className="w-full h-full object-cover" />
+                  <div className="absolute top-2 right-2 h-5 w-5 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-background shadow-glow">
+                    <CheckCircle2 className="h-3 w-3 text-white" />
+                  </div>
+                </>
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
+                  <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-primary animate-pulse" />
+                  </div>
+                  <p className="text-[8px] font-bold text-muted-foreground uppercase">Uploading...</p>
+                </div>
+              )}
+              <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black/80 to-transparent flex items-center px-3">
+                <span className="text-[10px] font-bold text-white/50">Page {i + 1}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </main>
 
-      <footer className="fixed bottom-0 left-0 right-0 z-40 bg-card/90 backdrop-blur-xl border-t border-white/10 p-4 sm:p-6">
-        <div className="container max-w-md flex items-center justify-between">
+      <footer className="fixed bottom-0 left-0 right-0 z-40 bg-card/90 backdrop-blur-xl border-t border-white/10 p-6">
+        <div className="container max-w-2xl flex items-center justify-between gap-4">
+          <div className="flex-1">
+             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Queue Status</p>
+             <p className="text-xs font-bold text-white">{uploadQueue.length} pages captured</p>
+          </div>
+          
           <Button
-            variant="outline"
             size="lg"
-            onClick={() => setUploadIdx(Math.max(0, uploadIdx - 1))}
-            disabled={uploadIdx === 0}
-            className="rounded-xl border-white/10 hover:bg-white/10 disabled:opacity-30 w-12 p-0 justify-center"
+            onClick={handleFinishAll}
+            disabled={uploadQueue.length === 0 || !uploadQueue.every(i => i.progress === 100)}
+            className="rounded-2xl px-10 bg-gradient-hero text-white font-extrabold shadow-glow hover:scale-105 transition-transform disabled:opacity-50"
           >
-            <ChevronLeft className="h-5 w-5" />
+            Submit All Papers
           </Button>
-
-          <div className="flex-1 flex flex-wrap justify-center gap-2 px-2 max-h-24 overflow-y-auto scrollbar-hide">
-            {questions.map((q, i) => {
-              const isDone = !!uploads[q.id];
-              const isCurrent = uploadIdx === i;
-              return (
-                <button
-                  key={q.id}
-                  onClick={() => setUploadIdx(i)}
-                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold transition-all text-xs ${
-                    isCurrent 
-                      ? 'ring-2 ring-primary ring-offset-2 ring-offset-background bg-white/10 text-white' 
-                      : isDone
-                        ? 'bg-primary text-white shadow-glow'
-                        : 'bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center gap-2">
-            {isLastUpload ? (
-              <Button
-                size="lg"
-                onClick={handleFinishAll}
-                disabled={!allUploaded}
-                className="rounded-xl px-6 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow disabled:opacity-50 border-0"
-              >
-                <CheckCircle2 className="h-5 w-5" />
-              </Button>
-            ) : (
-              <Button
-                size="lg"
-                onClick={() => setUploadIdx(Math.min(questions.length - 1, uploadIdx + 1))}
-                className={`rounded-xl px-6 font-bold border-0 ${
-                  isUploaded 
-                    ? 'bg-primary text-white shadow-glow hover:bg-primary/90' 
-                    : 'bg-white/10 text-muted-foreground hover:bg-white/20'
-                }`}
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            )}
-          </div>
         </div>
       </footer>
     </div>
