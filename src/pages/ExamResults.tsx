@@ -19,7 +19,7 @@ const getWassceGrade = (score: number) => {
   if (score >= 65) return { grade: "B3", label: "Good", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" };
   if (score >= 60) return { grade: "C4", label: "Credit", color: "text-blue-300", bg: "bg-blue-400/10", border: "border-blue-400/20" };
   if (score >= 55) return { grade: "C5", label: "Credit", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" };
-  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-400/20" };
+  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-500/20" };
   if (score >= 45) return { grade: "D7", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   if (score >= 40) return { grade: "E8", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   return { grade: "F9", label: "Fail", color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500/20" };
@@ -134,7 +134,7 @@ const ExamResults = () => {
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[80%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-500/5 rounded-full blur-[100px]" />
       </div>
 
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#020617]/70 border-b border-white/5">
@@ -294,7 +294,7 @@ const ExamResults = () => {
 
              {/* 3. QUESTION DISPLAY CARD */}
              {selectedQ && (
-                <div className="space-y-6">
+                <div className="space-y-12">
                    <div className="p-8 sm:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl relative overflow-hidden">
                       <div className="flex items-center justify-between mb-10">
                          <div className="flex items-center gap-4">
@@ -372,6 +372,26 @@ const ExamResults = () => {
                          <ChevronRight className="h-5 w-5 ml-2" />
                       </Button>
                    </div>
+
+                   {/* 5. REPLICATED MOTIVATION SECTION FOR MCQ TAB */}
+                   <section className="mt-16 p-12 rounded-[3.5rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group shadow-3xl">
+                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                      <div className="relative z-10">
+                         <GraduationCap className="h-14 w-14 text-primary mx-auto mb-8 group-hover:rotate-12 transition-all duration-500" />
+                         <h3 className="text-4xl font-black text-white mb-4">Push for the A1.</h3>
+                         <p className="text-slate-400 font-medium max-w-sm mx-auto mb-12 leading-relaxed text-lg">
+                            You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
+                         </p>
+                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                            <Button 
+                               onClick={() => navigate("/dashboard")} 
+                               className="h-16 px-12 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-2xl transition-all w-full sm:w-fit text-lg"
+                            >
+                               Back to Dashboard
+                            </Button>
+                         </div>
+                      </div>
+                   </section>
                 </div>
              )}
           </div>
@@ -448,22 +468,24 @@ const ExamResults = () => {
           </div>
         )}
 
-        {/* ── 4. FOOTER MOTIVATION ── */}
-        <section className="mt-24 p-12 rounded-[4rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group">
-          <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-          <div className="relative z-10">
-            <GraduationCap className="h-12 w-12 text-primary mx-auto mb-6" />
-            <h3 className="text-4xl font-black text-white mb-4">Push for the A1.</h3>
-            <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10 leading-relaxed text-lg">
-               You are currently at the {gradeInfo.label} level. Strengthen your theory logic to reach the top.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button onClick={() => navigate("/dashboard")} className="h-16 px-12 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-xl transition-all w-full sm:w-fit text-lg">
-                Back to Dashboard
-              </Button>
-            </div>
-          </div>
-        </section>
+        {/* ── 4. GLOBAL FOOTER MOTIVATION (Kept for Overview/Theory) ── */}
+        {(view === 'overview' || view === 'theory') && (
+            <section className="mt-24 p-12 rounded-[4rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                <div className="relative z-10">
+                <GraduationCap className="h-12 w-12 text-primary mx-auto mb-6" />
+                <h3 className="text-4xl font-black text-white mb-4">Push for the A1.</h3>
+                <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10 leading-relaxed text-lg">
+                    You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <Button onClick={() => navigate("/dashboard")} className="h-16 px-12 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-xl transition-all w-full sm:w-fit text-lg">
+                        Back to Dashboard
+                    </Button>
+                </div>
+                </div>
+            </section>
+        )}
 
       </main>
     </div>
