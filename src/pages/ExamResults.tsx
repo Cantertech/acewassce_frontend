@@ -356,7 +356,29 @@ const ExamResults = () => {
                          })}
                       </div>
                    </div>
-                   <div className="flex items-center justify-between gap-4"><Button disabled={currentMcqIdx === 0} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 flex-1 transition-all"><ChevronLeft className="h-5 w-5 mr-2" /> Previous</Button><Button disabled={currentMcqIdx === mcqQuestions.length - 1} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id)} className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-30 flex-1 shadow-lg shadow-primary/20 transition-all">Next <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
+                    <div className="flex items-center justify-between gap-4">
+                      <button 
+                        disabled={currentMcqIdx === 0} 
+                        onClick={() => {
+                          setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }} 
+                        className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex-1 transition-all flex items-center justify-center font-bold"
+                      >
+                        <ChevronLeft className="h-5 w-5 mr-2" /> Previous
+                      </button>
+                      
+                      <button 
+                        disabled={currentMcqIdx === mcqQuestions.length - 1} 
+                        onClick={() => {
+                          setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }} 
+                        className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-20 flex-1 shadow-lg shadow-primary/20 transition-all flex items-center justify-center font-bold"
+                      >
+                        Next <ChevronRight className="h-5 w-5 ml-2" />
+                      </button>
+                    </div>
                 </div>
              ) : (<div className="p-20 text-center opacity-40"><Search className="h-16 w-16 mx-auto mb-6" /><p className="text-xl font-black uppercase tracking-widest">No Objectives Recorded</p></div>)}
           </div>
@@ -385,7 +407,29 @@ const ExamResults = () => {
                          <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl"><h5 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-8">AI Logic Verification</h5><div className="text-base text-slate-300 leading-relaxed font-medium italic space-y-6"><LatexRenderer text={selectedTheory.feedback || "Detailed step-by-step logic analysis is being processed..."} /></div></div>
                       </div>
                    </div>
-                   <div className="flex items-center justify-between gap-4"><Button disabled={currentTheoryIdx <= 0} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 flex-1 transition-all"><ChevronLeft className="h-5 w-5 mr-2" /> Prev Question</Button><Button disabled={currentTheoryIdx >= theorySubmissions.length - 1} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 flex-1 shadow-lg shadow-purple-500/20 transition-all">Next Question <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
+                    <div className="flex items-center justify-between gap-4">
+                      <button 
+                        disabled={currentTheoryIdx <= 0} 
+                        onClick={() => {
+                          setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }} 
+                        className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex-1 transition-all flex items-center justify-center font-bold"
+                      >
+                        <ChevronLeft className="h-5 w-5 mr-2" /> Prev Question
+                      </button>
+                      
+                      <button 
+                        disabled={currentTheoryIdx >= theorySubmissions.length - 1} 
+                        onClick={() => {
+                          setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }} 
+                        className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-20 flex-1 shadow-lg shadow-purple-500/20 transition-all flex items-center justify-center font-bold"
+                      >
+                        Next Question <ChevronRight className="h-5 w-5 ml-2" />
+                      </button>
+                    </div>
                 </div>
              ) : (
                 <div className="p-24 text-center">
