@@ -1,0 +1,221 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_9",
+      "topic": "Trigonometry and Heights and Distances",
+      "question_number": 9,
+      "question_text": "A telecommunication mast and a pillar stand on the same horizontal level. From the midpoint, $O$, between the foot of the pillar, $S$, and the foot of the mast, $T$, the angle of elevation of the top of the mast $G$ is $70^{\\circ}$. From the point $O$, the angle of elevation of the top of the pillar, $H$, is $28^{\\circ}$. If the pillar is $10 \\text{ m}$ high:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_9a",
+          "topic": "Trigonometry and Heights and Distances",
+          "question_number": 9,
+          "question_text": "(a) represent the information in a diagram;",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_9b",
+          "topic": "Trigonometry and Heights and Distances",
+          "question_number": 9,
+          "question_text": "(b) calculate, correct to the nearest whole number:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_9b_1",
+              "topic": "Trigonometry and Heights and Distances",
+              "question_number": 9,
+              "question_text": "(i) the height of the mast;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_9b_2",
+              "topic": "Trigonometry and Heights and Distances",
+              "question_number": 9,
+              "question_text": "(ii) $|HG|$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10",
+      "topic": "Geometry and Mensuration",
+      "question_number": 10,
+      "question_text": "(a) The points $M$, $N$ and $L$ lie on a circle with centre $O$. An angle subtended at the centre by the minor arc $MN$ is $88^{\\circ}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a_1",
+          "topic": "Geometry and Mensuration",
+          "question_number": 10,
+          "question_text": "(i) Illustrate the information in a diagram.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a_2",
+          "topic": "Geometry and Mensuration",
+          "question_number": 10,
+          "question_text": "(ii) If $L$ is a point on the minor arc, determine the value of the angle subtended by the chord $MN$ at $L$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b",
+      "topic": "Rate and Work",
+      "question_number": 10,
+      "question_text": "(b) A tiler, Coffie, is able to lay $400$ tiles each day in $8$ hours. Another tiler, Boakye, works at $\\frac{3}{2}$ times Coffie's rate when laying the same kind of tiles.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b_1",
+          "topic": "Rate and Work",
+          "question_number": 10,
+          "question_text": "(i) How many tiles can Boakye lay in $8$ hours?",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b_2",
+          "topic": "Rate and Work",
+          "question_number": 10,
+          "question_text": "(ii) If both Coffie and Boakye decide to work together, determine the time required to lay $2000$ tiles.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_11",
+      "topic": "Geometry and Mensuration",
+      "question_number": 11,
+      "question_text": "A cardboard is in the form of an isosceles triangle with vertices $ABC$. $|AB| = |AC| = (2p + q) \\text{ m}$ and $|BC| = (3p + 5) \\text{ m}$ and the perimeter of the cardboard is $(7q + 3) \\text{ m}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_11a",
+          "topic": "Geometry and Mensuration",
+          "question_number": 11,
+          "question_text": "(a) Illustrate the information in a diagram.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_11b",
+          "topic": "Geometry and Mensuration",
+          "question_number": 11,
+          "question_text": "(b) Given that $p : q = \\frac{2}{3}$, find, correct to one decimal place, the:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_11b_1",
+              "topic": "Geometry and Mensuration",
+              "question_number": 11,
+              "question_text": "(i) value of $p$ and $q$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_11b_2",
+              "topic": "Geometry and Mensuration",
+              "question_number": 11,
+              "question_text": "(ii) area of the cardboard.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_12",
+      "topic": "Statistics",
+      "question_number": 12,
+      "question_text": "The following are the marks obtained by $50$ students in an English test. $27, 31, 35, 32, 81, 50, 48, 15, 59, 6, 17, 41, 30, 94, 23, 38, 40, 70, 76, 18, 52, 61, 43, 65, 56, 57, 62, 52, 54, 25, 18, 35, 9, 74, 59, 46, 71, 4, 74, 33, 61, 16, 50, 45, 41, 45, 28, 22, 26, 45",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_12a",
+          "topic": "Statistics",
+          "question_number": 12,
+          "question_text": "(a) Using the class interval, $1 - 10, 11 - 20, 21 - 30, \\ldots$, construct a cumulative frequency table for the distribution.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_12b",
+          "topic": "Statistics",
+          "question_number": 12,
+          "question_text": "(b) Draw a cumulative frequency curve for the distribution.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_12c",
+          "topic": "Statistics",
+          "question_number": 12,
+          "question_text": "(c) Use the curve to find the upper quartile.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_12d",
+          "topic": "Statistics",
+          "question_number": 12,
+          "question_text": "(d) If only $10\\%$ of the students passed the test, use the curve to determine the pass mark.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemes": [
+    {
+      "question_id": "c",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Position of upper quartile = \\frac{3}{4} \\times 50",
+          "expected_equation": "= 37.5",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Upper quartile = 59.5 \\pm 0.5",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "d",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "\\frac{10}{100} \\times 50 = 5 \\text{ pupils passed}",
+          "expected_equation": "= 50 - 5 = 45",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Pass mark = 75.5 \\pm 0.5",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

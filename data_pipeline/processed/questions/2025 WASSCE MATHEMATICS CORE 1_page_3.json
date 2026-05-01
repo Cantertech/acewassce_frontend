@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_MATHEMATICS_9",
+      "topic": "Travel and Speed",
+      "question_number": 9,
+      "question_text": "A man cycles a distance of $(3a)$ km at $V$ km/h and then walks a distance of $a$ km at $(V - 7)$ km/h. Find the total number of hours he spent travelling.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{3a}{V} + \\frac{a}{V - 7}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{V}{3a} + \\frac{V - 7}{a}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{2I - 7}{4a}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{4a}{2I - 7}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_10",
+      "topic": "Functions",
+      "question_number": 10,
+      "question_text": "A function is defined by $g:x \\to \\frac{2x - 1}{3x - 2}$. For what value of $x$ is $g$ not defined?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$-\\frac{2}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$-\\frac{1}{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_11",
+      "topic": "Probability",
+      "question_number": 11,
+      "question_text": "A box contains 12 red, 8 yellow and 10 green pebbles, all of the same size. If two pebbles are selected at random one after the other, with replacement, find the probability that the first is green and the second is not a red pebble.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{5}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{9}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{17}{20}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{15}{20}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_12",
+      "topic": "Sets",
+      "question_number": 12,
+      "question_text": "The sets $P = \\{x: x = 3, 5, 6\\}$ and $Q = \\{x: 2 \\leq x \\leq 5\\}$ are subsets of $\\mu = \\{x: 1 \\leq x \\leq 10, \\text{ where } x \\text{ is an integer}\\}$. Find $P \\cap Q$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\{1, 4\\}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\{2, 4\\}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\{3, 4\\}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\{4, 5\\}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_13",
+      "topic": "Logarithms",
+      "question_number": 13,
+      "question_text": "Given that $\\log_{10} 5 = x$ and $\\log_{10} 11 = y$, express $\\log_{10} 275$ in terms of $x$ and $y$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2(x + y)$"
+        },
+        {
+          "id": "B",
+          "text": "$2x + y$"
+        },
+        {
+          "id": "C",
+          "text": "$2xy$"
+        },
+        {
+          "id": "D",
+          "text": "$x + 2y$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

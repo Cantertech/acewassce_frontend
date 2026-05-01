@@ -24,8 +24,6 @@ dist-ssr
 *.sw?
 
 # AceWassce Specific
-backend/
-data_pipeline/
 supabase/
 debug_*.json
 *.txt

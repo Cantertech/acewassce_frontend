@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_mathematics_19",
+      "topic": "Similarity and geometric properties",
+      "question_number": 19,
+      "question_text": "In the diagram, \\( \\triangle OMN \\) is similar to \\( \\triangle OPQ \\). Find \\( |MQ| \\).",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "4.0 cm"
+        },
+        {
+          "id": "B",
+          "text": "3.5 cm"
+        },
+        {
+          "id": "C",
+          "text": "2.5 cm"
+        },
+        {
+          "id": "D",
+          "text": "3.0 cm"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_20",
+      "topic": "Distance and fuel consumption",
+      "question_number": 20,
+      "question_text": "A car consumes 36 gallons of fuel over a distance of 2,268 km. Find, in km per litre, the fuel consumption. [Take 1 gallon = 4.5 litres]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "14"
+        },
+        {
+          "id": "B",
+          "text": "15"
+        },
+        {
+          "id": "C",
+          "text": "63"
+        },
+        {
+          "id": "D",
+          "text": "50"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_21",
+      "topic": "Algebra",
+      "question_number": 21,
+      "question_text": "Given that \\( \\frac{3}{x+y} - \\frac{4}{x-y} = 0 \\), find the value of \\( y \\), where \\( y \\neq 0 \\).",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "7"
+        },
+        {
+          "id": "B",
+          "text": "-7"
+        },
+        {
+          "id": "C",
+          "text": "\\( \\frac{1}{7} \\)"
+        },
+        {
+          "id": "D",
+          "text": "\\( \\frac{7}{1} \\)"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_22",
+      "topic": "Age and ratio",
+      "question_number": 22,
+      "question_text": "Kwaku is 2 years older than Atanga and 6 years younger than Esi. The sum of their ages is 70. If they decide to share $153.00$ in the ratio of their ages, how much will the eldest person receive?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$61.20"
+        },
+        {
+          "id": "B",
+          "text": "$51.00"
+        },
+        {
+          "id": "C",
+          "text": "$43.71"
+        },
+        {
+          "id": "D",
+          "text": "$48.09"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

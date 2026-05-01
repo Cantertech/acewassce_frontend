@@ -1,0 +1,88 @@
+{
+  "schemes": [
+    {
+      "question_id": "11(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Label at least 2 sides of the triangle correctly",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Equate parameters correctly",
+          "expected_equation": "(2p + q) + (2p + q) + (3p + 5) = 7q + 3",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Simplify the equation correctly",
+          "expected_equation": "7p + 2q + 5 = 7q + 3",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Show equivalent of p/q",
+          "expected_equation": "p = \\frac{2}{3}q",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Set up equation 15q = 14q + 6 correctly",
+          "expected_equation": "15q - 14q = 6",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Solve for q",
+          "expected_equation": "q = 6",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Find p after solving for q",
+          "expected_equation": "p = 4",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Use Pythagorean theorem to find height h",
+          "expected_equation": "h = \\sqrt{142 - 85.2}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculate Area with correct formula",
+          "expected_equation": "Area = \\frac{1}{2} \\times 17 \\times 11.1243",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Final Area calculation",
+          "expected_equation": "Area = 94.5566 = 94.6\\text{km}^2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 11,
+          "expected_logic": "Check for final penalties",
+          "expected_equation": "",
+          "mark_type": "Penalty",
+          "marks_awarded": -1
+        }
+      ]
+    }
+  ]
+}

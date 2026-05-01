@@ -1,0 +1,117 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_6",
+      "topic": "Cost estimation and ratios",
+      "question_number": 6,
+      "question_text": "The estimated cost of building a restaurant was $\\$64,000.00$. It was made up of the cost of labour, materials and the contractor's charges in the ratio $12 : 15 : 5$ respectively. At the start of the construction, the cost of labour increased by $x \\%$, materials increased by $2x \\%$ due to inflation but the contractor's charges remained same. After the increase, the cost of labour was two-thirds the cost of materials. Determine the:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_6_a",
+          "topic": "Cost estimation and ratios",
+          "question_number": 6,
+          "question_text": "(a) value of $x$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_6_b",
+          "topic": "Cost estimation and ratios",
+          "question_number": 6,
+          "question_text": "(b) new cost of building the restaurant.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_7",
+      "topic": "Geometry and measurement",
+      "question_number": 7,
+      "question_text": "[DIAGRAM] A diagram shows a triangle $\\triangle USV$ with $US = q\\text{ m}$, $UV = 7\\text{ m}$, and $VS = (2q + 3)\\text{ m}$, not drawn to scale. The shaded region of the figure is a pattern to be produced in a steel casting shop. If the area of $\\triangle SUV$ is $98\\text{ m}^2$. Calculate, correct to one decimal place, the:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_7_a",
+          "topic": "Geometry and measurement",
+          "question_number": 7,
+          "question_text": "(a) value of $q$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_7_b",
+          "topic": "Geometry and measurement",
+          "question_number": 7,
+          "question_text": "(b) area of the pattern;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_7_c",
+          "topic": "Geometry and measurement",
+          "question_number": 7,
+          "question_text": "(c) perimeter of the pattern.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_8",
+      "topic": "Arithmetic and geography",
+      "question_number": 8,
+      "question_text": "Mr Afenyo planned to plough $120$ acres of farmland each day. Due to unforeseen circumstances, $85$ acres could be ploughed each day, resulting in an increase in the planned time by $2$ days with $40$ acres of the land still remained to be ploughed. Calculate the:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_8_a_i",
+          "topic": "Arithmetic and geography",
+          "question_number": 8,
+          "question_text": "(i) number of days Mr Afenyo planned to plough the land initially;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_8_a_ii",
+          "topic": "Arithmetic and geography",
+          "question_number": 8,
+          "question_text": "(ii) total area of the farmland.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_8_b",
+      "topic": "Arithmetic and geography",
+      "question_number": 8,
+      "question_text": "A town, Mempeasem, is $5^{\\circ} \\text{N}$ and another town, Mangoase is at $6.8^{\\circ} \\text{N}$ on the earth’s surface. Find, correct to the nearest whole number, the distance between the two towns. [Take $\\pi = \\frac{22}{7}$, $R = 6,400 \\text{ km}$]",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    }
+  ]
+}

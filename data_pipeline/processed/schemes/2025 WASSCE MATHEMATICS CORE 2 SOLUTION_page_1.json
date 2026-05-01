@@ -1,0 +1,130 @@
+{
+  "schemes": [
+    {
+      "question_id": "1(a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Finding the time for the first distance covered.",
+          "expected_equation": "t_1 = \\frac{150}{60} = 2.5 \\text{ hrs}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Identifying the correct value for the first duration in hours.",
+          "expected_equation": "t_1 = 2.5",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Finding the time for the second distance covered.",
+          "expected_equation": "t_2 = \\frac{150}{99} = 1.51515 \\text{ hrs} (or \\frac{5}{3} \\text{ hrs})",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Finding the total time taken.",
+          "expected_equation": "t_{total} = 2.5 + 1.51515 = 4.01515 \\text{ hrs} = \\frac{25}{6} \\text{ hrs}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculating average speed.",
+          "expected_equation": "Average \\text{ speed} = \\frac{300}{4.01515} \\approx 72 \\text{ km/hr}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Identifying average speed in km/hr.",
+          "expected_equation": "= 72 \\text{ km/hr}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Finding new time for the first half distance.",
+          "expected_equation": "New \\text{ time} = \\frac{150}{50} = 3 \\text{ hrs}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Calculating change in time.",
+          "expected_equation": "Change \\text{ in time} = 3 - 2.5 = 0.5 \\text{ hrs}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "2",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identifying the amount invested at 10%.",
+          "expected_equation": "1.4x = \\text{ amount invested at } 11\\%",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculating interest at 10%.",
+          "expected_equation": "Interest = x \\times \\frac{10}{100} \\times \\frac{7}{2} = 0.35x",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Identifying the interest calculation value at 10%.",
+          "expected_equation": "= 0.35x",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculating interest at 11%.",
+          "expected_equation": "Interest = (1.4x) \\times \\frac{11}{100} \\times \\frac{7}{2} = 0.539x",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Equating the two interest calculations.",
+          "expected_equation": "0.35x + 0.539x = 22,580.60",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Finding the total value from the equation.",
+          "expected_equation": "0.889x = 22,580.60",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Solving for x.",
+          "expected_equation": "x = 25,400.00",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Finding the amount invested at 11%.",
+          "expected_equation": "= 1.4 \\times 25,400",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_MATHEMATICS_CORE_1",
+      "topic": "Motion",
+      "question_number": 1,
+      "question_text": "An intercity shuttle travels between two cities, Amanfro and Kotoku, covering the first half of the distance at an average speed of $60 \text{ km/h}$ and the second half at $90 \text{ km/h}$. The total distance between the two cities is $300 \text{ km}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_MATHEMATICS_CORE_1a",
+          "topic": "Motion",
+          "question_number": 1,
+          "question_text": "Calculate, for the entire journey, the average speed of the shuttle.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_MATHEMATICS_CORE_1b",
+          "topic": "Motion",
+          "question_number": 1,
+          "question_text": "If the speed of the shuttle in the first half of the journey is reduced to $50 \text{ km/h}$, determine its effect on the overall time.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_2",
+      "topic": "Investment",
+      "question_number": 2,
+      "question_text": "A stock broker, Kojo, invested some amount in two accounts which pay $11 \text{ \text{%}}$ and $10 \text{ \text{%}}$ simple interest annually. The amount invested at $11 \text{ \text{%}}$ is $140 \text{ \text{%}}$ of the amount invested at $10 \text{ \text{%}}$. After $3\frac{1}{2}$ years, he earned a total of GH₵ $22,580.60$ as interest. How much was invested at $11 \text{ \text{%}}$?",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_3",
+      "topic": "Geometry",
+      "question_number": 3,
+      "question_text": "A contractor builds a rainwater collection system in a shape of a hemispherical tank of radius $2 \text{ m}$ to irrigate a $500 \text{ m}^2$ farm. Each square metre of the farm requires $50$ litres of water. Determine, with a mathematical statement, if a full tank of water would be sufficient to irrigate the farm? [Take $π = \frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_4",
+      "topic": "Trigonometry",
+      "question_number": 4,
+      "question_text": "From the top of a lighthouse $100 \text{ m}$ high, the angles of depression of two fishing vessels are observed at $48^{\text{°}}$ and $36^{\text{°}}$. The foot of the lighthouse and the sea level are on the same horizontal and the two vessels are on the same side of the lighthouse.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_MATHEMATICS_CORE_4a",
+          "topic": "Trigonometry",
+          "question_number": 4,
+          "question_text": "Illustrate the information in a diagram.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_MATHEMATICS_CORE_4b",
+          "topic": "Trigonometry",
+          "question_number": 4,
+          "question_text": "Find, correct to the nearest metre, the distance between the two vessels.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_5",
+      "topic": "Coordinate Geometry",
+      "question_number": 5,
+      "question_text": "The midpoint of the line joining Y $(2a, 3)$ and Z $(-4, b)$ is M $(1, 2a - 1)$. Find:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_MATHEMATICS_CORE_5a",
+          "topic": "Coordinate Geometry",
+          "question_number": 5,
+          "question_text": "the values of $a$ and $b$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_MATHEMATICS_CORE_5b",
+          "topic": "Coordinate Geometry",
+          "question_number": 5,
+          "question_text": "$|YZ|$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

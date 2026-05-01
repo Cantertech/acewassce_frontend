@@ -1,0 +1,704 @@
+{
+  "schemes": [
+    {
+      "question_id": "1",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Retrieve value based on calculation or context.",
+          "expected_equation": " - ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "2",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify locus of points equidistant from M and N.",
+          "expected_equation": " - ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "3",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Convert kilometers to desired unit.",
+          "expected_equation": " - ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "4",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Utilize formula for distance or speed.",
+          "expected_equation": "V = \frac{1}{2}S",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "5",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Make correct identification of the variable.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "6",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Retrieve value from a calculation.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "7",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Apply direct statement value.",
+          "expected_equation": "D.x = 5",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "8",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify numerical answer correctly.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "9",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Simplify expression using algebraic rules.",
+          "expected_equation": "(3a/V) + (a(V-7))",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "10",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the fraction correctly.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "11",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the correct fraction and adjust.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "12",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the correct set of values.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "13",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Apply correct operations on algebraic expression.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "14",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Recognize definition or result accurately.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "15",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify outcome from problem description.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "16",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Convert yards to the desired format.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "17",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify numerical response accurately.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "18",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate area using appropriate formula.",
+          "expected_equation": "A = 36.74 cm^2",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "19",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Retrieve given measurement or answer.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "20",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Compute or derive the number accurately.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "21",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify correct numeral response.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "22",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the currency format correctly.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "23",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Retrieve direct numerical value.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "24",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the numerical answer correctly.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "25",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Provide correct final number from calculations.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "26",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify inequality representation.",
+          "expected_equation": "y \text{ } \text{≤ } 1 cm",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "27",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Retrieve the correct value for comparison.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "28",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate area using appropriate formula.",
+          "expected_equation": "A = 4,158 \text{ cm}^2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "29",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify angle correctly based on geometry principles.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "30",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Correctly identify the angle based on geometry principles.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "31",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the number based on context or description.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "32",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the angle correctly based on geometry principles.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "33",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Determine the fraction accurately.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "34",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the angle based on geometric calculations.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "35",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify angle based on geometric principles.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "36",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Directly provide the calculated number.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "37",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify numerical result based on calculation.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "38",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify direction correctly based on context.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "39",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify angle based on the given description.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "40",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate area from provided dimensions.",
+          "expected_equation": "A = 25.7 \text{ cm}^2",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "41",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Understand proportional relationship between areas.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "42",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the age accurately from context.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "43",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Simplify algebraic expression correctly.",
+          "expected_equation": "(p - 3r)(5p + 4q)",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "44",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify angle accurately based on standard measurements.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "45",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate volume based on derived measurements.",
+          "expected_equation": "V = 109.2 \text{ cm}^3",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "46",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the number based on context or description.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "47",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the outcome directly.",
+          "expected_equation": " - ",
+          "mark_type": "C1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "48",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Provide direct number based on calculations.",
+          "expected_equation": " - ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "49",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify fraction accurately from expression.",
+          "expected_equation": "\frac{(5p - q)}{(p + q)}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "50",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Apply algebraic rules correctly to derive the result.",
+          "expected_equation": "w = \frac{mn}{(h - 1)(n - m)}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

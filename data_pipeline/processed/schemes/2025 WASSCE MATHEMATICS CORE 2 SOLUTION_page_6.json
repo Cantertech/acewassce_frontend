@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "8 (a) (i)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Let $x$ = planned days to plough. Days used to plough = $x + 2$",
+          "expected_equation": "$120x = 85(x + 2) + 40$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Distributing $85$ and simplifying both sides.",
+          "expected_equation": "$120x = 85x + 170 + 40$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Rearranging to isolate $x$.",
+          "expected_equation": "$35x = 210$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Solving for $x$.",
+          "expected_equation": "$x = 6$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculating total area of farmland.",
+          "expected_equation": "Total area = $120 \\times 6$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Conclusion with area in acres.",
+          "expected_equation": "Total area = $720$ acres",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Defining the variable $\\theta$ and solving for it.",
+          "expected_equation": "$\\theta = 6.8 - 5$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Setting up the formula for distance.",
+          "expected_equation": "Distance = $\\frac{1.8 \\times 2 \\times 6400}{360}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculating the result for distance.",
+          "expected_equation": "Distance = $201.1$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Final conversion of distance to km.",
+          "expected_equation": "Distance = $201$ km",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

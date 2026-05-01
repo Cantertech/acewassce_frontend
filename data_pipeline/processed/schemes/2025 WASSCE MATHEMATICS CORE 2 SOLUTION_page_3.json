@@ -1,0 +1,53 @@
+{
+  "schemes": [
+    {
+      "question_id": "5(a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Equating either component",
+          "expected_equation": "\\frac{2a - 4}{2} = 1",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solving the equation",
+          "expected_equation": "2a - 4 = 2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Solving for a",
+          "expected_equation": "2a = 6",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Finding b using another equation",
+          "expected_equation": "\\frac{3 + b}{2} = 2a - 1",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Solving for b",
+          "expected_equation": "3 + b = 4a - 2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Finding b's value",
+          "expected_equation": "b = 4(3) - 5",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_MATH_33",
+      "topic": "Probability",
+      "question_number": 33,
+      "question_text": "A fair dice is thrown once. What is the probability of obtaining a 3 or 5?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATH_34",
+      "topic": "Circle Theorems",
+      "question_number": 34,
+      "question_text": "In the diagram, $P$, $Q$, $R$, and $S$ are points on the circle centre $O$. $\\overline{QS}$ is a diameter and $\\angle ORQ = 41^{\\circ}$. Find $\\angle SRI$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$41^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$49^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$82^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$60^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATH_35",
+      "topic": "Circle Theorems",
+      "question_number": 35,
+      "question_text": "In the diagram, $O$ is the centre of the circle and $\\angle OXZ = 19^{\\circ}$. Find $\\angle XYZ$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$142^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$109^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$68^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$71^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

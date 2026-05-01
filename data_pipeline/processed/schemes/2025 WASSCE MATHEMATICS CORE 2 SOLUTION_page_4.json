@@ -1,0 +1,95 @@
+{
+  "schemes": [
+    {
+      "question_id": "6(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate total ratio.",
+          "expected_equation": "Total ratio = 12 + 15 + 5 = 32",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate initial labour cost.",
+          "expected_equation": "Initial labour cost = \\frac{12}{32} \\times 64000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate initial material cost.",
+          "expected_equation": "Initial material cost = \\frac{15}{32} \\times 64000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate initial contractors charges.",
+          "expected_equation": "Initial contractors charges = \\frac{5}{32} \\times 64000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Define the new cost variables.",
+          "expected_equation": "New labour cost = \\frac{(100 + x)}{100} \\times 24000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Define new material cost.",
+          "expected_equation": "New material cost = \\frac{(100 + 2x)}{100} \\times 30000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Set up an equation for equating new costs.",
+          "expected_equation": "240(100 + x) = 200(100 + 2x)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Solve for x.",
+          "expected_equation": "x = 25",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculate new labour cost after increase.",
+          "expected_equation": "New labour cost = \\frac{125}{100} \\times 24000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Calculate new material cost after increase.",
+          "expected_equation": "New material cost = \\frac{150}{100} \\times 30000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 11,
+          "expected_logic": "Add up all costs to find the new building cost.",
+          "expected_equation": "New building cost = 30000 + 45000 + 10000",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 12,
+          "expected_logic": "Final total of new building cost.",
+          "expected_equation": "New building cost = 85000",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

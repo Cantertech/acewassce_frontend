@@ -1,0 +1,53 @@
+{
+  "schemes": [
+    {
+      "question_id": "12(a)",
+      "total_marks": 10,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Any of the two frequencies correct",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Correct calculation for the cumulative frequency formula",
+          "expected_equation": "A2(-\\frac{1}{2}ee)",
+          "mark_type": "A2",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "First two cumulative frequencies correct",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "All cumulative frequencies correct",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Correct axes, upper class boundary marks, labelling and cumulative frequency",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Correct cumulative frequency formula",
+          "expected_equation": "B2(-\\frac{1}{2}ee)",
+          "mark_type": "B2",
+          "marks_awarded": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "9(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Use tangent to find |OS|.",
+          "expected_equation": "tan 28^{\text{o}} = \\frac{10}{|OS|}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solve for |OS|.",
+          "expected_equation": "|OS| = \\frac{10}{tan 28^{\text{o}}} = 18.8076",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Use tangent to find |TG|.",
+          "expected_equation": "tan 70^{\text{o}} = \\frac{|TG|}{18.8076}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Solve for |TG|.",
+          "expected_equation": "|TG| = 18.8076 \\times tan 70^{\text{o}} = 51.6793",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate height of the mast.",
+          "expected_equation": "Height = 51.6793 \\text{ m}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "In triangle $\triangle PGH$, find |PG|.",
+          "expected_equation": "|PG| = 51.6793 - 10 = 41.6793",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Use Pythagoras' theorem to find |HG|.",
+          "expected_equation": "|HG| = \\sqrt{(2 \\times 18.8076)^{2} + (41.6793)^{2}}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Simplify |HG|.",
+          "expected_equation": "|HG| = \\sqrt{4144.9033 + 1736.7139}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculate |HG|.",
+          "expected_equation": "|HG| = 56.1393 \\text{ m}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Final value for height of mast after rounding properly.",
+          "expected_equation": "Height of mast = 56^{\text{m}}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

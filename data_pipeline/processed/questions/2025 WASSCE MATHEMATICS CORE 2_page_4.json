@@ -1,0 +1,45 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_MATHEMATICS_CORE_13",
+      "topic": "Geometry and Venn Diagrams",
+      "question_number": 13,
+      "question_text": "In the diagram, E, F, G and H lie on the circumference of the circle centre O. $EG$ and $FH$ intersect at $J$ such that $\theta GFH = 30^{\text{o}}$ and $\theta HJE = 110^{\text{o}}$. Calculate:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_MATHEMATICS_CORE_13_a_i",
+          "topic": "Geometry",
+          "question_number": 13,
+          "question_text": "$\theta EOF$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_MATHEMATICS_CORE_13_a_ii",
+          "topic": "Geometry",
+          "question_number": 13,
+          "question_text": "$\theta JEH$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_MATHEMATICS_CORE_13_b",
+          "topic": "Venn Diagrams",
+          "question_number": 13,
+          "question_text": "Consider the following statements. (i) Most Arts students are good at debates. (ii) Some Non-Arts students are also good at debates. (a) Illustrate the information in a Venn diagram. (b) Determine from the diagram whether the following conclusions are Valid or Not Valid. (i) John is a non-Arts student so he is not good at debates. (ii) Aku is an Arts student so she is good at debates.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

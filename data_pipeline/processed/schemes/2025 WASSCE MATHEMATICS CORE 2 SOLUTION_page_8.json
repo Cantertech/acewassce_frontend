@@ -1,0 +1,87 @@
+{
+  "schemes": [
+    {
+      "question_id": "10(a)(i)",
+      "total_marks": 12,
+      "penalties": [
+        {
+          "type": "ou/wu",
+          "description": "One unit for wrong units",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Using the circle theorem for angles at the circumference.",
+          "expected_equation": "\\angle MNL = \\frac{1}{2} \\times 88",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculating the angle MNL from the obtained result.",
+          "expected_equation": "\\angle MNL = 44^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Using the triangle sum theorem to find the angle MLN.",
+          "expected_equation": "\\angle MLN = 180^{\\circ} - 44^{\\circ}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Final calculation for angle MLN.",
+          "expected_equation": "\\angle MLN = 136^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculating the total number of blocks for the second mason.",
+          "expected_equation": "600 = 1.5 \\times 400",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Determining the blocks/hr rate for the first mason.",
+          "expected_equation": "= \\frac{400}{8} = 50 \\text{ blocks/hr}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Calculating the blocks/hr rate for the second mason.",
+          "expected_equation": "= \\frac{600}{8} = 75 \\text{ blocks/hr}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Finding the total rate by adding both rates.",
+          "expected_equation": "125 = 50 + 75",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculating the time required using the total blocks and rate.",
+          "expected_equation": "Time\\ =\\frac{2000}{125} = 16\\text{ hours}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Final confirmation of the time required.",
+          "expected_equation": "Hence 16 hours would be required",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

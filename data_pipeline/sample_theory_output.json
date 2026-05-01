@@ -1,0 +1,117 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_1",
+      "topic": "Motion",
+      "question_number": 1,
+      "question_text": "An intercity shuttle travels between two cities, Amanfro and Kotoku, covering the first half of the distance at an average speed of 60 km/h and the second half at 90 km/h. The total distance between the two cities is 300 km.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_1_a",
+          "topic": "Motion",
+          "question_number": 1,
+          "question_text": "(a) Calculate, for the entire journey, the average speed of the shuttle.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_1_b",
+          "topic": "Motion",
+          "question_number": 1,
+          "question_text": "(b) If the speed of the shuttle in the first half of the journey is reduced to 50 km/h, determine its effect on the overall time.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_2",
+      "topic": "Finance",
+      "question_number": 2,
+      "question_text": "A stock broker, Kojo, invested some amount in two accounts which pay 11 % and 10 % simple interest annually. The amount invested at 11 % is 140 % of the amount invested at 10 %. After 3 1/2 years, he earned a total of GH₵ 22,580.60 as interest. How much was invested at 11 %?",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_3",
+      "topic": "Geometry",
+      "question_number": 3,
+      "question_text": "A contractor builds a rainwater collection system in a shape of a hemispherical tank of radius 2 m to irrigate a 500 m² farm. Each square metre of the farm requires 50 litres of water. Determine, with a mathematical statement, if a full tank of water would be sufficient to irrigate the farm? [Take π = 22/7]",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_4",
+      "topic": "Trigonometry",
+      "question_number": 4,
+      "question_text": "From the top of a lighthouse 100 m high, the angles of depression of two fishing vessels are observed at 48° and 36°. The foot of the lighthouse and the sea level are on the same horizontal and the two vessels are on the same side of the lighthouse.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_4_a",
+          "topic": "Trigonometry",
+          "question_number": 4,
+          "question_text": "(a) Illustrate the information in a diagram.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_4_b",
+          "topic": "Trigonometry",
+          "question_number": 4,
+          "question_text": "(b) Find, correct to the nearest metre, the distance between the two vessels.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_5",
+      "topic": "Geometry",
+      "question_number": 5,
+      "question_text": "The midpoint of the line joining Y(2a, 3) and Z(-4, b) is M(1, 2a - 1). Find:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_5_a",
+          "topic": "Geometry",
+          "question_number": 5,
+          "question_text": "(a) the values of a and b;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_5_b",
+          "topic": "Geometry",
+          "question_number": 5,
+          "question_text": "(b) |YZ|.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_MATHEMATICS_CORE_30",
+      "topic": "Circle Theorems",
+      "question_number": 30,
+      "question_text": "In the diagram $TX$ and $TY$ are tangents to the circle $XYZ$ at $X$ and $Y$ respectively. $TX \\parallel YZ$ and $\\angle TYZ = 100^{\\circ}$. Find $\\angle ZXY$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$130^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$100^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$80^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$90^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_31",
+      "topic": "Algebra",
+      "question_number": 31,
+      "question_text": "Given that $\\left(1 \\frac{2}{3}\\right)^{x} = \\left(4 \\frac{17}{27}\\right)$, find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_32",
+      "topic": "Geometry",
+      "question_number": 32,
+      "question_text": "In the diagram, $\\angle QMP = 40^{\\circ}$ and $\\angle RPM = 30^{\\circ}$. Find the value of $x$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$40^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$70^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$110^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$100^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

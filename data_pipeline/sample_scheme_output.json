@@ -1,0 +1,130 @@
+{
+  "schemes": [
+    {
+      "question_id": "1 (a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Either of the times calculated is correct.",
+          "expected_equation": "t_1 = \frac{150}{60} = 2.5 \text{hrs}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Correctly calculated time in hours.",
+          "expected_equation": "t_1 = 2.5",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Correctly calculated time for the second part.",
+          "expected_equation": "t_2 = \frac{150}{90} = \frac{5}{3} \text{ hrs}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Sum of the time durations is correct.",
+          "expected_equation": "t_{total} = 2.5 + \frac{5}{3} = \frac{25}{6} \text{ hrs}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Successfully computed average speed.",
+          "expected_equation": "\text{Average speed} = \frac{300}{t_{total}} = 72 \text{km/hr}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Correctly calculated average speed in km/hr.",
+          "expected_equation": "72 \text{km/hr}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Calculated time for the first half accurately.",
+          "expected_equation": "t_{new} = \frac{150}{50} = 3 \text{ hrs}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Calculated change in time correctly.",
+          "expected_equation": "3 - 2.5 = 0.5 \text{ hrs}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "1 (b)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Used interest formula correctly for amount invested at 11%.",
+          "expected_equation": "1.4x = x \times \frac{10}{100} \times \frac{7}{2}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculated interest at 10% correctly.",
+          "expected_equation": "\text{Interest at 10\text{%}} = 0.35x",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Used formula accurately for interest at 11%.",
+          "expected_equation": "\text{Interest at 11\text{%}} = (1.4x) \times \frac{11}{100} \times \frac{7}{2}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Correct evaluation of interest rate for 11%.",
+          "expected_equation": "0.539x",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Equated correct expressions for both interests successfully.",
+          "expected_equation": "0.35x + 0.539x = 22,580.60",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Successfully equated final expressions for calculations.",
+          "expected_equation": "0.889x = 22,580.60",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Solved for the amount accurately.",
+          "expected_equation": "x = 25,400.00",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Calculated amount after investment correctly.",
+          "expected_equation": "\text{Amount invested at 11\text{%}} = 1.4 \times 25,400",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

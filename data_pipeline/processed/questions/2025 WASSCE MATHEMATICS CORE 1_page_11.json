@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_MATHEMATICS_CORE_40",
+      "topic": "Area of Fields",
+      "question_number": 40,
+      "question_text": "The diagram shows a field $MNQRST$, where $MTS$ is a semicircle. Find the area of the field. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$25.7 \\text{ cm}^2$"
+        },
+        {
+          "id": "B",
+          "text": "$26.3 \\text{ cm}^2$"
+        },
+        {
+          "id": "C",
+          "text": "$28.6 \\text{ cm}^2$"
+        },
+        {
+          "id": "D",
+          "text": "$27.5 \\text{ cm}^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_41",
+      "topic": "Circle Areas Relationship",
+      "question_number": 41,
+      "question_text": "The radius of a circle is 4 times the radius of another circle. What is the relationship between their areas?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "The area of one is 64 times that of the other."
+        },
+        {
+          "id": "B",
+          "text": "The area of one is 16 times that of the other."
+        },
+        {
+          "id": "C",
+          "text": "The area of one is 8 times that of the other."
+        },
+        {
+          "id": "D",
+          "text": "The area of one is 12 times that of the other."
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_42",
+      "topic": "Ages Problem",
+      "question_number": 42,
+      "question_text": "Gifty is 19 years younger than her mother. In three years time the sum of their ages will be 67 years. Find the sum of their ages now.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "22 years"
+        },
+        {
+          "id": "B",
+          "text": "40 years"
+        },
+        {
+          "id": "C",
+          "text": "61 years"
+        },
+        {
+          "id": "D",
+          "text": "48 years"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_43",
+      "topic": "Factorization",
+      "question_number": 43,
+      "question_text": "Factorize: $5p^2 + 4pq - 15pr - 12qr$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$(p - 3r)(5p + 4q)$"
+        },
+        {
+          "id": "B",
+          "text": "$(p + 3r)(5p - 4q)$"
+        },
+        {
+          "id": "C",
+          "text": "$(p - 3r)(5p - 4q)$"
+        },
+        {
+          "id": "D",
+          "text": "$(p + 3r)(5p + 4q)$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_MATHEMATICS_CORE_44",
+      "topic": "Angles in a Pentagon",
+      "question_number": 44,
+      "question_text": "Some of the interior angles of a pentagon are $111^{\\circ}$, $131^{\\circ}$ and $79^{\\circ}$. The remaining angles are $x$ and $y$ in the ratio $2 : 3$ respectively. Find, correct to the nearest whole number, the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$44^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$56^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$88^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$80^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

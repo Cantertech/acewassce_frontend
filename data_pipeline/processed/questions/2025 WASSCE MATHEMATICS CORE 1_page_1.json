@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_mathematics_1",
+      "topic": "Mathematics",
+      "question_number": 1,
+      "question_text": "Mr. Gyan bought a car for $16,800.00 and later sold it at 85\text{ %} of the original cost. He spent $3,930.75 from the money he received from the sale of the car and invested the remaining at 18\text{ % per annum simple interest. How much interest did he earn in 9\text{ years}?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$67,657.00"
+        },
+        {
+          "id": "B",
+          "text": "$32,018.32"
+        },
+        {
+          "id": "C",
+          "text": "$16,765.79"
+        },
+        {
+          "id": "D",
+          "text": "$20,848.19"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_2",
+      "topic": "Mathematics",
+      "question_number": 2,
+      "question_text": "The locus, $L$ is such that $|PM| = |PM|$. Which of the following best describes $L$?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "It is the locus of points perpendicular to the line $MN$."
+        },
+        {
+          "id": "B",
+          "text": "It is the locus of points parallel to line $MN$."
+        },
+        {
+          "id": "C",
+          "text": "It is the circle centre $P$, radius $MN$."
+        },
+        {
+          "id": "D",
+          "text": "It is the locus of points equidistant from $M$ and $N$."
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_3",
+      "topic": "Mathematics",
+      "question_number": 3,
+      "question_text": "A town $P$ is due south of town $Q$ and town $R$ is on a bearing of $125^{\text{ } \bullet}$ from $Q$. If town $R$ is $20$ km due east of $P$, find $|PQ|$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$20$ km"
+        },
+        {
+          "id": "B",
+          "text": "$15$ km"
+        },
+        {
+          "id": "C",
+          "text": "$12$ km"
+        },
+        {
+          "id": "D",
+          "text": "$14$ km"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

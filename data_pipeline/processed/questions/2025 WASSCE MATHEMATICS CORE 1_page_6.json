@@ -1,0 +1,95 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_mathematics_23",
+      "topic": "Air Pollution Levels",
+      "question_number": 23,
+      "question_text": "A scientific sensor records air pollution levels in base 3. If the highest recorded pollution level for a week was $2120_{3}$, what is the decimal equivalent?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "62"
+        },
+        {
+          "id": "B",
+          "text": "65"
+        },
+        {
+          "id": "C",
+          "text": "72"
+        },
+        {
+          "id": "D",
+          "text": "69"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_24",
+      "topic": "Straight Line",
+      "question_number": 24,
+      "question_text": "The straight line $3y + bx - 6 = 0$ passes through $(3, 4)$. Find the value of $b$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_25",
+      "topic": "Triangle Problems",
+      "question_number": 25,
+      "question_text": "In the diagram $\\angle QPR = 90^{\\circ}$. If $q^{2} = 25 - p^{2}$, find the value of $p$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_26",
+      "topic": "Trapezium Area Calculation",
+      "question_number": 26,
+      "question_text": "In the diagram $PQRS$ is a trapezium. $|ST| = 3 cm$, $|RS| = y cm$ and $|PS| = 4 cm$. For what values of $y$ will the area of the trapezium $PQRS$ be less than or equal to $10 cm^{2}$?",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$y \\le 4 cm$"
+        },
+        {
+          "id": "B",
+          "text": "$y \\le 1 cm$"
+        },
+        {
+          "id": "C",
+          "text": "$y \\le 6 cm$"
+        },
+        {
+          "id": "D",
+          "text": "$y \\le 2 cm$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

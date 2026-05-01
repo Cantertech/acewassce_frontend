@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_1_27",
+      "topic": "Mathematics",
+      "question_number": 27,
+      "question_text": "Correct, $5.40514$ to three significant figures.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$541$"
+        },
+        {
+          "id": "B",
+          "text": "$5.41$"
+        },
+        {
+          "id": "C",
+          "text": "$5.40$"
+        },
+        {
+          "id": "D",
+          "text": "$5.45$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_1_28",
+      "topic": "Mathematics",
+      "question_number": 28,
+      "question_text": "The diagram shows a sector of a circle of radius $42$ cm. If the sector is folded to form a right circular cone, find the surface area of the cone. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$4,158$ cm$^{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$5,544$ cm$^{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$29,106$ cm$^{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$11,088$ cm$^{2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_WASSCE_MATHEMATICS_CORE_1_29",
+      "topic": "Mathematics",
+      "question_number": 29,
+      "question_text": "In the diagram, $P$, $Q$, $R$ and $S$ are points on the circle centre $O$ and $\\angle PQR = 104^{\\circ}$. Find the angle marked $y$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$152^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$76^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$208^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$52^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

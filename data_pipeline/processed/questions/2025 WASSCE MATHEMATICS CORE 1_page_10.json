@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_mathematics_36",
+      "topic": "Statistics",
+      "question_number": 36,
+      "question_text": "The mean of $a, b, c, d$ and $e$ is 15. Calculate the mean of $(u + 1)$, $(b + 3)$, $(c + 5)$, $(d + 7)$ and $(e + 9)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "40"
+        },
+        {
+          "id": "B",
+          "text": "25"
+        },
+        {
+          "id": "C",
+          "text": "15"
+        },
+        {
+          "id": "D",
+          "text": "20"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_37",
+      "topic": "Sequences",
+      "question_number": 37,
+      "question_text": "The last term of the sequence: $7, 11, 15, \\ldots$ is 115. Find the number of terms in the sequence.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "29"
+        },
+        {
+          "id": "B",
+          "text": "28"
+        },
+        {
+          "id": "C",
+          "text": "26"
+        },
+        {
+          "id": "D",
+          "text": "27"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_38",
+      "topic": "Geometry",
+      "question_number": 38,
+      "question_text": "Peter is in the East of Tom and Tom is in the North of John. If Mike is in the South of John, in which direction of Peter is Mike?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "South East"
+        },
+        {
+          "id": "B",
+          "text": "South West"
+        },
+        {
+          "id": "C",
+          "text": "North East"
+        },
+        {
+          "id": "D",
+          "text": "South"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_39",
+      "topic": "Circle Geometry",
+      "question_number": 39,
+      "question_text": "In the diagram, $O$ is the centre of the circle, $\\angle KLM = x$ and $|OM| = |ML| = |KL| = |KO|$. Find $\\angle OKL$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "15$^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "30$^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "120$^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "60$^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

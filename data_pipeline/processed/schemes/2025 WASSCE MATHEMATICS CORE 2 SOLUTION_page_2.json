@@ -1,0 +1,136 @@
+{
+  "schemes": [
+    {
+      "question_id": "3",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Finding the volume using the formula",
+          "expected_equation": "V = \\frac{1}{2} \\times \\frac{4}{3} \\times 22 \\times 7 \\times 2^3",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculating the volume in cubic meters",
+          "expected_equation": "V = 16.76 m^3",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Converting cubic meters to liters",
+          "expected_equation": "16.76 \\times 1000",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculating the volume in liters",
+          "expected_equation": "16,760 \\text{ litres}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculating water required for irrigation",
+          "expected_equation": "50 \\times 500",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculating total water needed",
+          "expected_equation": "25,000 \\text{ litres}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Making a mathematical statement about water availability",
+          "expected_equation": "16,760 \\text{ litres} < 25,000 \\text{ litres}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Conclusion about water sufficiency for irrigation",
+          "expected_equation": "\\text{Full tank of water is not sufficient to irrigate the farm}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "4",
+      "total_marks": 8,
+      "penalties": [
+        {
+          "type": "out of working",
+          "description": "deduction for out of working",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "B2 (- \\frac{1}{2} ee) (36°, 48°, 100m and 90° at their respective positions)",
+          "expected_equation": "",
+          "mark_type": "B",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "From \\triangle AHL",
+          "expected_equation": "\\tan 48 = \\frac{100}{x}",
+          "mark_type": "M",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "x = \\frac{100}{1.1106}",
+          "expected_equation": "x = 90.0414",
+          "mark_type": "A",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "From \\triangle BHL",
+          "expected_equation": "\\tan 36 = \\frac{100}{x+y}",
+          "mark_type": "M",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "x+y = \\frac{100}{0.72765}",
+          "expected_equation": "x + y = 137.6462",
+          "mark_type": "A",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "y = 137.6462 - 90.0414",
+          "expected_equation": "y = 47.6048",
+          "mark_type": "M",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "A1 for 47.6048 (accept 2 d. p.)",
+          "expected_equation": "H = 48m",
+          "mark_type": "A",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "A1 for 48m",
+          "expected_equation": "",
+          "mark_type": "A",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

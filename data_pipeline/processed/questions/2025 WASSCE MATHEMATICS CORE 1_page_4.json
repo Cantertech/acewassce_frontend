@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2025_mathematics_14",
+      "topic": "Algebra",
+      "question_number": 14,
+      "question_text": "Find the coefficient of $x^{5}$ in the expansion of $(4x + 5)(3 - 2x)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "15"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "-8"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_15",
+      "topic": "Statistics",
+      "question_number": 15,
+      "question_text": "Find the mean deviation of 2, 5, 7, 9 and 15.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2.45"
+        },
+        {
+          "id": "B",
+          "text": "3.52"
+        },
+        {
+          "id": "C",
+          "text": "5.23"
+        },
+        {
+          "id": "D",
+          "text": "4.14"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_16",
+      "topic": "Motion",
+      "question_number": 16,
+      "question_text": "A train is moving at 60 miles per hour. If it passes a sign post in 15 seconds, find, in yards, the length of the train. [Take 1 mile = 1760 yards]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "440 yards"
+        },
+        {
+          "id": "B",
+          "text": "420 yards"
+        },
+        {
+          "id": "C",
+          "text": "360 yards"
+        },
+        {
+          "id": "D",
+          "text": "400 yards"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_17",
+      "topic": "Algebra",
+      "question_number": 17,
+      "question_text": "A school has a total population of 1,800 students. Out of this number $\\frac{4}{9}$ are in SHS 1, $\\frac{13}{36}$ are in SHS 2 and the rest are in SHS 3. Calculate the number of students in SHS 3.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "800"
+        },
+        {
+          "id": "B",
+          "text": "650"
+        },
+        {
+          "id": "C",
+          "text": "350"
+        },
+        {
+          "id": "D",
+          "text": "500"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2025_mathematics_18",
+      "topic": "Geometry",
+      "question_number": 18,
+      "question_text": "In the diagram, $|PQ| = 6.7 cm$, $|QR| = 5.5 cm$ and $|RT| = 3.3 cm$. Find the area.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "45.93 cm^{2}"
+        },
+        {
+          "id": "B",
+          "text": "36.74 cm^{2}"
+        },
+        {
+          "id": "C",
+          "text": "26.40 cm^{2}"
+        },
+        {
+          "id": "D",
+          "text": "27.56 cm^{2}"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

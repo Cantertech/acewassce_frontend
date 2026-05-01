@@ -1,0 +1,88 @@
+{
+  "schemes": [
+    {
+      "question_id": "13(a)(i)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculation of angle ∠GF",
+          "expected_equation": "∠GF = 110°",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculation of angle ∠EGF using linear pair",
+          "expected_equation": "∠EGF = 180° - 30° - 110°",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Final calculation of angle ∠EOF",
+          "expected_equation": "∠EOF = 2 × 40°",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Identification of alternative angles ∠JEH, ∠UEH, ∠FAD, or ∠TPS",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculation of angle ∠EGF",
+          "expected_equation": "∠EGF = 40°",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculation of angle ∠EH",
+          "expected_equation": "∠EH = 180° - 40° - 40°",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Final calculation of angle ∠EH",
+          "expected_equation": "∠JEH = 30°",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Correct position representation of E, A, N and the intersections in the Venn diagram",
+          "expected_equation": "",
+          "mark_type": "B3",
+          "marks_awarded": 3
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Comment on validity of the position of E",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Validity check for the given proposition (ii)(e)",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 11,
+          "expected_logic": "Validity check for the given proposition (f)",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}
