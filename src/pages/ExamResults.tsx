@@ -88,18 +88,14 @@ const ExamResults = () => {
         setAttempt(attData);
         setExam(attData.exams);
 
-        // FORENSIC FETCH: Try fetching without the filter first to check connection
-        const { data: testData, error: testErr } = await supabase.from('theory_submissions').select('id').limit(1);
-        if (testErr) addLog(`Supabase Connection Test Failed: ${testErr.message}`);
-        else addLog(`Supabase Connection Test: SUCCESS (${testData.length} records in table)`);
-
-        const { data: theoryData, error: theoryErr } = await supabase
-          .from('theory_submissions')
-          .select('*')
-          .eq('attempt_id', attemptId);
+        // PROXY FETCH: Use backend to bypass RLS
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+        const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
         
-        if (theoryErr) addLog(`Theory Fetch Error: ${theoryErr.message}`);
-        addLog(`Theory Rows Found for this ID: ${theoryData?.length || 0}`);
+        const theoryResponse = await fetch(`${cleanBaseUrl}/api/v1/attempts/${attemptId}/theory-submissions`);
+        const theoryData = theoryResponse.ok ? await theoryResponse.json() : [];
+        
+        addLog(`Forensic Sync: ${theoryData?.length || 0} Theory Rows Verified`);
 
         if (theoryData && theoryData.length > 0) {
             const sortedTheory = [...theoryData].sort((a, b) => {
