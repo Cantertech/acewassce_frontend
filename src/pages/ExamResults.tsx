@@ -19,7 +19,7 @@ const getWassceGrade = (score: number) => {
   if (score >= 65) return { grade: "B3", label: "Good", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" };
   if (score >= 60) return { grade: "C4", label: "Credit", color: "text-blue-300", bg: "bg-blue-400/10", border: "border-blue-400/20" };
   if (score >= 55) return { grade: "C5", label: "Credit", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" };
-  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-500/20" };
+  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-400/20" };
   if (score >= 45) return { grade: "D7", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   if (score >= 40) return { grade: "E8", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   return { grade: "F9", label: "Fail", color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500/20" };
@@ -79,12 +79,7 @@ const ExamResults = () => {
           .order('question_number', { ascending: true });
         
         if (qData) {
-          // Robust sort for question numbers (1, 2, 10, etc)
-          const sorted = qData.sort((a, b) => {
-            const numA = parseInt(a.question_number);
-            const numB = parseInt(b.question_number);
-            return numA - numB;
-          });
+          const sorted = qData.sort((a, b) => parseInt(a.question_number) - parseInt(b.question_number));
           setMcqQuestions(sorted);
           if (sorted.length > 0) setSelectedMcqId(sorted[0].id);
         }
@@ -113,33 +108,51 @@ const ExamResults = () => {
 
   const gradeInfo = getWassceGrade(attempt?.total_score || 0);
 
-  const getCorrectOption = (marking: string, options: any[]) => {
-    if (!marking) return null;
+  // CRITICAL FIX: The database stores the OPTION TEXT (e.g. "1500") in selected_option, 
+  // not just the letter "A". We must compare text with text.
+  const getCorrectOptionText = (marking: string, options: any[]) => {
+    if (!marking || !options) return null;
 
-    // 1. Check if the marking scheme IS just the letter A, B, C, or D
+    // 1. If marking is just A, B, C, D -> find the text for that option
     const trimmed = marking.trim().toUpperCase();
-    if (["A", "B", "C", "D"].includes(trimmed)) return trimmed;
+    if (["A", "B", "C", "D"].includes(trimmed)) {
+        const found = options.find(o => o.id === trimmed);
+        return found ? found.text : null;
+    }
 
-    // 2. Check for "Equation: [LETTER] =" pattern (from AI output)
+    // 2. Check for "Equation: [LETTER] =" pattern (AI output)
     const match = marking.match(/Equation:\s*([A-D])\s*=/);
-    if (match) return match[1];
+    if (match) {
+        const found = options.find(o => o.id === match[1]);
+        return found ? found.text : null;
+    }
     
-    // 3. Fallback: Clean numeric comparison
-    const clean = (t: string) => t.replace(/[^0-9.]/g, '');
-    const markingNum = clean(marking);
-    if (!markingNum) return null;
+    // 3. Fallback: Content-based fuzzy match
+    const clean = (t: string) => String(t).replace(/[^a-z0-9.]/gi, '').toLowerCase();
+    const markingClean = clean(marking);
+    
+    for (const opt of options) {
+        if (clean(opt.text) === markingClean && markingClean !== '') {
+            return opt.text;
+        }
+    }
 
-    const bestMatch = options.find(opt => {
-        const optNum = clean(opt.text);
-        return optNum && optNum === markingNum;
-    });
-    return bestMatch?.id || null;
+    // 4. Final fallback: If marking contains the text of an option
+    for (const opt of options) {
+        if (markingClean.includes(clean(opt.text)) && clean(opt.text).length > 1) {
+            return opt.text;
+        }
+    }
+
+    return null;
   };
 
   const selectedQ = mcqQuestions.find(q => q.id === selectedMcqId);
   const selectedResp = responses.find(r => r.question_id === selectedMcqId);
-  const selectedCorrect = selectedQ ? getCorrectOption(selectedQ.marking_scheme, selectedQ.options || []) : null;
-  const isSelectedCorrect = selectedResp?.selected_option === selectedCorrect;
+  const correctText = selectedQ ? getCorrectOptionText(selectedQ.marking_scheme, selectedQ.options || []) : null;
+  
+  // A response is correct if the stored text matches the identified correct text
+  const isSelectedCorrect = selectedResp && correctText && (selectedResp.selected_option === correctText);
 
   const currentIdx = mcqQuestions.findIndex(q => q.id === selectedMcqId);
 
@@ -296,8 +309,8 @@ const ExamResults = () => {
                    <div className="grid grid-cols-5 gap-2">
                       {mcqQuestions.map((q) => {
                          const resp = responses.find(r => r.question_id === q.id);
-                         const correct = getCorrectOption(q.marking_scheme, q.options || []);
-                         const isCorrect = resp?.selected_option === correct;
+                         const correctT = getCorrectOptionText(q.marking_scheme, q.options || []);
+                         const isCorrect = resp && correctT && (resp.selected_option === correctT);
                          const isSelected = selectedMcqId === q.id;
 
                          return (
@@ -345,31 +358,37 @@ const ExamResults = () => {
 
                       {/* OPTIONS */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                         {(selectedQ.options || []).map((opt: any) => (
-                            <div 
-                              key={opt.id}
-                              className={`p-6 rounded-2xl border flex items-center gap-5 transition-all ${
-                                opt.id === selectedCorrect 
-                                ? 'bg-emerald-500/10 border-emerald-500/40 ring-1 ring-emerald-500/20' 
-                                : opt.id === selectedResp?.selected_option
-                                ? 'bg-rose-500/10 border-rose-500/40'
-                                : 'bg-white/5 border-white/5 opacity-50'
-                              }`}
-                            >
-                               <div className={`h-8 w-8 rounded-xl flex items-center justify-center font-black text-sm ${
-                                  opt.id === selectedCorrect ? 'bg-emerald-500 text-white' : 
-                                  opt.id === selectedResp?.selected_option ? 'bg-rose-500 text-white' : 
-                                  'bg-white/10 text-slate-400'
-                               }`}>
-                                  {opt.id}
-                               </div>
-                               <div className="text-base font-bold text-slate-200">
-                                  <LatexRenderer text={opt.text} />
-                               </div>
-                               {opt.id === selectedCorrect && <CheckCircle2 className="h-5 w-5 text-emerald-400 ml-auto" />}
-                               {opt.id === selectedResp?.selected_option && opt.id !== selectedCorrect && <XCircle className="h-5 w-5 text-rose-400 ml-auto" />}
-                            </div>
-                         ))}
+                         {(selectedQ.options || []).map((opt: any) => {
+                            // Check if this option is either the identified correct one OR what the student picked
+                            const isThisCorrect = (correctText && opt.text === correctText);
+                            const wasThisPicked = (selectedResp && opt.text === selectedResp.selected_option);
+
+                            return (
+                                <div 
+                                  key={opt.id}
+                                  className={`p-6 rounded-2xl border flex items-center gap-5 transition-all ${
+                                    isThisCorrect 
+                                    ? 'bg-emerald-500/10 border-emerald-500/40 ring-1 ring-emerald-500/20' 
+                                    : wasThisPicked
+                                    ? 'bg-rose-500/10 border-rose-500/40'
+                                    : 'bg-white/5 border-white/5 opacity-50'
+                                  }`}
+                                >
+                                   <div className={`h-8 w-8 rounded-xl flex items-center justify-center font-black text-sm ${
+                                      isThisCorrect ? 'bg-emerald-500 text-white' : 
+                                      wasThisPicked ? 'bg-rose-500 text-white' : 
+                                      'bg-white/10 text-slate-400'
+                                   }`}>
+                                      {opt.id}
+                                   </div>
+                                   <div className="text-base font-bold text-slate-200">
+                                      <LatexRenderer text={opt.text} />
+                                   </div>
+                                   {isThisCorrect && <CheckCircle2 className="h-5 w-5 text-emerald-400 ml-auto" />}
+                                   {wasThisPicked && !isThisCorrect && <XCircle className="h-5 w-5 text-rose-400 ml-auto" />}
+                                </div>
+                            );
+                         })}
                       </div>
 
                       {/* MARKING LOGIC */}
