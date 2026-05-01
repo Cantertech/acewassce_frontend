@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import {
   Award, ArrowLeft, Download, Share2, Target, Brain,
   CheckCircle2, AlertTriangle, ChevronDown, ChevronUp,
@@ -28,8 +28,10 @@ const getWassceGrade = (score: number) => {
 const ExamResults = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const state = location.state as { attemptId?: string } | null;
-  const attemptId = state?.attemptId;
+  const [searchParams] = useSearchParams();
+  
+  // Try state first, then searchParams (survives refresh)
+  const attemptId = (location.state as any)?.attemptId || searchParams.get('attemptId');
 
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -49,22 +51,27 @@ const ExamResults = () => {
   const [debugLog, setDebugLog] = useState<string[]>([]);
   const [showDebug, setShowDebug] = useState(false);
 
+  // Debug tool to add logs
+  const addLog = (msg: string) => {
+    console.log(`[SYSTEM LOG]: ${msg}`);
+    setDebugLog(prev => [...prev, `${new Date().toLocaleTimeString()}: ${msg}`]);
+  };
+
   useEffect(() => {
     if (!attemptId) {
+      addLog("Attempt ID not found in state or URL. Navigating back...");
       navigate("/dashboard");
       return;
     }
     fetchResults();
   }, [attemptId]);
 
-  const addLog = (msg: string) => {
-    setDebugLog(prev => [...prev, `${new Date().toLocaleTimeString()}: ${msg}`]);
-  };
-
   const fetchResults = async (isRefresh = false) => {
     try {
       if (isRefresh) setRefreshing(true);
       else setLoading(true);
+
+      addLog(`Syncing with DB for Attempt: ${attemptId}`);
 
       const { data: attData, error: attErr } = await supabase
         .from('exam_attempts')
@@ -114,7 +121,7 @@ const ExamResults = () => {
         if (respData) setResponses(respData);
       }
     } catch (err: any) {
-      addLog(`Error: ${err.message}`);
+      addLog(`Fetch Error: ${err.message}`);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -123,20 +130,40 @@ const ExamResults = () => {
 
   const handleRegradeMcq = async () => {
     try {
+      if (!attemptId) {
+        alert("Cannot re-grade: Missing Attempt ID");
+        return;
+      }
+
       setGradingMcq(true);
-      addLog("Triggering backend re-grade for MCQs...");
+      addLog("CONTACTING BACKEND ENGINE...");
+      
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
-      const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade-mcq`, {
-        method: 'POST'
+      // Ensure no double slash
+      const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
+      const endpoint = `${cleanBaseUrl}/api/v1/attempts/${attemptId}/grade-mcq`;
+      
+      addLog(`Endpoint: ${endpoint}`);
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
       });
       
-      if (!response.ok) throw new Error("Backend grading failed");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "Backend grading failed");
+      }
       
-      addLog("Backend grading successful. Refreshing data...");
+      const result = await response.json();
+      addLog(`Grading Response: ${JSON.stringify(result)}`);
+      addLog("Refreshing UI with updated scores...");
       await fetchResults(true);
+      
     } catch (err: any) {
-      addLog(`Regrade Error: ${err.message}`);
-      alert("Failed to re-calculate score. Please try again.");
+      addLog(`REGRADE CRITICAL FAILURE: ${err.message}`);
+      console.error(err);
+      alert(`System Error: ${err.message}`);
     } finally {
       setGradingMcq(false);
     }
@@ -250,17 +277,6 @@ const ExamResults = () => {
                  <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 flex flex-col justify-between h-full"><Target className="h-6 w-6 text-emerald-400 mb-4" /><div><span className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">MCQ Score</span><span className="text-3xl font-black text-white">{attempt?.mcq_score || 0}<span className="text-sm text-slate-500 font-bold">/50</span></span></div></div>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-               <Button onClick={() => setView('mcq')} className="h-20 rounded-[1.5rem] bg-white/5 border border-white/10 hover:bg-white/10 group px-8 justify-between">
-                  <div className="flex flex-col items-start text-left"><span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Objectives</span><span className="text-base font-black text-slate-200">Review Errors</span></div>
-                  <ChevronRight className="h-5 w-5 text-slate-600 group-hover:text-primary transition-colors" />
-               </Button>
-               <Button onClick={() => setView('theory')} className="h-20 rounded-[1.5rem] bg-primary/10 border border-primary/20 hover:bg-primary/20 group px-8 justify-between">
-                  <div className="flex flex-col items-start text-left"><span className="text-[10px] font-black text-primary uppercase tracking-widest">Theory Map</span><span className="text-base font-black text-slate-200">Step-by-Step Logic</span></div>
-                  <ChevronRight className="h-5 w-5 text-slate-600 group-hover:text-purple-400 transition-colors" />
-               </Button>
-            </div>
           </div>
         )}
 
@@ -294,7 +310,6 @@ const ExamResults = () => {
                          })}
                       </div>
                    </div>
-                   <div className="flex items-center justify-between gap-4"><Button disabled={currentMcqIdx === 0} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 flex-1"><ChevronLeft className="h-5 w-5 mr-2" /> Previous</Button><Button disabled={currentMcqIdx === mcqQuestions.length - 1} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id)} className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 flex-1 shadow-lg shadow-primary/20">Next <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
                 </div>
              ) : (<div className="p-20 text-center opacity-40"><Search className="h-16 w-16 mx-auto mb-6" /><p className="text-xl font-black uppercase tracking-widest">No Objectives Recorded</p></div>)}
           </div>
@@ -322,9 +337,15 @@ const ExamResults = () => {
                          <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl"><h5 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-8">AI Logic Verification</h5><div className="text-base text-slate-300 leading-relaxed font-medium italic space-y-6"><LatexRenderer text={selectedTheory.feedback || "Detailed step-by-step logic analysis is being processed..."} /></div></div>
                       </div>
                    </div>
-                   <div className="flex items-center justify-between gap-4"><Button disabled={currentTheoryIdx <= 0} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 flex-1"><ChevronLeft className="h-5 w-5 mr-2" /> Prev Question</Button><Button disabled={currentTheoryIdx >= theorySubmissions.length - 1} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 flex-1 shadow-lg shadow-purple-500/20">Next Question <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
                 </div>
-             ) : (<div className="p-24 text-center"><div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div><h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3><p className="text-slate-500 font-medium max-w-sm mx-auto">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing. Try refreshing."}</p>{!refreshing && <Button onClick={() => fetchResults(true)} className="mt-8 h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Retry Forensic Scan</Button>}</div>)}
+             ) : (
+                <div className="p-24 text-center">
+                   <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div>
+                   <h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3>
+                   <p className="text-slate-500 font-medium max-w-sm mx-auto">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing. Try refreshing."}</p>
+                   {!refreshing && <Button onClick={() => fetchResults(true)} className="mt-8 h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Retry Forensic Scan</Button>}
+                </div>
+             )}
           </div>
         )}
       </main>
