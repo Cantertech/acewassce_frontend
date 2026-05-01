@@ -364,9 +364,10 @@ const ExamResults = () => {
 
         {view === 'theory' && (
           <div className="space-y-8 animate-in fade-in duration-500 relative">
-             <div className="flex justify-center gap-4">
+             <div className="flex flex-wrap justify-center gap-4">
                 <button onClick={() => setShowTheoryGrid(!showTheoryGrid)} className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-purple-400 hover:bg-purple-500/20 transition-all"><Layers className="h-3 w-3" /><span>Theory Navigator</span><ChevronDown className={`h-3 w-3 transition-transform ${showTheoryGrid ? 'rotate-180' : ''}`} /></button>
-                <button onClick={() => fetchResults(true)} disabled={refreshing} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} /><span>Refresh</span></button>
+                <button onClick={() => fetchResults(true)} disabled={refreshing} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} /><span>Sync</span></button>
+                <button onClick={handleRegradeTheory} disabled={refreshing} className="px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary hover:bg-primary/20 transition-all"><Zap className={`h-3 w-3 ${refreshing ? 'animate-pulse' : ''}`} /><span>Re-run AI Analysis</span></button>
              </div>
              {showTheoryGrid && (
                 <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
