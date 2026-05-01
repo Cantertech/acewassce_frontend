@@ -19,7 +19,7 @@ const getWassceGrade = (score: number) => {
   if (score >= 65) return { grade: "B3", label: "Good", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" };
   if (score >= 60) return { grade: "C4", label: "Credit", color: "text-blue-300", bg: "bg-blue-400/10", border: "border-blue-400/20" };
   if (score >= 55) return { grade: "C5", label: "Credit", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" };
-  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-400/20" };
+  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-500/20" };
   if (score >= 45) return { grade: "D7", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   if (score >= 40) return { grade: "E8", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   return { grade: "F9", label: "Fail", color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500/20" };
@@ -77,9 +77,16 @@ const ExamResults = () => {
           .eq('exam_id', attData.exam_id)
           .eq('is_mcq', true)
           .order('question_number', { ascending: true });
+        
         if (qData) {
-          setMcqQuestions(qData);
-          if (qData.length > 0) setSelectedMcqId(qData[0].id);
+          // Robust sort for question numbers (1, 2, 10, etc)
+          const sorted = qData.sort((a, b) => {
+            const numA = parseInt(a.question_number);
+            const numB = parseInt(b.question_number);
+            return numA - numB;
+          });
+          setMcqQuestions(sorted);
+          if (sorted.length > 0) setSelectedMcqId(sorted[0].id);
         }
 
         const { data: respData } = await supabase
@@ -108,9 +115,16 @@ const ExamResults = () => {
 
   const getCorrectOption = (marking: string, options: any[]) => {
     if (!marking) return null;
+
+    // 1. Check if the marking scheme IS just the letter A, B, C, or D
+    const trimmed = marking.trim().toUpperCase();
+    if (["A", "B", "C", "D"].includes(trimmed)) return trimmed;
+
+    // 2. Check for "Equation: [LETTER] =" pattern (from AI output)
     const match = marking.match(/Equation:\s*([A-D])\s*=/);
     if (match) return match[1];
     
+    // 3. Fallback: Clean numeric comparison
     const clean = (t: string) => t.replace(/[^0-9.]/g, '');
     const markingNum = clean(marking);
     if (!markingNum) return null;
@@ -310,7 +324,7 @@ const ExamResults = () => {
              )}
 
              {/* 3. QUESTION DISPLAY CARD */}
-             {selectedQ && (
+             {selectedQ ? (
                 <div className="space-y-12">
                    <div className="p-8 sm:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl relative overflow-hidden">
                       <div className="flex items-center justify-between mb-10">
@@ -389,6 +403,11 @@ const ExamResults = () => {
                          <ChevronRight className="h-5 w-5 ml-2" />
                       </Button>
                    </div>
+                </div>
+             ) : (
+                <div className="p-20 text-center opacity-40">
+                   <Search className="h-16 w-16 mx-auto mb-6" />
+                   <p className="text-xl font-black uppercase tracking-widest">Loading Objectives...</p>
                 </div>
              )}
           </div>
