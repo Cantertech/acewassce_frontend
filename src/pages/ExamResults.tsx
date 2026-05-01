@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import {
   Award, ArrowLeft, Download, Share2, Target, Brain,
@@ -6,7 +6,8 @@ import {
   Search, Sparkles, LayoutDashboard,
   FileText, XCircle, Info, ChevronRight,
   TrendingUp, Clock, BookOpen, GraduationCap,
-  ChevronLeft, List, Eye, Layers, Maximize2, RefreshCw, Terminal, Zap
+  ChevronLeft, List, Eye, Layers, Maximize2, RefreshCw, Terminal, Zap,
+  Cpu, ShieldCheck, Activity
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
@@ -19,7 +20,7 @@ const getWassceGrade = (score: number) => {
   if (score >= 65) return { grade: "B3", label: "Good", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" };
   if (score >= 60) return { grade: "C4", label: "Credit", color: "text-blue-300", bg: "bg-blue-400/10", border: "border-blue-400/20" };
   if (score >= 55) return { grade: "C5", label: "Credit", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" };
-  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-400/10", border: "border-amber-500/20" };
+  if (score >= 50) return { grade: "C6", label: "Credit", color: "text-amber-300", bg: "bg-amber-500/10", border: "border-amber-500/20" };
   if (score >= 45) return { grade: "D7", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   if (score >= 40) return { grade: "E8", label: "Pass", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" };
   return { grade: "F9", label: "Fail", color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500/20" };
@@ -30,7 +31,6 @@ const ExamResults = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   
-  // Try state first, then searchParams (survives refresh)
   const attemptId = (location.state as any)?.attemptId || searchParams.get('attemptId');
 
   const [loading, setLoading] = useState(true);
@@ -51,7 +51,8 @@ const ExamResults = () => {
   const [debugLog, setDebugLog] = useState<string[]>([]);
   const [showDebug, setShowDebug] = useState(false);
 
-  // Debug tool to add logs
+  const syncTriggered = useRef(false);
+
   const addLog = (msg: string) => {
     console.log(`[SYSTEM LOG]: ${msg}`);
     setDebugLog(prev => [...prev, `${new Date().toLocaleTimeString()}: ${msg}`]);
@@ -59,7 +60,6 @@ const ExamResults = () => {
 
   useEffect(() => {
     if (!attemptId) {
-      addLog("Attempt ID not found in state or URL. Navigating back...");
       navigate("/dashboard");
       return;
     }
@@ -70,8 +70,6 @@ const ExamResults = () => {
     try {
       if (isRefresh) setRefreshing(true);
       else setLoading(true);
-
-      addLog(`Syncing with DB for Attempt: ${attemptId}`);
 
       const { data: attData, error: attErr } = await supabase
         .from('exam_attempts')
@@ -119,6 +117,13 @@ const ExamResults = () => {
           .select('*')
           .eq('attempt_id', attemptId);
         if (respData) setResponses(respData);
+
+        // AUTO-SYNC LOGIC: If we have responses but mcq_score is very low (likely uncalculated)
+        // OR if it's the first mount and we are not graded yet.
+        if (!syncTriggered.current && attData.status !== 'graded' && respData && respData.length > 0) {
+           syncTriggered.current = true;
+           handleRegradeMcq();
+        }
       }
     } catch (err: any) {
       addLog(`Fetch Error: ${err.message}`);
@@ -130,50 +135,29 @@ const ExamResults = () => {
 
   const handleRegradeMcq = async () => {
     try {
-      if (!attemptId) {
-        alert("Cannot re-grade: Missing Attempt ID");
-        return;
-      }
-
+      if (!attemptId) return;
       setGradingMcq(true);
-      addLog("CONTACTING BACKEND ENGINE...");
-      
+      addLog("Auto-syncing scores with backend...");
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
-      // Ensure no double slash
       const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
       const endpoint = `${cleanBaseUrl}/api/v1/attempts/${attemptId}/grade-mcq`;
       
-      addLog(`Endpoint: ${endpoint}`);
-
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || "Backend grading failed");
+      if (response.ok) {
+        addLog("Sync complete. Re-fetching data...");
+        // Re-fetch without showing main loader
+        const { data: reData } = await supabase.from('exam_attempts').select('*, exams(*)').eq('id', attemptId).single();
+        if (reData) setAttempt(reData);
       }
-      
-      const result = await response.json();
-      addLog(`Grading Response: ${JSON.stringify(result)}`);
-      addLog("Refreshing UI with updated scores...");
-      await fetchResults(true);
-      
     } catch (err: any) {
-      addLog(`REGRADE CRITICAL FAILURE: ${err.message}`);
-      console.error(err);
-      alert(`System Error: ${err.message}`);
+      addLog(`Auto-Sync Error: ${err.message}`);
     } finally {
       setGradingMcq(false);
     }
   };
-
-  useEffect(() => {
-    if (theorySubmissions.length > 0 && !selectedTheoryId) {
-        setSelectedTheoryId(theorySubmissions[0].id);
-    }
-  }, [theorySubmissions, selectedTheoryId]);
 
   if (loading) {
     return (
@@ -229,11 +213,15 @@ const ExamResults = () => {
         <div className="container max-w-4xl h-16 flex items-center justify-between px-4 mx-auto">
           <button onClick={() => navigate("/dashboard")} className="group flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-all">
             <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-all"><ArrowLeft className="h-4 w-4" /></div>
-            <span>Dashboard</span>
+            <span className="hidden sm:inline">Dashboard</span>
+            <span className="sm:hidden">Back</span>
           </button>
-          <button onClick={() => setShowDebug(!showDebug)} className="text-[10px] font-black text-slate-500 flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/5">
-             <Terminal className="h-3 w-3" /> System Log
-          </button>
+          <div className="flex items-center gap-2">
+            {gradingMcq && <Activity className="h-3 w-3 text-primary animate-pulse" />}
+            <button onClick={() => setShowDebug(!showDebug)} className="text-[10px] font-black text-slate-500 flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/5">
+               <Terminal className="h-3 w-3" /> <span className="hidden sm:inline">System Log</span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -244,55 +232,144 @@ const ExamResults = () => {
       )}
 
       <main className="relative z-10 container max-w-4xl px-4 pt-10 mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
-        <div className="flex p-1 bg-white/5 rounded-2xl border border-white/5 mb-10 w-fit mx-auto sm:mx-0">
+        <div className="flex p-1 bg-white/5 rounded-2xl border border-white/5 mb-10 w-full sm:w-fit mx-auto sm:mx-0 overflow-x-auto no-scrollbar">
           {(['overview', 'mcq', 'theory'] as const).map((t) => (
-            <button key={t} onClick={() => setView(t)} className={`px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${view === t ? 'bg-primary text-white shadow-lg' : 'text-slate-500'}`}>{t}</button>
+            <button key={t} onClick={() => setView(t)} className={`flex-1 sm:flex-none px-6 py-2.5 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ${view === t ? 'bg-primary text-white shadow-lg' : 'text-slate-500'}`}>{t}</button>
           ))}
         </div>
 
         {view === 'overview' && (
           <div className="space-y-8 animate-in fade-in duration-500">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2 relative p-10 sm:p-14 rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl bg-[#030712]/40 backdrop-blur-xl">
-                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-                    <div className="relative h-40 w-40 flex items-center justify-center">
-                       <svg className="h-full w-full rotate-[-90deg]"><circle cx="80" cy="80" r="72" className="fill-none stroke-white/5 stroke-[6]" /><circle cx="80" cy="80" r="72" className="fill-none stroke-primary stroke-[8]" style={{ strokeDasharray: 452, strokeDashoffset: 452 - (452 * (attempt?.total_score || 0)) / 100 }} strokeLinecap="round" /></svg>
-                       <div className="absolute flex flex-col items-center"><span className={`text-5xl font-black ${gradeInfo.color}`}>{gradeInfo.grade}</span><span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{gradeInfo.label}</span></div>
-                    </div>
-                    <div className="flex-1 text-center md:text-left">
-                       <h2 className="text-4xl font-black text-white mb-2 leading-tight">Mastered Logic.</h2>
-                       <p className="text-slate-400 font-medium mb-6">Your forensic breakdown for {exam?.subject} is ready.</p>
-                       <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                          <div className="px-6 py-2 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-xs font-bold text-emerald-400 uppercase tracking-widest">{attempt?.total_score || 0}% Final</div>
-                          <Button onClick={handleRegradeMcq} disabled={gradingMcq} className="h-8 px-4 rounded-lg bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest text-primary hover:bg-white/10">
-                             <Zap className={`h-3 w-3 mr-2 ${gradingMcq ? 'animate-pulse' : ''}`} />
-                             {gradingMcq ? 'Re-calculating...' : 'Sync Live Score'}
-                          </Button>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-              <div className="space-y-4">
-                 <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 flex flex-col justify-between h-full"><Brain className="h-6 w-6 text-purple-400 mb-4" /><div><span className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Theory Score</span><span className="text-3xl font-black text-white">{attempt?.theory_score || 0}<span className="text-sm text-slate-500 font-bold">/100</span></span></div></div>
-                 <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 flex flex-col justify-between h-full"><Target className="h-6 w-6 text-emerald-400 mb-4" /><div><span className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">MCQ Score</span><span className="text-3xl font-black text-white">{attempt?.mcq_score || 0}<span className="text-sm text-slate-500 font-bold">/50</span></span></div></div>
-              </div>
+            {/* HERO SECTION - DO NOT TOUCH LOGIC */}
+            <div className="relative p-10 sm:p-14 rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl bg-[#030712]/40 backdrop-blur-xl">
+               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
+               <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                  <div className="relative h-40 w-40 flex items-center justify-center shrink-0">
+                     <svg className="h-full w-full rotate-[-90deg]">
+                        <circle cx="80" cy="80" r="72" className="fill-none stroke-white/5 stroke-[6]" />
+                        <circle 
+                          cx="80" cy="80" r="72" 
+                          className="fill-none stroke-primary stroke-[8] transition-all duration-1000"
+                          style={{ strokeDasharray: 452, strokeDashoffset: 452 - (452 * (attempt?.total_score || 0)) / 100 }}
+                          strokeLinecap="round"
+                        />
+                     </svg>
+                     <div className="absolute flex flex-col items-center">
+                        <span className={`text-5xl font-black ${gradeInfo.color}`}>{gradeInfo.grade}</span>
+                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{gradeInfo.label}</span>
+                     </div>
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                     <h2 className="text-4xl font-black text-white mb-2 leading-tight">Mastered Logic.</h2>
+                     <p className="text-slate-400 font-medium mb-6">Your forensic breakdown for {exam?.subject} is ready.</p>
+                     <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                        <div className="px-6 py-2 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-xs font-bold text-emerald-400 uppercase tracking-widest">{attempt?.total_score || 0}% Final</div>
+                     </div>
+                  </div>
+               </div>
             </div>
+
+            {/* MOBILE REDESIGNED SCORE CARDS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Brain className="h-16 w-16 text-purple-400" />
+                  </div>
+                  <div className="relative z-10">
+                    <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Theory Analytics</span>
+                    <div className="flex items-end gap-3 mb-6">
+                       <span className="text-5xl font-black text-white leading-none">{attempt?.theory_score || 0}</span>
+                       <span className="text-sm font-bold text-slate-500 mb-1">/ 100 PTS</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                       <div className="h-full bg-purple-500 rounded-full transition-all duration-1000" style={{ width: `${attempt?.theory_score || 0}%` }} />
+                    </div>
+                  </div>
+               </div>
+
+               <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Target className="h-16 w-16 text-emerald-400" />
+                  </div>
+                  <div className="relative z-10">
+                    <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Objective Precision</span>
+                    <div className="flex items-end gap-3 mb-6">
+                       <span className="text-5xl font-black text-white leading-none">{attempt?.mcq_score || 0}</span>
+                       <span className="text-sm font-bold text-slate-500 mb-1">/ 50 PTS</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                       <div className="h-full bg-emerald-500 rounded-full transition-all duration-1000" style={{ width: `${((attempt?.mcq_score || 0) / 50) * 100}%` }} />
+                    </div>
+                  </div>
+               </div>
+            </div>
+
+            {/* ACTION GRID - REDESIGNED FOR MOBILE */}
+            <div className="flex flex-col gap-4 mt-8">
+               <button 
+                onClick={() => setView('mcq')}
+                className="w-full p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-between group"
+               >
+                  <div className="flex items-center gap-6">
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                       <ShieldCheck className="h-7 w-7 text-primary" />
+                    </div>
+                    <div className="text-left">
+                       <h4 className="text-lg font-black text-white">Review Mistakes</h4>
+                       <p className="text-xs font-medium text-slate-500 uppercase tracking-widest">Verify Logic Gaps</p>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-primary transition-colors" />
+               </button>
+
+               <button 
+                onClick={() => setView('theory')}
+                className="w-full p-8 rounded-[2rem] bg-primary/10 border border-primary/20 hover:bg-primary/20 active:scale-[0.98] transition-all flex items-center justify-between group"
+               >
+                  <div className="flex items-center gap-6">
+                    <div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
+                       <Cpu className="h-7 w-7 text-purple-400" />
+                    </div>
+                    <div className="text-left">
+                       <h4 className="text-lg font-black text-white">Forensic Theory Map</h4>
+                       <p className="text-xs font-medium text-purple-400 uppercase tracking-widest">AI Scoring Reasoning</p>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-purple-400 transition-colors" />
+               </button>
+            </div>
+
+            <section className="mt-20 p-10 rounded-[3.5rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                <div className="relative z-10">
+                  <div className="h-16 w-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <GraduationCap className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-3xl font-black text-white mb-4">Push for the A1.</h3>
+                  <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10 leading-relaxed">
+                      You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
+                  </p>
+                  <Button onClick={() => navigate("/dashboard")} className="h-14 px-10 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-xl w-full sm:w-fit">
+                      Back to Dashboard
+                  </Button>
+                </div>
+            </section>
           </div>
         )}
 
         {view === 'mcq' && (
           <div className="space-y-6 animate-in fade-in duration-500 relative">
              <div className="flex justify-center mb-4">
-                <button onClick={() => setShowMcqGrid(!showMcqGrid)} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10"><List className="h-3 w-3" /><span>Select Question</span><ChevronDown className={`h-3 w-3 transition-transform ${showMcqGrid ? 'rotate-180' : ''}`} /></button>
+                <button onClick={() => setShowMcqGrid(!showMcqGrid)} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><List className="h-3 w-3" /><span>Select Question</span><ChevronDown className={`h-3 w-3 transition-transform ${showMcqGrid ? 'rotate-180' : ''}`} /></button>
              </div>
              {showMcqGrid && (
-                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl">
+                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
                    <div className="grid grid-cols-5 gap-2">
                       {mcqQuestions.map((q) => {
                          const resp = responses.find(r => r.question_id === q.id);
                          const correctT = getCorrectOptionText(q.marking_scheme, q.options || []);
                          const isCorrect = resp && correctT && (resp.selected_option === correctT);
-                         return (<button key={q.id} onClick={() => { setSelectedMcqId(q.id); setShowMcqGrid(false); }} className={`h-10 rounded-lg flex items-center justify-center font-black text-xs ${selectedMcqId === q.id ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${!resp ? 'bg-white/5 text-slate-600' : isCorrect ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'}`}>{q.question_number}</button>);
+                         return (<button key={q.id} onClick={() => { setSelectedMcqId(q.id); setShowMcqGrid(false); }} className={`h-10 rounded-lg flex items-center justify-center font-black text-xs transition-all ${selectedMcqId === q.id ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${!resp ? 'bg-white/5 text-slate-600' : isCorrect ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/20 text-rose-400 border border-rose-500/20'}`}>{q.question_number}</button>);
                       })}
                    </div>
                 </div>
@@ -310,6 +387,7 @@ const ExamResults = () => {
                          })}
                       </div>
                    </div>
+                   <div className="flex items-center justify-between gap-4"><Button disabled={currentMcqIdx === 0} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 flex-1 transition-all"><ChevronLeft className="h-5 w-5 mr-2" /> Previous</Button><Button disabled={currentMcqIdx === mcqQuestions.length - 1} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id)} className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-30 flex-1 shadow-lg shadow-primary/20 transition-all">Next <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
                 </div>
              ) : (<div className="p-20 text-center opacity-40"><Search className="h-16 w-16 mx-auto mb-6" /><p className="text-xl font-black uppercase tracking-widest">No Objectives Recorded</p></div>)}
           </div>
@@ -318,13 +396,13 @@ const ExamResults = () => {
         {view === 'theory' && (
           <div className="space-y-8 animate-in fade-in duration-500 relative">
              <div className="flex justify-center gap-4">
-                <button onClick={() => setShowTheoryGrid(!showTheoryGrid)} className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-purple-400 hover:bg-purple-500/20"><Layers className="h-3 w-3" /><span>Theory Navigator</span><ChevronDown className={`h-3 w-3 transition-transform ${showTheoryGrid ? 'rotate-180' : ''}`} /></button>
-                <button onClick={() => fetchResults(true)} disabled={refreshing} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10"><RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} /><span>Refresh</span></button>
+                <button onClick={() => setShowTheoryGrid(!showTheoryGrid)} className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-purple-400 hover:bg-purple-500/20 transition-all"><Layers className="h-3 w-3" /><span>Theory Navigator</span><ChevronDown className={`h-3 w-3 transition-transform ${showTheoryGrid ? 'rotate-180' : ''}`} /></button>
+                <button onClick={() => fetchResults(true)} disabled={refreshing} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} /><span>Refresh</span></button>
              </div>
              {showTheoryGrid && (
-                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl">
+                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
                    <div className="grid grid-cols-4 gap-3">
-                      {theorySubmissions.map((sub) => (<button key={sub.id} onClick={() => { setSelectedTheoryId(sub.id); setShowTheoryGrid(false); }} className={`h-12 rounded-xl flex flex-col items-center justify-center ${selectedTheoryId === sub.id ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${(sub.marks_attained || 0) >= 5 ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}><span className="text-[10px] font-black uppercase tracking-widest opacity-50">Q{sub.question_number || 'Scan'}</span><span className="text-sm font-black">{sub.marks_attained || 0}</span></button>))}
+                      {theorySubmissions.map((sub) => (<button key={sub.id} onClick={() => { setSelectedTheoryId(sub.id); setShowTheoryGrid(false); }} className={`h-12 rounded-xl flex flex-col items-center justify-center transition-all ${selectedTheoryId === sub.id ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${(sub.marks_attained || 0) >= 5 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}><span className="text-[10px] font-black uppercase tracking-widest opacity-50">Q{sub.question_number || 'Scan'}</span><span className="text-sm font-black">{sub.marks_attained || 0}</span></button>))}
                    </div>
                 </div>
              )}
@@ -337,15 +415,9 @@ const ExamResults = () => {
                          <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl"><h5 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-8">AI Logic Verification</h5><div className="text-base text-slate-300 leading-relaxed font-medium italic space-y-6"><LatexRenderer text={selectedTheory.feedback || "Detailed step-by-step logic analysis is being processed..."} /></div></div>
                       </div>
                    </div>
+                   <div className="flex items-center justify-between gap-4"><Button disabled={currentTheoryIdx <= 0} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 flex-1 transition-all"><ChevronLeft className="h-5 w-5 mr-2" /> Prev Question</Button><Button disabled={currentTheoryIdx >= theorySubmissions.length - 1} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 flex-1 shadow-lg shadow-purple-500/20 transition-all">Next Question <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
                 </div>
-             ) : (
-                <div className="p-24 text-center">
-                   <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div>
-                   <h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3>
-                   <p className="text-slate-500 font-medium max-w-sm mx-auto">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing. Try refreshing."}</p>
-                   {!refreshing && <Button onClick={() => fetchResults(true)} className="mt-8 h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Retry Forensic Scan</Button>}
-                </div>
-             )}
+             ) : (<div className="p-24 text-center"><div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div><h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3><p className="text-slate-500 font-medium max-w-sm mx-auto">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing. Try refreshing."}</p>{!refreshing && <Button onClick={() => fetchResults(true)} className="mt-8 h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Retry Forensic Scan</Button>}</div>)}
           </div>
         )}
       </main>
