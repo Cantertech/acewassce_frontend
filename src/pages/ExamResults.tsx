@@ -71,7 +71,7 @@ const ExamResults = () => {
       if (isRefresh) setRefreshing(true);
       else setLoading(true);
 
-      addLog(`Attempt ID: ${attemptId}`);
+      addLog(`Syncing Attempt: ${attemptId}`);
 
       const { data: attData, error: attErr } = await supabase
         .from('exam_attempts')
@@ -79,11 +79,19 @@ const ExamResults = () => {
         .eq('id', attemptId)
         .single();
 
-      if (attErr) throw attErr;
+      if (attErr) {
+          addLog(`Attempt Fetch Error: ${attErr.message} (Code: ${attErr.code})`);
+          throw attErr;
+      }
 
       if (attData) {
         setAttempt(attData);
         setExam(attData.exams);
+
+        // FORENSIC FETCH: Try fetching without the filter first to check connection
+        const { data: testData, error: testErr } = await supabase.from('theory_submissions').select('id').limit(1);
+        if (testErr) addLog(`Supabase Connection Test Failed: ${testErr.message}`);
+        else addLog(`Supabase Connection Test: SUCCESS (${testData.length} records in table)`);
 
         const { data: theoryData, error: theoryErr } = await supabase
           .from('theory_submissions')
@@ -91,7 +99,7 @@ const ExamResults = () => {
           .eq('attempt_id', attemptId);
         
         if (theoryErr) addLog(`Theory Fetch Error: ${theoryErr.message}`);
-        addLog(`Theory Rows Found: ${theoryData?.length || 0}`);
+        addLog(`Theory Rows Found for this ID: ${theoryData?.length || 0}`);
 
         if (theoryData && theoryData.length > 0) {
             const sortedTheory = [...theoryData].sort((a, b) => {
@@ -100,7 +108,6 @@ const ExamResults = () => {
                return nA - nB;
             });
             setTheorySubmissions(sortedTheory);
-            // Ensure we select something
             if (!selectedTheoryId || !sortedTheory.find(s => s.id === selectedTheoryId)) {
                 setSelectedTheoryId(sortedTheory[0].id);
             }
@@ -132,7 +139,7 @@ const ExamResults = () => {
         }
       }
     } catch (err: any) {
-      addLog(`Fetch Error: ${err.message}`);
+      addLog(`CRITICAL FETCH ERROR: ${err.message}`);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -143,7 +150,6 @@ const ExamResults = () => {
     try {
       if (!attemptId) return;
       setGradingMcq(true);
-      addLog("Auto-syncing scores with backend...");
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
       const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
       const endpoint = `${cleanBaseUrl}/api/v1/attempts/${attemptId}/grade-mcq`;
@@ -153,7 +159,6 @@ const ExamResults = () => {
         headers: { 'Content-Type': 'application/json' }
       });
       if (response.ok) {
-        addLog("Sync complete. Re-fetching data...");
         const { data: reData } = await supabase.from('exam_attempts').select('*, exams(*)').eq('id', attemptId).single();
         if (reData) setAttempt(reData);
       }
@@ -174,9 +179,10 @@ const ExamResults = () => {
           
           const response = await fetch(endpoint, { method: 'POST' });
           if (response.ok) {
-              addLog("Theory Grader initiated. Polling for results...");
-              // Poll once after 5 seconds
-              setTimeout(() => fetchResults(true), 5000);
+              addLog("Theory Grader initiated. Waiting 8 seconds for AI reasoning...");
+              // Poll twice
+              setTimeout(() => fetchResults(true), 4000);
+              setTimeout(() => fetchResults(true), 8000);
           } else {
               addLog("Theory Grader failed to start.");
           }
@@ -278,12 +284,7 @@ const ExamResults = () => {
                   <div className="relative h-40 w-40 flex items-center justify-center shrink-0">
                      <svg className="h-full w-full rotate-[-90deg]">
                         <circle cx="80" cy="80" r="72" className="fill-none stroke-white/5 stroke-[6]" />
-                        <circle 
-                          cx="80" cy="80" r="72" 
-                          className="fill-none stroke-primary stroke-[8] transition-all duration-1000"
-                          style={{ strokeDasharray: 452, strokeDashoffset: 452 - (452 * (attempt?.total_score || 0)) / 100 }}
-                          strokeLinecap="round"
-                        />
+                        <circle cx="80" cy="80" r="72" className="fill-none stroke-primary stroke-[8] transition-all duration-1000" style={{ strokeDasharray: 452, strokeDashoffset: 452 - (452 * (attempt?.total_score || 0)) / 100 }} strokeLinecap="round" />
                      </svg>
                      <div className="absolute flex flex-col items-center">
                         <span className={`text-5xl font-black ${gradeInfo.color}`}>{gradeInfo.grade}</span>
@@ -302,51 +303,29 @@ const ExamResults = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
-                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <Brain className="h-16 w-16 text-purple-400" />
-                  </div>
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"><Brain className="h-16 w-16 text-purple-400" /></div>
                   <div className="relative z-10">
                     <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Theory Analytics</span>
-                    <div className="flex items-end gap-3 mb-6">
-                       <span className="text-5xl font-black text-white leading-none">{attempt?.theory_score || 0}</span>
-                       <span className="text-sm font-bold text-slate-500 mb-1">/ 100 PTS</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                       <div className="h-full bg-purple-500 rounded-full transition-all duration-1000" style={{ width: `${attempt?.theory_score || 0}%` }} />
-                    </div>
+                    <div className="flex items-end gap-3 mb-6"><span className="text-5xl font-black text-white leading-none">{attempt?.theory_score || 0}</span><span className="text-sm font-bold text-slate-500 mb-1">/ 100 PTS</span></div>
+                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden"><div className="h-full bg-purple-500 rounded-full transition-all duration-1000" style={{ width: `${attempt?.theory_score || 0}%` }} /></div>
                   </div>
                </div>
-
                <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
-                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <Target className="h-16 w-16 text-emerald-400" />
-                  </div>
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"><Target className="h-16 w-16 text-emerald-400" /></div>
                   <div className="relative z-10">
                     <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Objective Precision</span>
-                    <div className="flex items-end gap-3 mb-6">
-                       <span className="text-5xl font-black text-white leading-none">{attempt?.mcq_score || 0}</span>
-                       <span className="text-sm font-bold text-slate-500 mb-1">/ 50 PTS</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                       <div className="h-full bg-emerald-500 rounded-full transition-all duration-1000" style={{ width: `${((attempt?.mcq_score || 0) / 50) * 100}%` }} />
-                    </div>
+                    <div className="flex items-end gap-3 mb-6"><span className="text-5xl font-black text-white leading-none">{attempt?.mcq_score || 0}</span><span className="text-sm font-bold text-slate-500 mb-1">/ 50 PTS</span></div>
+                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden"><div className="h-full bg-emerald-500 rounded-full transition-all duration-1000" style={{ width: `${((attempt?.mcq_score || 0) / 50) * 100}%` }} /></div>
                   </div>
                </div>
             </div>
-
             <div className="flex flex-col gap-4 mt-8">
                <button onClick={() => setView('mcq')} className="w-full p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-between group">
-                  <div className="flex items-center gap-6">
-                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><ShieldCheck className="h-7 w-7 text-primary" /></div>
-                    <div className="text-left"><h4 className="text-lg font-black text-white">Review Mistakes</h4><p className="text-xs font-medium text-slate-500 uppercase tracking-widest">Verify Logic Gaps</p></div>
-                  </div>
+                  <div className="flex items-center gap-6"><div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><ShieldCheck className="h-7 w-7 text-primary" /></div><div className="text-left"><h4 className="text-lg font-black text-white">Review Mistakes</h4><p className="text-xs font-medium text-slate-500 uppercase tracking-widest">Verify Logic Gaps</p></div></div>
                   <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-primary transition-colors" />
                </button>
                <button onClick={() => setView('theory')} className="w-full p-8 rounded-[2rem] bg-primary/10 border border-primary/20 hover:bg-primary/20 active:scale-[0.98] transition-all flex items-center justify-between group">
-                  <div className="flex items-center gap-6">
-                    <div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><Cpu className="h-7 w-7 text-purple-400" /></div>
-                    <div className="text-left"><h4 className="text-lg font-black text-white">Forensic Theory Map</h4><p className="text-xs font-medium text-purple-400 uppercase tracking-widest">AI Scoring Reasoning</p></div>
-                  </div>
+                  <div className="flex items-center gap-6"><div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><Cpu className="h-7 w-7 text-purple-400" /></div><div className="text-left"><h4 className="text-lg font-black text-white">Forensic Theory Map</h4><p className="text-xs font-medium text-purple-400 uppercase tracking-widest">AI Scoring Reasoning</p></div></div>
                   <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-purple-400 transition-colors" />
                </button>
             </div>
@@ -357,7 +336,7 @@ const ExamResults = () => {
           <div className="space-y-6 animate-in fade-in duration-500 relative">
              <div className="flex justify-center mb-4"><button onClick={() => setShowMcqGrid(!showMcqGrid)} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><List className="h-3 w-3" /><span>Select Question</span><ChevronDown className={`h-3 w-3 transition-transform ${showMcqGrid ? 'rotate-180' : ''}`} /></button></div>
              {showMcqGrid && (
-                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
+                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
                    <div className="grid grid-cols-5 gap-2">
                       {mcqQuestions.map((q) => {
                          const resp = responses.find(r => r.question_id === q.id);
