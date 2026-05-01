@@ -136,11 +136,13 @@ const MCQSubmitSuccess = () => {
             onClick={() => {
               if (status === 'graded') {
                 navigate("/exam/results", { state: { attemptId } });
-              } else {
+              } else if (!theoryCompleted) {
                 handleProceedToTheory();
               }
             }}
-            className="w-full h-14 rounded-2xl bg-white text-primary hover:bg-white/90 font-extrabold shadow-elevated transition-transform active:scale-95 disabled:opacity-50"
+            className={`w-full h-14 rounded-2xl font-extrabold shadow-elevated transition-transform active:scale-95 disabled:opacity-50 ${
+              status === 'graded' ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-glow' : 'bg-white text-primary hover:bg-white/90'
+            }`}
           >
             {status === 'graded'
               ? "View Final Results"
