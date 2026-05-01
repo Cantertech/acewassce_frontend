@@ -159,31 +159,40 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                 reasoning = res.get("summative_reasoning", "")
                 
                 # IMPROVED UPDATE LOGIC:
+                saved = False
+                
                 # 1. Try to update a row that explicitly has this question_number
                 update_res = db.table("theory_submissions").update({
                     "marks_attained": score,
                     "feedback": reasoning
                 }).eq("attempt_id", attempt_id).eq("question_number", q_num_str).execute()
+                
+                if update_res.data:
+                    saved = True
 
                 # 2. If no rows updated, try to find a NULL row to "adopt" this question
-                if not update_res.data:
-                    adopt_res = db.table("theory_submissions").update({
-                        "marks_attained": score,
-                        "feedback": reasoning,
-                        "question_number": q_num_str
-                    }).eq("attempt_id", attempt_id).is_("question_number", "null").limit(1).execute()
-                    
-                    # 3. If STILL no rows (all filled or none exist), INSERT a new row
-                    if not adopt_res.data:
-                        # Find an image URL from existing submissions to link to
-                        image_url = submissions[0].get("image_url") if submissions else None
-                        db.table("theory_submissions").insert({
-                            "attempt_id": attempt_id,
-                            "question_number": q_num_str,
+                if not saved:
+                    null_row = db.table("theory_submissions").select("id").eq("attempt_id", attempt_id).is_("question_number", "null").limit(1).execute()
+                    if null_row.data:
+                        target_id = null_row.data[0]["id"]
+                        db.table("theory_submissions").update({
                             "marks_attained": score,
                             "feedback": reasoning,
-                            "image_url": image_url
-                        }).execute()
+                            "question_number": q_num_str
+                        }).eq("id", target_id).execute()
+                        saved = True
+                
+                # 3. If STILL no rows (all filled or none exist), INSERT a new row
+                if not saved:
+                    # Find an image URL from existing submissions to link to
+                    image_url = submissions[0].get("image_url") if submissions else None
+                    db.table("theory_submissions").insert({
+                        "attempt_id": attempt_id,
+                        "question_number": q_num_str,
+                        "marks_attained": score,
+                        "feedback": reasoning,
+                        "image_url": image_url
+                    }).execute()
 
                 if 1 <= q_num <= compulsory_count:
                     part_a_score += score
