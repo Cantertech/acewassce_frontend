@@ -50,8 +50,7 @@ const TheorySubmitSuccess = () => {
         if (data.mcq_completed_at) setMcqCompleted(true);
 
         if (data.status === 'graded') {
-          // Final results ready - Auto navigate
-          navigate("/exam/results", { state: { attemptId } });
+          // Final results ready - Student will click the button manually
         }
       } catch (err: any) {
         console.error("Fetch error:", err.message);
