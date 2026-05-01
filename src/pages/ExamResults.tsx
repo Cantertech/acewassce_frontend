@@ -68,19 +68,23 @@ const ExamResults = () => {
         const { data: theoryData } = await supabase
           .from('theory_submissions')
           .select('*')
-          .eq('attempt_id', attemptId)
-          .order('question_number', { ascending: true });
+          .eq('attempt_id', attemptId);
+        
         if (theoryData) {
-            setTheorySubmissions(theoryData);
-            if (theoryData.length > 0) setSelectedTheoryId(theoryData[0].id);
+            const sortedTheory = theoryData.sort((a, b) => {
+               const nA = parseInt(a.question_number || "0");
+               const nB = parseInt(b.question_number || "0");
+               return nA - nB;
+            });
+            setTheorySubmissions(sortedTheory);
+            if (sortedTheory.length > 0) setSelectedTheoryId(sortedTheory[0].id);
         }
 
         const { data: qData } = await supabase
           .from('questions')
           .select('*')
           .eq('exam_id', attData.exam_id)
-          .eq('is_mcq', true)
-          .order('question_number', { ascending: true });
+          .eq('is_mcq', true);
         
         if (qData) {
           const sorted = qData.sort((a, b) => parseInt(a.question_number) - parseInt(b.question_number));
@@ -100,6 +104,13 @@ const ExamResults = () => {
       setLoading(false);
     }
   };
+
+  // Helper to keep selectedTheoryId in sync if submissions change
+  useEffect(() => {
+    if (theorySubmissions.length > 0 && !selectedTheoryId) {
+        setSelectedTheoryId(theorySubmissions[0].id);
+    }
+  }, [theorySubmissions, selectedTheoryId]);
 
   if (loading) {
     return (
@@ -398,15 +409,15 @@ const ExamResults = () => {
              ) : (
                 <div className="p-20 text-center opacity-40">
                    <Search className="h-16 w-16 mx-auto mb-6" />
-                   <p className="text-xl font-black uppercase tracking-widest">Loading Objectives...</p>
+                   <p className="text-xl font-black uppercase tracking-widest">No Objectives Recorded</p>
                 </div>
              )}
           </div>
         )}
 
-        {/* ── VIEW 3: THEORY FORENSICS (REDESIGNED) ── */}
+        {/* ── VIEW 3: THEORY FORENSICS ── */}
         {view === 'theory' && (
-          <div className="space-y-8 animate-in fade-in duration-500">
+          <div className="space-y-8 animate-in fade-in duration-500 relative">
              
              {/* 1. SELECTOR BUTTON */}
              <div className="flex justify-center">
@@ -464,24 +475,19 @@ const ExamResults = () => {
                                </div>
                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Digital Lightbox Scan</span>
                             </div>
-                            <button className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                               <Maximize2 className="h-3 w-3 text-slate-400" />
-                            </button>
                          </div>
                          
                          <div className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-black/40 shadow-3xl group relative">
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                             <img 
                               src={selectedTheory.image_url} 
                               alt="Submission Scan" 
-                              className="w-full h-auto object-contain min-h-[400px] max-h-[600px] transition-all duration-700 group-hover:scale-[1.02] filter brightness-110 contrast-[1.05]" 
+                              className="w-full h-auto object-contain min-h-[400px] max-h-[600px] transition-all duration-700 filter brightness-110 contrast-[1.05]" 
                             />
                          </div>
                       </div>
 
                       {/* AI LOGIC & SCORE (RIGHT - 2/5) */}
                       <div className="lg:col-span-2 space-y-6">
-                         {/* SCORE BADGE */}
                          <div className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl flex flex-col items-center text-center">
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4">Question {selectedTheory.question_number} Score</span>
                             <div className="relative h-24 w-24 flex items-center justify-center mb-2">
@@ -493,28 +499,18 @@ const ExamResults = () => {
                             <span className="text-xs font-bold text-slate-600">Marks out of 10.0</span>
                          </div>
 
-                         {/* AI FEEDBACK */}
                          <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-4 opacity-20">
-                               <Sparkles className="h-10 w-10 text-primary" />
-                            </div>
                             <h5 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-8">AI Logic Verification</h5>
                             <div className="text-base text-slate-300 leading-relaxed font-medium italic space-y-6">
                                <LatexRenderer text={selectedTheory.feedback || "Detailed step-by-step logic analysis is being processed..."} />
                             </div>
                          </div>
-
-                         <div className="p-6 rounded-[1.5rem] bg-white/[0.02] border border-white/5 flex items-center gap-4 text-slate-500">
-                            <AlertTriangle className="h-4 w-4" />
-                            <p className="text-[10px] font-black uppercase tracking-widest">Marks are final as per official scheme.</p>
-                         </div>
                       </div>
                    </div>
 
-                   {/* 4. NAVIGATION BUTTONS */}
                    <div className="flex items-center justify-between gap-4">
                       <Button
-                        disabled={currentTheoryIdx === 0}
+                        disabled={currentTheoryIdx <= 0}
                         onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)}
                         className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 transition-all font-bold flex-1"
                       >
@@ -522,7 +518,7 @@ const ExamResults = () => {
                          Prev Question
                       </Button>
                       <Button
-                        disabled={currentTheoryIdx === theorySubmissions.length - 1}
+                        disabled={currentTheoryIdx >= theorySubmissions.length - 1}
                         onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)}
                         className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-30 transition-all font-black flex-1 shadow-lg shadow-purple-500/20"
                       >
@@ -532,9 +528,12 @@ const ExamResults = () => {
                    </div>
                 </div>
              ) : (
-                <div className="p-20 text-center opacity-40">
-                   <Layers className="h-16 w-16 mx-auto mb-6" />
-                   <p className="text-xl font-black uppercase tracking-widest">Scanning Theory Maps...</p>
+                <div className="p-24 text-center">
+                   <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10">
+                      <Layers className="h-10 w-10 text-slate-500 animate-pulse" />
+                   </div>
+                   <h3 className="text-2xl font-black text-white mb-2">No Workings Found</h3>
+                   <p className="text-slate-500 font-medium max-w-sm mx-auto">Either theory images haven't been uploaded yet, or the forensic scan is still processing.</p>
                 </div>
              )}
           </div>
