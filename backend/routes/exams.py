@@ -207,13 +207,16 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
         part_b_score = sum(part_b_scores[:5])
         ai_theory_score = part_a_score + part_b_score
         
-        print(f"Final Aggregated Score: {ai_theory_score}")
-        
+        # Determine final status based on MCQ completion
+        final_status = "theory_marked"
+        if current_status == "mcq_marked" or attempt_res.data.get("mcq_completed_at"):
+            final_status = "graded"
+            
         db.table("exam_attempts").update({
             "theory_score": ai_theory_score,
             "total_theory": 100,
             "theory_completed_at": datetime.utcnow().isoformat(),
-            "status": "theory_marked" if current_status != "mcq_marked" else "graded"
+            "status": final_status
         }).eq("id", attempt_id).execute()
         
         resp_res = db.table("exam_responses").select("id", count="exact").eq("attempt_id", attempt_id).execute()
