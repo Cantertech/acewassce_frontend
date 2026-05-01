@@ -112,7 +112,10 @@ async def batch_grade_node(state: GradingState):
             f"{rubrics_text}\n"
             "INSTRUCTIONS:\n"
             "1. TRANSCRIBE the work for each question accurately.\n"
-            "2. Award marks (M1, A1, B1) based on the specific rubric for each question.\n"
+            "2. Award marks (M1, A1, B1) based on the specific rubric. "
+            "In 'summative_reasoning', you MUST provide a forensic marking breakdown. "
+            "List every mark awarded (e.g. '+M1: Correct use of sine rule') and every mark lost (e.g. '-A1: Incorrect final calculation'). "
+            "Explain exactly WHY the student didn't get the full mark if they failed.\n"
             "3. OUTPUT: Return a list of objects, one for each question number requested."
         )
         
