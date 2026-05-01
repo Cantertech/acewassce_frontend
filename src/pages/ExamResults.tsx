@@ -71,6 +71,8 @@ const ExamResults = () => {
       if (isRefresh) setRefreshing(true);
       else setLoading(true);
 
+      addLog(`Attempt ID: ${attemptId}`);
+
       const { data: attData, error: attErr } = await supabase
         .from('exam_attempts')
         .select('*, exams(*)')
@@ -83,19 +85,25 @@ const ExamResults = () => {
         setAttempt(attData);
         setExam(attData.exams);
 
-        const { data: theoryData } = await supabase
+        const { data: theoryData, error: theoryErr } = await supabase
           .from('theory_submissions')
           .select('*')
           .eq('attempt_id', attemptId);
         
+        if (theoryErr) addLog(`Theory Fetch Error: ${theoryErr.message}`);
+        addLog(`Theory Rows Found: ${theoryData?.length || 0}`);
+
         if (theoryData && theoryData.length > 0) {
             const sortedTheory = [...theoryData].sort((a, b) => {
-               const nA = parseInt(a.question_number || a.feedback || "0");
-               const nB = parseInt(b.question_number || b.feedback || "0");
+               const nA = parseInt(a.question_number || a.feedback || "0") || 0;
+               const nB = parseInt(b.question_number || b.feedback || "0") || 0;
                return nA - nB;
             });
             setTheorySubmissions(sortedTheory);
-            if (!selectedTheoryId) setSelectedTheoryId(sortedTheory[0].id);
+            // Ensure we select something
+            if (!selectedTheoryId || !sortedTheory.find(s => s.id === selectedTheoryId)) {
+                setSelectedTheoryId(sortedTheory[0].id);
+            }
         } else {
             setTheorySubmissions([]);
         }
@@ -118,8 +126,6 @@ const ExamResults = () => {
           .eq('attempt_id', attemptId);
         if (respData) setResponses(respData);
 
-        // AUTO-SYNC LOGIC: If we have responses but mcq_score is very low (likely uncalculated)
-        // OR if it's the first mount and we are not graded yet.
         if (!syncTriggered.current && attData.status !== 'graded' && respData && respData.length > 0) {
            syncTriggered.current = true;
            handleRegradeMcq();
@@ -148,7 +154,6 @@ const ExamResults = () => {
       });
       if (response.ok) {
         addLog("Sync complete. Re-fetching data...");
-        // Re-fetch without showing main loader
         const { data: reData } = await supabase.from('exam_attempts').select('*, exams(*)').eq('id', attemptId).single();
         if (reData) setAttempt(reData);
       }
@@ -157,6 +162,29 @@ const ExamResults = () => {
     } finally {
       setGradingMcq(false);
     }
+  };
+
+  const handleRegradeTheory = async () => {
+      try {
+          setRefreshing(true);
+          addLog("Re-triggering Theory Grader...");
+          const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+          const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
+          const endpoint = `${cleanBaseUrl}/api/v1/attempts/${attemptId}/grade`;
+          
+          const response = await fetch(endpoint, { method: 'POST' });
+          if (response.ok) {
+              addLog("Theory Grader initiated. Polling for results...");
+              // Poll once after 5 seconds
+              setTimeout(() => fetchResults(true), 5000);
+          } else {
+              addLog("Theory Grader failed to start.");
+          }
+      } catch (err: any) {
+          addLog(`Theory Grade Error: ${err.message}`);
+      } finally {
+          setRefreshing(false);
+      }
   };
 
   if (loading) {
@@ -218,7 +246,7 @@ const ExamResults = () => {
           </button>
           <div className="flex items-center gap-2">
             {gradingMcq && <Activity className="h-3 w-3 text-primary animate-pulse" />}
-            <button onClick={() => setShowDebug(!showDebug)} className="text-[10px] font-black text-slate-500 flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/5">
+            <button onClick={() => setShowDebug(!showDebug)} className="text-[10px] font-black text-slate-500 flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/5 transition-all active:scale-95">
                <Terminal className="h-3 w-3" /> <span className="hidden sm:inline">System Log</span>
             </button>
           </div>
@@ -226,8 +254,12 @@ const ExamResults = () => {
       </header>
 
       {showDebug && (
-        <div className="bg-black/80 backdrop-blur-md border-b border-white/10 p-6 font-mono text-[10px] text-emerald-400 overflow-y-auto max-h-40 animate-in slide-in-from-top-4 duration-300">
-           {debugLog.map((log, i) => <div key={i}>{log}</div>)}
+        <div className="bg-black/90 backdrop-blur-md border-b border-white/10 p-6 font-mono text-[10px] text-emerald-400 overflow-y-auto max-h-60 animate-in slide-in-from-top-4 duration-300 shadow-2xl relative z-[100]">
+           <div className="flex justify-between items-center mb-4">
+              <span className="text-slate-500 font-bold uppercase tracking-widest">Diagnostic Console</span>
+              <Button onClick={() => setDebugLog([])} className="h-6 px-3 bg-white/5 text-[10px] rounded-md">Clear</Button>
+           </div>
+           {debugLog.map((log, i) => <div key={i} className="mb-1 border-l border-white/10 pl-2">{log}</div>)}
         </div>
       )}
 
@@ -240,7 +272,6 @@ const ExamResults = () => {
 
         {view === 'overview' && (
           <div className="space-y-8 animate-in fade-in duration-500">
-            {/* HERO SECTION - DO NOT TOUCH LOGIC */}
             <div className="relative p-10 sm:p-14 rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl bg-[#030712]/40 backdrop-blur-xl">
                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
                <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -269,7 +300,6 @@ const ExamResults = () => {
                </div>
             </div>
 
-            {/* MOBILE REDESIGNED SCORE CARDS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
                   <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -304,64 +334,28 @@ const ExamResults = () => {
                </div>
             </div>
 
-            {/* ACTION GRID - REDESIGNED FOR MOBILE */}
             <div className="flex flex-col gap-4 mt-8">
-               <button 
-                onClick={() => setView('mcq')}
-                className="w-full p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-between group"
-               >
+               <button onClick={() => setView('mcq')} className="w-full p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-between group">
                   <div className="flex items-center gap-6">
-                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                       <ShieldCheck className="h-7 w-7 text-primary" />
-                    </div>
-                    <div className="text-left">
-                       <h4 className="text-lg font-black text-white">Review Mistakes</h4>
-                       <p className="text-xs font-medium text-slate-500 uppercase tracking-widest">Verify Logic Gaps</p>
-                    </div>
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><ShieldCheck className="h-7 w-7 text-primary" /></div>
+                    <div className="text-left"><h4 className="text-lg font-black text-white">Review Mistakes</h4><p className="text-xs font-medium text-slate-500 uppercase tracking-widest">Verify Logic Gaps</p></div>
                   </div>
                   <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-primary transition-colors" />
                </button>
-
-               <button 
-                onClick={() => setView('theory')}
-                className="w-full p-8 rounded-[2rem] bg-primary/10 border border-primary/20 hover:bg-primary/20 active:scale-[0.98] transition-all flex items-center justify-between group"
-               >
+               <button onClick={() => setView('theory')} className="w-full p-8 rounded-[2rem] bg-primary/10 border border-primary/20 hover:bg-primary/20 active:scale-[0.98] transition-all flex items-center justify-between group">
                   <div className="flex items-center gap-6">
-                    <div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
-                       <Cpu className="h-7 w-7 text-purple-400" />
-                    </div>
-                    <div className="text-left">
-                       <h4 className="text-lg font-black text-white">Forensic Theory Map</h4>
-                       <p className="text-xs font-medium text-purple-400 uppercase tracking-widest">AI Scoring Reasoning</p>
-                    </div>
+                    <div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><Cpu className="h-7 w-7 text-purple-400" /></div>
+                    <div className="text-left"><h4 className="text-lg font-black text-white">Forensic Theory Map</h4><p className="text-xs font-medium text-purple-400 uppercase tracking-widest">AI Scoring Reasoning</p></div>
                   </div>
                   <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-purple-400 transition-colors" />
                </button>
             </div>
-
-            <section className="mt-20 p-10 rounded-[3.5rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                <div className="relative z-10">
-                  <div className="h-16 w-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <GraduationCap className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-3xl font-black text-white mb-4">Push for the A1.</h3>
-                  <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10 leading-relaxed">
-                      You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
-                  </p>
-                  <Button onClick={() => navigate("/dashboard")} className="h-14 px-10 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-xl w-full sm:w-fit">
-                      Back to Dashboard
-                  </Button>
-                </div>
-            </section>
           </div>
         )}
 
         {view === 'mcq' && (
           <div className="space-y-6 animate-in fade-in duration-500 relative">
-             <div className="flex justify-center mb-4">
-                <button onClick={() => setShowMcqGrid(!showMcqGrid)} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><List className="h-3 w-3" /><span>Select Question</span><ChevronDown className={`h-3 w-3 transition-transform ${showMcqGrid ? 'rotate-180' : ''}`} /></button>
-             </div>
+             <div className="flex justify-center mb-4"><button onClick={() => setShowMcqGrid(!showMcqGrid)} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><List className="h-3 w-3" /><span>Select Question</span><ChevronDown className={`h-3 w-3 transition-transform ${showMcqGrid ? 'rotate-180' : ''}`} /></button></div>
              {showMcqGrid && (
                 <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
                    <div className="grid grid-cols-5 gap-2">
@@ -417,7 +411,19 @@ const ExamResults = () => {
                    </div>
                    <div className="flex items-center justify-between gap-4"><Button disabled={currentTheoryIdx <= 0} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 flex-1 transition-all"><ChevronLeft className="h-5 w-5 mr-2" /> Prev Question</Button><Button disabled={currentTheoryIdx >= theorySubmissions.length - 1} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 flex-1 shadow-lg shadow-purple-500/20 transition-all">Next Question <ChevronRight className="h-5 w-5 ml-2" /></Button></div>
                 </div>
-             ) : (<div className="p-24 text-center"><div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div><h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3><p className="text-slate-500 font-medium max-w-sm mx-auto">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing. Try refreshing."}</p>{!refreshing && <Button onClick={() => fetchResults(true)} className="mt-8 h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Retry Forensic Scan</Button>}</div>)}
+             ) : (
+                <div className="p-24 text-center">
+                   <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div>
+                   <h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3>
+                   <p className="text-slate-500 font-medium max-w-sm mx-auto mb-8">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing."}</p>
+                   {!refreshing && (
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                         <Button onClick={() => fetchResults(true)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-400 font-black">Manual Refresh</Button>
+                         <Button onClick={handleRegradeTheory} className="h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Trigger Forensic AI Scan</Button>
+                      </div>
+                   )}
+                </div>
+             )}
           </div>
         )}
       </main>
