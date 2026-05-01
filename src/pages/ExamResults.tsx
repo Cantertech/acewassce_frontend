@@ -6,7 +6,7 @@ import {
   Search, Sparkles, LayoutDashboard,
   FileText, XCircle, Info, ChevronRight,
   TrendingUp, Clock, BookOpen, GraduationCap,
-  ChevronLeft, List, Eye, Layers, Maximize2
+  ChevronLeft, List, Eye, Layers, Maximize2, RefreshCw
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
@@ -32,6 +32,7 @@ const ExamResults = () => {
   const attemptId = state?.attemptId;
 
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [attempt, setAttempt] = useState<any>(null);
   const [exam, setExam] = useState<any>(null);
   const [theorySubmissions, setTheorySubmissions] = useState<any[]>([]);
@@ -52,34 +53,52 @@ const ExamResults = () => {
     fetchResults();
   }, [attemptId]);
 
-  const fetchResults = async () => {
+  const fetchResults = async (isRefresh = false) => {
     try {
-      setLoading(true);
-      const { data: attData } = await supabase
+      if (isRefresh) setRefreshing(true);
+      else setLoading(true);
+
+      console.log("FETCHING RESULTS FOR ATTEMPT:", attemptId);
+
+      // 1. Fetch Attempt & Exam
+      const { data: attData, error: attErr } = await supabase
         .from('exam_attempts')
         .select('*, exams(*)')
         .eq('id', attemptId)
         .single();
 
+      if (attErr) throw attErr;
+
       if (attData) {
         setAttempt(attData);
         setExam(attData.exams);
 
-        const { data: theoryData } = await supabase
+        // 2. Fetch ALL Theory Submissions for this attempt
+        // We use a broader query to be sure we find them
+        const { data: theoryData, error: theoryErr } = await supabase
           .from('theory_submissions')
           .select('*')
           .eq('attempt_id', attemptId);
         
-        if (theoryData) {
-            const sortedTheory = theoryData.sort((a, b) => {
+        if (theoryErr) console.error("Theory Fetch Error:", theoryErr);
+        
+        console.log("THEORY DATA FOUND:", theoryData?.length || 0, theoryData);
+
+        if (theoryData && theoryData.length > 0) {
+            const sortedTheory = [...theoryData].sort((a, b) => {
                const nA = parseInt(a.question_number || "0");
                const nB = parseInt(b.question_number || "0");
                return nA - nB;
             });
             setTheorySubmissions(sortedTheory);
-            if (sortedTheory.length > 0) setSelectedTheoryId(sortedTheory[0].id);
+            if (!selectedTheoryId) setSelectedTheoryId(sortedTheory[0].id);
+        } else {
+            // If empty, try fetching by question_number if there's any link? 
+            // Usually attempt_id is the primary link.
+            setTheorySubmissions([]);
         }
 
+        // 3. Fetch Questions (MCQ)
         const { data: qData } = await supabase
           .from('questions')
           .select('*')
@@ -89,9 +108,10 @@ const ExamResults = () => {
         if (qData) {
           const sorted = qData.sort((a, b) => parseInt(a.question_number) - parseInt(b.question_number));
           setMcqQuestions(sorted);
-          if (sorted.length > 0) setSelectedMcqId(sorted[0].id);
+          if (sorted.length > 0 && !selectedMcqId) setSelectedMcqId(sorted[0].id);
         }
 
+        // 4. Fetch Responses
         const { data: respData } = await supabase
           .from('exam_responses')
           .select('*')
@@ -102,10 +122,10 @@ const ExamResults = () => {
       console.error("Error fetching results:", err.message);
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   };
 
-  // Helper to keep selectedTheoryId in sync if submissions change
   useEffect(() => {
     if (theorySubmissions.length > 0 && !selectedTheoryId) {
         setSelectedTheoryId(theorySubmissions[0].id);
@@ -152,13 +172,11 @@ const ExamResults = () => {
   const isSelectedCorrect = selectedResp && correctText && (selectedResp.selected_option === correctText);
   const currentMcqIdx = mcqQuestions.findIndex(q => q.id === selectedMcqId);
 
-  // Theory logic
   const selectedTheory = theorySubmissions.find(s => s.id === selectedTheoryId);
   const currentTheoryIdx = theorySubmissions.findIndex(s => s.id === selectedTheoryId);
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-50 font-inter selection:bg-primary/30 pb-20">
-      {/* ── AMBIENT BACKGROUND ── */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[80%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-500/5 rounded-full blur-[100px]" />
@@ -183,7 +201,6 @@ const ExamResults = () => {
 
       <main className="relative z-10 container max-w-4xl px-4 sm:px-6 pt-10 mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
         
-        {/* ── NAVIGATION TABS ── */}
         <div className="flex p-1 bg-white/5 rounded-2xl border border-white/5 mb-10 w-fit mx-auto sm:mx-0">
           {(['overview', 'mcq', 'theory'] as const).map((t) => (
             <button
@@ -200,7 +217,6 @@ const ExamResults = () => {
           ))}
         </div>
 
-        {/* ── VIEW 1: OVERVIEW ── */}
         {view === 'overview' && (
           <div className="space-y-8 animate-in fade-in duration-500">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -284,7 +300,6 @@ const ExamResults = () => {
           </div>
         )}
 
-        {/* ── VIEW 2: MCQ FORENSICS ── */}
         {view === 'mcq' && (
           <div className="space-y-6 animate-in fade-in duration-500 relative">
              <div className="flex justify-center mb-4">
@@ -306,14 +321,10 @@ const ExamResults = () => {
                          const correctT = getCorrectOptionText(q.marking_scheme, q.options || []);
                          const isCorrect = resp && correctT && (resp.selected_option === correctT);
                          const isSelected = selectedMcqId === q.id;
-
                          return (
                             <button
                                key={q.id}
-                               onClick={() => {
-                                  setSelectedMcqId(q.id);
-                                  setShowMcqGrid(false);
-                               }}
+                               onClick={() => { setSelectedMcqId(q.id); setShowMcqGrid(false); }}
                                className={`h-10 rounded-lg flex items-center justify-center font-black text-xs transition-all ${
                                   isSelected ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''
                                } ${
@@ -344,65 +355,30 @@ const ExamResults = () => {
                             {isSelectedCorrect ? 'Correct Path' : 'Logic Mismatch'}
                          </div>
                       </div>
-
                       <div className="text-2xl font-bold text-white mb-10 leading-relaxed">
                          <LatexRenderer text={selectedQ.question_text} />
                       </div>
-
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                          {(selectedQ.options || []).map((opt: any) => {
                             const isThisCorrect = (correctText && opt.text === correctText);
                             const wasThisPicked = (selectedResp && opt.text === selectedResp.selected_option);
                             return (
-                                <div 
-                                  key={opt.id}
-                                  className={`p-6 rounded-2xl border flex items-center gap-5 transition-all ${
-                                    isThisCorrect ? 'bg-emerald-500/10 border-emerald-500/40 ring-1 ring-emerald-500/20' : 
-                                    wasThisPicked ? 'bg-rose-500/10 border-rose-500/40' : 'bg-white/5 border-white/5 opacity-50'
-                                  }`}
-                                >
-                                   <div className={`h-8 w-8 rounded-xl flex items-center justify-center font-black text-sm ${
-                                      isThisCorrect ? 'bg-emerald-500 text-white' : wasThisPicked ? 'bg-rose-500 text-white' : 'bg-white/10 text-slate-400'
-                                   }`}>
-                                      {opt.id}
-                                   </div>
-                                   <div className="text-base font-bold text-slate-200">
-                                      <LatexRenderer text={opt.text} />
-                                   </div>
+                                <div key={opt.id} className={`p-6 rounded-2xl border flex items-center gap-5 transition-all ${isThisCorrect ? 'bg-emerald-500/10 border-emerald-500/40 ring-1 ring-emerald-500/20' : wasThisPicked ? 'bg-rose-500/10 border-rose-500/40' : 'bg-white/5 border-white/5 opacity-50'}`}>
+                                   <div className={`h-8 w-8 rounded-xl flex items-center justify-center font-black text-sm ${isThisCorrect ? 'bg-emerald-500 text-white' : wasThisPicked ? 'bg-rose-500 text-white' : 'bg-white/10 text-slate-400'}`}>{opt.id}</div>
+                                   <div className="text-base font-bold text-slate-200"><LatexRenderer text={opt.text} /></div>
                                    {isThisCorrect && <CheckCircle2 className="h-5 w-5 text-emerald-400 ml-auto" />}
                                    {wasThisPicked && !isThisCorrect && <XCircle className="h-5 w-5 text-rose-400 ml-auto" />}
                                 </div>
                             );
                          })}
                       </div>
-
-                      <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                         <div className="flex items-center gap-2 mb-4 text-slate-600">
-                            <Info className="h-4 w-4" />
-                            <span className="text-[10px] font-black uppercase tracking-widest">Examiner Solution</span>
-                         </div>
-                         <div className="text-slate-400 italic text-sm leading-relaxed">
-                            <LatexRenderer text={selectedQ.marking_scheme || "Calculating logic..."} />
-                         </div>
-                      </div>
                    </div>
-
                    <div className="flex items-center justify-between gap-4">
-                      <Button
-                        disabled={currentMcqIdx === 0}
-                        onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id)}
-                        className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 transition-all font-bold flex-1"
-                      >
-                         <ChevronLeft className="h-5 w-5 mr-2" />
-                         Previous
+                      <Button disabled={currentMcqIdx === 0} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 transition-all font-bold flex-1">
+                         <ChevronLeft className="h-5 w-5 mr-2" /> Previous
                       </Button>
-                      <Button
-                        disabled={currentMcqIdx === mcqQuestions.length - 1}
-                        onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id)}
-                        className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-30 transition-all font-black flex-1 shadow-lg shadow-primary/20"
-                      >
-                         Next
-                         <ChevronRight className="h-5 w-5 ml-2" />
+                      <Button disabled={currentMcqIdx === mcqQuestions.length - 1} onClick={() => setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id)} className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-30 transition-all font-black flex-1 shadow-lg shadow-primary/20">
+                         Next <ChevronRight className="h-5 w-5 ml-2" />
                       </Button>
                    </div>
                 </div>
@@ -415,12 +391,9 @@ const ExamResults = () => {
           </div>
         )}
 
-        {/* ── VIEW 3: THEORY FORENSICS ── */}
         {view === 'theory' && (
           <div className="space-y-8 animate-in fade-in duration-500 relative">
-             
-             {/* 1. SELECTOR BUTTON */}
-             <div className="flex justify-center">
+             <div className="flex justify-center gap-4">
                 <button 
                   onClick={() => setShowTheoryGrid(!showTheoryGrid)}
                   className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-purple-400 hover:bg-purple-500/20 transition-all active:scale-95 shadow-lg shadow-purple-500/5"
@@ -429,9 +402,16 @@ const ExamResults = () => {
                    <span>Theory Navigator</span>
                    <ChevronDown className={`h-3 w-3 transition-transform ${showTheoryGrid ? 'rotate-180' : ''}`} />
                 </button>
+                <button 
+                  onClick={() => fetchResults(true)}
+                  disabled={refreshing}
+                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all active:scale-95"
+                >
+                   <RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} />
+                   <span>Refresh</span>
+                </button>
              </div>
 
-             {/* 2. GRID SELECTOR */}
              {showTheoryGrid && (
                 <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
                    <div className="grid grid-cols-4 gap-3">
@@ -439,19 +419,7 @@ const ExamResults = () => {
                          const isSelected = selectedTheoryId === sub.id;
                          const isGood = (sub.marks_attained || 0) >= 5;
                          return (
-                            <button
-                               key={sub.id}
-                               onClick={() => {
-                                  setSelectedTheoryId(sub.id);
-                                  setShowTheoryGrid(false);
-                               }}
-                               className={`h-12 rounded-xl flex flex-col items-center justify-center transition-all ${
-                                  isSelected ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''
-                               } ${
-                                  isGood ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 
-                                  'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-                               }`}
-                            >
+                            <button key={sub.id} onClick={() => { setSelectedTheoryId(sub.id); setShowTheoryGrid(false); }} className={`h-12 rounded-xl flex flex-col items-center justify-center transition-all ${isSelected ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${isGood ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}>
                                <span className="text-[10px] font-black uppercase tracking-widest opacity-50">Q{sub.question_number}</span>
                                <span className="text-sm font-black">{sub.marks_attained || 0}</span>
                             </button>
@@ -461,45 +429,23 @@ const ExamResults = () => {
                 </div>
              )}
 
-             {/* 3. SPLIT FORENSIC VIEWPORT */}
              {selectedTheory ? (
                 <div className="space-y-12">
                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                      
-                      {/* DIGITAL SCAN (LEFT - 3/5) */}
                       <div className="lg:col-span-3 space-y-4">
-                         <div className="flex items-center justify-between mb-4 px-2">
-                            <div className="flex items-center gap-3">
-                               <div className="h-8 w-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                                  <Eye className="h-4 w-4 text-primary" />
-                               </div>
-                               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Digital Lightbox Scan</span>
-                            </div>
-                         </div>
-                         
-                         <div className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-black/40 shadow-3xl group relative">
-                            <img 
-                              src={selectedTheory.image_url} 
-                              alt="Submission Scan" 
-                              className="w-full h-auto object-contain min-h-[400px] max-h-[600px] transition-all duration-700 filter brightness-110 contrast-[1.05]" 
-                            />
+                         <div className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-black/40 shadow-3xl">
+                            <img src={selectedTheory.image_url} alt="Submission Scan" className="w-full h-auto object-contain min-h-[400px] max-h-[600px] filter brightness-110 contrast-[1.05]" />
                          </div>
                       </div>
-
-                      {/* AI LOGIC & SCORE (RIGHT - 2/5) */}
                       <div className="lg:col-span-2 space-y-6">
                          <div className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl flex flex-col items-center text-center">
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4">Question {selectedTheory.question_number} Score</span>
                             <div className="relative h-24 w-24 flex items-center justify-center mb-2">
                                <div className={`absolute inset-0 rounded-full blur-2xl opacity-20 ${selectedTheory.marks_attained >= 5 ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-                               <span className={`text-5xl font-black relative ${selectedTheory.marks_attained >= 5 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                  {selectedTheory.marks_attained || 0}
-                               </span>
+                               <span className={`text-5xl font-black relative ${selectedTheory.marks_attained >= 5 ? 'text-emerald-400' : 'text-rose-400'}`}>{selectedTheory.marks_attained || 0}</span>
                             </div>
-                            <span className="text-xs font-bold text-slate-600">Marks out of 10.0</span>
                          </div>
-
-                         <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl relative overflow-hidden group">
+                         <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl">
                             <h5 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-8">AI Logic Verification</h5>
                             <div className="text-base text-slate-300 leading-relaxed font-medium italic space-y-6">
                                <LatexRenderer text={selectedTheory.feedback || "Detailed step-by-step logic analysis is being processed..."} />
@@ -507,38 +453,33 @@ const ExamResults = () => {
                          </div>
                       </div>
                    </div>
-
                    <div className="flex items-center justify-between gap-4">
-                      <Button
-                        disabled={currentTheoryIdx <= 0}
-                        onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)}
-                        className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 transition-all font-bold flex-1"
-                      >
-                         <ChevronLeft className="h-5 w-5 mr-2" />
-                         Prev Question
+                      <Button disabled={currentTheoryIdx <= 0} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-30 transition-all font-bold flex-1">
+                         <ChevronLeft className="h-5 w-5 mr-2" /> Prev Question
                       </Button>
-                      <Button
-                        disabled={currentTheoryIdx >= theorySubmissions.length - 1}
-                        onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)}
-                        className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-30 transition-all font-black flex-1 shadow-lg shadow-purple-500/20"
-                      >
-                         Next Question
-                         <ChevronRight className="h-5 w-5 ml-2" />
+                      <Button disabled={currentTheoryIdx >= theorySubmissions.length - 1} onClick={() => setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id)} className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-30 transition-all font-black flex-1 shadow-lg shadow-purple-500/20">
+                         Next Question <ChevronRight className="h-5 w-5 ml-2" />
                       </Button>
                    </div>
                 </div>
              ) : (
                 <div className="p-24 text-center">
                    <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10">
-                      <Layers className="h-10 w-10 text-slate-500 animate-pulse" />
+                      <Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} />
                    </div>
-                   <h3 className="text-2xl font-black text-white mb-2">No Workings Found</h3>
-                   <p className="text-slate-500 font-medium max-w-sm mx-auto">Either theory images haven't been uploaded yet, or the forensic scan is still processing.</p>
+                   <h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3>
+                   <p className="text-slate-500 font-medium max-w-sm mx-auto">
+                      {refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing. Try refreshing."}
+                   </p>
+                   {!refreshing && (
+                      <Button onClick={() => fetchResults(true)} className="mt-8 h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">
+                         Retry Forensic Scan
+                      </Button>
+                   )}
                 </div>
              )}
           </div>
         )}
-
       </main>
     </div>
   );
