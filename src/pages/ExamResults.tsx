@@ -372,26 +372,6 @@ const ExamResults = () => {
                          <ChevronRight className="h-5 w-5 ml-2" />
                       </Button>
                    </div>
-
-                   {/* 5. REPLICATED MOTIVATION SECTION FOR MCQ TAB */}
-                   <section className="mt-16 p-12 rounded-[3.5rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group shadow-3xl">
-                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                      <div className="relative z-10">
-                         <GraduationCap className="h-14 w-14 text-primary mx-auto mb-8 group-hover:rotate-12 transition-all duration-500" />
-                         <h3 className="text-4xl font-black text-white mb-4">Push for the A1.</h3>
-                         <p className="text-slate-400 font-medium max-w-sm mx-auto mb-12 leading-relaxed text-lg">
-                            You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
-                         </p>
-                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <Button 
-                               onClick={() => navigate("/dashboard")} 
-                               className="h-16 px-12 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-2xl transition-all w-full sm:w-fit text-lg"
-                            >
-                               Back to Dashboard
-                            </Button>
-                         </div>
-                      </div>
-                   </section>
                 </div>
              )}
           </div>
@@ -468,24 +448,22 @@ const ExamResults = () => {
           </div>
         )}
 
-        {/* ── 4. GLOBAL FOOTER MOTIVATION (Kept for Overview/Theory) ── */}
-        {(view === 'overview' || view === 'theory') && (
-            <section className="mt-24 p-12 rounded-[4rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                <div className="relative z-10">
-                <GraduationCap className="h-12 w-12 text-primary mx-auto mb-6" />
-                <h3 className="text-4xl font-black text-white mb-4">Push for the A1.</h3>
-                <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10 leading-relaxed text-lg">
-                    You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Button onClick={() => navigate("/dashboard")} className="h-16 px-12 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-xl transition-all w-full sm:w-fit text-lg">
-                        Back to Dashboard
-                    </Button>
-                </div>
-                </div>
-            </section>
-        )}
+        {/* ── 4. GLOBAL FOOTER MOTIVATION (Visible for ALL views except maybe overview if it feels redundant) ── */}
+        <section className="mt-24 p-12 rounded-[4rem] border border-white/5 bg-[#030712] text-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+            <div className="relative z-10">
+            <GraduationCap className="h-12 w-12 text-primary mx-auto mb-6" />
+            <h3 className="text-4xl font-black text-white mb-4">Push for the A1.</h3>
+            <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10 leading-relaxed text-lg">
+                You are currently at the <span className={`font-black ${gradeInfo.color}`}>{gradeInfo.label}</span> level. Strengthen your theory logic to reach the top.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button onClick={() => navigate("/dashboard")} className="h-16 px-12 rounded-2xl bg-white text-[#020617] hover:bg-white/90 font-black shadow-xl transition-all w-full sm:w-fit text-lg">
+                    Back to Dashboard
+                </Button>
+            </div>
+            </div>
+        </section>
 
       </main>
     </div>
