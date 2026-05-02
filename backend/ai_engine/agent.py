@@ -138,12 +138,18 @@ async def batch_grade_node(state: GradingState):
                 
                 response = await llm.ainvoke(messages)
                 content = response.content.replace("```json", "").replace("```", "").strip()
+                
+                # Sanitize LaTeX backslashes that break JSON parsing
+                import re as _re
+                content = _re.sub(r'(?<!\\)\\(?!["\\/bfnrtu])', r'\\\\', content)
+                
                 data = json.loads(content)
                 bundle_results = data.get("results", [])
                 
                 for res in bundle_results:
                     qn = str(res.get("question_number"))
-                    score = res.get("score", 0)
+                    raw_score = res.get("score", 0)
+                    score = int(round(float(raw_score))) if raw_score is not None else 0
                     reasoning = res.get("summative_reasoning", "No reasoning.")
                     ocr = res.get("ocr_transcript", "No OCR.")
                     

@@ -241,14 +241,14 @@ const TheoryExam = () => {
   if (isSubmitting) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
-        <div className="relative mb-8">
-          <div className="h-24 w-24 animate-spin rounded-full border-4 border-emerald-500/20 border-t-emerald-500 shadow-glow" />
+        <div className="relative mb-6">
+          <div className="h-20 w-20 rounded-full border-[3px] border-white/5 border-t-emerald-500 animate-spin" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Upload className="h-8 w-8 text-emerald-500 animate-bounce" />
+            <Upload className="h-7 w-7 text-emerald-500" />
           </div>
         </div>
-        <h2 className="font-display text-2xl font-extrabold text-white mb-2 uppercase tracking-tight">Syncing Papers...</h2>
-        <p className="text-muted-foreground animate-pulse font-medium">Securing your answers on our servers</p>
+        <h2 className="font-display text-lg font-extrabold text-white mb-1">Submitting Papers</h2>
+        <p className="text-xs text-muted-foreground font-medium animate-pulse">Securing your answers on our servers...</p>
       </div>
     );
   }
@@ -275,145 +275,177 @@ const TheoryExam = () => {
     const question = questions[currentIdx];
 
     return (
-      <div className="min-h-screen bg-background text-foreground flex flex-col pb-24 overflow-x-hidden">
-        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/10">
-          <div className="container max-w-3xl flex h-16 items-center justify-between px-4">
-            <button 
+      <div className="min-h-screen bg-background text-foreground flex flex-col pb-20 overflow-x-hidden">
+        {/* ── STICKY HEADER ── */}
+        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/5">
+          <div className="container max-w-3xl flex h-14 items-center justify-between px-4">
+            <button
               onClick={() => setShowExitConfirm(true)}
-              className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-white transition-colors"
+              className="h-8 w-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all"
             >
-              <X className="h-5 w-5" />
-              <span className="hidden sm:inline">Exit</span>
+              <X className="h-4 w-4" />
             </button>
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Exam Timer</span>
-              <div className={`flex items-center gap-1.5 font-display text-lg font-extrabold ${timeLeft < 600 ? 'text-red-500 animate-pulse' : 'text-white'}`}>
-                <Clock className="h-4 w-4" />
-                {formatTime(timeLeft)}
-              </div>
+
+            {/* Timer pill */}
+            <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border ${timeLeft < 600 ? 'bg-red-500/10 border-red-500/20 text-red-400 animate-pulse' : 'bg-white/5 border-white/10 text-white'}`}>
+              <Clock className="h-3 w-3" />
+              <span className="text-xs font-black font-display">{formatTime(timeLeft)}</span>
             </div>
-            
-            <button 
+
+            {/* Question counter */}
+            <button
               onClick={() => setShowNavigator(true)}
-              className="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 text-sm font-bold text-muted-foreground hover:bg-white/10 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black text-slate-400 hover:bg-white/10 hover:text-white transition-all"
             >
-              <LayoutGrid className="h-4 w-4 text-primary" />
-              <span className="text-white">{currentIdx + 1}</span> / {questions.length}
+              <LayoutGrid className="h-3 w-3 text-primary" />
+              <span className="text-white">{currentIdx + 1}</span>/{questions.length}
             </button>
           </div>
         </header>
 
-        <main className="flex-1 container max-w-3xl px-4 py-8 animate-fade-up">
-          <div className="flex flex-col gap-8 max-w-full">
-            {/* INSTRUCTIONS DROPDOWN */}
-            <div className={`bg-blue-500/5 border border-blue-500/10 rounded-xl overflow-hidden transition-all duration-300 ${showInstructions ? 'pb-4' : 'pb-0'}`}>
-              <button 
-                onClick={() => setShowInstructions(!showInstructions)}
-                className="w-full flex items-center justify-between p-3 sm:p-4 text-left hover:bg-white/5 transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="shrink-0 h-6 w-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
-                    <span className="font-bold text-[10px]">i</span>
-                  </span>
-                  <p className="font-display font-bold text-blue-400 text-xs sm:text-sm">Exam Instructions & Coverage</p>
-                </div>
-                {showInstructions ? <ChevronUp className="h-4 w-4 text-blue-400" /> : <ChevronDown className="h-4 w-4 text-blue-400" />}
-              </button>
+        <main className="flex-1 container max-w-3xl px-4 py-6 animate-fade-up">
+          {/* ── QUESTION NAVIGATOR RAIL ── */}
+          <div className="flex gap-1.5 overflow-x-auto pb-3 mb-5 no-scrollbar snap-x">
+            {questions.map((q, i) => {
+              const isCurrent = currentIdx === i;
+              const isCompulsory = parseInt(q.question_number) <= (examMetadata?.compulsory_questions || 5);
+              return (
+                <button
+                  key={q.id}
+                  onClick={() => setCurrentIdx(i)}
+                  className={`
+                    flex-shrink-0 h-9 w-9 rounded-xl flex items-center justify-center font-black text-[11px] transition-all snap-start
+                    ${isCurrent
+                      ? 'bg-primary text-white shadow-lg shadow-primary/20 border-2 border-primary'
+                      : isCompulsory
+                        ? 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10'
+                        : 'bg-purple-500/5 text-purple-400 border border-purple-500/10 hover:bg-purple-500/10'
+                    }
+                  `}
+                >
+                  {q.question_number}
+                </button>
+              );
+            })}
+          </div>
 
-              {showInstructions && (
-                <div className="px-4 animate-fade-in">
-                  <p className="text-xs text-blue-100/70 leading-relaxed mb-4 pl-8 border-l border-blue-500/20">
-                    {examMetadata?.theory_instructions || "Please focus on speed and accuracy. Answer all compulsory questions first."}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pl-8">
-                    <span className="px-2 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-[9px] font-black text-blue-300 uppercase tracking-widest">Part I: Compulsory Cases</span>
-                    <span className="px-2 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-black text-emerald-300 uppercase tracking-widest">Part II: Optional Section</span>
-                  </div>
-                </div>
-              )}
+          {/* ── INSTRUCTIONS (collapsible) ── */}
+          <div className={`rounded-2xl overflow-hidden border transition-all duration-300 mb-5 ${showInstructions ? 'bg-blue-500/5 border-blue-500/10' : 'bg-white/[0.02] border-white/5'}`}>
+            <button
+              onClick={() => setShowInstructions(!showInstructions)}
+              className="w-full flex items-center justify-between p-3 text-left hover:bg-white/[0.03] transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="shrink-0 h-5 w-5 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400">
+                  <span className="font-black text-[8px]">i</span>
+                </span>
+                <p className="font-bold text-blue-400 text-[10px] uppercase tracking-widest">Instructions</p>
+              </div>
+              {showInstructions ? <ChevronUp className="h-3.5 w-3.5 text-blue-400" /> : <ChevronDown className="h-3.5 w-3.5 text-blue-400" />}
+            </button>
+            {showInstructions && (
+              <div className="px-3 pb-3">
+                <p className="text-[11px] text-blue-100/60 leading-relaxed pl-7 border-l border-blue-500/15">
+                  {examMetadata?.theory_instructions || "Answer all compulsory questions. Choose from the optional section as required."}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* ── QUESTION CONTENT ── */}
+          <div className="space-y-5">
+            {/* Part & Question badge */}
+            <div className="flex items-center gap-2">
+              <span className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest ${
+                parseInt(question?.question_number) <= (examMetadata?.compulsory_questions || 5)
+                  ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/15'
+                  : 'bg-purple-500/10 text-purple-400 border border-purple-500/15'
+              }`}>
+                {parseInt(question?.question_number) <= (examMetadata?.compulsory_questions || 5) ? 'Compulsory' : 'Optional'}
+              </span>
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                Question {question?.question_number}
+              </span>
             </div>
 
-            <div className="relative">
-              <span className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold mb-4 uppercase tracking-widest bg-emerald-500/5 text-emerald-400 border-emerald-500/10">
-                {parseInt(question?.question_number) <= (examMetadata?.compulsory_questions || 5) ? "Part I • Compulsory" : "Part II • Optional Section"} • Question {question?.question_number}
-              </span>
+            {/* Diagram (if exists) */}
+            {question?.image_url && (
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/20 shadow-xl">
+                <img
+                  src={question.image_url}
+                  alt={`Diagram for Q${question.question_number}`}
+                  className="w-full h-auto object-contain max-h-[350px] mx-auto filter brightness-110"
+                />
+              </div>
+            )}
 
-              {/* DIAGRAM DISPLAY - NOW ABOVE TEXT */}
-              {question?.image_url && (
-                <div className="mb-6 overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-2 shadow-2xl backdrop-blur-xl">
-                  <div className="relative group">
-                    <img 
-                      src={question.image_url} 
-                      alt={`Diagram for Question ${question.question_number}`}
-                      className="w-full h-auto object-contain rounded-2xl max-h-[400px] mx-auto filter brightness-110"
-                    />
-                  </div>
-                </div>
-              )}
-
-              <div className="text-xl sm:text-2xl text-white/90 whitespace-pre-wrap leading-relaxed font-medium tracking-wide break-words w-full py-2">
+            {/* Question text */}
+            <div className="rounded-2xl bg-white/[0.02] border border-white/5 p-5 sm:p-6">
+              <div className="text-base sm:text-lg text-white/90 whitespace-pre-wrap leading-relaxed font-medium tracking-wide break-words">
                 <LatexRenderer text={question?.question_text || ""} />
               </div>
             </div>
-            
-            {/* Render sub-questions if they exist */}
+
+            {/* Sub-questions */}
             {question?.sub_questions?.length > 0 && (
-              <div className="mt-6 flex flex-col gap-4">
-                {question.sub_questions.map((sub: any, idx: number) => {
-                  return (
-                    <div key={idx} className="flex flex-col gap-2">
-                      <div className="pl-5 border-l-2 border-white/10 text-lg sm:text-xl text-white/80 whitespace-pre-wrap leading-relaxed font-medium break-words w-full py-1">
+              <div className="space-y-3 pl-2">
+                {question.sub_questions.map((sub: any, idx: number) => (
+                  <div key={idx} className="space-y-2">
+                    <div className="flex gap-3 items-start pl-3 border-l-2 border-primary/20">
+                      <div className="text-sm sm:text-base text-white/80 whitespace-pre-wrap leading-relaxed font-medium break-words flex-1 py-1">
                         <LatexRenderer text={sub.question_text || sub.text || ""} />
                       </div>
-                      
-                      {/* Render nested sub-sub-questions if they exist (e.g., Roman numerals i, ii, iii) */}
-                      {sub.sub_questions?.length > 0 && (
-                        <div className="ml-8 flex flex-col gap-3 mt-2">
-                          {sub.sub_questions.map((subsub: any, subIdx: number) => (
-                            <div key={subIdx} className="pl-5 border-l-2 border-white/5 text-base sm:text-lg text-white/70 whitespace-pre-wrap leading-relaxed font-medium break-words w-full py-1">
+                    </div>
+
+                    {/* Nested sub-sub-questions */}
+                    {sub.sub_questions?.length > 0 && (
+                      <div className="ml-6 space-y-2">
+                        {sub.sub_questions.map((subsub: any, subIdx: number) => (
+                          <div key={subIdx} className="pl-3 border-l-2 border-white/5 py-1">
+                            <div className="text-sm text-white/65 whitespace-pre-wrap leading-relaxed font-medium break-words">
                               <LatexRenderer text={subsub.question_text || subsub.text || ""} />
                             </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             )}
           </div>
         </main>
 
-        <footer className="fixed bottom-0 left-0 right-0 z-40 bg-card/90 backdrop-blur-xl border-t border-white/10 p-4">
-          <div className="container max-w-3xl flex items-center justify-between">
-            <Button
-              variant="outline"
-              size="lg"
+        {/* ── FIXED BOTTOM NAV ── */}
+        <footer className="fixed bottom-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-xl border-t border-white/5 p-3">
+          <div className="container max-w-3xl flex items-center gap-3">
+            <button
               onClick={() => setCurrentIdx(currentIdx - 1)}
               disabled={isFirst}
-              className="rounded-xl border-white/10 hover:bg-white/10 disabled:opacity-30"
+              className="h-12 px-5 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex items-center justify-center font-bold gap-1.5 transition-all flex-1"
             >
-              <ChevronLeft className="mr-1 h-5 w-5" />
-              Prev
-            </Button>
+              <ChevronLeft className="h-4 w-4" /> Prev
+            </button>
+
+            <div className="flex flex-col items-center px-2 shrink-0">
+              <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">Q</span>
+              <span className="text-base font-black text-white">{currentIdx + 1}</span>
+            </div>
 
             {isLast ? (
-              <Button
-                size="lg"
+              <button
                 onClick={() => handleEndReading()}
-                className="rounded-xl px-6 sm:px-8 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold shadow-glow hover:scale-105 transition-transform border-0"
+                className="h-12 px-5 rounded-2xl bg-emerald-500 text-white hover:bg-emerald-400 shadow-lg shadow-emerald-500/20 flex items-center justify-center font-bold gap-1.5 transition-all flex-1"
               >
-                <UploadCloud className="mr-2 h-5 w-5" /> Start Uploading Scans
-              </Button>
+                <UploadCloud className="h-4 w-4" /> Upload Scans
+              </button>
             ) : (
-              <Button
-                size="lg"
+              <button
                 onClick={() => setCurrentIdx(currentIdx + 1)}
-                className="rounded-xl bg-white text-primary hover:bg-white/90 font-bold"
+                className="h-12 px-5 rounded-2xl bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 flex items-center justify-center font-bold gap-1.5 transition-all flex-1"
               >
-                Next
-                <ChevronRight className="ml-1 h-5 w-5" />
-              </Button>
+                Next <ChevronRight className="h-4 w-4" />
+              </button>
             )}
           </div>
         </footer>
@@ -446,7 +478,7 @@ const TheoryExam = () => {
                 <UploadCloud className="h-6 w-6" />
               </div>
               <h3 className="font-display text-xl font-extrabold text-white mb-2">Start Scanning?</h3>
-              <p className="text-sm text-muted-foreground mb-6">Are you sure you want to close the question paper and start uploading your workings?</p>
+              <p className="text-sm text-muted-foreground mb-6">Close the paper and start uploading your workings?</p>
               <div className="flex gap-3">
                 <Button variant="outline" onClick={() => setShowStartUploadConfirm(false)} className="flex-1 rounded-xl border-white/10">Cancel</Button>
                 <Button onClick={() => { setShowStartUploadConfirm(false); setMode('uploading'); }} className="flex-1 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold border-0 shadow-glow">Continue</Button>
@@ -460,36 +492,26 @@ const TheoryExam = () => {
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-background/90 backdrop-blur-sm" onClick={() => setShowNavigator(false)} />
             <div className="relative w-full max-w-sm bg-card border border-white/10 rounded-3xl p-6 shadow-elevated animate-fade-up">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="font-display text-xl font-extrabold text-white">Theory Navigator</h3>
-                <button 
-                  onClick={() => setShowNavigator(false)} 
-                  className="h-8 w-8 flex items-center justify-center rounded-full bg-white/10 text-muted-foreground hover:text-white transition-colors"
-                >
-                  <X className="h-4 w-4" />
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="font-display text-base font-extrabold text-white">Jump to Question</h3>
+                <button onClick={() => setShowNavigator(false)} className="h-7 w-7 flex items-center justify-center rounded-full bg-white/10 text-slate-400 hover:text-white transition-colors">
+                  <X className="h-3.5 w-3.5" />
                 </button>
               </div>
-              
-              <div className="flex flex-wrap gap-3 max-h-[50vh] overflow-y-auto pr-2 scrollbar-hide">
-                {questions.map((q, i) => {
-                  const isCurrent = currentIdx === i;
-                  return (
-                    <button
-                      key={q.id}
-                      onClick={() => {
-                        setCurrentIdx(i);
-                        setShowNavigator(false);
-                      }}
-                      className={`flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold transition-all ${
-                        isCurrent 
-                          ? 'ring-2 ring-primary ring-offset-2 ring-offset-background bg-white/10 text-white' 
-                          : 'bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10 hover:text-white'
-                      }`}
-                    >
-                      {i + 1}
-                    </button>
-                  );
-                })}
+              <div className="grid grid-cols-5 gap-2 max-h-[50vh] overflow-y-auto">
+                {questions.map((q, i) => (
+                  <button
+                    key={q.id}
+                    onClick={() => { setCurrentIdx(i); setShowNavigator(false); }}
+                    className={`h-10 rounded-xl flex items-center justify-center text-xs font-black transition-all ${
+                      currentIdx === i
+                        ? 'bg-primary text-white ring-2 ring-primary ring-offset-2 ring-offset-card'
+                        : 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 hover:text-white'
+                    }`}
+                  >
+                    {q.question_number}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
@@ -504,83 +526,95 @@ const TheoryExam = () => {
   const totalUploaded = uploadQueue.filter(i => i.progress === 100).length;
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col pb-24 overflow-x-hidden">
-      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/10">
-        <div className="container max-w-2xl flex h-16 items-center justify-between px-4">
-          <div className="font-display text-sm font-extrabold text-white uppercase tracking-tight">Bulk Scanner</div>
-          <div className="text-xs font-bold text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-white/10">
-            <span className="text-emerald-400">{totalUploaded}</span> / {uploadQueue.length} Synced
+    <div className="min-h-screen bg-background text-foreground flex flex-col pb-20 overflow-x-hidden">
+      {/* ── HEADER ── */}
+      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/5">
+        <div className="container max-w-2xl flex h-14 items-center justify-between px-4">
+          <span className="font-display text-xs font-extrabold text-white uppercase tracking-widest">Upload Workings</span>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-black">
+            <span className="text-emerald-400">{totalUploaded}</span>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-400">{uploadQueue.length}</span>
+            <span className="text-[9px] text-slate-500 ml-0.5">synced</span>
           </div>
         </div>
       </header>
 
-      <main className="flex-1 container max-w-2xl px-4 py-8 flex flex-col animate-fade-in">
-        <div className="text-center mb-8">
-          <h2 className="font-display text-2xl font-extrabold text-white mb-2 italic">Capture All Workings</h2>
-          <p className="text-xs text-muted-foreground leading-relaxed px-6">
-            Snap your pages in any order. <span className="text-primary font-bold">Write the question number clearly</span> on top of each page so our AI can sort them.
+      <main className="flex-1 container max-w-2xl px-4 py-6 flex flex-col">
+        {/* Instructions */}
+        <div className="text-center mb-6">
+          <h2 className="font-display text-lg font-extrabold text-white mb-1">Capture Your Pages</h2>
+          <p className="text-[11px] text-muted-foreground leading-relaxed max-w-xs mx-auto">
+            Snap each page of your workings. <span className="text-primary font-bold">Write question numbers clearly</span> on top.
           </p>
         </div>
 
-        {/* UPLOAD GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
-          {/* CAMERA TRIGGER */}
-          <button 
+        {/* Upload Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+          {/* Camera trigger */}
+          <button
             onClick={handleCaptureImage}
-            className="aspect-[3/4] flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/40 bg-primary/5 hover:bg-primary/10 hover:border-primary transition-all group"
+            className="aspect-[3/4] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary transition-all group"
           >
-            <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <Camera className="h-6 w-6 text-primary" />
+            <div className="h-10 w-10 bg-primary/15 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <Camera className="h-5 w-5 text-primary" />
             </div>
-            <p className="text-[10px] font-black uppercase text-primary tracking-widest">Snap Page</p>
+            <p className="text-[9px] font-black uppercase text-primary tracking-widest">Snap Page</p>
           </button>
 
-          {/* QUEUE ITEMS */}
+          {/* Queued images */}
           {uploadQueue.map((item: any, i) => (
-            <div key={item.id} className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 bg-white/5 animate-fade-up">
+            <div key={item.id} className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] animate-fade-up">
               {item.url ? (
                 <>
                   <img src={item.url} className="w-full h-full object-cover" />
-                  <div className="absolute top-2 right-2 h-5 w-5 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-background shadow-glow">
+                  <div className="absolute top-1.5 right-1.5 h-5 w-5 bg-emerald-500 rounded-lg flex items-center justify-center shadow-lg">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   {item.tags && (
-                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-primary/80 backdrop-blur-md rounded-lg border border-primary/20 shadow-lg">
-                       <p className="text-[8px] font-black text-white uppercase tracking-tighter">Q: {item.tags}</p>
+                    <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 bg-primary/80 backdrop-blur-md rounded-md">
+                      <p className="text-[7px] font-black text-white uppercase">Q{item.tags}</p>
                     </div>
                   )}
                 </>
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
-                  <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary animate-pulse" />
+                  <div className="h-1 w-3/4 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-primary animate-pulse w-full" />
                   </div>
                   <p className="text-[8px] font-bold text-muted-foreground uppercase">Uploading...</p>
                 </div>
               )}
-              <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black/80 to-transparent flex items-center px-3">
-                <span className="text-[10px] font-bold text-white/50 italic">Page {i + 1}</span>
+              <div className="absolute bottom-0 inset-x-0 h-7 bg-gradient-to-t from-black/70 to-transparent flex items-end px-2 pb-1">
+                <span className="text-[9px] font-bold text-white/40">Page {i + 1}</span>
               </div>
             </div>
           ))}
         </div>
       </main>
 
-      <footer className="fixed bottom-0 left-0 right-0 z-40 bg-card/90 backdrop-blur-xl border-t border-white/10 p-6">
-        <div className="container max-w-2xl flex items-center justify-between gap-4">
-          <div className="flex-1">
-             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Queue Status</p>
-             <p className="text-xs font-bold text-white">{uploadQueue.length} pages captured</p>
+      {/* ── FIXED FOOTER ── */}
+      <footer className="fixed bottom-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-xl border-t border-white/5 p-3">
+        <div className="container max-w-2xl flex items-center gap-4">
+          <div className="flex-1 min-w-0">
+            <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-0.5">{uploadQueue.length} page{uploadQueue.length !== 1 ? 's' : ''} captured</p>
+            {uploadQueue.length > 0 && (
+              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                  style={{ width: `${uploadQueue.length > 0 ? (totalUploaded / uploadQueue.length) * 100 : 0}%` }}
+                />
+              </div>
+            )}
           </div>
-          
-          <Button
-            size="lg"
+          <button
             onClick={handleFinishAll}
             disabled={uploadQueue.length === 0 || !uploadQueue.every(i => i.progress === 100)}
-            className="rounded-2xl px-10 bg-gradient-hero text-white font-extrabold shadow-glow hover:scale-105 transition-transform disabled:opacity-50"
+            className="h-12 px-6 rounded-2xl bg-emerald-500 text-white font-black shadow-lg shadow-emerald-500/20 hover:bg-emerald-400 active:scale-95 transition-all disabled:opacity-30 disabled:pointer-events-none shrink-0 flex items-center gap-2"
           >
-            Submit All Papers
-          </Button>
+            <UploadCloud className="h-4 w-4" />
+            Submit
+          </button>
         </div>
       </footer>
 

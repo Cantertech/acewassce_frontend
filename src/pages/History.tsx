@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { 
   Clock, 
   Calendar, 
@@ -17,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 
 const History = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState("all");
   const [attempts, setAttempts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -39,6 +41,7 @@ const History = () => {
           start_time,
           total_score,
           exams (
+            id,
             title,
             subject
           )
@@ -119,7 +122,14 @@ const History = () => {
             {attempts.map((attempt, idx) => (
               <div 
                 key={attempt.id} 
-                className="glass-card-hover group relative overflow-hidden rounded-[2rem] p-6 border border-white/5 shadow-soft animate-fade-up"
+                onClick={() => {
+                  if (attempt.status === 'in_progress') {
+                    navigate('/exam/resume', { state: { attemptId: attempt.id, examId: attempt.exams?.id } });
+                  } else {
+                    navigate('/exam/results', { state: { attemptId: attempt.id, from: '/history' } });
+                  }
+                }}
+                className="glass-card-hover group relative overflow-hidden rounded-[2rem] p-6 border border-white/5 shadow-soft animate-fade-up cursor-pointer"
                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}
               >
                 <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">

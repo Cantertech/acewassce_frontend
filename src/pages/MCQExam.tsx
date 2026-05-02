@@ -141,18 +141,26 @@ const MCQExam = () => {
         throw new Error("Failed to trigger MCQ grading on backend");
       }
 
-      // 3. Check if Theory has been submitted yet
-      const { count: theoryCount } = await supabase
-        .from('theory_submissions')
-        .select('id', { count: 'exact', head: true })
-        .eq('attempt_id', attemptId);
+      // 3. Re-check status — the backend grade-mcq endpoint may have already set 'graded'
+      const { data: latestAttempt } = await supabase
+        .from('exam_attempts')
+        .select('status')
+        .eq('id', attemptId)
+        .single();
+      
+      // Only downgrade to mcq_marked if the backend hasn't already finalized
+      if (latestAttempt?.status !== 'graded') {
+        const { count: theoryCount } = await supabase
+          .from('theory_submissions')
+          .select('id', { count: 'exact', head: true })
+          .eq('attempt_id', attemptId);
 
-      if (!theoryCount || theoryCount === 0) {
-        // Only MCQ is done, Theory is pending
-        await supabase
-          .from('exam_attempts')
-          .update({ status: 'mcq_marked' })
-          .eq('id', attemptId);
+        if (!theoryCount || theoryCount === 0) {
+          await supabase
+            .from('exam_attempts')
+            .update({ status: 'mcq_marked' })
+            .eq('id', attemptId);
+        }
       }
 
       // 4. Success!

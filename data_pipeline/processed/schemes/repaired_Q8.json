@@ -1,0 +1,110 @@
+{
+  "question_number": "8",
+  "schemes": [
+    {
+      "question_id": "8(a)(i)",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Let x = planned days to plough",
+          "expected_equation": "Days used to plough = x + 2",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "",
+          "expected_equation": "120x = 85(x + 2) + 40",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Expanding and equating",
+          "expected_equation": "120x = 85x + 170 + 40",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Solving for x",
+          "expected_equation": "35x = 210",
+          "mark_type": "M1",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Simplifying",
+          "expected_equation": "x = 6",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "8(a)(ii)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "",
+          "expected_equation": "Total\\ area\\ of\\ farmland = 120 \\times 6",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solving for total area",
+          "expected_equation": "= 720\\ acres",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "8(b)",
+      "total_marks": 6,
+      "penalties": [
+        {
+          "type": "ou/wu",
+          "description": "Unit wrong or omitted",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculating \\theta",
+          "expected_equation": "\\theta = 6.8 - 5 = 1.8",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Finding distance",
+          "expected_equation": "\\frac{1.8}{360} \\times 2 \\times \\frac{22}{7} \\times 6400",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculating",
+          "expected_equation": "= 201.1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Rounding and stating unit",
+          "expected_equation": "\\approx 201\\ km",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 8(a)(i) (Marks: 4) ---\n- Step 1: Let x = planned days to plough | Eq: Days used to plough = x + 2 | Mark: B1(1)\n- Step 2:  | Eq: 120x = 85(x + 2) + 40 | Mark: B1(1)\n- Step 3: Expanding and equating | Eq: 120x = 85x + 170 + 40 | Mark: M1(1)\n- Step 4: Solving for x | Eq: 35x = 210 | Mark: M1(0)\n- Step 5: Simplifying | Eq: x = 6 | Mark: A1(1)\n\n--- SUB-PART 8(a)(ii) (Marks: 2) ---\n- Step 1:  | Eq: Total\\ area\\ of\\ farmland = 120 \\times 6 | Mark: M1(1)\n- Step 2: Solving for total area | Eq: = 720\\ acres | Mark: A1(1)\n\n--- SUB-PART 8(b) (Marks: 6) ---\n- Step 1: Calculating \\theta | Eq: \\theta = 6.8 - 5 = 1.8 | Mark: B1(1)\n- Step 2: Finding distance | Eq: \\frac{1.8}{360} \\times 2 \\times \\frac{22}{7} \\times 6400 | Mark: M1(1)\n- Step 3: Calculating | Eq: = 201.1 | Mark: A1(1)\n- Step 4: Rounding and stating unit | Eq: \\approx 201\\ km | Mark: A1(1)\n  [PENALTY] ou/wu: -1\n"
+}

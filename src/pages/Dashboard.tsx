@@ -235,110 +235,81 @@ const Dashboard = () => {
 
       <main className="relative z-10 container px-5 sm:px-8 max-w-6xl mx-auto mt-8">
         {/* ── 2. HEADER SECTION ── */}
-        <section className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 animate-fade-up">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="px-2 py-0.5 rounded-full bg-primary/15 border border-primary/25 text-[10px] font-bold text-primary uppercase tracking-widest">
-                Student Portal
-              </span>
-              <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/25 text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
-                <Sparkles className="h-2.5 w-2.5" /> Online
-              </span>
-            </div>
-            <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
-              Akwaaba, <span className="gradient-text">{studentName}!</span>
-            </h1>
-            <p className="mt-1 text-sm text-muted-foreground max-w-md">
-              You're currently in the <span className="text-foreground font-bold">top {percentile}%</span> of students. Keep up the high performance!
-            </p>
+        <section className="mb-6 animate-fade-up">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-primary/15 border border-primary/25 text-[10px] font-black text-primary uppercase tracking-widest">
+              Dashboard
+            </span>
           </div>
-          
-          <div className="hidden lg:flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-3 px-5 backdrop-blur-sm shadow-soft">
-            <div className="text-right">
-              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Daily Goal</p>
-              <p className="text-sm font-extrabold text-foreground">{dailyGoalProgress}% Complete</p>
-            </div>
-            <div className="h-10 w-10 rounded-full border-4 border-primary/20 border-t-primary flex items-center justify-center text-[10px] font-black text-primary transition-all duration-1000" style={{ borderTopColor: 'hsl(214 100% 60%)', borderRightColor: dailyGoalProgress >= 50 ? 'hsl(214 100% 60%)' : 'transparent', borderBottomColor: dailyGoalProgress >= 75 ? 'hsl(214 100% 60%)' : 'transparent', borderLeftColor: dailyGoalProgress >= 100 ? 'hsl(214 100% 60%)' : 'transparent' }}>
-              {dailyGoalProgress}%
-            </div>
-          </div>
+          <h1 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+            Akwaaba, <span className="gradient-text">{studentName}!</span>
+          </h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {percentile <= 25 ? (
+              <>You're in the <span className="text-emerald-400 font-bold">top {percentile}%</span> — incredible work!</>
+            ) : (
+              <>Keep grinding — every mock gets you closer to <span className="text-primary font-bold">A1</span>.</>
+            )}
+          </p>
         </section>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 space-y-6">
             {/* ── 3. HERO ACTION CARD ── */}
-            <section className="relative group">
-              <div className="absolute inset-0 bg-gradient-hero blur-3xl opacity-20 group-hover:opacity-30 transition-opacity" />
-              <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-hero p-8 sm:p-12 shadow-glow animate-fade-up border border-white/10" style={{ animationDelay: "100ms" }}>
-                <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white/20 blur-[80px] animate-float" />
-                <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-black/30 blur-[90px]" />
+            <section className="relative group animate-fade-up" style={{ animationDelay: "100ms" }}>
+              <div className="absolute inset-0 bg-gradient-hero blur-3xl opacity-15 group-hover:opacity-25 transition-opacity" />
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-6 sm:p-8 shadow-glow border border-white/10">
+                <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/15 blur-[70px] animate-float" />
 
-                <div className="relative z-10 grid sm:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 border border-white/30 px-4 py-1.5 text-xs font-bold text-white backdrop-blur-md">
-                      <Clock className="h-3.5 w-3.5" /> Live Performance
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
+                  <div className="flex-1">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 border border-white/25 px-3 py-1 text-[10px] font-black text-white uppercase tracking-widest backdrop-blur-md mb-4">
+                      <Clock className="h-3 w-3" /> Ready to Practice
                     </span>
-                    <h2 className="mt-6 font-display text-4xl font-extrabold text-white sm:text-5xl leading-[1.05] tracking-tighter">
-                      Core Maths <br/><span className="text-white/80 italic">Theory</span>
+                    <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight mb-2">
+                      Core Maths <span className="text-white/70">Mock</span>
                     </h2>
-                    <p className="mt-4 text-white/70 text-sm font-medium max-w-xs leading-relaxed">
-                      Practice structured questions with instant AI feedback on your step-by-step workings.
+                    <p className="text-white/60 text-xs font-medium max-w-xs leading-relaxed mb-5">
+                      50 MCQs + 13 Theory questions with instant AI forensic grading.
                     </p>
-
                     <Button
                       size="lg"
                       onClick={() => navigate("/practice")}
-                      className="mt-8 h-14 rounded-full bg-white text-primary hover:bg-white/90 font-black text-base shadow-elevated transition-all hover:scale-105 active:scale-95 border-0 px-8"
+                      className="h-12 rounded-full bg-white text-primary hover:bg-white/90 font-black text-sm shadow-elevated transition-all hover:scale-105 active:scale-95 border-0 px-7"
                     >
                       Start Mock Exam
-                      <ArrowRight className="ml-2.5 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
-                  
-                  <div className="hidden sm:block">
-                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-soft transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                      <div className="flex items-center justify-between mb-4">
-                        <p className="text-xs font-bold text-white/60 uppercase">Last Result</p>
-                        <span className="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full font-black">
-                          {lastResult ? (lastResult.total_score >= 50 ? "GOOD" : "NEEDS WORK") : "N/A"}
-                        </span>
-                      </div>
-                      <div className="flex items-end gap-3 mb-4">
-                        <p className="text-5xl font-black text-white">{lastResult?.total_score || 0}<span className="text-2xl text-white/50">%</span></p>
-                        <p className="text-xs text-white/60 mb-2">{lastResult ? (lastResult.total_score >= 60 ? "+ Higher than avg" : "- Below avg") : "Start first mock"}</p>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                          <div className="h-full bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all duration-1000" style={{ width: `${lastResult?.total_score || 0}%` }} />
+
+                  {/* Last result mini card */}
+                  {lastResult && (
+                    <div className="hidden sm:block w-44 shrink-0">
+                      <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-soft">
+                        <p className="text-[9px] font-black text-white/50 uppercase tracking-widest mb-2">Last Score</p>
+                        <div className="flex items-end gap-1 mb-3">
+                          <span className="text-4xl font-black text-white leading-none">{lastResult.total_score || 0}</span>
+                          <span className="text-lg text-white/40 font-bold mb-0.5">%</span>
                         </div>
-                        <p className="text-[10px] text-white/40 text-center font-bold uppercase tracking-widest">
-                          {lastResult ? "Performance Overview" : "NO DATA YET"}
-                        </p>
+                        <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                          <div className="h-full bg-white rounded-full" style={{ width: `${lastResult.total_score || 0}%` }} />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </section>
 
             {/* ── 4. PERFORMANCE GRAPH ── */}
             <section className="animate-fade-up" style={{ animationDelay: "200ms" }}>
-              <div className="glass-card rounded-[2.5rem] p-6 sm:p-8 shadow-elevated border border-white/5 group">
-                <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="rounded-3xl bg-white/[0.03] border border-white/5 p-5 sm:p-6 shadow-elevated">
+                <div className="mb-5 flex items-center justify-between">
                   <div>
-                    <h2 className="text-xl font-display font-extrabold tracking-tight flex items-center gap-2 group-hover:text-primary transition-colors">
-                      <BarChart3 className="h-6 w-6 text-primary" /> Performance Analytics
+                    <h2 className="text-base font-display font-extrabold tracking-tight flex items-center gap-2">
+                      <BarChart3 className="h-5 w-5 text-primary" /> Score Trend
                     </h2>
-                    <p className="text-xs text-muted-foreground mt-1 font-medium">Tracking your growth across the last 6 mock sessions</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="p-1 rounded-lg bg-white/5 border border-white/10 flex">
-                      {['Week', 'Month', 'All'].map((t) => (
-                        <button key={t} className={`px-4 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-primary text-white shadow-glow' : 'text-muted-foreground hover:text-white'}`}>
-                          {t}
-                        </button>
-                      ))}
-                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">Last {chartData.length} mock{chartData.length !== 1 ? 's' : ''}</p>
                   </div>
                 </div>
 
@@ -402,72 +373,72 @@ const Dashboard = () => {
             </section>
           </div>
 
-          <aside className="space-y-8 animate-fade-up" style={{ animationDelay: "300ms" }}>
+          <aside className="space-y-6 animate-fade-up" style={{ animationDelay: "300ms" }}>
             {/* ── 5. STATS GRID ── */}
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-              {stats.map(({ label, value, icon: Icon, color }, i) => (
+            <div className="space-y-3">
+              {stats.map(({ label, value, icon: Icon, color }) => (
                 <div
                   key={label}
-                  className="glass-card-hover group relative overflow-hidden rounded-3xl p-6 border border-white/5 shadow-soft transition-all"
+                  className="group flex items-center gap-4 rounded-2xl bg-white/[0.03] border border-white/5 p-4 hover:bg-white/[0.06] transition-all"
                 >
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1 group-hover:text-primary transition-colors">
-                        {label}
-                      </p>
-                      <p className="font-display text-3xl font-black text-foreground">
-                        {value}
-                      </p>
-                    </div>
-                    <span className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/10 ${color} group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                      <Icon className="h-6 w-6" />
-                    </span>
+                  <span className={`flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 ${color} shrink-0 group-hover:scale-105 transition-transform`}>
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">{label}</p>
+                    <p className="font-display text-xl font-black text-foreground">{value}</p>
                   </div>
-                  <div className="absolute -bottom-4 -right-4 h-16 w-16 bg-current opacity-[0.03] group-hover:opacity-[0.08] transition-opacity" />
                 </div>
               ))}
             </div>
 
-            {/* ── 6. RECOMMENDATIONS ── */}
-            <div className="glass-card rounded-[2.5rem] p-6 border border-white/5 shadow-elevated">
-              <h3 className="text-md font-display font-extrabold tracking-tight mb-5 flex items-center gap-2">
-                <Brain className="h-5 w-5 text-purple-400" /> Topic Weaknesses
+            {/* ── 6. DAILY GOAL ── */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/5 p-5">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">Daily Goal</span>
+                <span className="text-xs font-black text-primary">{dailyGoalProgress}%</span>
+              </div>
+              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                <div className="h-full bg-primary rounded-full transition-all duration-1000" style={{ width: `${dailyGoalProgress}%` }} />
+              </div>
+              <p className="text-[10px] text-muted-foreground mt-2 font-medium">Complete 2 mocks today</p>
+            </div>
+
+            {/* ── 7. TOPIC WEAKNESSES ── */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/5 p-5">
+              <h3 className="text-xs font-display font-extrabold tracking-tight mb-4 flex items-center gap-2">
+                <Brain className="h-4 w-4 text-purple-400" /> Weak Areas
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {weaknesses.map((item) => (
-                  <div key={item.topic} className="group cursor-pointer">
-                    <div className="flex justify-between items-center mb-1.5">
-                      <p className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">{item.topic}</p>
+                  <div key={item.topic}>
+                    <div className="flex justify-between items-center mb-1">
+                      <p className="text-[11px] font-bold text-foreground">{item.topic}</p>
                       <p className="text-[10px] font-black text-muted-foreground">{item.progress}%</p>
                     </div>
-                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden p-0.5 border border-white/5">
-                      <div 
-                        className={`h-full rounded-full ${item.color} shadow-sm group-hover:opacity-80 transition-all`} 
-                        style={{ width: `${item.progress}%` }} 
+                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${item.color} transition-all duration-1000`}
+                        style={{ width: `${item.progress}%` }}
                       />
                     </div>
                   </div>
                 ))}
               </div>
-              <Button variant="ghost" className="w-full mt-6 rounded-xl border border-white/5 bg-white/5 text-xs font-bold text-muted-foreground hover:bg-white/10 hover:text-foreground">
-                View Detailed Syllabus Breakdown
-              </Button>
             </div>
 
-            {/* ── 7. QUICK NAVIGATION ── */}
-            <div className="bg-primary/10 border border-primary/20 rounded-[2.5rem] p-6 text-center shadow-glow group">
-              <h4 className="font-display text-lg font-black text-primary mb-2 group-hover:scale-105 transition-transform">Ready for A1?</h4>
-              <p className="text-xs text-primary/70 mb-5 font-medium leading-relaxed">Try our pro-mode timed examination for full exam simulation.</p>
-              <Button className="w-full rounded-full bg-primary text-white shadow-glow hover:bg-primary/90 font-bold border-0">
-                Unlock Pro Mocks
-              </Button>
-            </div>
-            
-            <div className="mt-8 text-center">
-              <p className="text-[10px] font-bold text-muted-foreground/30 uppercase tracking-[0.2em]">
-                Product of Sixzones Tech
-              </p>
-            </div>
+            {/* ── 8. QUICK CTA ── */}
+            <button
+              onClick={() => navigate("/practice")}
+              className="w-full rounded-2xl bg-primary/10 border border-primary/20 p-5 text-center hover:bg-primary/15 active:scale-[0.98] transition-all group"
+            >
+              <h4 className="font-display text-base font-black text-primary mb-1 group-hover:scale-105 transition-transform">Ready for A1?</h4>
+              <p className="text-[10px] text-primary/60 font-medium">Start a timed exam simulation</p>
+            </button>
+
+            <p className="text-center text-[9px] font-bold text-muted-foreground/30 uppercase tracking-[0.2em] pt-2">
+              Product of Sixzones Tech
+            </p>
           </aside>
         </div>
       </main>

@@ -14,6 +14,7 @@ import MCQSubmitSuccess from "./pages/MCQSubmitSuccess.tsx";
 import TheoryExam from "./pages/TheoryExam.tsx";
 import TheorySubmitSuccess from "./pages/TheorySubmitSuccess.tsx";
 import ExamResults from "./pages/ExamResults.tsx";
+import ResumeExam from "./pages/ResumeExam.tsx";
 import Profile from "./pages/Profile.tsx";
 import History from "./pages/History.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/exam/theory" element={<TheoryExam />} />
           <Route path="/exam/theory-success" element={<TheorySubmitSuccess />} />
           <Route path="/exam/results" element={<ExamResults />} />
+          <Route path="/exam/resume" element={<ResumeExam />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/history" element={<History />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -1,0 +1,74 @@
+{
+  "question_number": "12",
+  "schemes": [
+    {
+      "question_id": "12(a)",
+      "total_marks": 4,
+      "penalties": [
+        {
+          "type": "ee",
+          "description": "Minus 1/2 for each error in expected equation results.",
+          "deduction": 0.5
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Correctly determining any of the two frequencies in the table.",
+          "expected_equation": "[unreadable]",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Correctly determining all frequencies in the table.",
+          "expected_equation": "[unreadable]",
+          "mark_type": "A2",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Correctly determining the first two cumulative frequencies.",
+          "expected_equation": "[unreadable]",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Correctly determining all cumulative frequencies.",
+          "expected_equation": "[unreadable]",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "12(b)",
+      "total_marks": 3,
+      "penalties": [
+        {
+          "type": "ee",
+          "description": "Minus 1/2 for each error in expected equation results.",
+          "deduction": 0.5
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Correctly plotting axes with correct upper class boundary marks, labeling, and CF.",
+          "expected_equation": "[Graph plotting logic]",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Correctly plotting cumulative frequency.",
+          "expected_equation": "[unreadable]",
+          "mark_type": "B2",
+          "marks_awarded": 2
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 12(a) (Marks: 4) ---\n- Step 1: Correctly determining any of the two frequencies in the table. | Eq: [unreadable] | Mark: M1(1)\n- Step 2: Correctly determining all frequencies in the table. | Eq: [unreadable] | Mark: A2(2)\n- Step 3: Correctly determining the first two cumulative frequencies. | Eq: [unreadable] | Mark: M1(1)\n- Step 4: Correctly determining all cumulative frequencies. | Eq: [unreadable] | Mark: A1(1)\n  [PENALTY] ee: -0.5\n\n--- SUB-PART 12(b) (Marks: 3) ---\n- Step 1: Correctly plotting axes with correct upper class boundary marks, labeling, and CF. | Eq: [Graph plotting logic] | Mark: B1(1)\n- Step 2: Correctly plotting cumulative frequency. | Eq: [unreadable] | Mark: B2(2)\n  [PENALTY] ee: -0.5\n"
+}

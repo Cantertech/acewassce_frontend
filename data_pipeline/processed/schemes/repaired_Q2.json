@@ -1,0 +1,58 @@
+{
+  "question_number": "2",
+  "schemes": [
+    {
+      "question_id": "2",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Define amount invested at 11%",
+          "expected_equation": "$1.4x$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate interest at 10%",
+          "expected_equation": "$= x \\times \\frac{10}{100} \\times \\frac{7}{2} = 0.35x$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Interest at 11%",
+          "expected_equation": "$(1.4x) \\times \\frac{11}{100} \\times \\frac{7}{2} = 0.539x$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Equate interests and solve",
+          "expected_equation": "$0.35x + 0.539x = 22,580.60$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Solve for x",
+          "expected_equation": "$x = 25,400.00$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculate amount invested",
+          "expected_equation": "$1.4 \\times 25,400 = 35,560.00$",
+          "mark_type": "A1",
+          "marks_awarded": 1,
+          "penalties": [
+            "-1 ou/wu"
+          ]
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 2 (Marks: 8) ---\n- Step 1: Define amount invested at 11% | Eq: $1.4x$ | Mark: B1(1)\n- Step 2: Calculate interest at 10% | Eq: $= x \\times \\frac{10}{100} \\times \\frac{7}{2} = 0.35x$ | Mark: M1(1)\n- Step 3: Interest at 11% | Eq: $(1.4x) \\times \\frac{11}{100} \\times \\frac{7}{2} = 0.539x$ | Mark: A1(1)\n- Step 4: Equate interests and solve | Eq: $0.35x + 0.539x = 22,580.60$ | Mark: M1(1)\n- Step 5: Solve for x | Eq: $x = 25,400.00$ | Mark: A1(1)\n- Step 6: Calculate amount invested | Eq: $1.4 \\times 25,400 = 35,560.00$ | Mark: A1(1)\n"
+}

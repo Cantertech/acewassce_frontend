@@ -1,0 +1,117 @@
+{
+  "question_number": "13",
+  "schemes": [
+    {
+      "question_id": "13(a)(i)",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Angle \\( \\angle GJF \\) is given",
+          "expected_equation": "$110^{\\circ}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Find \\( \\angle EGF \\)",
+          "expected_equation": "$180 - 30 - 110 = 40^{\\circ}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Computed \\( \\angle EGF \\)",
+          "expected_equation": "$40^{\\circ}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate \\( \\angle EOF \\)",
+          "expected_equation": "$2 \\times 40 = 80^{\\circ}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "13(a)(ii)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Angle \\( \\angle EHF \\) is given",
+          "expected_equation": "$40^{\\circ}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Find \\( \\angle JEH \\)",
+          "expected_equation": "$180 - 110 - 40 = 30^{\\circ}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Computed \\( \\angle JEH \\)",
+          "expected_equation": "$30^{\\circ}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "13(b)(i)",
+      "total_marks": 3,
+      "penalties": [
+        {
+          "type": "ee",
+          "description": "Correct position of E, A, N and the intersections",
+          "deduction": -1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Evaluate diagram placement",
+          "expected_equation": "[unreadable]",
+          "mark_type": "B3",
+          "marks_awarded": 3
+        }
+      ]
+    },
+    {
+      "question_id": "13(b)(ii)(a)",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Statement about validity",
+          "expected_equation": "Not valid",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "13(b)(ii)(\u03b2)",
+      "total_marks": 1,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Statement about validity",
+          "expected_equation": "Not valid",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 13(a)(i) (Marks: 4) ---\n- Step 1: Angle \\( \\angle GJF \\) is given | Eq: $110^{\\circ}$ | Mark: B1(1)\n- Step 2: Find \\( \\angle EGF \\) | Eq: $180 - 30 - 110 = 40^{\\circ}$ | Mark: M1(1)\n- Step 3: Computed \\( \\angle EGF \\) | Eq: $40^{\\circ}$ | Mark: A1(1)\n- Step 4: Calculate \\( \\angle EOF \\) | Eq: $2 \\times 40 = 80^{\\circ}$ | Mark: B1(1)\n\n--- SUB-PART 13(a)(ii) (Marks: 3) ---\n- Step 1: Angle \\( \\angle EHF \\) is given | Eq: $40^{\\circ}$ | Mark: B1(1)\n- Step 2: Find \\( \\angle JEH \\) | Eq: $180 - 110 - 40 = 30^{\\circ}$ | Mark: M1(1)\n- Step 3: Computed \\( \\angle JEH \\) | Eq: $30^{\\circ}$ | Mark: A1(1)\n\n--- SUB-PART 13(b)(i) (Marks: 3) ---\n- Step 1: Evaluate diagram placement | Eq: [unreadable] | Mark: B3(3)\n  [PENALTY] ee: --1\n\n--- SUB-PART 13(b)(ii)(a) (Marks: 1) ---\n- Step 1: Statement about validity | Eq: Not valid | Mark: B1(1)\n\n--- SUB-PART 13(b)(ii)(\u03b2) (Marks: 1) ---\n- Step 1: Statement about validity | Eq: Not valid | Mark: B1(1)\n"
+}

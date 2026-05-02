@@ -1,0 +1,124 @@
+{
+  "question_number": "7",
+  "schemes": [
+    {
+      "question_id": "7(a)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "M1 for finding area",
+          "expected_equation": "$\\frac{1}{2}(3q + 3) \\times 7 = 98$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "MI for solving",
+          "expected_equation": "$7(3q + 3) = 196$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "A1 for $\\frac{25}{3}$ or 8.3333 (accept 2 d.p)",
+          "expected_equation": "$q = \\frac{25}{3}$ or 8.3333",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "7(b)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "M1 for finding area",
+          "expected_equation": "$\\text{Area of pattern} = \\frac{1}{2} \\times \\frac{25}{3} \\times 7$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "A1 for 29.1667 or its equivalent",
+          "expected_equation": "$= 29.1667$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "A1 for 29.2m\u00b2",
+          "expected_equation": "$= 29.2m\u00b2$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "7(c)",
+      "total_marks": 6,
+      "penalties": [
+        {
+          "type": "ou/wu",
+          "description": "",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "B1 for either 28 or 19.667 or its equivalent",
+          "expected_equation": "$|US| = 3 \\times \\frac{25}{3} + 3 = 28$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "M1 for use of Pythagoras",
+          "expected_equation": "$|UV| = \\sqrt{9 + 28^2}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "A1 for 28.8617 or 7\\sqrt{17} (accept 2 d.p)",
+          "expected_equation": "$|UV| = 28.8617$ or $7\\sqrt{17}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "",
+          "expected_equation": "$|MV| = \\sqrt{72^2 + 19.667^2}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "",
+          "expected_equation": "$= 20.8756$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "",
+          "expected_equation": "$\\text{Perimeter} = 8.3333 + 28.8617 + 20.8756$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "",
+          "expected_equation": "$= 58.1m$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 7(a) (Marks: 3) ---\n- Step 1: M1 for finding area | Eq: $\\frac{1}{2}(3q + 3) \\times 7 = 98$ | Mark: M1(1)\n- Step 2: MI for solving | Eq: $7(3q + 3) = 196$ | Mark: M1(1)\n- Step 3: A1 for $\\frac{25}{3}$ or 8.3333 (accept 2 d.p) | Eq: $q = \\frac{25}{3}$ or 8.3333 | Mark: A1(1)\n\n--- SUB-PART 7(b) (Marks: 3) ---\n- Step 1: M1 for finding area | Eq: $\\text{Area of pattern} = \\frac{1}{2} \\times \\frac{25}{3} \\times 7$ | Mark: M1(1)\n- Step 2: A1 for 29.1667 or its equivalent | Eq: $= 29.1667$ | Mark: A1(1)\n- Step 3: A1 for 29.2m\u00b2 | Eq: $= 29.2m\u00b2$ | Mark: A1(1)\n\n--- SUB-PART 7(c) (Marks: 6) ---\n- Step 1: B1 for either 28 or 19.667 or its equivalent | Eq: $|US| = 3 \\times \\frac{25}{3} + 3 = 28$ | Mark: B1(1)\n- Step 2: M1 for use of Pythagoras | Eq: $|UV| = \\sqrt{9 + 28^2}$ | Mark: M1(1)\n- Step 3: A1 for 28.8617 or 7\\sqrt{17} (accept 2 d.p) | Eq: $|UV| = 28.8617$ or $7\\sqrt{17}$ | Mark: A1(1)\n- Step 4:  | Eq: $|MV| = \\sqrt{72^2 + 19.667^2}$ | Mark: A1(1)\n- Step 5:  | Eq: $= 20.8756$ | Mark: A1(1)\n- Step 6:  | Eq: $\\text{Perimeter} = 8.3333 + 28.8617 + 20.8756$ | Mark: M1(1)\n- Step 7:  | Eq: $= 58.1m$ | Mark: A1(1)\n  [PENALTY] ou/wu: -1\n"
+}

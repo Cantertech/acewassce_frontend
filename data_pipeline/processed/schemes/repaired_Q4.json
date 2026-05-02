@@ -1,0 +1,86 @@
+{
+  "question_number": "4",
+  "schemes": [
+    {
+      "question_id": "4(a)",
+      "total_marks": 2,
+      "penalties": [
+        {
+          "penalty_type": "ee",
+          "deduction": 0.5
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Angles identified",
+          "expected_equation": "$(36^\\circ, 48^\\circ, 100\\, \\text{m and}\\, 90^\\circ)$ at respective positions",
+          "mark_type": "B2",
+          "marks_awarded": 2
+        }
+      ]
+    },
+    {
+      "question_id": "4(b)",
+      "total_marks": 6,
+      "penalties": [
+        {
+          "penalty_type": "ou/wu",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Use tan ratio from $\\Delta AHL$",
+          "expected_equation": "$\\tan 48 = \\frac{100}{x}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate x",
+          "expected_equation": "$x = \\frac{100}{1.1106} = 90.0414$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Use tan ratio from $\\Delta BHL$",
+          "expected_equation": "$\\tan 36 = \\frac{100}{x+y}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate x+y",
+          "expected_equation": "$x+y = \\frac{100}{0.7265} = 137.6462$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Subtract x from x+y",
+          "expected_equation": "$y = 137.6462 - 90.0414$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculate y",
+          "expected_equation": "$= 47.6048$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Conclude y value",
+          "expected_equation": "$= 48\\,\\text{m}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 4(a) (Marks: 2) ---\n- Step 1: Angles identified | Eq: $(36^\\circ, 48^\\circ, 100\\, \\text{m and}\\, 90^\\circ)$ at respective positions | Mark: B2(2)\n  [PENALTY] : -0.5\n\n--- SUB-PART 4(b) (Marks: 6) ---\n- Step 1: Use tan ratio from $\\Delta AHL$ | Eq: $\\tan 48 = \\frac{100}{x}$ | Mark: M1(1)\n- Step 2: Calculate x | Eq: $x = \\frac{100}{1.1106} = 90.0414$ | Mark: A1(1)\n- Step 3: Use tan ratio from $\\Delta BHL$ | Eq: $\\tan 36 = \\frac{100}{x+y}$ | Mark: M1(1)\n- Step 4: Calculate x+y | Eq: $x+y = \\frac{100}{0.7265} = 137.6462$ | Mark: A1(1)\n- Step 5: Subtract x from x+y | Eq: $y = 137.6462 - 90.0414$ | Mark: M1(1)\n- Step 6: Calculate y | Eq: $= 47.6048$ | Mark: A1(1)\n- Step 7: Conclude y value | Eq: $= 48\\,\\text{m}$ | Mark: A1(1)\n  [PENALTY] : -1\n"
+}

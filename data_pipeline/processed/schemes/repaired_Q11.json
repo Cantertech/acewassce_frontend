@@ -1,0 +1,124 @@
+{
+  "question_number": "11",
+  "schemes": [
+    {
+      "question_id": "11(a)",
+      "total_marks": 1,
+      "penalties": [
+        {
+          "type": "ee",
+          "description": "at least 2 sides labelled",
+          "deduction": 0.5
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Label at least 2 sides of the triangle using variables",
+          "expected_equation": "[unreadable]",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "11(b)(i)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Equate parameters",
+          "expected_equation": "$(2p + q) + (2p + q) + (3p + 5) = 7q + 3$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify equation",
+          "expected_equation": "$7p + 2q + 5 = 7q + 3$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Simplify further",
+          "expected_equation": "$7p + 2 = 5q$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Derive relation for $p/q$",
+          "expected_equation": "$\\frac{p}{q} = \\frac{2}{3}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Substitute $p = \\frac{2}{3}q$",
+          "expected_equation": "$5q = 7(\\frac{3}{2} q) + z$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Simplify and solve for $q$",
+          "expected_equation": "$15q = 14q + 6$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Find $q = 6$",
+          "expected_equation": "$q = 6$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Find $p = 4$",
+          "expected_equation": "$p = 4$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "11(b)(ii)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Use Pythagoras theorem to find height $h$",
+          "expected_equation": "$h = \\sqrt{142^2 - 85^2}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate $h$",
+          "expected_equation": "$h = 11.1243$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Find area",
+          "expected_equation": "$\\text{Area} = \\frac{1}{2} \\times 17 \\times 11.1243$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Convert to correct decimal place",
+          "expected_equation": "$= 94.6\\text{km}^2$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 11(a) (Marks: 1) ---\n- Step 1: Label at least 2 sides of the triangle using variables | Eq: [unreadable] | Mark: B1(1)\n  [PENALTY] ee: -0.5\n\n--- SUB-PART 11(b)(i) (Marks: 8) ---\n- Step 1: Equate parameters | Eq: $(2p + q) + (2p + q) + (3p + 5) = 7q + 3$ | Mark: M1(1)\n- Step 2: Simplify equation | Eq: $7p + 2q + 5 = 7q + 3$ | Mark: M1(1)\n- Step 3: Simplify further | Eq: $7p + 2 = 5q$ | Mark: M1(1)\n- Step 4: Derive relation for $p/q$ | Eq: $\\frac{p}{q} = \\frac{2}{3}$ | Mark: B1(1)\n- Step 5: Substitute $p = \\frac{2}{3}q$ | Eq: $5q = 7(\\frac{3}{2} q) + z$ | Mark: M1(1)\n- Step 6: Simplify and solve for $q$ | Eq: $15q = 14q + 6$ | Mark: M1(1)\n- Step 7: Find $q = 6$ | Eq: $q = 6$ | Mark: A1(1)\n- Step 8: Find $p = 4$ | Eq: $p = 4$ | Mark: A1(1)\n\n--- SUB-PART 11(b)(ii) (Marks: 3) ---\n- Step 1: Use Pythagoras theorem to find height $h$ | Eq: $h = \\sqrt{142^2 - 85^2}$ | Mark: M1(1)\n- Step 2: Calculate $h$ | Eq: $h = 11.1243$ | Mark: A1(1)\n- Step 3: Find area | Eq: $\\text{Area} = \\frac{1}{2} \\times 17 \\times 11.1243$ | Mark: M1(1)\n- Step 4: Convert to correct decimal place | Eq: $= 94.6\\text{km}^2$ | Mark: A1(1)\n"
+}

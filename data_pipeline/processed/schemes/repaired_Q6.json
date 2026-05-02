@@ -1,0 +1,48 @@
+{
+  "question_number": "6",
+  "schemes": [
+    {
+      "question_id": "6(c)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate position of upper quartile",
+          "expected_equation": "$\\frac{3}{4} \\times 50 = 37.5$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Identify upper quartile value",
+          "expected_equation": "$59.5 \\pm 0.5$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "6(d)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate number of pupils passed",
+          "expected_equation": "$\\frac{10}{100} \\times 50 = 5$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate pass mark",
+          "expected_equation": "$75.5 \\pm 0.5$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 6(c) (Marks: 2) ---\n- Step 1: Calculate position of upper quartile | Eq: $\\frac{3}{4} \\times 50 = 37.5$ | Mark: M1(1)\n- Step 2: Identify upper quartile value | Eq: $59.5 \\pm 0.5$ | Mark: A1(1)\n\n--- SUB-PART 6(d) (Marks: 2) ---\n- Step 1: Calculate number of pupils passed | Eq: $\\frac{10}{100} \\times 50 = 5$ | Mark: M1(1)\n- Step 2: Calculate pass mark | Eq: $75.5 \\pm 0.5$ | Mark: A1(1)\n"
+}

@@ -1,0 +1,79 @@
+{
+  "question_number": "1",
+  "schemes": [
+    {
+      "question_id": "1(a)",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate time using speed and distance",
+          "expected_equation": "$t_1 = \\frac{150}{60} = 2.5 \\text{hrs}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate time for second part",
+          "expected_equation": "$t_2 = \\frac{150}{90} = \\frac{5}{3} \\text{hrs}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Sum of times for total time",
+          "expected_equation": "$t_{total} = 2.5 + \\frac{5}{3} = \\frac{25}{6} \\text{hrs}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate average speed",
+          "expected_equation": "$\\text{Average speed} = \\frac{300}{\\frac{25}{6}}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Convert to km/h",
+          "expected_equation": "$72 \\text{km/hr}$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "1(b)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "New time for first half",
+          "expected_equation": "$\\frac{150}{50} = 3 \\text{hrs}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate change in time",
+          "expected_equation": "$0.5\\text{hrs}$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Overall time increase",
+          "expected_equation": "$0.5\\text{hrs or 30 minutes}$",
+          "mark_type": "B1",
+          "marks_awarded": 1,
+          "penalties": [
+            "-1 ou/wu"
+          ]
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 1(a) (Marks: 5) ---\n- Step 1: Calculate time using speed and distance | Eq: $t_1 = \\frac{150}{60} = 2.5 \\text{hrs}$ | Mark: M1(1)\n- Step 2: Calculate time for second part | Eq: $t_2 = \\frac{150}{90} = \\frac{5}{3} \\text{hrs}$ | Mark: A1(1)\n- Step 3: Sum of times for total time | Eq: $t_{total} = 2.5 + \\frac{5}{3} = \\frac{25}{6} \\text{hrs}$ | Mark: B1(1)\n- Step 4: Calculate average speed | Eq: $\\text{Average speed} = \\frac{300}{\\frac{25}{6}}$ | Mark: M1(1)\n- Step 5: Convert to km/h | Eq: $72 \\text{km/hr}$ | Mark: A1(1)\n\n--- SUB-PART 1(b) (Marks: 3) ---\n- Step 1: New time for first half | Eq: $\\frac{150}{50} = 3 \\text{hrs}$ | Mark: B1(1)\n- Step 2: Calculate change in time | Eq: $0.5\\text{hrs}$ | Mark: B1(1)\n- Step 3: Overall time increase | Eq: $0.5\\text{hrs or 30 minutes}$ | Mark: B1(1)\n"
+}

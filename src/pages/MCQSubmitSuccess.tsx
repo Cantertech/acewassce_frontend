@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { CheckCircle, ArrowRight, ShieldCheck, FileText, CheckCircle2, Loader2, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle, ArrowRight, ShieldCheck, FileText, Loader2, Sparkles, BrainCircuit } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
 const MCQSubmitSuccess = () => {
@@ -15,12 +14,11 @@ const MCQSubmitSuccess = () => {
 
   const [status, setStatus] = useState<'pending' | 'graded' | 'mcq_marked' | 'theory_marked'>('pending');
   const [theoryCompleted, setTheoryCompleted] = useState(false);
-  const [mcqCompleted, setMcqCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isSimulating, setIsSimulating] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsSimulating(false), 4500);
+    const timer = setTimeout(() => setIsSimulating(false), 3500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -31,7 +29,7 @@ const MCQSubmitSuccess = () => {
     }
 
     const checkStatus = async () => {
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from('exam_attempts')
         .select('status, theory_completed_at, mcq_completed_at')
         .eq('id', attemptId)
@@ -40,17 +38,18 @@ const MCQSubmitSuccess = () => {
       if (data) {
         setStatus(data.status);
         setTheoryCompleted(!!data.theory_completed_at);
-        setMcqCompleted(!!data.mcq_completed_at);
-
+        
+        // Auto-redirect when fully graded
         if (data.status === 'graded') {
-          // Both parts are done and marked
+          navigate("/exam/results", { state: { attemptId } });
+          return;
         }
       }
       setLoading(false);
     };
 
     checkStatus();
-    const interval = setInterval(checkStatus, 5000);
+    const interval = setInterval(checkStatus, 3000);
     return () => clearInterval(interval);
   }, [attemptId, navigate]);
 
@@ -58,109 +57,134 @@ const MCQSubmitSuccess = () => {
     navigate("/exam/theory", { state: { attemptId, examId } });
   };
 
+  const isGraded = status === 'graded';
+
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#0B0F1A] px-4 py-20 overflow-hidden font-inter">
-      {/* ── BACKGROUND MESH ── */}
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-[20%] left-[20%] h-[400px] w-[400px] rounded-full bg-emerald-600/10 blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[20%] right-[20%] h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[100px]" />
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-5 overflow-hidden relative">
+      {/* Ambient background */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute top-[20%] left-[20%] h-[400px] w-[400px] rounded-full bg-emerald-600/8 blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[20%] right-[20%] h-[300px] w-[300px] rounded-full bg-blue-600/8 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-lg text-center animate-fade-up">
+      <div className="relative z-10 w-full max-w-sm text-center animate-fade-up">
+        {/* ── SCANNING STATE ── */}
         {isSimulating ? (
-          <div className="flex flex-col items-center justify-center py-20 space-y-8 animate-fade-in">
-            <div className="relative h-32 w-32 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full border-4 border-white/5 border-t-emerald-500 animate-spin" />
-              <ShieldCheck className="h-12 w-12 text-emerald-400 animate-pulse" />
+          <div className="flex flex-col items-center justify-center py-16 space-y-6">
+            <div className="relative h-24 w-24 flex items-center justify-center">
+              <div className="absolute inset-0 rounded-full border-[3px] border-white/5 border-t-emerald-500 animate-spin" />
+              <ShieldCheck className="h-10 w-10 text-emerald-400 animate-pulse" />
             </div>
-            <div className="space-y-2">
-              <h2 className="text-2xl font-black text-white tracking-tight">Verifying Answers</h2>
-              <p className="text-muted-foreground font-medium">Securing your objective responses on the blockchain...</p>
+            <div>
+              <h2 className="text-lg font-black text-white tracking-tight mb-1">Verifying Answers</h2>
+              <p className="text-xs text-muted-foreground font-medium">Securing your {answeredCount} responses...</p>
             </div>
             <div className="flex gap-1">
               {[0, 1, 2].map((i) => (
-                <div key={i} className="h-1.5 w-1.5 rounded-full bg-emerald-500/50 animate-bounce" style={{ animationDelay: `${i * 0.2}s` }} />
+                <div key={i} className="h-1 w-1 rounded-full bg-emerald-500/50 animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />
               ))}
             </div>
           </div>
         ) : (
           <>
-            {/* SUCCESS ICON & TEXT */}
-            <div className="mb-12 text-center">
-              <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-[2.5rem] bg-emerald-500/10 border border-emerald-500/20 shadow-glow relative group">
-                <CheckCircle className="h-12 w-12 text-emerald-400 group-hover:scale-110 transition-transform" />
-                <Sparkles className="absolute -top-2 -right-2 h-6 w-6 text-amber-400 animate-pulse" />
-              </div>
-
-              <h1 className="font-display text-4xl font-black text-white tracking-tight mb-3">
-                {theoryCompleted ? "Mock Exam Complete!" : "Objectives Submitted!"}
-              </h1>
-              <p className="text-muted-foreground text-sm max-w-[280px] mx-auto leading-relaxed font-medium">
-                {theoryCompleted
-                  ? "Great job! Both sections have been securely recorded. Your final report is being finalized."
-                  : "Excellent work! Your objective answers have been securely recorded. Final grading will occur after you complete the Theory section."}
-              </p>
+            {/* ── SUCCESS STATE ── */}
+            {/* Icon */}
+            <div className="mx-auto mb-6 h-16 w-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center relative">
+              <CheckCircle className="h-8 w-8 text-emerald-400" />
+              <Sparkles className="absolute -top-1.5 -right-1.5 h-4 w-4 text-amber-400 animate-pulse" />
             </div>
 
-        {/* QUICK STATS PANEL */}
-        <div className="glass-card flex items-center justify-between p-6 rounded-[2rem] border border-white/10 shadow-soft mb-10">
-          <div className="flex flex-col items-center flex-1 border-r border-white/10">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 mb-2">
-              <CheckCircle2 className="h-5 w-5" />
-            </span>
-            <p className="font-display text-2xl font-extrabold text-white">
-              {answeredCount} / {totalCount}
+            <h1 className="font-display text-2xl font-extrabold text-white tracking-tight mb-2">
+              {theoryCompleted ? "Exam Complete!" : "MCQs Submitted!"}
+            </h1>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-8 max-w-xs mx-auto">
+              {theoryCompleted
+                ? "Both sections are recorded. Your final report is being generated."
+                : "Objective answers secured. Complete the Theory section for your full result."}
             </p>
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1">
-              Answered
-            </p>
-          </div>
-          <div className="flex flex-col items-center flex-1">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 mb-2">
-              <ShieldCheck className="h-5 w-5" />
-            </span>
-            <p className="font-display text-2xl font-extrabold text-white">
-              Secure
-            </p>
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1">
-              Status
-            </p>
-          </div>
-        </div>
 
-        {/* NEXT STEPS */}
-        <div className="space-y-4">
-          <Button
-            size="lg"
-            disabled={theoryCompleted && status !== 'graded'}
-            onClick={() => {
-              if (status === 'graded') {
-                navigate("/exam/results", { state: { attemptId } });
-              } else if (!theoryCompleted) {
-                handleProceedToTheory();
-              }
-            }}
-            className={`w-full h-14 rounded-2xl font-extrabold shadow-elevated transition-transform active:scale-95 disabled:opacity-50 ${
-              status === 'graded' ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-glow' : 'bg-white text-primary hover:bg-white/90'
-            }`}
-          >
-            {status === 'graded'
-              ? "View Final Results"
-              : theoryCompleted
-                ? "Finalizing Final Results..."
-                : "Take Full Written Theory"}
-            {status === 'graded' ? <ArrowRight className="ml-2 h-5 w-5" /> : <FileText className="ml-2 h-5 w-5" />}
-          </Button>
+            {/* Score pill */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.03] border border-white/5">
+                <div className="h-8 w-8 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                  <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Answered</p>
+                  <p className="text-base font-black text-white">{answeredCount} <span className="text-muted-foreground text-xs font-bold">/ {totalCount}</span></p>
+                </div>
+              </div>
+            </div>
 
-          <button
-            onClick={() => navigate("/dashboard")}
-            className="text-sm font-semibold text-muted-foreground hover:text-white transition-colors underline underline-offset-4"
-          >
-            Take a break and return to Dashboard
-          </button>
-        </div>
-      </>
-    )}
+            {/* Progress breadcrumb */}
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <CheckCircle className="h-3 w-3 text-emerald-400" />
+                <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">MCQ ✓</span>
+              </div>
+              <div className="h-px w-4 bg-white/10" />
+              {theoryCompleted ? (
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                  <CheckCircle className="h-3 w-3 text-emerald-400" />
+                  <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">Theory ✓</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 animate-pulse">
+                  <FileText className="h-3 w-3 text-purple-400" />
+                  <span className="text-[9px] font-black text-purple-400 uppercase tracking-widest">Theory Next</span>
+                </div>
+              )}
+              <div className="h-px w-4 bg-white/10" />
+              <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border ${isGraded ? 'bg-emerald-500/10 border-emerald-500/20' : 'bg-white/[0.02] border-white/5'}`}>
+                <BrainCircuit className={`h-3 w-3 ${isGraded ? 'text-emerald-400' : 'text-slate-600'}`} />
+                <span className={`text-[9px] font-black uppercase tracking-widest ${isGraded ? 'text-emerald-400' : 'text-slate-600'}`}>
+                  {isGraded ? 'Done ✓' : 'Results'}
+                </span>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="space-y-3">
+              <button
+                disabled={theoryCompleted && !isGraded}
+                onClick={() => {
+                  if (isGraded) {
+                    navigate("/exam/results", { state: { attemptId } });
+                  } else if (!theoryCompleted) {
+                    handleProceedToTheory();
+                  }
+                }}
+                className={`w-full h-14 rounded-2xl font-black text-base shadow-lg active:scale-95 transition-all disabled:opacity-40 disabled:pointer-events-none flex items-center justify-center gap-2 ${
+                  isGraded
+                    ? 'bg-emerald-500 hover:bg-emerald-400 text-white shadow-emerald-500/20'
+                    : 'bg-white text-primary hover:bg-white/90'
+                }`}
+              >
+                {isGraded
+                  ? "View Results"
+                  : theoryCompleted
+                    ? "Finalizing..."
+                    : "Start Theory Exam"}
+                <ArrowRight className="h-5 w-5" />
+              </button>
+
+              {/* Status indicator */}
+              {theoryCompleted && !isGraded && (
+                <div className="flex items-center justify-center gap-2 text-[10px] text-muted-foreground font-bold bg-white/[0.03] rounded-2xl py-3 border border-white/5">
+                  <Loader2 className="h-3 w-3 animate-spin text-primary" />
+                  AI is generating your report...
+                </div>
+              )}
+
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="w-full py-2 text-[11px] font-bold text-muted-foreground hover:text-white transition-colors"
+              >
+                Save & Continue Later
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

@@ -155,7 +155,8 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
             try:
                 q_num_str = str(res.get("question_number", ""))
                 q_num = int(q_num_str) if q_num_str.isdigit() else 0
-                score = res.get("score", 0)
+                raw_score = res.get("score", 0)
+                score = int(round(float(raw_score))) if raw_score is not None else 0
                 reasoning = res.get("summative_reasoning", "")
                 
                 # IMPROVED UPDATE LOGIC:

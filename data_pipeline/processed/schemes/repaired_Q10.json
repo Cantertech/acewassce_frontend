@@ -1,0 +1,144 @@
+{
+  "question_number": "10",
+  "schemes": [
+    {
+      "question_id": "10(a)(i)",
+      "total_marks": 2,
+      "penalties": [
+        {
+          "type": "ee",
+          "description": "error in circle points identification or angle annotation",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Points on the circle and angle identified",
+          "expected_equation": "(O, M, N, L, and 88\\degree)",
+          "mark_type": "B2",
+          "marks_awarded": 2
+        }
+      ]
+    },
+    {
+      "question_id": "10(a)(ii)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate \\angle MXN",
+          "expected_equation": "\\frac{1}{2} \\times 88",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Result for \\angle MXN",
+          "expected_equation": "44\\degree",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Find \\angle MLN",
+          "expected_equation": "180 - 44",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Result for \\angle MLN",
+          "expected_equation": "136\\degree",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "10(b)(i)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate work done by second mason",
+          "expected_equation": "1.5 \\times 400",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Result for second mason's work",
+          "expected_equation": "600 \\text{ blocks}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "10(b)(ii)",
+      "total_marks": 5,
+      "penalties": [
+        {
+          "type": "ou/wu",
+          "description": "Incorrect or unclear units in the answer",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "First mason's rate calculation",
+          "expected_equation": "\\frac{400}{8}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "First mason's rate",
+          "expected_equation": "50 \\text{ blocks/hr}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Second mason's rate calculation",
+          "expected_equation": "\\frac{600}{8}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Second mason's rate",
+          "expected_equation": "75 \\text{ blocks/hr}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Total rate calculation",
+          "expected_equation": "50 + 75",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculation of time required",
+          "expected_equation": "\\frac{2000}{125}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Final time required",
+          "expected_equation": "16 \\text{ hours}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 10(a)(i) (Marks: 2) ---\n- Step 1: Points on the circle and angle identified | Eq: (O, M, N, L, and 88\\degree) | Mark: B2(2)\n  [PENALTY] ee: -1\n\n--- SUB-PART 10(a)(ii) (Marks: 3) ---\n- Step 1: Calculate \\angle MXN | Eq: \\frac{1}{2} \\times 88 | Mark: M1(1)\n- Step 2: Result for \\angle MXN | Eq: 44\\degree | Mark: A1(1)\n- Step 3: Find \\angle MLN | Eq: 180 - 44 | Mark: M1(1)\n- Step 4: Result for \\angle MLN | Eq: 136\\degree | Mark: A1(1)\n\n--- SUB-PART 10(b)(i) (Marks: 2) ---\n- Step 1: Calculate work done by second mason | Eq: 1.5 \\times 400 | Mark: M1(1)\n- Step 2: Result for second mason's work | Eq: 600 \\text{ blocks} | Mark: A1(1)\n\n--- SUB-PART 10(b)(ii) (Marks: 5) ---\n- Step 1: First mason's rate calculation | Eq: \\frac{400}{8} | Mark: B1(1)\n- Step 2: First mason's rate | Eq: 50 \\text{ blocks/hr} | Mark: B1(1)\n- Step 3: Second mason's rate calculation | Eq: \\frac{600}{8} | Mark: B1(1)\n- Step 4: Second mason's rate | Eq: 75 \\text{ blocks/hr} | Mark: B1(1)\n- Step 5: Total rate calculation | Eq: 50 + 75 | Mark: B1(1)\n- Step 6: Calculation of time required | Eq: \\frac{2000}{125} | Mark: B1(1)\n- Step 7: Final time required | Eq: 16 \\text{ hours} | Mark: B1(1)\n  [PENALTY] ou/wu: -1\n"
+}

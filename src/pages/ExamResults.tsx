@@ -40,6 +40,7 @@ const ExamResults = () => {
   const [exam, setExam] = useState<any>(null);
   const [theorySubmissions, setTheorySubmissions] = useState<any[]>([]);
   const [mcqQuestions, setMcqQuestions] = useState<any[]>([]);
+  const [theoryQuestions, setTheoryQuestions] = useState<any[]>([]);
   const [responses, setResponses] = useState<any[]>([]);
   
   const [view, setView] = useState<'overview' | 'mcq' | 'theory'>('overview');
@@ -122,6 +123,13 @@ const ExamResults = () => {
           setMcqQuestions(sorted);
           if (sorted.length > 0 && !selectedMcqId) setSelectedMcqId(sorted[0].id);
         }
+
+        const { data: tqData } = await supabase
+          .from('questions')
+          .select('question_number, marking_scheme')
+          .eq('exam_id', attData.exam_id)
+          .eq('is_mcq', false);
+        if (tqData) setTheoryQuestions(tqData);
 
         const { data: respData } = await supabase
           .from('exam_responses')
@@ -241,9 +249,9 @@ const ExamResults = () => {
 
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#020617]/70 border-b border-white/5">
         <div className="container max-w-4xl h-16 flex items-center justify-between px-4 mx-auto">
-          <button onClick={() => navigate("/dashboard")} className="group flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-all">
+          <button onClick={() => navigate((location.state as any)?.from || "/dashboard")} className="group flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-all">
             <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-all"><ArrowLeft className="h-4 w-4" /></div>
-            <span className="hidden sm:inline">Dashboard</span>
+            <span className="hidden sm:inline">{(location.state as any)?.from === '/history' ? 'Back to History' : 'Dashboard'}</span>
             <span className="sm:hidden">Back</span>
           </button>
           <div className="flex items-center gap-2">
@@ -272,180 +280,620 @@ const ExamResults = () => {
           ))}
         </div>
 
-        {view === 'overview' && (
-          <div className="space-y-8 animate-in fade-in duration-500">
-            <div className="relative p-10 sm:p-14 rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl bg-[#030712]/40 backdrop-blur-xl">
-               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
-               <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-                  <div className="relative h-40 w-40 flex items-center justify-center shrink-0">
-                     <svg className="h-full w-full rotate-[-90deg]">
-                        <circle cx="80" cy="80" r="72" className="fill-none stroke-white/5 stroke-[6]" />
-                        <circle cx="80" cy="80" r="72" className="fill-none stroke-primary stroke-[8] transition-all duration-1000" style={{ strokeDasharray: 452, strokeDashoffset: 452 - (452 * (attempt?.total_score || 0)) / 100 }} strokeLinecap="round" />
-                     </svg>
-                     <div className="absolute flex flex-col items-center">
-                        <span className={`text-5xl font-black ${gradeInfo.color}`}>{gradeInfo.grade}</span>
-                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{gradeInfo.label}</span>
-                     </div>
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                     <h2 className="text-4xl font-black text-white mb-2 leading-tight">Mastered Logic.</h2>
-                     <p className="text-slate-400 font-medium mb-6">Your forensic breakdown for {exam?.subject} is ready.</p>
-                     <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                        <div className="px-6 py-2 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-xs font-bold text-emerald-400 uppercase tracking-widest">{attempt?.total_score || 0}% Final</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+        {view === 'overview' && (() => {
+          const mcqScore = attempt?.mcq_score || 0;
+          const theoryScore = attempt?.theory_score || 0;
+          const totalScore = attempt?.total_score || 0;
+          const mcqPct = Math.round((mcqScore / 50) * 100);
+          const theoryPct = theoryScore;
+          const mcqCorrect = mcqQuestions.filter(q => {
+            const resp = responses.find(r => r.question_id === q.id);
+            const ct = getCorrectOptionText(q.marking_scheme, q.options || []);
+            return resp && ct && resp.selected_option === ct;
+          }).length;
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-               <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
-                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"><Brain className="h-16 w-16 text-purple-400" /></div>
-                  <div className="relative z-10">
-                    <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Theory Analytics</span>
-                    <div className="flex items-end gap-3 mb-6"><span className="text-5xl font-black text-white leading-none">{attempt?.theory_score || 0}</span><span className="text-sm font-bold text-slate-500 mb-1">/ 100 PTS</span></div>
-                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden"><div className="h-full bg-purple-500 rounded-full transition-all duration-1000" style={{ width: `${attempt?.theory_score || 0}%` }} /></div>
-                  </div>
-               </div>
-               <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.03] border border-white/10 p-8 hover:bg-white/[0.05] transition-all">
-                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"><Target className="h-16 w-16 text-emerald-400" /></div>
-                  <div className="relative z-10">
-                    <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Objective Precision</span>
-                    <div className="flex items-end gap-3 mb-6"><span className="text-5xl font-black text-white leading-none">{attempt?.mcq_score || 0}</span><span className="text-sm font-bold text-slate-500 mb-1">/ 50 PTS</span></div>
-                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden"><div className="h-full bg-emerald-500 rounded-full transition-all duration-1000" style={{ width: `${((attempt?.mcq_score || 0) / 50) * 100}%` }} /></div>
-                  </div>
-               </div>
-            </div>
-            <div className="flex flex-col gap-4 mt-8">
-               <button onClick={() => setView('mcq')} className="w-full p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-between group">
-                  <div className="flex items-center gap-6"><div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><ShieldCheck className="h-7 w-7 text-primary" /></div><div className="text-left"><h4 className="text-lg font-black text-white">Review Mistakes</h4><p className="text-xs font-medium text-slate-500 uppercase tracking-widest">Verify Logic Gaps</p></div></div>
-                  <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-primary transition-colors" />
-               </button>
-               <button onClick={() => setView('theory')} className="w-full p-8 rounded-[2rem] bg-primary/10 border border-primary/20 hover:bg-primary/20 active:scale-[0.98] transition-all flex items-center justify-between group">
-                  <div className="flex items-center gap-6"><div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><Cpu className="h-7 w-7 text-purple-400" /></div><div className="text-left"><h4 className="text-lg font-black text-white">Forensic Theory Map</h4><p className="text-xs font-medium text-purple-400 uppercase tracking-widest">AI Scoring Reasoning</p></div></div>
-                  <ChevronRight className="h-6 w-6 text-slate-700 group-hover:text-purple-400 transition-colors" />
-               </button>
-            </div>
-          </div>
-        )}
+          const gradeSteps = [
+            { label: 'A1', min: 75, color: 'bg-emerald-500' },
+            { label: 'B2', min: 70, color: 'bg-emerald-400' },
+            { label: 'B3', min: 65, color: 'bg-teal-400' },
+            { label: 'C4', min: 60, color: 'bg-blue-400' },
+            { label: 'C5', min: 55, color: 'bg-amber-400' },
+            { label: 'C6', min: 50, color: 'bg-amber-500' },
+            { label: 'D7', min: 45, color: 'bg-orange-500' },
+            { label: 'E8', min: 40, color: 'bg-rose-400' },
+            { label: 'F9', min: 0, color: 'bg-red-600' },
+          ];
 
-        {view === 'mcq' && (
-          <div className="space-y-6 animate-in fade-in duration-500 relative">
-             <div className="flex justify-center mb-4"><button onClick={() => setShowMcqGrid(!showMcqGrid)} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><List className="h-3 w-3" /><span>Select Question</span><ChevronDown className={`h-3 w-3 transition-transform ${showMcqGrid ? 'rotate-180' : ''}`} /></button></div>
-             {showMcqGrid && (
-                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
-                   <div className="grid grid-cols-5 gap-2">
-                      {mcqQuestions.map((q) => {
-                         const resp = responses.find(r => r.question_id === q.id);
-                         const correctT = getCorrectOptionText(q.marking_scheme, q.options || []);
-                         const isCorrect = resp && correctT && (resp.selected_option === correctT);
-                         return (<button key={q.id} onClick={() => { setSelectedMcqId(q.id); setShowMcqGrid(false); }} className={`h-10 rounded-lg flex items-center justify-center font-black text-xs transition-all ${selectedMcqId === q.id ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${!resp ? 'bg-white/5 text-slate-600' : isCorrect ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/20 text-rose-400 border border-rose-500/20'}`}>{q.question_number}</button>);
-                      })}
-                   </div>
+          return (
+          <div className="space-y-5 animate-in fade-in duration-500">
+
+            {/* ── Hero Grade Card ── */}
+            <div className="relative rounded-[2.5rem] border border-white/10 overflow-hidden shadow-2xl bg-[#030712]/60 backdrop-blur-xl">
+              {/* Ambient glow */}
+              <div className={`absolute inset-0 bg-gradient-to-br opacity-20 ${gradeInfo.bg}`} />
+              <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] opacity-10 bg-primary" />
+
+              <div className="relative z-10 p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-8">
+                {/* Grade ring */}
+                <div className="relative h-36 w-36 shrink-0 flex items-center justify-center">
+                  <svg className="h-full w-full -rotate-90" viewBox="0 0 144 144">
+                    <circle cx="72" cy="72" r="62" className="fill-none stroke-white/5" strokeWidth="8" />
+                    <circle
+                      cx="72" cy="72" r="62"
+                      className="fill-none stroke-primary transition-all duration-1000"
+                      strokeWidth="10"
+                      strokeLinecap="round"
+                      strokeDasharray={389}
+                      strokeDashoffset={389 - (389 * totalScore) / 100}
+                    />
+                  </svg>
+                  <div className="absolute flex flex-col items-center">
+                    <span className={`text-4xl font-black ${gradeInfo.color}`}>{gradeInfo.grade}</span>
+                    <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest mt-0.5">{gradeInfo.label}</span>
+                  </div>
                 </div>
-             )}
-             {selectedQ ? (
-                <div className="space-y-12">
-                   <div className="p-8 sm:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl relative overflow-hidden">
-                      <div className="flex items-center justify-between mb-10"><div className="flex items-center gap-4"><div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center font-black text-primary">Q{selectedQ.question_number}</div><span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Forensic Analysis</span></div><div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border ${isSelectedCorrect ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-rose-500/10 border-rose-500/20 text-rose-400'}`}>{isSelectedCorrect ? 'Correct Path' : 'Logic Mismatch'}</div></div>
-                      <div className="text-2xl font-bold text-white mb-10 leading-relaxed"><LatexRenderer text={selectedQ.question_text} /></div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                         {(selectedQ.options || []).map((opt: any) => {
-                            const isThisCorrect = (correctText && opt.text === correctText);
-                            const wasThisPicked = (selectedResp && opt.text === selectedResp.selected_option);
-                            return (<div key={opt.id} className={`p-6 rounded-2xl border flex items-center gap-5 transition-all ${isThisCorrect ? 'bg-emerald-500/10 border-emerald-500/40 ring-1 ring-emerald-500/20' : wasThisPicked ? 'bg-rose-500/10 border-rose-500/40' : 'bg-white/5 border-white/5 opacity-50'}`}><div className={`h-8 w-8 rounded-xl flex items-center justify-center font-black text-sm ${isThisCorrect ? 'bg-emerald-500 text-white' : wasThisPicked ? 'bg-rose-500 text-white' : 'bg-white/10 text-slate-400'}`}>{opt.id}</div><div className="text-base font-bold text-slate-200"><LatexRenderer text={opt.text} /></div>{isThisCorrect && <CheckCircle2 className="h-5 w-5 text-emerald-400 ml-auto" />}{wasThisPicked && !isThisCorrect && <XCircle className="h-5 w-5 text-rose-400 ml-auto" />}</div>);
-                         })}
-                      </div>
-                   </div>
-                    <div className="flex items-center justify-between gap-4">
-                      <button 
-                        disabled={currentMcqIdx === 0} 
-                        onClick={() => {
-                          setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }} 
-                        className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex-1 transition-all flex items-center justify-center font-bold"
-                      >
-                        <ChevronLeft className="h-5 w-5 mr-2" /> Previous
-                      </button>
-                      
-                      <button 
-                        disabled={currentMcqIdx === mcqQuestions.length - 1} 
-                        onClick={() => {
-                          setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }} 
-                        className="h-14 px-8 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-20 flex-1 shadow-lg shadow-primary/20 transition-all flex items-center justify-center font-bold"
-                      >
-                        Next <ChevronRight className="h-5 w-5 ml-2" />
-                      </button>
+
+                {/* Score info */}
+                <div className="flex-1 text-center sm:text-left">
+                  <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1">{exam?.subject} · {exam?.year}</p>
+                  <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">
+                    {totalScore >= 75 ? 'Outstanding Result!' : totalScore >= 60 ? 'Solid Performance.' : totalScore >= 50 ? 'Credit Achieved.' : 'Keep Pushing.'}
+                  </h2>
+                  <div className="flex flex-wrap justify-center sm:justify-start gap-2 mb-5">
+                    <span className={`px-4 py-1.5 rounded-xl text-xs font-black uppercase tracking-widest border ${gradeInfo.bg} ${gradeInfo.border} ${gradeInfo.color}`}>
+                      {totalScore}% Overall
+                    </span>
+                    <span className="px-4 py-1.5 rounded-xl text-xs font-black uppercase tracking-widest border border-white/10 bg-white/5 text-slate-400">
+                      WAEC {gradeInfo.grade} — {gradeInfo.label}
+                    </span>
+                  </div>
+
+                  {/* Segmented progress bar */}
+                  <div className="space-y-1.5">
+                    <div className="flex h-2.5 w-full rounded-full overflow-hidden bg-white/5 gap-0.5">
+                      <div
+                        className="h-full bg-emerald-500 rounded-l-full transition-all duration-1000"
+                        style={{ width: `${(mcqScore / 100) * 100}%` }}
+                      />
+                      <div
+                        className="h-full bg-purple-500 rounded-r-full transition-all duration-1000"
+                        style={{ width: `${(theoryScore / 100) * 100}%` }}
+                      />
                     </div>
-                </div>
-             ) : (<div className="p-20 text-center opacity-40"><Search className="h-16 w-16 mx-auto mb-6" /><p className="text-xl font-black uppercase tracking-widest">No Objectives Recorded</p></div>)}
-          </div>
-        )}
-
-        {view === 'theory' && (
-          <div className="space-y-8 animate-in fade-in duration-500 relative">
-             <div className="flex flex-wrap justify-center gap-4">
-                <button onClick={() => setShowTheoryGrid(!showTheoryGrid)} className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-purple-400 hover:bg-purple-500/20 transition-all"><Layers className="h-3 w-3" /><span>Theory Navigator</span><ChevronDown className={`h-3 w-3 transition-transform ${showTheoryGrid ? 'rotate-180' : ''}`} /></button>
-                <button onClick={() => fetchResults(true)} disabled={refreshing} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all"><RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} /><span>Sync</span></button>
-                <button onClick={handleRegradeTheory} disabled={refreshing} className="px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary hover:bg-primary/20 transition-all"><Zap className={`h-3 w-3 ${refreshing ? 'animate-pulse' : ''}`} /><span>Re-run AI Analysis</span></button>
-             </div>
-             {showTheoryGrid && (
-                <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md bg-[#030712] border border-white/10 rounded-[2rem] p-6 shadow-2xl animate-in zoom-in duration-200">
-                   <div className="grid grid-cols-4 gap-3">
-                      {theorySubmissions.map((sub) => (<button key={sub.id} onClick={() => { setSelectedTheoryId(sub.id); setShowTheoryGrid(false); }} className={`h-12 rounded-xl flex flex-col items-center justify-center transition-all ${selectedTheoryId === sub.id ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#030712]' : ''} ${(sub.marks_attained || 0) >= 5 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}><span className="text-[10px] font-black uppercase tracking-widest opacity-50">Q{sub.question_number || 'Scan'}</span><span className="text-sm font-black">{sub.marks_attained || 0}</span></button>))}
-                   </div>
-                </div>
-             )}
-             {selectedTheory ? (
-                <div className="space-y-12">
-                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                      <div className="lg:col-span-3 space-y-4"><div className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-black/40 shadow-3xl"><img src={selectedTheory.image_url} alt="Submission Scan" className="w-full h-auto object-contain min-h-[400px] max-h-[600px] filter brightness-110 contrast-[1.05]" /></div></div>
-                      <div className="lg:col-span-2 space-y-6">
-                         <div className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl flex flex-col items-center text-center"><span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4">Question {selectedTheory.question_number || 'Analysis'} Score</span><div className="relative h-24 w-24 flex items-center justify-center mb-2"><div className={`absolute inset-0 rounded-full blur-2xl opacity-20 ${selectedTheory.marks_attained >= 5 ? 'bg-emerald-500' : 'bg-rose-500'}`} /><span className={`text-5xl font-black relative ${selectedTheory.marks_attained >= 5 ? 'text-emerald-400' : 'text-rose-400'}`}>{selectedTheory.marks_attained || 0}</span></div></div>
-                         <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/10 shadow-xl"><h5 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-8">AI Logic Verification</h5><div className="text-base text-slate-300 leading-relaxed font-medium italic space-y-6"><LatexRenderer text={selectedTheory.feedback || "Detailed step-by-step logic analysis is being processed..."} /></div></div>
-                      </div>
-                   </div>
-                    <div className="flex items-center justify-between gap-4">
-                      <button 
-                        disabled={currentTheoryIdx <= 0} 
-                        onClick={() => {
-                          setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }} 
-                        className="h-16 px-10 rounded-[1.5rem] bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex-1 transition-all flex items-center justify-center font-bold"
-                      >
-                        <ChevronLeft className="h-5 w-5 mr-2" /> Prev Question
-                      </button>
-                      
-                      <button 
-                        disabled={currentTheoryIdx >= theorySubmissions.length - 1} 
-                        onClick={() => {
-                          setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }} 
-                        className="h-16 px-10 rounded-[1.5rem] bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-20 flex-1 shadow-lg shadow-purple-500/20 transition-all flex items-center justify-center font-bold"
-                      >
-                        Next Question <ChevronRight className="h-5 w-5 ml-2" />
-                      </button>
+                    <div className="flex justify-between text-[9px] font-black text-slate-600 uppercase tracking-widest">
+                      <span className="text-emerald-500">MCQ {mcqScore}pts</span>
+                      <span className="text-purple-500">Theory {theoryScore}pts</span>
                     </div>
+                  </div>
                 </div>
-             ) : (
-                <div className="p-24 text-center">
-                   <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10"><Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} /></div>
-                   <h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching Data...' : 'No Workings Found'}</h3>
-                   <p className="text-slate-500 font-medium max-w-sm mx-auto mb-8">{refreshing ? 'Checking the forensic database for your theory submissions...' : "Either theory images haven't been uploaded yet, or the forensic scan is still processing."}</p>
-                   {!refreshing && (
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                         <Button onClick={() => fetchResults(true)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-400 font-black">Manual Refresh</Button>
-                         <Button onClick={handleRegradeTheory} className="h-14 px-8 rounded-2xl bg-primary text-white font-black shadow-lg shadow-primary/20">Trigger Forensic AI Scan</Button>
-                      </div>
-                   )}
+              </div>
+            </div>
+
+            {/* ── Stat Tiles ── */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {/* MCQ tile */}
+              <div className="relative group rounded-3xl bg-white/[0.03] border border-white/10 p-5 sm:p-7 hover:bg-white/[0.05] transition-all overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity">
+                  <Target className="h-14 w-14 text-emerald-400" />
                 </div>
-             )}
+                <span className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Objectives</span>
+                <div className="flex items-baseline gap-1.5 mb-1">
+                  <span className="text-4xl font-black text-white">{mcqCorrect}</span>
+                  <span className="text-xs font-bold text-slate-500">/ 50</span>
+                </div>
+                <p className="text-[10px] font-bold text-emerald-400 mb-3">{mcqPct}% accuracy</p>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full bg-emerald-500 rounded-full transition-all duration-1000" style={{ width: `${mcqPct}%` }} />
+                </div>
+              </div>
+
+              {/* Theory tile */}
+              <div className="relative group rounded-3xl bg-white/[0.03] border border-white/10 p-5 sm:p-7 hover:bg-white/[0.05] transition-all overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity">
+                  <Brain className="h-14 w-14 text-purple-400" />
+                </div>
+                <span className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Theory</span>
+                <div className="flex items-baseline gap-1.5 mb-1">
+                  <span className="text-4xl font-black text-white">{theoryScore}</span>
+                  <span className="text-xs font-bold text-slate-500">/ 100</span>
+                </div>
+                <p className="text-[10px] font-bold text-purple-400 mb-3">{theoryPct}% of theory</p>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full bg-purple-500 rounded-full transition-all duration-1000" style={{ width: `${theoryPct}%` }} />
+                </div>
+              </div>
+            </div>
+
+            {/* ── WAEC Grade Scale ── */}
+            <div className="rounded-3xl bg-white/[0.02] border border-white/8 p-5 sm:p-6">
+              <p className="text-[9px] font-black text-slate-600 uppercase tracking-[0.2em] mb-4">WAEC Grade Scale — Your Position</p>
+              <div className="flex gap-1 items-end h-10">
+                {gradeSteps.map((step, i) => {
+                  const isActive = gradeInfo.grade === step.label;
+                  return (
+                    <div key={step.label} className="flex-1 flex flex-col items-center gap-1">
+                      <div
+                        className={`w-full rounded-sm transition-all duration-500 ${step.color} ${isActive ? 'opacity-100 ring-2 ring-white/40 ring-offset-1 ring-offset-[#020617]' : 'opacity-20'}`}
+                        style={{ height: isActive ? '32px' : `${18 - i}px` }}
+                      />
+                      <span className={`text-[8px] font-black ${isActive ? 'text-white' : 'text-slate-700'}`}>{step.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ── Section CTA Cards ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button
+                onClick={() => setView('mcq')}
+                className="p-6 rounded-3xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] active:scale-[0.98] transition-all flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+                    <ShieldCheck className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="text-base font-black text-white leading-tight">Review MCQs</h4>
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">{mcqCorrect} / 50 Correct</p>
+                  </div>
+                </div>
+                <ChevronRight className="h-5 w-5 text-slate-700 group-hover:text-primary transition-colors shrink-0" />
+              </button>
+
+              <button
+                onClick={() => setView('theory')}
+                className="p-6 rounded-3xl bg-purple-500/5 border border-purple-500/15 hover:bg-purple-500/10 active:scale-[0.98] transition-all flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors shrink-0">
+                    <Cpu className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="text-base font-black text-white leading-tight">Theory Breakdown</h4>
+                    <p className="text-[10px] font-bold text-purple-500 uppercase tracking-widest mt-0.5">AI Forensic Map</p>
+                  </div>
+                </div>
+                <ChevronRight className="h-5 w-5 text-slate-700 group-hover:text-purple-400 transition-colors shrink-0" />
+              </button>
+            </div>
+
           </div>
-        )}
+          );
+        })()}
+
+
+
+        {view === 'mcq' && (() => {
+          const totalCorrect = mcqQuestions.filter(q => {
+            const resp = responses.find(r => r.question_id === q.id);
+            const ct = getCorrectOptionText(q.marking_scheme, q.options || []);
+            return resp && ct && resp.selected_option === ct;
+          }).length;
+          const totalAnswered = responses.length;
+
+          return (
+          <div className="animate-in fade-in duration-500">
+
+            {/* ── Stats Bar ── */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                  <span className="text-[11px] font-black text-emerald-400">{totalCorrect} correct</span>
+                </div>
+                <div className="px-4 py-2 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center gap-2">
+                  <XCircle className="h-3.5 w-3.5 text-rose-400" />
+                  <span className="text-[11px] font-black text-rose-400">{totalAnswered - totalCorrect} wrong</span>
+                </div>
+              </div>
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                {currentMcqIdx + 1} / {mcqQuestions.length}
+              </span>
+            </div>
+
+            {/* ── Question Navigator Rail ── */}
+            <div className="flex gap-1.5 overflow-x-auto pb-2 mb-6 no-scrollbar snap-x">
+              {mcqQuestions.map((q) => {
+                const resp = responses.find(r => r.question_id === q.id);
+                const ct = getCorrectOptionText(q.marking_scheme, q.options || []);
+                const isCorrect = resp && ct && resp.selected_option === ct;
+                const isSelected = selectedMcqId === q.id;
+                return (
+                  <button
+                    key={q.id}
+                    onClick={() => { setSelectedMcqId(q.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className={`
+                      flex-shrink-0 h-9 w-9 rounded-xl flex items-center justify-center font-black text-[11px] transition-all snap-start
+                      ${isSelected
+                        ? !resp ? 'bg-slate-500/30 border-2 border-slate-400 text-white'
+                          : isCorrect ? 'bg-emerald-500/30 border-2 border-emerald-400 text-emerald-300'
+                          : 'bg-rose-500/30 border-2 border-rose-400 text-rose-300'
+                        : !resp ? 'bg-white/5 text-slate-600 border border-white/5'
+                          : isCorrect ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'
+                          : 'bg-rose-500/10 text-rose-500 border border-rose-500/20'
+                      }
+                    `}
+                  >
+                    {q.question_number}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* ── Question Card ── */}
+            {selectedQ ? (
+              <div className="space-y-4">
+                {/* Header */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="h-9 w-9 rounded-xl bg-primary/20 flex items-center justify-center font-black text-primary text-sm">
+                      {selectedQ.question_number}
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Forensic Analysis</span>
+                  </div>
+                  <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border ${isSelectedCorrect ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-rose-500/10 border-rose-500/20 text-rose-400'}`}>
+                    {isSelectedCorrect ? '✓ Correct' : '✗ Wrong'}
+                  </div>
+                </div>
+
+                {/* Question Text */}
+                <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10">
+                  <div className="text-lg sm:text-xl font-bold text-white leading-relaxed">
+                    <LatexRenderer text={selectedQ.question_text} />
+                  </div>
+                </div>
+
+                {/* Options */}
+                <div className="space-y-3">
+                  {(selectedQ.options || []).map((opt: any) => {
+                    const isThisCorrect = correctText && opt.text === correctText;
+                    const wasThisPicked = selectedResp && opt.text === selectedResp.selected_option;
+                    const isWrongPick = wasThisPicked && !isThisCorrect;
+                    return (
+                      <div
+                        key={opt.id}
+                        className={`
+                          flex items-center gap-4 p-4 sm:p-5 rounded-2xl border transition-all
+                          ${isThisCorrect ? 'bg-emerald-500/10 border-emerald-500/30 shadow-sm shadow-emerald-500/10'
+                            : isWrongPick ? 'bg-rose-500/10 border-rose-500/30'
+                            : 'bg-white/[0.02] border-white/5 opacity-40'}
+                        `}
+                      >
+                        {/* Option letter badge */}
+                        <div className={`flex-shrink-0 h-9 w-9 rounded-xl flex items-center justify-center font-black text-sm ${isThisCorrect ? 'bg-emerald-500 text-white' : isWrongPick ? 'bg-rose-500 text-white' : 'bg-white/10 text-slate-400'}`}>
+                          {opt.id}
+                        </div>
+                        {/* Option text */}
+                        <div className="flex-1 text-sm sm:text-base font-semibold text-slate-200 leading-snug">
+                          <LatexRenderer text={opt.text} />
+                        </div>
+                        {/* Status icon */}
+                        {isThisCorrect && <CheckCircle2 className="flex-shrink-0 h-5 w-5 text-emerald-400" />}
+                        {isWrongPick && <XCircle className="flex-shrink-0 h-5 w-5 text-rose-400" />}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Answer comparison (only when wrong) */}
+                {!isSelectedCorrect && selectedResp && correctText && (
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-4 rounded-2xl bg-rose-500/5 border border-rose-500/15">
+                      <span className="block text-[9px] font-black text-rose-400 uppercase tracking-widest mb-1">You picked</span>
+                      <div className="text-sm font-bold text-rose-200 leading-snug">
+                        <LatexRenderer text={selectedResp.selected_option || '–'} />
+                      </div>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/15">
+                      <span className="block text-[9px] font-black text-emerald-400 uppercase tracking-widest mb-1">Correct answer</span>
+                      <div className="text-sm font-bold text-emerald-200 leading-snug">
+                        <LatexRenderer text={correctText} />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Navigation */}
+                <div className="flex items-center gap-3 pt-2">
+                  <button
+                    disabled={currentMcqIdx === 0}
+                    onClick={() => { setSelectedMcqId(mcqQuestions[currentMcqIdx - 1].id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="h-14 px-6 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex-1 transition-all flex items-center justify-center font-bold gap-2"
+                  >
+                    <ChevronLeft className="h-5 w-5" /> Prev
+                  </button>
+                  <div className="flex flex-col items-center px-4">
+                    <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">Q</span>
+                    <span className="text-lg font-black text-white">{currentMcqIdx + 1}</span>
+                  </div>
+                  <button
+                    disabled={currentMcqIdx === mcqQuestions.length - 1}
+                    onClick={() => { setSelectedMcqId(mcqQuestions[currentMcqIdx + 1].id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="h-14 px-6 rounded-2xl bg-primary text-white hover:bg-primary/90 disabled:opacity-20 flex-1 shadow-lg shadow-primary/20 transition-all flex items-center justify-center font-bold gap-2"
+                  >
+                    Next <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="py-24 text-center opacity-40">
+                <Search className="h-16 w-16 mx-auto mb-6" />
+                <p className="text-xl font-black uppercase tracking-widest">No Objectives Recorded</p>
+              </div>
+            )}
+          </div>
+          );
+        })()}
+
+
+
+        {view === 'theory' && (() => {
+          const parseFeedbackLines = (feedback: string) => {
+            if (!feedback) return [];
+            
+            // The AI often returns all marks in a single line. 
+            // We insert newlines before any mark annotation like +M1, -A1, +B1 so they render on separate lines.
+            const normalizedFeedback = feedback.replace(/\s+(?=[+-][MAB]\d*)/g, '\n');
+            
+            return normalizedFeedback.split('\n').filter(l => l.trim()).map(line => {
+              const trimmed = line.trim();
+              const isPositive = trimmed.startsWith('+');
+              const isNegative = trimmed.startsWith('-');
+              let markType = '';
+              let text = trimmed;
+              const markMatch = trimmed.match(/^[+-](M\d+|A\d+|B\d+):?\s*/);
+              if (markMatch) {
+                markType = markMatch[1];
+                text = trimmed.slice(markMatch[0].length);
+              } else if (isPositive || isNegative) {
+                text = trimmed.slice(1).trim();
+              }
+              return { isPositive, isNegative, markType, text, raw: trimmed };
+            });
+          };
+
+          const feedbackLines = selectedTheory ? parseFeedbackLines(selectedTheory.feedback || '') : [];
+          
+          const matchedQ = theoryQuestions.find(q => String(q.question_number) === String(selectedTheory?.question_number));
+          let maxMarks = 10; // Default fallback
+          if (matchedQ?.marking_scheme) {
+            const matches = [...matchedQ.marking_scheme.matchAll(/(?:Marks:|TOTAL MARKS:)\s*(\d+)/gi)];
+            if (matches.length > 0) {
+              maxMarks = matches.reduce((sum: number, m: any) => sum + parseInt(m[1]), 0);
+            }
+          }
+          
+          const actualEarned = selectedTheory?.marks_attained || 0;
+          const actualLost = Math.max(0, maxMarks - actualEarned);
+
+          return (
+          <div className="animate-in fade-in duration-500">
+
+            {/* ── Top Action Bar ── */}
+            <div className="flex items-center justify-between gap-3 mb-6">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => fetchResults(true)}
+                  disabled={refreshing}
+                  className="h-9 px-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-white/10 transition-all disabled:opacity-40"
+                >
+                  <RefreshCw className={`h-3 w-3 ${refreshing ? 'animate-spin' : ''}`} />
+                  <span className="hidden sm:inline">Sync</span>
+                </button>
+              </div>
+              {theorySubmissions.length > 0 && (
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                  {currentTheoryIdx + 1} / {theorySubmissions.length}
+                </span>
+              )}
+            </div>
+
+            {/* ── Question Navigator Rail ── */}
+            {theorySubmissions.length > 0 && (
+              <div className="flex gap-2 overflow-x-auto pb-2 mb-6 no-scrollbar snap-x">
+                {theorySubmissions.map((sub, idx) => {
+                  const score = sub.marks_attained || 0;
+                  const isSelected = selectedTheoryId === sub.id;
+                  const isPassing = score >= 5;
+                  return (
+                      <button
+                        key={sub.id}
+                        onClick={() => { setSelectedTheoryId(sub.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                        snap-start="true"
+                        className={`
+                          flex-shrink-0 flex flex-col items-center gap-1 px-4 py-3 rounded-2xl border transition-all
+                          ${isSelected
+                            ? isPassing
+                              ? 'bg-emerald-500/20 border-emerald-500/50 shadow-lg shadow-emerald-500/10'
+                              : 'bg-rose-500/20 border-rose-500/50 shadow-lg shadow-rose-500/10'
+                            : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.06]'
+                          }
+                        `}
+                      >
+                      <span className={`text-[9px] font-black uppercase tracking-widest ${isSelected ? (isPassing ? 'text-emerald-400' : 'text-rose-400') : 'text-slate-500'}`}>
+                        Q{sub.question_number || idx + 1}
+                      </span>
+                      <span className={`text-sm font-black ${isSelected ? (isPassing ? 'text-emerald-300' : 'text-rose-300') : 'text-slate-400'}`}>
+                        {score}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* ── Main Content ── */}
+            {selectedTheory ? (
+              <div className="space-y-6">
+
+                {/* Desktop: side-by-side | Mobile: stacked */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+                  {/* Left: Student's Handwriting Image */}
+                  <div className="lg:sticky lg:top-20 space-y-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="h-6 w-6 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <Eye className="h-3 w-3 text-purple-400" />
+                      </div>
+                      <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Student's Workings</span>
+                    </div>
+                    <div className="rounded-3xl overflow-hidden border border-white/10 bg-black/30 shadow-2xl">
+                      <img
+                        src={selectedTheory.image_url}
+                        alt="Student submission scan"
+                        className="w-full h-auto object-contain max-h-[70vh] filter brightness-110 contrast-[1.05]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Right: AI Analysis Panel */}
+                  <div className="space-y-4">
+
+                    {/* Score Ring Card */}
+                    <div className="rounded-3xl bg-white/[0.03] border border-white/10 p-6 flex items-center gap-6">
+                      {/* Mini arc score */}
+                      <div className="relative h-20 w-20 shrink-0">
+                        <svg className="h-full w-full -rotate-90" viewBox="0 0 80 80">
+                          <circle cx="40" cy="40" r="32" className="fill-none stroke-white/5" strokeWidth="6" />
+                          <circle
+                            cx="40" cy="40" r="32"
+                            className={`fill-none transition-all duration-1000 ${actualEarned >= (maxMarks / 2) ? 'stroke-emerald-500' : 'stroke-rose-500'}`}
+                            strokeWidth="6"
+                            strokeLinecap="round"
+                            strokeDasharray={201}
+                            strokeDashoffset={201 - (201 * Math.min(actualEarned / maxMarks, 1))}
+                          />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className={`text-xl font-black ${actualEarned >= (maxMarks / 2) ? 'text-emerald-400' : 'text-rose-400'}`}>
+                            {actualEarned}
+                          </span>
+                        </div>
+                      </div>
+                      <div>
+                        <span className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1">
+                          Question {selectedTheory.question_number || '–'} Score
+                        </span>
+                        <div className="flex items-baseline gap-1">
+                          <span className={`text-3xl font-black ${actualEarned >= (maxMarks / 2) ? 'text-emerald-400' : 'text-rose-400'}`}>
+                            {actualEarned}
+                          </span>
+                          <span className="text-slate-500 font-bold text-sm">/ {maxMarks} marks</span>
+                        </div>
+                        <div className="flex gap-3 mt-2">
+                          <span className="flex items-center gap-1 text-[10px] font-black text-emerald-400">
+                            <CheckCircle2 className="h-3 w-3" /> {actualEarned} earned
+                          </span>
+                          <span className="flex items-center gap-1 text-[10px] font-black text-rose-400">
+                            <XCircle className="h-3 w-3" /> {actualLost} lost
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* AI Mark Breakdown */}
+                    <div className="rounded-3xl bg-[#0a0f1e] border border-purple-500/10 overflow-hidden">
+                      <div className="flex items-center gap-3 px-6 py-4 border-b border-white/5">
+                        <div className="h-7 w-7 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                          <Brain className="h-3.5 w-3.5 text-purple-400" />
+                        </div>
+                        <span className="text-[10px] font-black text-purple-400 uppercase tracking-[0.2em]">AI Mark-by-Mark Breakdown</span>
+                      </div>
+
+                      <div className="p-4 space-y-2 max-h-[400px] overflow-y-auto">
+                        {feedbackLines.length > 0 ? feedbackLines.map((item, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-start gap-3 p-3 rounded-2xl transition-all ${
+                              item.isPositive
+                                ? 'bg-emerald-500/5 border border-emerald-500/10'
+                                : item.isNegative
+                                  ? 'bg-rose-500/5 border border-rose-500/10'
+                                  : 'bg-white/[0.02] border border-white/5'
+                            }`}
+                          >
+                            {/* Mark badge */}
+                            {item.markType ? (
+                              <span className={`flex-shrink-0 text-[9px] font-black px-2 py-0.5 rounded-lg ${
+                                item.isPositive
+                                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20'
+                                  : 'bg-rose-500/20 text-rose-400 border border-rose-500/20'
+                              }`}>
+                                {item.isPositive ? '+' : '-'}{item.markType}
+                              </span>
+                            ) : (
+                              <span className={`flex-shrink-0 mt-0.5 h-4 w-4 rounded-full flex items-center justify-center ${
+                                item.isPositive ? 'bg-emerald-500/20' : item.isNegative ? 'bg-rose-500/20' : 'bg-white/5'
+                              }`}>
+                                {item.isPositive
+                                  ? <CheckCircle2 className="h-3 w-3 text-emerald-400" />
+                                  : item.isNegative
+                                    ? <XCircle className="h-3 w-3 text-rose-400" />
+                                    : <Info className="h-3 w-3 text-slate-500" />
+                                }
+                              </span>
+                            )}
+                            <div className={`text-sm leading-relaxed font-medium ${
+                              item.isPositive ? 'text-emerald-200' : item.isNegative ? 'text-rose-200' : 'text-slate-400'
+                            }`}>
+                              <LatexRenderer text={item.text} />
+                            </div>
+                          </div>
+                        )) : (
+                          <div className="py-8 text-center">
+                            <Sparkles className="h-8 w-8 text-slate-600 mx-auto mb-3 animate-pulse" />
+                            <p className="text-sm text-slate-500 font-medium">AI analysis is being processed...</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── Navigation Bar ── */}
+                <div className="flex items-center gap-3 pt-2">
+                  <button
+                    disabled={currentTheoryIdx <= 0}
+                    onClick={() => { setSelectedTheoryId(theorySubmissions[currentTheoryIdx - 1].id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="h-14 px-6 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 disabled:opacity-20 flex-1 transition-all flex items-center justify-center font-bold gap-2"
+                  >
+                    <ChevronLeft className="h-5 w-5" /> Prev
+                  </button>
+                  <div className="flex flex-col items-center px-4">
+                    <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">Q</span>
+                    <span className="text-lg font-black text-white">{currentTheoryIdx + 1}</span>
+                  </div>
+                  <button
+                    disabled={currentTheoryIdx >= theorySubmissions.length - 1}
+                    onClick={() => { setSelectedTheoryId(theorySubmissions[currentTheoryIdx + 1].id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="h-14 px-6 rounded-2xl bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-20 flex-1 shadow-lg shadow-purple-500/20 transition-all flex items-center justify-center font-bold gap-2"
+                  >
+                    Next <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="py-24 text-center">
+                <div className="h-20 w-20 rounded-[2rem] bg-white/5 flex items-center justify-center mx-auto mb-8 border border-white/10">
+                  <Layers className={`h-10 w-10 text-slate-500 ${refreshing ? 'animate-spin' : 'animate-pulse'}`} />
+                </div>
+                <h3 className="text-2xl font-black text-white mb-2">{refreshing ? 'Refetching...' : 'No Workings Found'}</h3>
+                <p className="text-slate-500 font-medium max-w-sm mx-auto mb-8">
+                  {refreshing ? 'Checking the forensic database...' : "Either theory images haven't been uploaded yet, or the AI scan is still processing."}
+                </p>
+                {!refreshing && (
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onClick={() => fetchResults(true)} className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-slate-400 font-black hover:bg-white/10 transition-all">Manual Refresh</button>
+                    <button onClick={handleRegradeTheory} className="h-14 px-8 rounded-2xl bg-purple-600 text-white font-black shadow-lg shadow-purple-500/20 hover:bg-purple-500 transition-all flex items-center gap-2 justify-center"><Zap className="h-4 w-4" /> Trigger AI Scan</button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          );
+        })()}
+
       </main>
     </div>
   );

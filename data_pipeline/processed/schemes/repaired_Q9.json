@@ -1,0 +1,116 @@
+{
+  "question_number": "9",
+  "schemes": [
+    {
+      "question_id": "9(a)",
+      "total_marks": 3,
+      "penalties": [
+        {
+          "type": "ee",
+          "description": "Error in labeling pillar/mast heights or positions",
+          "deduction": 0.5
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify correct relative positions of S, H, O, G, and T",
+          "expected_equation": "$(10m, 28^\\circ, 70^\\circ)$",
+          "mark_type": "B3",
+          "marks_awarded": 3
+        }
+      ]
+    },
+    {
+      "question_id": "9(b)(i)",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Define OS = OT = x",
+          "expected_equation": "[unreadable definition]",
+          "mark_type": "[unreadable]",
+          "marks_awarded": "[unreadable]"
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Use tan ratio in \\triangle OSH",
+          "expected_equation": "\\tan 28 = \\frac{10}{|OS|}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate |OS|",
+          "expected_equation": "|OS| = \\frac{10}{\\tan 28} = 18.8076",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate |TG| using \\triangle OTG",
+          "expected_equation": "\\tan 70 = \\frac{|TG|}{18.8076}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Find value of |TG|",
+          "expected_equation": "|TG| = 2.7475 \\times 18.8076 = 51.6739",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Determine height of the mast as 52 m",
+          "expected_equation": "Height = 52\\text{m}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "9(b)(ii)",
+      "total_marks": 4,
+      "penalties": [
+        {
+          "type": "ou",
+          "description": "Errors in units or working",
+          "deduction": 1
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Compute PG",
+          "expected_equation": "|PG| = 51.6739 - 10 = 41.6739\\text{m}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Use Pythagorean theorem for HG",
+          "expected_equation": "|HG| = \\sqrt{(2 \\times 18.8076)^2 + (41.6739)^2}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Simplify and compute |HG|",
+          "expected_equation": "|HG| = \\sqrt{414.9033 + 1736.7139} = 56.1393",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "State the height as 56 m",
+          "expected_equation": "[unreadable]",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ],
+  "combined_text": "--- SUB-PART 9(a) (Marks: 3) ---\n- Step 1: Identify correct relative positions of S, H, O, G, and T | Eq: $(10m, 28^\\circ, 70^\\circ)$ | Mark: B3(3)\n  [PENALTY] ee: -0.5\n\n--- SUB-PART 9(b)(i) (Marks: 5) ---\n- Step 1: Define OS = OT = x | Eq: [unreadable definition] | Mark: [unreadable]([unreadable])\n- Step 2: Use tan ratio in \\triangle OSH | Eq: \\tan 28 = \\frac{10}{|OS|} | Mark: M1(1)\n- Step 3: Calculate |OS| | Eq: |OS| = \\frac{10}{\\tan 28} = 18.8076 | Mark: A1(1)\n- Step 4: Calculate |TG| using \\triangle OTG | Eq: \\tan 70 = \\frac{|TG|}{18.8076} | Mark: M1(1)\n- Step 5: Find value of |TG| | Eq: |TG| = 2.7475 \\times 18.8076 = 51.6739 | Mark: A1(1)\n- Step 6: Determine height of the mast as 52 m | Eq: Height = 52\\text{m} | Mark: A1(1)\n\n--- SUB-PART 9(b)(ii) (Marks: 4) ---\n- Step 1: Compute PG | Eq: |PG| = 51.6739 - 10 = 41.6739\\text{m} | Mark: B1(1)\n- Step 2: Use Pythagorean theorem for HG | Eq: |HG| = \\sqrt{(2 \\times 18.8076)^2 + (41.6739)^2} | Mark: M1(1)\n- Step 3: Simplify and compute |HG| | Eq: |HG| = \\sqrt{414.9033 + 1736.7139} = 56.1393 | Mark: A1(1)\n- Step 4: State the height as 56 m | Eq: [unreadable] | Mark: A1(1)\n  [PENALTY] ou: -1\n"
+}
