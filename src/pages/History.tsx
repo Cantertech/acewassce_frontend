@@ -123,7 +123,7 @@ const History = () => {
               <div 
                 key={attempt.id} 
                 onClick={() => {
-                  if (attempt.status === 'in_progress') {
+                  if (attempt.status !== 'graded') {
                     navigate('/exam/resume', { state: { attemptId: attempt.id, examId: attempt.exams?.id } });
                   } else {
                     navigate('/exam/results', { state: { attemptId: attempt.id, from: '/history' } });
@@ -134,8 +134,8 @@ const History = () => {
               >
                 <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-start gap-4">
-                    <div className={`h-12 w-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 ${attempt.status === 'in_progress' ? 'text-amber-400 animate-pulse' : 'text-primary'}`}>
-                      {attempt.status === 'in_progress' ? <Clock className="h-6 w-6" /> : <BookOpen className="h-6 w-6" />}
+                    <div className={`h-12 w-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 ${attempt.status !== 'graded' ? 'text-amber-400 animate-pulse' : 'text-primary'}`}>
+                      {attempt.status !== 'graded' ? <Clock className="h-6 w-6" /> : <BookOpen className="h-6 w-6" />}
                     </div>
                     <div>
                       <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors">
@@ -154,7 +154,7 @@ const History = () => {
                   </div>
 
                   <div className="flex items-center justify-between sm:justify-end gap-6 sm:gap-8 bg-white/5 sm:bg-transparent rounded-2xl p-4 sm:p-0">
-                    {attempt.status === 'in_progress' ? (
+                    {attempt.status !== 'graded' ? (
                       <div className="text-right">
                         <p className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">In Progress</p>
                         <p className="text-sm font-bold text-muted-foreground italic">Resume Practice</p>

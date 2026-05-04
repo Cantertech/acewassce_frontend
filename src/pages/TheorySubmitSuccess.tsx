@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { CheckCircle, ArrowRight, BrainCircuit, ScanSearch, FileCheck2, Loader2, Home, Clock, Sparkles, ShieldCheck } from "lucide-react";
-
+import { CheckCircle, ArrowRight, BrainCircuit, ScanSearch, FileCheck2, Loader2, Home, Clock, ShieldCheck, Sparkles } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -17,9 +16,9 @@ const TheorySubmitSuccess = () => {
   const [error, setError] = useState<string | null>(null);
 
   const MARKING_STEPS = [
-    { icon: ScanSearch, text: "Scanning handwriting...", sub: "Detecting text and diagrams from your uploaded pages" },
-    { icon: BrainCircuit, text: "Matching against rubric...", sub: "Comparing your workings to the WAEC marking scheme" },
-    { icon: FileCheck2, text: "Finalizing scores...", sub: "Aggregating marks across all questions" },
+    { icon: ScanSearch,   label: "Scanning Handwriting",    desc: "Reading your uploaded pages and detecting text, symbols & diagrams" },
+    { icon: BrainCircuit, label: "Matching Marking Scheme", desc: "Comparing your workings against the WAEC official rubric" },
+    { icon: FileCheck2,   label: "Awarding Marks",          desc: "Calculating earned and lost marks per sub-question" },
   ];
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const TheorySubmitSuccess = () => {
         setMarkingStatus(data.status);
         if (!examId) setExamId(data.exam_id);
         if (data.mcq_completed_at) setMcqCompleted(true);
-        
+
         // Auto-redirect when fully graded
         if (data.status === 'graded') {
           navigate("/exam/results", { state: { attemptId } });
@@ -56,10 +55,10 @@ const TheorySubmitSuccess = () => {
     fetchData();
     const polling = setInterval(fetchData, 3000);
 
-    // Visual step progression
+    // Cycle through visual steps every 5s
     const animation = setInterval(() => {
       setMarkingStep((prev) => (prev < MARKING_STEPS.length - 1 ? prev + 1 : prev));
-    }, 6000);
+    }, 5000);
 
     return () => {
       clearInterval(polling);
@@ -75,21 +74,23 @@ const TheorySubmitSuccess = () => {
     navigate("/exam/mcq", { state: { attemptId, examId } });
   };
 
-  // ────────────────────────────────────────────
-  // STATE 1: THEORY MARKED → MCQ PENDING
-  // ────────────────────────────────────────────
-  if (markingStatus === 'theory_marked' || (markingStatus !== 'pending' && !mcqCompleted)) {
+  const isTheoryMarked = markingStatus === 'theory_marked';
+  const isGraded = markingStatus === 'graded';
+  const CurrentStepIcon = MARKING_STEPS[markingStep].icon;
+
+  // ─────────────────────────────────────────
+  // STATE 1: THEORY MARKED → PROMPT MCQ
+  // ─────────────────────────────────────────
+  if (isTheoryMarked || (markingStatus !== 'pending' && !mcqCompleted)) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-5 overflow-hidden relative">
-        {/* Ambient background */}
         <div className="pointer-events-none fixed inset-0">
           <div className="absolute top-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full bg-emerald-500/8 blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] h-[400px] w-[400px] rounded-full bg-blue-600/8 blur-[100px]" />
         </div>
 
         <div className="relative z-10 w-full max-w-md text-center animate-fade-up">
-          {/* Success badge */}
-          <div className="mx-auto mb-8 relative inline-block">
+          <div className="mx-auto mb-8">
             <div className="h-20 w-20 rounded-3xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center mx-auto">
               <CheckCircle className="h-10 w-10 text-emerald-400" />
             </div>
@@ -102,7 +103,6 @@ const TheorySubmitSuccess = () => {
             Your written papers are graded. Complete the <span className="text-white font-bold">MCQ section</span> to unlock your full result.
           </p>
 
-          {/* Progress steps */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
               <CheckCircle className="h-3 w-3 text-emerald-400" />
@@ -115,7 +115,6 @@ const TheorySubmitSuccess = () => {
             </div>
           </div>
 
-          {/* Action buttons */}
           <div className="space-y-3">
             <button
               onClick={handleStartMCQ}
@@ -124,7 +123,6 @@ const TheorySubmitSuccess = () => {
               Start MCQ Section
               <ArrowRight className="h-5 w-5" />
             </button>
-
             <button
               onClick={() => navigate("/dashboard")}
               className="w-full h-12 rounded-2xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 font-bold text-sm transition-all flex items-center justify-center gap-2"
@@ -141,123 +139,111 @@ const TheorySubmitSuccess = () => {
     );
   }
 
-  // ────────────────────────────────────────────
-  // STATE 2: AI MARKING IN PROGRESS
-  // ────────────────────────────────────────────
-  const CurrentIcon = MARKING_STEPS[markingStep].icon;
-  const isGraded = markingStatus === 'graded';
-
+  // ─────────────────────────────────────────
+  // STATE 2: AI IS ACTIVELY MARKING
+  // ─────────────────────────────────────────
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-5 overflow-hidden relative">
-      {/* Ambient background */}
+      {/* Ambient glow */}
       <div className="pointer-events-none fixed inset-0">
-        <div className="absolute top-[30%] left-[10%] h-[400px] w-[400px] rounded-full bg-primary/8 blur-[130px] animate-pulse" />
-        <div className="absolute top-[40%] right-[10%] h-[350px] w-[350px] rounded-full bg-emerald-600/8 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-[20%] left-[10%] h-[500px] w-[500px] rounded-full bg-primary/8 blur-[140px] animate-pulse" />
+        <div className="absolute bottom-[10%] right-[5%] h-[400px] w-[400px] rounded-full bg-purple-600/8 blur-[120px] animate-pulse" style={{ animationDelay: "1.5s" }} />
       </div>
 
-      <div className="relative z-10 w-full max-w-sm text-center">
-        {/* Title */}
-        <h2 className="font-display text-xl font-extrabold text-white mb-1">
-          {mcqCompleted ? "Generating Report" : "Theory Submitted"}
-        </h2>
-        <p className="text-xs text-muted-foreground mb-10 font-medium">
-          {mcqCompleted
-            ? "Both sections recorded. Finalizing your results..."
-            : "Your workings are submitted. AI is reviewing..."}
-        </p>
+      <div className="relative z-10 w-full max-w-sm text-center animate-fade-up">
 
-        {/* Animated scanner */}
-        <div className="relative mx-auto mb-10 h-32 w-32 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-[spin_12s_linear_infinite]" />
-          <div className="absolute inset-3 rounded-full border border-white/5 animate-[spin_6s_linear_infinite_reverse]" />
-          <div className={`absolute inset-5 rounded-full flex items-center justify-center border transition-all duration-500 ${isGraded ? 'bg-emerald-500/10 border-emerald-500/20' : 'bg-primary/5 border-white/5'}`}>
-            {isGraded ? (
-              <CheckCircle className="h-10 w-10 text-emerald-400 animate-bounce" />
-            ) : (
-              <CurrentIcon className="h-10 w-10 text-primary animate-pulse" />
-            )}
+        {/* Header */}
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
+            <Sparkles className="h-3 w-3 text-primary animate-pulse" />
+            <span className="text-[10px] font-black text-primary uppercase tracking-widest">AI Marking Engine Active</span>
+          </div>
+          <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
+            Marking Your Paper
+          </h1>
+          <p className="text-xs text-muted-foreground">
+            {mcqCompleted
+              ? "Both sections recorded — generating your final report..."
+              : "Sit back while our AI reviews your workings against the WAEC rubric."}
+          </p>
+        </div>
+
+        {/* Animated ring with step icon */}
+        <div className="relative mx-auto mb-10 h-36 w-36 flex items-center justify-center">
+          <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-[spin_14s_linear_infinite]" />
+          <div className="absolute inset-4 rounded-full border border-white/5 animate-[spin_8s_linear_infinite_reverse]" />
+          <div className="absolute inset-6 rounded-full bg-primary/5 border border-primary/10 animate-pulse" />
+          <div className="absolute inset-8 rounded-full bg-background/60 border border-white/10 flex items-center justify-center">
+            <CurrentStepIcon className="h-9 w-9 text-primary animate-pulse" />
           </div>
         </div>
 
-        {/* Step indicator */}
-        {!isGraded && (
-          <div className="mb-8">
-            <p key={markingStep} className="text-sm font-bold text-white mb-1 animate-fade-up">
-              {MARKING_STEPS[markingStep].text}
-            </p>
-            <p className="text-[11px] text-muted-foreground">{MARKING_STEPS[markingStep].sub}</p>
-            <div className="flex justify-center gap-1.5 mt-4">
-              {MARKING_STEPS.map((_, i) => (
-                <span
-                  key={i}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${i === markingStep ? 'w-7 bg-primary' : i < markingStep ? 'w-2 bg-primary/40' : 'w-2 bg-white/10'}`}
-                />
-              ))}
-            </div>
+        {/* Active step label */}
+        <div className="mb-8 px-4">
+          <p key={markingStep} className="text-base font-extrabold text-white mb-1.5 animate-fade-up">
+            {MARKING_STEPS[markingStep].label}
+          </p>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            {MARKING_STEPS[markingStep].desc}
+          </p>
+          <div className="flex justify-center gap-2 mt-5">
+            {MARKING_STEPS.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-700 ${i === markingStep ? 'w-8 bg-primary' : i < markingStep ? 'w-3 bg-primary/40' : 'w-3 bg-white/10'}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Steps checklist */}
+        <div className="bg-white/[0.03] border border-white/5 rounded-3xl p-5 mb-6 space-y-3 text-left">
+          {MARKING_STEPS.map((step, i) => {
+            const Icon = step.icon;
+            const done = i < markingStep;
+            const active = i === markingStep;
+            return (
+              <div key={i} className={`flex items-center gap-3 transition-all duration-500 ${active ? 'opacity-100' : done ? 'opacity-60' : 'opacity-25'}`}>
+                <div className={`h-8 w-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 ${done ? 'bg-emerald-500/20' : active ? 'bg-primary/20' : 'bg-white/5'}`}>
+                  {done ? (
+                    <CheckCircle className="h-4 w-4 text-emerald-400" />
+                  ) : (
+                    <Icon className={`h-4 w-4 ${active ? 'text-primary animate-pulse' : 'text-slate-500'}`} />
+                  )}
+                </div>
+                <p className={`text-xs font-bold ${done ? 'text-emerald-400' : active ? 'text-white' : 'text-slate-500'}`}>{step.label}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Error / status bar */}
+        {error ? (
+          <div className="flex items-center justify-center gap-2 text-xs text-rose-400 font-bold bg-rose-500/5 rounded-2xl py-3 border border-rose-500/10 mb-4">
+            <Loader2 className="h-3.5 w-3.5 animate-spin" />
+            {error}
+          </div>
+        ) : (
+          <div className="flex items-center justify-center gap-2 text-[10px] text-muted-foreground font-bold bg-white/[0.03] rounded-2xl py-3 border border-white/5 mb-4">
+            <Loader2 className="h-3 w-3 animate-spin text-primary" />
+            This may take 30–60 seconds
           </div>
         )}
 
-        {isGraded && (
-          <div className="mb-8">
-            <p className="text-sm font-bold text-emerald-400 mb-1">Results Ready!</p>
-            <p className="text-[11px] text-muted-foreground">Your full forensic breakdown is available.</p>
-          </div>
-        )}
-
-        {/* Action buttons */}
-        <div className="space-y-3">
-          {/* Primary CTA */}
+        {/* Secondary links */}
+        <div className="flex justify-center gap-6">
           <button
-            disabled={mcqCompleted && !isGraded}
-            onClick={() => {
-              if (isGraded) {
-                navigate("/exam/results", { state: { attemptId } });
-              } else {
-                handleStartMCQ();
-              }
-            }}
-            className={`w-full h-14 rounded-2xl font-black text-base shadow-lg active:scale-95 transition-all disabled:opacity-40 disabled:pointer-events-none flex items-center justify-center gap-2 ${
-              isGraded
-                ? 'bg-emerald-500 hover:bg-emerald-400 text-white shadow-emerald-500/20'
-                : 'bg-white text-primary hover:bg-white/90'
-            }`}
+            onClick={() => navigate("/dashboard")}
+            className="text-[11px] font-bold text-muted-foreground hover:text-white transition-colors"
           >
-            {isGraded
-              ? "View Results"
-              : mcqCompleted
-                ? "Finalizing..."
-                : "Continue to MCQs"}
-            <ArrowRight className="h-5 w-5" />
+            Save & Exit
           </button>
-
-          {/* Status bar */}
-          {error ? (
-            <div className="flex items-center justify-center gap-2 text-xs text-rose-400 font-bold bg-rose-500/5 rounded-2xl py-3 border border-rose-500/10">
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              {error}
-            </div>
-          ) : !isGraded ? (
-            <div className="flex items-center justify-center gap-2 text-[10px] text-muted-foreground font-bold bg-white/[0.03] rounded-2xl py-3 border border-white/5">
-              <Loader2 className="h-3 w-3 animate-spin text-primary" />
-              AI processing in progress...
-            </div>
-          ) : null}
-
-          {/* Secondary nav */}
-          <div className="flex justify-center gap-6 pt-2">
-            <button
-              onClick={() => navigate("/dashboard")}
-              className="text-[11px] font-bold text-muted-foreground hover:text-white transition-colors"
-            >
-              Dashboard
-            </button>
-            <button
-              onClick={() => navigate("/")}
-              className="text-[11px] font-bold text-muted-foreground hover:text-white transition-colors"
-            >
-              Home
-            </button>
-          </div>
+          <button
+            onClick={() => navigate("/history")}
+            className="text-[11px] font-bold text-muted-foreground hover:text-white transition-colors"
+          >
+            View History
+          </button>
         </div>
       </div>
     </div>
