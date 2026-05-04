@@ -211,11 +211,16 @@ const Dashboard = () => {
         <div className="container flex h-16 items-center justify-between px-5">
           <Link to="/" className="flex items-center gap-2.5 group">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 shadow-soft overflow-hidden group-hover:scale-105 transition-transform">
-              <img src={logo} alt="AceWassce" className="h-full w-full object-cover" />
+              <img src={logo} alt="A1 Preps" className="h-full w-full object-cover" />
             </span>
-            <span className="font-display text-base font-extrabold tracking-tight text-foreground">
-              Ace<span className="gradient-text">Wassce</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="font-display text-base font-extrabold tracking-tight text-foreground">
+                A1 <span className="gradient-text">Preps</span>
+              </span>
+              <span className="text-[8px] font-black tracking-widest uppercase text-muted-foreground/70 -mt-0.5">
+                Powered by Sixzones
+              </span>
+            </div>
           </Link>
           <div className="flex items-center gap-3">
             <button className="hidden sm:flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-bold text-muted-foreground hover:bg-white/10 hover:text-foreground transition-all">

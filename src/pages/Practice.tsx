@@ -64,13 +64,18 @@ const Practice = () => {
 
       {/* ── TOP NAVBAR ── */}
       <header className="relative z-10 container flex h-16 items-center justify-between px-5 pt-2">
-        <Link to="/dashboard" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-hero text-white shadow-soft">
+        <Link to="/dashboard" className="flex items-center gap-2.5 group">
+          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-hero text-white shadow-soft group-hover:scale-110 transition-transform">
             <GraduationCap className="h-4 w-4" />
           </span>
-          <span className="font-display text-lg font-extrabold tracking-tight text-foreground">
-            Ace<span className="gradient-text">Wassce</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="font-display text-base font-extrabold tracking-tight text-foreground">
+              A1 <span className="gradient-text">Preps</span>
+            </span>
+            <span className="text-[7px] font-black tracking-widest uppercase text-muted-foreground/70 -mt-0.5">
+              Powered by Sixzones
+            </span>
+          </div>
         </Link>
         <button
           aria-label="Profile"

@@ -18,7 +18,7 @@ const MCQExam = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
-  
+
   const [timeLeft, setTimeLeft] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
@@ -47,7 +47,7 @@ const MCQExam = () => {
         .select('*')
         .eq('exam_id', examId)
         .eq('is_mcq', true);
-        
+
       if (data) {
         const sorted = data.sort((a, b) => parseInt(a.question_number) - parseInt(b.question_number));
         setQuestions(sorted);
@@ -73,7 +73,7 @@ const MCQExam = () => {
       localStorage.setItem(EXAM_KEY, endTime.toString());
       setTimeLeft(DURATION);
     }
-    
+
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
@@ -111,10 +111,10 @@ const MCQExam = () => {
 
   const submitExam = async () => {
     if (!attemptId) return;
-    
+
     setIsSubmitting(true);
     localStorage.removeItem(`acewassce_mcq_timer_${examId}`);
-    
+
     try {
       // 1. Save all responses to the database
       const responseData = Object.entries(answers).map(([qId, option]) => ({
@@ -127,7 +127,7 @@ const MCQExam = () => {
         const { error: resError } = await supabase
           .from('exam_responses')
           .insert(responseData);
-        
+
         if (resError) throw resError;
       }
 
@@ -136,7 +136,7 @@ const MCQExam = () => {
       const gradeResponse = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade-mcq`, {
         method: 'POST'
       });
-      
+
       if (!gradeResponse.ok) {
         throw new Error("Failed to trigger MCQ grading on backend");
       }
@@ -147,7 +147,7 @@ const MCQExam = () => {
         .select('status')
         .eq('id', attemptId)
         .single();
-      
+
       // Only downgrade to mcq_marked if the backend hasn't already finalized
       if (latestAttempt?.status !== 'graded') {
         const { count: theoryCount } = await supabase
@@ -165,12 +165,14 @@ const MCQExam = () => {
 
       // 4. Success!
       const answeredCount = Object.keys(answers).length;
-      navigate("/exam/mcq-success", { state: { 
-        attemptId, 
-        examId,
-        answeredCount,
-        totalCount: questions.length
-      } });
+      navigate("/exam/mcq-success", {
+        state: {
+          attemptId,
+          examId,
+          answeredCount,
+          totalCount: questions.length
+        }
+      });
     } catch (error: any) {
       console.error("Submission error:", error.message);
       alert("Failed to submit exam. Please check your connection.");
@@ -219,7 +221,7 @@ const MCQExam = () => {
 
   if (questions.length === 0) {
     return (
-       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
         <div className="mb-6 p-4 rounded-full bg-red-500/10 border border-red-500/20">
           <AlertTriangle className="h-10 w-10 text-red-500" />
         </div>
@@ -237,14 +239,14 @@ const MCQExam = () => {
       {/* ── TOP HEADER (TIMER & EXIT) ── */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/10">
         <div className="container max-w-3xl flex h-16 items-center justify-between px-4">
-          <button 
+          <button
             onClick={() => setShowExitConfirm(true)}
             className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-white transition-colors"
           >
             <X className="h-5 w-5" />
             <span className="hidden sm:inline">Exit</span>
           </button>
-          
+
           <div className="flex flex-col items-center">
             <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Time Remaining</span>
             <div className={`flex items-center gap-1.5 font-display text-lg font-extrabold ${timeLeft < 300 ? 'text-red-500 animate-pulse' : 'text-white'}`}>
@@ -252,8 +254,8 @@ const MCQExam = () => {
               {formatTime(timeLeft)}
             </div>
           </div>
-          
-          <button 
+
+          <button
             onClick={() => setShowNavigator(true)}
             className="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 text-sm font-bold text-muted-foreground hover:bg-white/10 hover:text-white transition-colors"
           >
@@ -274,8 +276,8 @@ const MCQExam = () => {
           {question?.image_url && (
             <div className="mb-6 overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-2 shadow-2xl backdrop-blur-xl">
               <div className="relative group">
-                <img 
-                  src={question.image_url} 
+                <img
+                  src={question.image_url}
                   alt={`Diagram for Question ${question.question_number}`}
                   className="w-full h-auto object-contain rounded-2xl max-h-[350px] mx-auto filter brightness-110"
                 />
@@ -294,26 +296,24 @@ const MCQExam = () => {
             const optId = option.id || String.fromCharCode(65 + i); // A, B, C, D
             const optText = option.text || option;
             const isSelected = answers[question.id] === optText;
-            
+
             return (
               <button
                 key={i}
                 onClick={() => handleSelect(optText)}
-                className={`group relative flex items-center gap-4 rounded-2xl border p-4 sm:p-5 transition-all text-left ${
-                  isSelected
+                className={`group relative flex items-center gap-4 rounded-2xl border p-4 sm:p-5 transition-all text-left ${isSelected
                     ? "bg-primary/15 border-primary shadow-[0_0_15px_0_hsl(214_100%_60%/0.15)]"
                     : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"
-                }`}
+                  }`}
               >
-                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold border transition-colors ${
-                  isSelected ? "bg-primary text-white border-primary" : "bg-black/20 text-muted-foreground border-white/10"
-                }`}>
+                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold border transition-colors ${isSelected ? "bg-primary text-white border-primary" : "bg-black/20 text-muted-foreground border-white/10"
+                  }`}>
                   {optId}
                 </div>
                 <div className={`text-base sm:text-lg font-medium flex-1 min-w-0 break-words ${isSelected ? "text-white font-bold" : "text-foreground/90"}`}>
                   <LatexRenderer text={optText || ""} />
                 </div>
-                
+
                 {isSelected && (
                   <CheckCircle2 className="h-5 w-5 text-primary" />
                 )}
@@ -371,16 +371,16 @@ const MCQExam = () => {
               If you exit now, your current progress will not be saved. Are you sure?
             </p>
             <div className="flex gap-3">
-              <Button 
-                variant="outline" 
-                onClick={() => setShowExitConfirm(false)} 
+              <Button
+                variant="outline"
+                onClick={() => setShowExitConfirm(false)}
                 className="flex-1 rounded-xl border-white/10"
               >
                 Cancel
               </Button>
-              <Button 
-                variant="destructive" 
-                onClick={() => navigate("/dashboard")} 
+              <Button
+                variant="destructive"
+                onClick={() => navigate("/dashboard")}
                 className="flex-1 rounded-xl"
               >
                 End Exam
@@ -397,14 +397,14 @@ const MCQExam = () => {
           <div className="relative w-full max-w-sm bg-card border border-white/10 rounded-3xl p-6 shadow-elevated animate-fade-up">
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-display text-xl font-extrabold text-white">Question Navigator</h3>
-              <button 
-                onClick={() => setShowNavigator(false)} 
+              <button
+                onClick={() => setShowNavigator(false)}
                 className="h-8 w-8 flex items-center justify-center rounded-full bg-white/10 text-muted-foreground hover:text-white transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
-            
+
             <div className="grid grid-cols-5 gap-3 max-h-[50vh] overflow-y-auto pr-2 scrollbar-hide">
               {questions.map((q, i) => {
                 const isAnswered = answers[q.id] !== undefined;
@@ -416,29 +416,28 @@ const MCQExam = () => {
                       setCurrentIdx(i);
                       setShowNavigator(false);
                     }}
-                    className={`flex h-10 w-full items-center justify-center rounded-xl text-sm font-bold transition-all ${
-                      isCurrent 
-                        ? 'ring-2 ring-primary ring-offset-2 ring-offset-background bg-white/10 text-white' 
-                        : isAnswered 
-                          ? 'bg-primary/20 text-primary border border-primary/30' 
+                    className={`flex h-10 w-full items-center justify-center rounded-xl text-sm font-bold transition-all ${isCurrent
+                        ? 'ring-2 ring-primary ring-offset-2 ring-offset-background bg-white/10 text-white'
+                        : isAnswered
+                          ? 'bg-primary/20 text-primary border border-primary/30'
                           : 'bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10'
-                    }`}
+                      }`}
                   >
                     {i + 1}
                   </button>
                 );
               })}
             </div>
-            
+
             <div className="mt-8 flex items-center justify-around text-xs font-semibold text-muted-foreground">
-               <div className="flex items-center gap-1.5">
-                 <span className="h-3 w-3 rounded-full bg-primary/20 border border-primary/30" /> 
-                 Answered
-               </div>
-               <div className="flex items-center gap-1.5">
-                 <span className="h-3 w-3 rounded-full bg-white/5 border border-white/10" /> 
-                 Unanswered
-               </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-3 w-3 rounded-full bg-primary/20 border border-primary/30" />
+                Answered
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-3 w-3 rounded-full bg-white/5 border border-white/10" />
+                Unanswered
+              </div>
             </div>
           </div>
         </div>

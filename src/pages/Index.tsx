@@ -207,7 +207,7 @@ const Index = () => (
         {/* Heading */}
         <div className="text-center mb-14 animate-fade-up">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
-            What AceWassce Does
+            What A1 Preps Does
           </p>
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
             Everything You Need to <span className="gradient-text">Pass</span>
@@ -311,14 +311,14 @@ const Index = () => (
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between border-t border-white/8 pt-8">
           <Link to="/" className="flex items-center gap-2 group">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 border border-white/10 shadow-soft overflow-hidden group-hover:scale-110 transition-transform">
-              <img src={logo} alt="AceWassce" className="h-full w-full object-cover" />
+              <img src={logo} alt="A1 Preps" className="h-full w-full object-cover" />
             </span>
             <span className="font-display text-sm font-extrabold tracking-tight text-foreground">
-              Ace<span className="gradient-text">Wassce</span>
+              A1 <span className="gradient-text">Preps</span>
             </span>
           </Link>
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} AceWassce · Built for Ghana 🇬🇭
+            © {new Date().getFullYear()} A1 Preps · Built for Ghana 🇬🇭
           </p>
           <div className="flex gap-5 text-xs text-muted-foreground">
             <Link to="#" className="hover:text-primary transition-colors">Privacy</Link>
@@ -327,7 +327,7 @@ const Index = () => (
           </div>
         </div>
         <div className="mt-8 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40">
-          A product from <span className="text-primary/60">Sixzones Technologies</span>
+          Powered by <span className="text-primary/60">Sixzones Technologies</span>
         </div>
       </div>
     </footer>

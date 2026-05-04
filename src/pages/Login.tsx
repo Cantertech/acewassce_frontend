@@ -48,11 +48,16 @@ const Login = () => {
         {/* Logo */}
         <Link to="/" className="mb-8 flex items-center justify-center gap-3 group">
           <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10 shadow-soft overflow-hidden group-hover:scale-105 transition-transform">
-            <img src={logo} alt="AceWassce" className="h-full w-full object-cover" />
+            <img src={logo} alt="A1 Preps" className="h-full w-full object-cover" />
           </span>
-          <span className="font-display text-2xl font-extrabold tracking-tight text-foreground">
-            Ace<span className="gradient-text">Wassce</span>
-          </span>
+          <div className="flex flex-col text-left">
+            <span className="font-display text-2xl font-extrabold tracking-tight text-foreground">
+              A1 <span className="gradient-text">Preps</span>
+            </span>
+            <span className="text-[10px] font-black tracking-widest uppercase text-muted-foreground/70 -mt-0.5">
+              Powered by Sixzones
+            </span>
+          </div>
         </Link>
 
         {/* Card */}

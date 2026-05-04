@@ -221,10 +221,10 @@ const Profile = () => {
             </Button>
             <div className="mt-8 text-center flex flex-col items-center gap-2">
               <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-black">
-                AceWassce v1.0.0 • Built in Ghana 🇬🇭
+                A1 Preps v1.0.0 • Built in Ghana 🇬🇭
               </p>
               <p className="text-[9px] text-primary/60 font-semibold uppercase tracking-wider">
-                A product from Sixzones Technologies
+                Powered by Sixzones Technologies
               </p>
             </div>
           </div>

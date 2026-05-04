@@ -20,9 +20,9 @@ export default defineConfig(({ mode }) => ({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'AceWassce Mock Platform',
-        short_name: 'AceWassce',
-        description: 'High-fidelity mock exam platform for WASSCE students.',
+        name: 'A1 Preps Platform',
+        short_name: 'A1 Preps',
+        description: 'Free WASSCE mock exams with instant grading',
         theme_color: '#0a0f1e',
         background_color: '#0a0f1e',
         display: 'standalone',

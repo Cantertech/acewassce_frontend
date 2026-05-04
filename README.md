@@ -1,4 +1,4 @@
-# AceWassce Student Portal
+# A1 Preps Student Portal
 
 A high-fidelity, data-driven mock exam platform designed for WASSCE students. This frontend features a modern glassmorphism UI, real-time performance tracking, and an integrated AI analysis dashboard.
 
