@@ -235,16 +235,37 @@ const ExamResults = () => {
 
   const getCorrectOptionText = (marking: string, options: any[]) => {
     if (!marking || !options) return null;
+    
     const trimmed = marking.trim().toUpperCase();
+    let correctOptLetter = "";
+    
     if (["A", "B", "C", "D"].includes(trimmed)) {
-        const found = options.find(o => o.id === trimmed);
-        return found ? found.text : null;
+      correctOptLetter = trimmed;
+    } else {
+      // 1. Match "Correct Option: X"
+      const matchCo = marking.match(/Correct\s+Option:\s*([A-D])/i);
+      if (matchCo) {
+        correctOptLetter = matchCo[1].toUpperCase();
+      } else {
+        // 2. Match "Equation: X ="
+        const matchEq = marking.match(/Equation:\s*([A-D])\s*=/i);
+        if (matchEq) {
+          correctOptLetter = matchEq[1].toUpperCase();
+        } else {
+          // 3. Fallback: find any letter A, B, C, D in the first 20 characters
+          const matchFirst = marking.slice(0, 20).match(/\b([A-D])\b/i);
+          if (matchFirst) {
+            correctOptLetter = matchFirst[1].toUpperCase();
+          }
+        }
+      }
     }
-    const match = marking.match(/Equation:\s*([A-D])\s*=/);
-    if (match) {
-        const found = options.find(o => o.id === match[1]);
-        return found ? found.text : null;
+    
+    if (correctOptLetter) {
+      const found = options.find(o => o.id === correctOptLetter);
+      if (found) return found.text;
     }
+
     const clean = (t: string) => String(t).replace(/[^a-z0-9.]/gi, '').toLowerCase();
     const markingClean = clean(marking);
     for (const opt of options) {
