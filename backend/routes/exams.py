@@ -255,23 +255,38 @@ async def grade_mcq(attempt_id: str, db=Depends(get_db)):
             options = q_data.get("options") or []
 
             is_correct = False
-            c_marking = clean(marking)
-            correct_text = ""
+            correct_opt_letter = ""
             trimmed_marking = marking.strip().upper()
-            if trimmed_marking in ["A", "B", "C", "D"]:
-                correct_text = next((opt["text"] for opt in options if opt["id"] == trimmed_marking), "")
-            else:
-                match = re.search(r"Equation:\s*([A-D])\s*=", marking)
-                if match:
-                    correct_text = next((opt["text"] for opt in options if opt["id"] == match.group(1)), "")
             
+            if trimmed_marking in ["A", "B", "C", "D"]:
+                correct_opt_letter = trimmed_marking
+            else:
+                # 1. Try "Correct Option: X"
+                match_co = re.search(r'(?i)Correct\s+Option:\s*([A-D])', marking)
+                if match_co:
+                    correct_opt_letter = match_co.group(1).upper()
+                else:
+                    # 2. Try "Equation: X ="
+                    match_eq = re.search(r"Equation:\s*([A-D])\s*=", marking)
+                    if match_eq:
+                        correct_opt_letter = match_eq.group(1).upper()
+                    else:
+                        # 3. Try to find any letter A, B, C, D in the first 20 characters of marking
+                        match_first = re.search(r'(?i)\b([A-D])\b', marking[:20])
+                        if match_first:
+                            correct_opt_letter = match_first.group(1).upper()
+
+            correct_text = ""
+            if correct_opt_letter:
+                correct_text = next((opt["text"] for opt in options if opt["id"] == correct_opt_letter), "")
+
             if correct_text:
                 if clean(student_choice) == clean(correct_text):
                     is_correct = True
-            if not is_correct and len(student_choice) == 1 and student_choice in "ABCD":
-                if student_choice == trimmed_marking:
+            if not is_correct and correct_opt_letter:
+                if clean(student_choice) == clean(correct_opt_letter):
                     is_correct = True
-            if not is_correct and c_marking and clean(student_choice) == c_marking:
+            if not is_correct and clean(marking) and clean(student_choice) == clean(marking):
                 is_correct = True
 
             if is_correct:
