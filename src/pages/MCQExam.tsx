@@ -161,27 +161,22 @@ const MCQExam = () => {
         throw new Error("Failed to trigger MCQ grading on backend");
       }
 
-      // 3. Re-check status — the backend grade-mcq endpoint may have already set 'graded'
+      // 3. Update database statuses immediately on client side
       const { data: latestAttempt } = await supabase
         .from('exam_attempts')
-        .select('status')
+        .select('status, theory_completed_at')
         .eq('id', attemptId)
         .single();
 
-      // Only downgrade to mcq_marked if the backend hasn't already finalized
-      if (latestAttempt?.status !== 'graded') {
-        const { count: theoryCount } = await supabase
-          .from('theory_submissions')
-          .select('id', { count: 'exact', head: true })
-          .eq('attempt_id', attemptId);
+      const nextStatus = (latestAttempt?.theory_completed_at || latestAttempt?.status === 'theory_marked') ? 'graded' : 'mcq_marked';
 
-        if (!theoryCount || theoryCount === 0) {
-          await supabase
-            .from('exam_attempts')
-            .update({ status: 'mcq_marked' })
-            .eq('id', attemptId);
-        }
-      }
+      await supabase
+        .from('exam_attempts')
+        .update({ 
+          mcq_completed_at: new Date().toISOString(),
+          status: nextStatus 
+        })
+        .eq('id', attemptId);
 
       // 4. Success!
       const answeredCount = Object.keys(answers).length;
