@@ -89,14 +89,39 @@ const ExamResults = () => {
         setAttempt(attData);
         setExam(attData.exams);
 
-        // PROXY FETCH: Use backend to bypass RLS
-        const backendUrl = 'https://acewassce-backend.onrender.com';
-        const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
+        // HYBRID FETCH: Direct Supabase Fetch first (ultra-fast & robust since RLS is disabled), with Proxy fallback
+        let theoryData: any[] = [];
+        addLog("Querying theory_submissions directly from Supabase...");
         
-        const theoryResponse = await fetch(`${cleanBaseUrl}/api/v1/attempts/${attemptId}/theory-submissions`);
-        const theoryData = theoryResponse.ok ? await theoryResponse.json() : [];
-        
-        addLog(`Forensic Sync: ${theoryData?.length || 0} Theory Rows Verified`);
+        const { data: directTheory, error: directErr } = await supabase
+          .from('theory_submissions')
+          .select('*')
+          .eq('attempt_id', attemptId);
+
+        if (!directErr && directTheory && directTheory.length > 0) {
+          theoryData = directTheory;
+          addLog(`Direct Sync: ${theoryData.length} Theory Rows Verified directly from Supabase`);
+        } else {
+          if (directErr) {
+            addLog(`Direct Supabase Fetch Error: ${directErr.message} (Code: ${directErr.code})`);
+          }
+          addLog("Falling back to backend proxy fetch...");
+          
+          const backendUrl = 'https://acewassce-backend.onrender.com';
+          const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
+          
+          try {
+            const theoryResponse = await fetch(`${cleanBaseUrl}/api/v1/attempts/${attemptId}/theory-submissions`);
+            if (theoryResponse.ok) {
+              theoryData = await theoryResponse.json();
+              addLog(`Proxy Sync: ${theoryData?.length || 0} Theory Rows Verified`);
+            } else {
+              addLog(`Proxy Sync failed with status: ${theoryResponse.status}`);
+            }
+          } catch (proxyErr: any) {
+            addLog(`Proxy Sync connection failed: ${proxyErr.message}`);
+          }
+        }
 
         if (theoryData && theoryData.length > 0) {
             const sortedTheory = [...theoryData].sort((a, b) => {
