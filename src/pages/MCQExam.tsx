@@ -17,7 +17,26 @@ const MCQExam = () => {
   const [examMetadata, setExamMetadata] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>(() => {
+    if (state?.attemptId) {
+      const saved = localStorage.getItem(`acewassce_mcq_answers_${state.attemptId}`);
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          console.error("Failed to parse saved answers", e);
+        }
+      }
+    }
+    return {};
+  });
+
+  // Save selected answers to localStorage whenever they change
+  useEffect(() => {
+    if (attemptId && Object.keys(answers).length > 0) {
+      localStorage.setItem(`acewassce_mcq_answers_${attemptId}`, JSON.stringify(answers));
+    }
+  }, [answers, attemptId]);
 
   const [timeLeft, setTimeLeft] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,6 +133,7 @@ const MCQExam = () => {
 
     setIsSubmitting(true);
     localStorage.removeItem(`acewassce_mcq_timer_${examId}`);
+    localStorage.removeItem(`acewassce_mcq_answers_${attemptId}`);
 
     try {
       // 1. Save all responses to the database
