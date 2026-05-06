@@ -90,7 +90,7 @@ const ExamResults = () => {
         setExam(attData.exams);
 
         // PROXY FETCH: Use backend to bypass RLS
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://acewassce-backend.onrender.com';
+        const backendUrl = 'https://acewassce-backend.onrender.com';
         const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
         
         const theoryResponse = await fetch(`${cleanBaseUrl}/api/v1/attempts/${attemptId}/theory-submissions`);
@@ -154,7 +154,7 @@ const ExamResults = () => {
     try {
       if (!attemptId) return;
       setGradingMcq(true);
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://acewassce-backend.onrender.com';
+      const backendUrl = 'https://acewassce-backend.onrender.com';
       const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
       const endpoint = `${cleanBaseUrl}/api/v1/attempts/${attemptId}/grade-mcq`;
       
@@ -177,7 +177,7 @@ const ExamResults = () => {
       try {
           setRefreshing(true);
           addLog("Re-triggering Theory Grader...");
-          const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://acewassce-backend.onrender.com';
+          const backendUrl = 'https://acewassce-backend.onrender.com';
           const cleanBaseUrl = backendUrl.endsWith('/') ? backendUrl.slice(0, -1) : backendUrl;
           const endpoint = `${cleanBaseUrl}/api/v1/attempts/${attemptId}/grade`;
           

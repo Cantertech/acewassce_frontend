@@ -210,7 +210,7 @@ const TheoryExam = () => {
       formData.append('file', file);
       formData.append('tags', tags); // Send manual tags to backend
 
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://acewassce-backend.onrender.com';
+      const backendUrl = 'https://acewassce-backend.onrender.com';
       const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/upload-working?is_general=true`, {
         method: 'POST',
         body: formData,
@@ -243,7 +243,7 @@ const TheoryExam = () => {
     localStorage.removeItem(`acewassce_theory_mode_${attemptId}`);
     
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://acewassce-backend.onrender.com';
+      const backendUrl = 'https://acewassce-backend.onrender.com';
       const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade`, {
         method: 'POST'
       });

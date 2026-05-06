@@ -152,7 +152,7 @@ const MCQExam = () => {
       }
 
       // 2. Call the Python backend to grade the exam instantly
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://acewassce-backend.onrender.com';
+      const backendUrl = 'https://acewassce-backend.onrender.com';
       const gradeResponse = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade-mcq`, {
         method: 'POST'
       });
