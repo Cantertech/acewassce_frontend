@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "1(a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Simplify the exponential expressions correctly.",
+          "expected_equation": "ar^7 = \\frac{1}{256}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Rewrite the equation properly.",
+          "expected_equation": "ar^2 = 4",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Divide both equations to eliminate variables.",
+          "expected_equation": "\\frac{ar^7}{ar^2} = \\frac{\\frac{1}{256}}{4}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Simplify the division correctly.",
+          "expected_equation": "r^5 = \\frac{1}{1024}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Rewrite the expression using powers.",
+          "expected_equation": "r^5 = 4^{-5}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Find the fifth root correctly.",
+          "expected_equation": "r = \\frac{1}{4}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Substitute into the formula correctly.",
+          "expected_equation": "a = 4 \\times \\left(\\frac{1}{4}\\right)^{2}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Derive the correct value for a.",
+          "expected_equation": "a = 64",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculate the second term of the series.",
+          "expected_equation": "2nd \\text{ term} = ar = 64 \\times \\frac{1}{4} = 16",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Find the sum correctly.",
+          "expected_equation": "sum = 64 + 16 = 80",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

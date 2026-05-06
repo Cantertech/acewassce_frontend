@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_38",
+      "topic": "Geometry",
+      "question_number": 38,
+      "question_text": "Find $\\angle OSQ$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$72^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$18^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$36^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$42^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_39",
+      "topic": "Geometry",
+      "question_number": 39,
+      "question_text": "Find $\\angle SQR$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$36^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$72^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$54^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$42^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_40",
+      "topic": "Algebra",
+      "question_number": 40,
+      "question_text": "Find the value of $x$ that satisfies the equation: $\\frac{2}{3}(x + 5) = 1 - \\frac{x - 7}{2}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$1$"
+        },
+        {
+          "id": "B",
+          "text": "$4$"
+        },
+        {
+          "id": "C",
+          "text": "$3$"
+        },
+        {
+          "id": "D",
+          "text": "$2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_41",
+      "topic": "Mensuration",
+      "question_number": 41,
+      "question_text": "A closed cuboid has length $12\\, cm$, width $7\\, cm$ and height $5\\, cm$. Calculate the total surface area.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$179\\, cm^2$"
+        },
+        {
+          "id": "B",
+          "text": "$420\\, cm^2$"
+        },
+        {
+          "id": "C",
+          "text": "$358\\, cm^2$"
+        },
+        {
+          "id": "D",
+          "text": "$210\\, cm^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_42",
+      "topic": "Commission and Financial Mathematics",
+      "question_number": 42,
+      "question_text": "Mr. Amuzu sold his car through an agent who charged $9\\%$ commission on the selling price. If Amuzu received GH\\unicode{20B5}$236,600.00$ after the sale, find the selling price of the car.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "GH\\unicode{20B5}$238,400.00$"
+        },
+        {
+          "id": "B",
+          "text": "GH\\unicode{20B5}$248,000.00$"
+        },
+        {
+          "id": "C",
+          "text": "GH\\unicode{20B5}$260,000.00$"
+        },
+        {
+          "id": "D",
+          "text": "GH\\unicode{20B5}$273,000.00$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

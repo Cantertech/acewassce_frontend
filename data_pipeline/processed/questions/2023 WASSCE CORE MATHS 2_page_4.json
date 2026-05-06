@@ -1,0 +1,97 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_core_math_11",
+      "topic": "Angles, Heights and Speed",
+      "question_number": 11,
+      "question_text": "Answer Question 11 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_core_math_11_a",
+          "topic": "Angles and Heights",
+          "question_number": 11,
+          "question_text": "(a) From the top, $K$, of a building $320$ m high, the angles of depression of the top, $L$ and bottom, $M$ of another building on the same horizontal ground are $$29^{\\circ}$$ and $$41^{\\circ}$$ respectively.\n(i) Illustrate the information in a diagram.\n(ii) Calculate, correct to the nearest metre, the height of the other building.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_core_math_11_b",
+          "topic": "Speed and Distance",
+          "question_number": 11,
+          "question_text": "(b) The time taken to travel a distance of $120$ km was reduced by $30$ minutes when the speed was increased by $20$ km/h. Calculate the initial speed.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_core_math_12",
+      "topic": "Logic and Venn Diagrams",
+      "question_number": 12,
+      "question_text": "Answer Question 12 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_core_math_12_a",
+          "topic": "Logic and Venn Diagrams",
+          "question_number": 12,
+          "question_text": "(a) The following statements are true of a certain community.\n\nI: Most businessmen are rich.\nC: No salary worker is rich.\n\n(i) Draw a Venn diagram to illustrate the information.\n(ii) State whether the following statements are Valid or Not Valid:\n$\\alpha$) Joe is a businessman and is therefore rich.\n$\\beta$) Kipo is not rich because he is a salary worker.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_core_math_12_b",
+          "topic": "Statistics",
+          "question_number": 12,
+          "question_text": "(b) The table shows the distribution of heights of seedlings in a nursery.\n\n$$\\begin{array}{|l|c|c|c|c|c|}\n\\hline\n\\textbf{Heights (cm)} & 60-64 & 65-69 & 70-74 & 75-79 & 80-84 \\\\ \\hline\n\\textbf{Frequency} & 7 & 6 & 5 & 8 & 4 \\\\ \\hline\n\\end{array}$$\n\nCalculate, correct to one decimal place, the:\n(i) mean;\n(ii) variance of the distribution.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_core_math_13",
+      "topic": "Transformation and Coordinate Geometry",
+      "question_number": 13,
+      "question_text": "Answer Question 13 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_core_math_13_a",
+          "topic": "Transformation",
+          "question_number": 13,
+          "question_text": "(a) Using a scale of $2$ cm to $1$ unit on both axes, draw on a graph sheet two perpendicular axes $Ox$ and $Oy$ for $0 \\leq x \\leq 8$ and $-6 \\leq y \\leq 6$.\n(i) Plot the points $M(3, 1)$, $N(1, 1)$ and $P(3, 5)$. Join the points to form $\\triangle MNP$.\n(ii) Draw image triangle $M_1N_1P_1$ which is the reflection of $\\triangle MNP$ in the $x$-axis where $M \\to M_1$, $N \\to N_1$, $P \\to P_1$. Indicate clearly the coordinates of $M_1$, $N_1$ and $P_1$.\n(iii) Draw the image triangle $M_2N_2P_2$ which is the image of $\\triangle MNP$ under the mapping $(x, y) \\to \\begin{pmatrix}-2 & 0 \\\\ 0 & -1\\end{pmatrix}\\begin{pmatrix}x \\\\ y\\end{pmatrix}$, where $M \\to M_2$, $N \\to N_2$, $P \\to P_2$. Indicate clearly the coordinates of $M_2$, $N_2$ and $P_2$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_core_math_13_b",
+          "topic": "Coordinate Geometry",
+          "question_number": 13,
+          "question_text": "(b) Find the equation of the line joining the points $M$ and $M_2$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

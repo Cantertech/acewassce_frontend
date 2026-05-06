@@ -139,4 +139,19 @@
       transform: translateX(100%);
     }
   }
+
+  /* Responsive KaTeX Tables & Math */
+  .katex-display {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-width: 100% !important;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Prevent text-center from pushing wide tables off-screen to the left on mobile */
+  @media (max-width: 768px) {
+    .katex-display {
+      text-align: left !important;
+    }
+  }
 }

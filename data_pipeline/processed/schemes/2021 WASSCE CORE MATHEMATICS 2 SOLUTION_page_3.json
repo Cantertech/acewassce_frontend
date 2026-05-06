@@ -1,0 +1,144 @@
+{
+  "schemes": [
+    {
+      "question_id": "a",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate probability of odd and 6.",
+          "expected_equation": "P(\\text{odd 1st, 6 on second}) = \\frac{3}{36}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify to simplest form.",
+          "expected_equation": "\\frac{1}{12}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "b",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate probability greater than 4 on each die.",
+          "expected_equation": "P(>4 \\text{ on each}) = \\frac{4}{36}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify to simplest form.",
+          "expected_equation": "\\frac{1}{9}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "c",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate probability of total of 9 or 11.",
+          "expected_equation": "P(\\text{total of 9 or 11}) = \\frac{4}{36} + \\frac{2}{36}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify to simplest form.",
+          "expected_equation": "\\frac{6}{36}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Convert to decimal.",
+          "expected_equation": "\\frac{1}{6} \\text{ or } 0.166",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "d",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Setup equations from venn diagram values.",
+          "expected_equation": "(x-5)+(y-5)+3 = 21",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solve for x+y.",
+          "expected_equation": "x + y = 23\\; \\text{---}(1)",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Setup second equation.",
+          "expected_equation": "(y-5) + 5 + (z-5) + 9 = 24",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Setup all equations together.",
+          "expected_equation": "y + z = 20\\; \\text{---}(2),(x-5) + 5 + (z-5) + 2 = 18, x + z = 21\\;\\text{---}(3)",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Solve for x,y,z.",
+          "expected_equation": "x=12, y=11, z=9",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "e",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate plantain and beans only.",
+          "expected_equation": "11 - 5 = 6",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate exactly 2 kinds.",
+          "expected_equation": "(11-5)+(9-5)+(12-5) = 17",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate None.",
+          "expected_equation": "50-(3+7+5+6+9+4+2) = 14",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

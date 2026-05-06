@@ -1,0 +1,137 @@
+{
+  "schemes": [
+    {
+      "question_id": "12(a)",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "\\triangle ABC \\text{ is isosceles}",
+          "expected_equation": "\\angle BAC = \\angle ACB",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "\\angle BAC = 46^\\circ",
+          "expected_equation": "\\angle ACB = 46^\\circ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "\\angle ABC = 180^\\circ - (\\angle BAC + \\angle ACB)",
+          "expected_equation": "\\angle ABC = 180^\\circ - (46^\\circ + 46^\\circ)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "\\angle ABC = 88^\\circ",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "12(b)",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "(AF)(OC) = 2(FC)(OF)",
+          "expected_equation": "\\frac{RQ}{QR} = \\frac{AF}{OF}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "(RQ)(QR) = 2(RP)(PF)",
+          "expected_equation": "\\angle A = \\angle F = x",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "\\frac{RQ}{QR} = 2",
+          "expected_equation": "RQ = 2QR",
+          "mark_type": "A1",
+          "marks_awarded": 2
+        }
+      ]
+    },
+    {
+      "question_id": "12(c)",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Let x be original speed.",
+          "expected_equation": "\\text{Scheduled time for 120 km} = \\frac{120}{x}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Time reduces by \\frac{120}{x+5}",
+          "expected_equation": "= \\frac{240}{x} - \\frac{240}{x+5}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Simplification of equation.",
+          "expected_equation": "\\frac{240}{x} - \\frac{240}{x+5} = \\frac{30}{x}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Average speed of new journey.",
+          "expected_equation": "x = 45\\text{ km/h}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "13",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Solve the inequality.",
+          "expected_equation": "2(5x - 1) < x - 2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify terms.",
+          "expected_equation": "10x - 2 < x - 2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Subtract terms and divide.",
+          "expected_equation": "9x < 0",
+          "mark_type": "A1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Final answer for x.",
+          "expected_equation": "x < 0",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

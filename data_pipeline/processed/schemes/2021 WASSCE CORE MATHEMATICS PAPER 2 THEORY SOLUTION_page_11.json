@@ -1,0 +1,60 @@
+{
+  "schemes": [
+    {
+      "question_id": "1a",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Find \\( \\angle PSQ \\) using ratio.",
+          "expected_equation": "\\angle PSQ = \\angle QPS = \\frac{2}{8} \\times 180^{\\circ}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate \\( \\angle PSQ \\).",
+          "expected_equation": "\\angle PSQ = 45^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Find \\( \\angle SPQ \\).",
+          "expected_equation": "\\angle SPQ = \\frac{3}{8} \\times 180 = 67.5^{\\circ}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate sum of angles for \\( \\angle PQR \\).",
+          "expected_equation": "\\angle PQR = \\angle PQS + \\angle SQR = 45^{\\circ} + 26^{\\circ} = 71^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "1bi",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Find \\( \\angle RPQ \\).",
+          "expected_equation": "\\angle RPQ = \\angle SPQ - \\angle SPR",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Evaluate \\( \\angle RPQ \\).",
+          "expected_equation": "67.5^{\\circ} - 26^{\\circ} = 41.5^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

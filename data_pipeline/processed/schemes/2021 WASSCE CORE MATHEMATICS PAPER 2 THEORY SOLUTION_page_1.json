@@ -1,0 +1,67 @@
+{
+  "schemes": [
+    {
+      "question_id": "1(a)",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate the total simple interest using the formula \\(I = \\frac{P \\times r \\times t}{100}\\).",
+          "expected_equation": "I = \\frac{25000 \\times 3 \\times 21}{100}",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate the total amount paid including interest.",
+          "expected_equation": "= 25000 + 15750",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate the yearly installment amount.",
+          "expected_equation": "= \\frac{40750}{2}",
+          "mark_type": "A1",
+          "marks_awarded": 2
+        }
+      ]
+    },
+    {
+      "question_id": "1(b)",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Let the consecutive numbers be \\(x\\) and \\(x+1\\).",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Form and solve the equation from the given condition.",
+          "expected_equation": "3x + 2(x + 1) = 17",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Solve the equation to find the value of \\(x\\).",
+          "expected_equation": "5x = 15",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate the percentage of the smaller number in terms of the sum of the numbers.",
+          "expected_equation": "\\frac{3}{7} \\times 100",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

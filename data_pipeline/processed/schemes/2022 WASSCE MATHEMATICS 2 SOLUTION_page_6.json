@@ -1,0 +1,137 @@
+{
+  "schemes": [
+    {
+      "question_id": "6(a)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Mark for scaling correct on x-axis",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Mark for scaling correct on y-axis",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "6(b)",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Mark for forming equation correctly",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Mark for correct form of the equation in terms of x",
+          "expected_equation": "y = x^2 - 6x + 5",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Mark for a = 1",
+          "expected_equation": "a = 1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Mark for b = -6",
+          "expected_equation": "b = -6",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Mark for c = 5",
+          "expected_equation": "c = 5",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "6(c)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Mark for reading x correctly as $x = 0.3 \text{ } \text{±} \text{ } 0.1$",
+          "expected_equation": "x = 0.3 ± 0.1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Mark for reading x correctly as $x = 6.3 \text{ } \text{±} \text{ } 0.1$",
+          "expected_equation": "x = 6.3 ± 0.1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Mark for any correct statement regarding the uncertainty",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "6(d)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Mark for the coordinates (3, -4)",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Mark for stating correct coordinate form",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "6(e)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Mark for stating $1 < x < 5$",
+          "expected_equation": "1 < x < 5",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Mark for correct mathematical representation of the inequality",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

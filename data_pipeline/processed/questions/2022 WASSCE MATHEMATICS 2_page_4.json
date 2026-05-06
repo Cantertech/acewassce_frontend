@@ -1,0 +1,97 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_11",
+      "topic": "Trigonometry and Geometry",
+      "question_number": 11,
+      "question_text": "Answer Question 11 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_11_a",
+          "topic": "Trigonometry",
+          "question_number": 11,
+          "question_text": "(a) Given that $\\cos(2x + 15^{\\circ}) = \\sin(x - 30^{\\circ})$, $0^{\\circ} \\leq x \\leq 90^{\\circ}$, find the value of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_11_b",
+          "topic": "Geometry",
+          "question_number": 11,
+          "question_text": "(b) In the diagram, $ABCF$ is a straight line, $BD \\parallel CE$, $\\angle ABD = (2x + 34)^{\\circ}$, and $\\angle FCE = 48^{\\circ}$. Find:\n(i) the value of $x$;\n(ii) $\\angle BDC$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_12",
+      "topic": "Probability and Coordinate Geometry",
+      "question_number": 12,
+      "question_text": "Answer Question 12 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_12_a",
+          "topic": "Probability",
+          "question_number": 12,
+          "question_text": "(a) Fifteen persons were shortlisted for a job interview. On the day of the interview, each applicant was assigned a number from 1 to 15. An applicant was called at random from the list of numbers. Find the probability that the applicant called has a number that is:\n(i) prime;\n(ii) multiple of $3$;\n(iii) divisible by $5$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_12_b",
+          "topic": "Coordinate Geometry",
+          "question_number": 12,
+          "question_text": "(b) $PQRS$ is a quadrilateral with $P(4, 4)$, $S(8, 8)$ and $R(12, 8)$. If $\\overrightarrow{PQ} = 4\\overrightarrow{SR}$, find the coordinates of $Q$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_13",
+      "topic": "Mensuration and Distance",
+      "question_number": 13,
+      "question_text": "Answer Question 13 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_13_a",
+          "topic": "Mensuration",
+          "question_number": 13,
+          "question_text": "(a) The hour hand of a 24 hour clock moves from $13:15$ p.m. to $17:45$ p.m. If the length of the hour hand is $3.5$ cm, find correct to three significant figures, the area swept by the hour hand. [Take $\\pi = \\frac{22}{7}$]",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_13_b",
+          "topic": "Distance",
+          "question_number": 13,
+          "question_text": "(b) The coordinates of two points $M$ and $N$ in a plane are $(-4, -3)$ and $(x, 6)$ respectively. If $|\\overline{MN}| = \\frac{3}{\\sqrt{10}}$ units, find the values of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_25",
+      "topic": "Geometry",
+      "question_number": 25,
+      "question_text": "In the diagram, \\( \\triangle XYZ \\) is produced to T. if \\(|XY| = |ZY|\\) and \\( \\angle XYT = 40^{\\circ} \\), find \\( \\angle XZT \\)",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "110°"
+        },
+        {
+          "id": "B",
+          "text": "130°"
+        },
+        {
+          "id": "C",
+          "text": "140°"
+        },
+        {
+          "id": "D",
+          "text": "180°"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_26",
+      "topic": "Mensuration",
+      "question_number": 26,
+      "question_text": "A solid brass cube is melted and recast as a solid cone of height h and base radius r. If the height of the cube is h, find r in terms of h.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "r = \\( h \\)"
+        },
+        {
+          "id": "B",
+          "text": "r = \\( \\frac{\\sqrt{3}h}{\\pi} \\)"
+        },
+        {
+          "id": "C",
+          "text": "r = \\( h \\)"
+        },
+        {
+          "id": "D",
+          "text": "r = \\( h \\sqrt{\\frac{3}{h}} \\)"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_27",
+      "topic": "Angles",
+      "question_number": 27,
+      "question_text": "Which of the following is not an exterior angle of a regular polygon?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "66°"
+        },
+        {
+          "id": "B",
+          "text": "72°"
+        },
+        {
+          "id": "C",
+          "text": "24°"
+        },
+        {
+          "id": "D",
+          "text": "15°"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_28",
+      "topic": "Bearing",
+      "question_number": 28,
+      "question_text": "From a point T, a man moves 12km due west and then moves 12km due south to another point Q. Calculate the bearing of T from Q.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "225°"
+        },
+        {
+          "id": "B",
+          "text": "315°"
+        },
+        {
+          "id": "C",
+          "text": "045°"
+        },
+        {
+          "id": "D",
+          "text": "135°"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

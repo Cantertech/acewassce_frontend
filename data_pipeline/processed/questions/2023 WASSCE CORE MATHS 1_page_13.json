@@ -1,0 +1,31 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_wassce_core_maths_1_50",
+      "topic": "Geometry",
+      "question_number": 50,
+      "question_text": "Find the value of $x$ in the diagram.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "35"
+        },
+        {
+          "id": "B",
+          "text": "37"
+        },
+        {
+          "id": "C",
+          "text": "31"
+        },
+        {
+          "id": "D",
+          "text": "41"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

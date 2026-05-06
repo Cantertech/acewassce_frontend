@@ -1,0 +1,95 @@
+{
+  "schemes": [
+    {
+      "question_id": "11",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate the sectoral angle for Plastic.",
+          "expected_equation": "\\frac{35}{100} \\times 360 = 126^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate the sectoral angle for Liquid.",
+          "expected_equation": "\\frac{27.5}{100} \\times 360 = 99^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate the sectoral angle for Metal.",
+          "expected_equation": "\\frac{17.5}{100} \\times 360 = 63^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate the sectoral angle for Vegetable.",
+          "expected_equation": "\\frac{12.5}{100} \\times 360 = 45^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate the sectoral angle for Others.",
+          "expected_equation": "\\frac{7.5}{100} \\times 360 = 27^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "11(b) i",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "State \\angle LONP.",
+          "expected_equation": "67^\\circ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate \\angle MNP by substitution.",
+          "expected_equation": "\\angle MNP = \\angle MOP = 33^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Sum \\angle MNP and \\angle PNO.",
+          "expected_equation": "33 + 67 = 100^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "11(b) ii",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "State \\angle MOP.",
+          "expected_equation": "33^\\circ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Find \\angle MPO using the sum of angles in a triangle.",
+          "expected_equation": "\\angle MPO = 180 - 100 = 80^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

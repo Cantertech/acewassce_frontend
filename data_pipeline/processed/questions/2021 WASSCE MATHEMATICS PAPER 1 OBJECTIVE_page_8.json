@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_29",
+      "topic": "Geometry",
+      "question_number": 29,
+      "question_text": "In the diagram $O$ is the centre of the circle $PQRS$, $\\angle PQR = 72^{\\circ}$ and $OR$ is parallel to $PS$. Find $\\angle OPS$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$18^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$108^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$54^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$36^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_30",
+      "topic": "Area and Circles",
+      "question_number": 30,
+      "question_text": "A trapezium of parallel sides $10\\text{ cm}$ and $21\\text{ cm}$ and height $8\\text{ cm}$ is inscribed in a circle of radius $7\\text{ cm}$. Calculate the area of the region not covered by the trapezium. (Take $\\pi = \\frac{22}{7}$)",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$84\\text{ cm}^2$"
+        },
+        {
+          "id": "B",
+          "text": "$80\\text{ cm}^2$"
+        },
+        {
+          "id": "C",
+          "text": "$30\\text{ cm}^2$"
+        },
+        {
+          "id": "D",
+          "text": "$94\\text{ cm}^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_31",
+      "topic": "Statistics",
+      "question_number": 31,
+      "question_text": "Find, correct to two decimal places, the mean of $\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{4}, \\frac{4}{5}$, and $\\frac{5}{6}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "3.71"
+        },
+        {
+          "id": "B",
+          "text": "3.70"
+        },
+        {
+          "id": "C",
+          "text": "3.69"
+        },
+        {
+          "id": "D",
+          "text": "3.72"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_32",
+      "topic": "Speed and Distance",
+      "question_number": 32,
+      "question_text": "A cyclist moved at a speed of $x\\text{ km/h}$ for $2\\text{ hours}$. He then increased his speed by $2\\text{ km/h}$ for the next $3\\text{ hours}$.\n\nIf the total distance covered is $36\\text{ km}$, calculate his initial speed.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$12\\text{ km/h}$"
+        },
+        {
+          "id": "B",
+          "text": "$3\\text{ km/h}$"
+        },
+        {
+          "id": "C",
+          "text": "$4\\text{ km/h}$"
+        },
+        {
+          "id": "D",
+          "text": "$6\\text{ km/h}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

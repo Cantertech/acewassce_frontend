@@ -1,0 +1,142 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_MATHS_27",
+      "topic": "Gradient and Coordinates",
+      "question_number": 27,
+      "question_text": "The gradient of the line passing through the points $(3, 6)$ and $(x, 4)$ is $-\\frac{2}{5}$. Find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHS_28",
+      "topic": "Set Theory",
+      "question_number": 28,
+      "question_text": "If $P = \\{x : 1 \\leq x \\leq 6\\}$ and $Q = \\{x : 2 < x < 9\\}$ where $x \\in \\mathbb{R}$, find $P \\cap Q$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\{x : 2 < x < 6\\}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\{x : 2 \\leq x < 6\\}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\{x : 2 < x \\leq 6\\}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\{x : 2 \\leq x \\leq 6\\}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHS_29",
+      "topic": "Percentage and Measurement",
+      "question_number": 29,
+      "question_text": "A student measured the length of a classroom and obtained $3.99$ m which is less than the actual length. If the percentage error was $5 \\%$, what was the actual length?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3.78$ m"
+        },
+        {
+          "id": "B",
+          "text": "$3.80$ m"
+        },
+        {
+          "id": "C",
+          "text": "$4.20$ m"
+        },
+        {
+          "id": "D",
+          "text": "$4.18$ m"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHS_30",
+      "topic": "Percentage and Sales",
+      "question_number": 30,
+      "question_text": "Yakubu received $12 \\frac{1}{2}\\%$ of the sales made in a certain month. If the amount he received was $35,000.00$, what was the total sales made?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$140,000.00"
+        },
+        {
+          "id": "B",
+          "text": "$245,000.00"
+        },
+        {
+          "id": "C",
+          "text": "$315,000.00"
+        },
+        {
+          "id": "D",
+          "text": "$280,000.00"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHS_31",
+      "topic": "Volume and Depth",
+      "question_number": 31,
+      "question_text": "A woman pours $85$ litres of kerosene into a cylindrical container with radius $7$ cm. Calculate, correct to the nearest cm, the depth of the kerosene in the container. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {"id": "A", "text": "$5510$ cm"},
+        {"id": "B", "text": "$55$ cm"},
+        {"id": "C", "text": "$551$ cm"},
+        {"id": "D", "text": "$5.5$ cm"}
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHS_32",
+      "topic": "Simultaneous Equations",
+      "question_number": 32,
+      "question_text": "The lines $3x + 2y = 4$ and $y = 2x - 5$ intersect at a point $P(x, y)$. Find the coordinates of $P$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {"id": "A", "text": "$(2, -1)$"},
+        {"id": "B", "text": "$(1, -2)$"},
+        {"id": "C", "text": "$(3, 1)$"},
+        {"id": "D", "text": "$(-1, 2)$"}
+      ],
+      "sub_questions": null
+    }
+  ]
+}

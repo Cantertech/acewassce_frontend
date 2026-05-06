@@ -54,63 +54,74 @@
     },
     {
       "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10",
-      "topic": "Geometry and Mensuration",
+      "topic": "Geometry and Rate and Work",
       "question_number": 10,
-      "question_text": "(a) The points $M$, $N$ and $L$ lie on a circle with centre $O$. An angle subtended at the centre by the minor arc $MN$ is $88^{\\circ}$.",
+      "question_text": "Answer Question 10 parts (a) and (b).",
       "has_diagram": false,
       "is_mcq": false,
       "options": null,
       "sub_questions": [
         {
-          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a_1",
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a",
           "topic": "Geometry and Mensuration",
           "question_number": 10,
-          "question_text": "(i) Illustrate the information in a diagram.",
-          "has_diagram": true,
+          "question_text": "(a) The points $M$, $N$ and $L$ lie on a circle with centre $O$. An angle subtended at the centre by the minor arc $MN$ is $88^{\\circ}$.",
+          "has_diagram": false,
           "is_mcq": false,
           "options": null,
-          "sub_questions": null
+          "sub_questions": [
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a_1",
+              "topic": "Geometry and Mensuration",
+              "question_number": 10,
+              "question_text": "(i) Illustrate the information in a diagram.",
+              "has_diagram": true,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a_2",
+              "topic": "Geometry and Mensuration",
+              "question_number": 10,
+              "question_text": "(ii) If $L$ is a point on the minor arc, determine the value of the angle subtended by the chord $MN$ at $L$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
         },
         {
-          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10a_2",
-          "topic": "Geometry and Mensuration",
-          "question_number": 10,
-          "question_text": "(ii) If $L$ is a point on the minor arc, determine the value of the angle subtended by the chord $MN$ at $L$.",
-          "has_diagram": false,
-          "is_mcq": false,
-          "options": null,
-          "sub_questions": null
-        }
-      ]
-    },
-    {
-      "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b",
-      "topic": "Rate and Work",
-      "question_number": 10,
-      "question_text": "(b) A tiler, Coffie, is able to lay $400$ tiles each day in $8$ hours. Another tiler, Boakye, works at $\\frac{3}{2}$ times Coffie's rate when laying the same kind of tiles.",
-      "has_diagram": false,
-      "is_mcq": false,
-      "options": null,
-      "sub_questions": [
-        {
-          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b_1",
+          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b",
           "topic": "Rate and Work",
           "question_number": 10,
-          "question_text": "(i) How many tiles can Boakye lay in $8$ hours?",
+          "question_text": "(b) A tiler, Coffie, is able to lay $400$ tiles each day in $8$ hours. Another tiler, Boakye, works at $\\frac{3}{2}$ times Coffie's rate when laying the same kind of tiles.",
           "has_diagram": false,
           "is_mcq": false,
           "options": null,
-          "sub_questions": null
-        },
-        {
-          "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b_2",
-          "topic": "Rate and Work",
-          "question_number": 10,
-          "question_text": "(ii) If both Coffie and Boakye decide to work together, determine the time required to lay $2000$ tiles.",
-          "has_diagram": false,
-          "is_mcq": false,
-          "options": null,
-          "sub_questions": null
+          "sub_questions": [
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b_1",
+              "topic": "Rate and Work",
+              "question_number": 10,
+              "question_text": "(i) How many tiles can Boakye lay in $8$ hours?",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_10b_2",
+              "topic": "Rate and Work",
+              "question_number": 10,
+              "question_text": "(ii) If both Coffie and Boakye decide to work together, determine the time required to lay $2000$ tiles.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
         }
       ]
     },
@@ -170,7 +181,7 @@
       "question_id": "2025_WASSCE_MATHEMATICS_CORE_2_12",
       "topic": "Statistics",
       "question_number": 12,
-      "question_text": "The following are the marks obtained by $50$ students in an English test. $27, 31, 35, 32, 81, 50, 48, 15, 59, 6, 17, 41, 30, 94, 23, 38, 40, 70, 76, 18, 52, 61, 43, 65, 56, 57, 62, 52, 54, 25, 18, 35, 9, 74, 59, 46, 71, 4, 74, 33, 61, 16, 50, 45, 41, 45, 28, 22, 26, 45",
+      "question_text": "The following are the marks obtained by $50$ students in an English test.\n\n$$\\begin{array}{|c|c|c|c|c|c|c|c|c|c|} \n\\hline 27 & 31 & 35 & 32 & 81 & 50 & 48 & 15 & 59 & 6 \\\\ \\hline\n17 & 41 & 30 & 94 & 23 & 38 & 40 & 70 & 76 & 18 \\\\ \\hline\n52 & 61 & 43 & 65 & 56 & 57 & 62 & 52 & 54 & 25 \\\\ \\hline\n18 & 35 & 9 & 74 & 59 & 46 & 71 & 4 & 74 & 33 \\\\ \\hline\n61 & 16 & 50 & 45 & 41 & 45 & 28 & 22 & 26 & 45 \\\\ \\hline\n\\end{array}$$",
       "has_diagram": false,
       "is_mcq": false,
       "options": null,

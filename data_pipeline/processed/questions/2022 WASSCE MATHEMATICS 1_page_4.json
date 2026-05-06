@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_13",
+      "topic": "Mathematics",
+      "question_number": 13,
+      "question_text": "Express, correct to two significant figures $\\left( \\frac{9}{28} - \\frac{2}{7} \\right)$ .",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "0.036"
+        },
+        {
+          "id": "B",
+          "text": "0.035"
+        },
+        {
+          "id": "C",
+          "text": "0.030"
+        },
+        {
+          "id": "D",
+          "text": "0.040"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_14",
+      "topic": "Mathematics",
+      "question_number": 14,
+      "question_text": "Find the value of $y$ in the diagram.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$30^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$21^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$20^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$10^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_15",
+      "topic": "Mathematics",
+      "question_number": 15,
+      "question_text": "If $23_{x} = 111_{two}$ find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "8"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_16",
+      "topic": "Mathematics",
+      "question_number": 16,
+      "question_text": "Dina and Rose were given GH₵ 875.08 to be shared in the ratio 3 : 2 respectively. If Rose shared her part of the money between Efua and Ama in the ratio 1 : 2 respectively, how much was Ama's share?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "GH₵ 116.68"
+        },
+        {
+          "id": "B",
+          "text": "GH₵ 175.02"
+        },
+        {
+          "id": "C",
+          "text": "GH₵ 233.35"
+        },
+        {
+          "id": "D",
+          "text": "GH₵ 340.32"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_17",
+      "topic": "Mathematics",
+      "question_number": 17,
+      "question_text": "If $9^{y+1} = \\left( \\frac{1}{27} \\right)^{y-2} ,$ find $y$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{4}{5}$"
+        },
+        {
+          "id": "B",
+          "text": "$-\\frac{4}{5}$"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "-4"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

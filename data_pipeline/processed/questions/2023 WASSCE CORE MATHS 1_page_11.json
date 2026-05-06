@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_41",
+      "topic": "Circles",
+      "question_number": 41,
+      "question_text": "A chord of a circle, $12\\,cm$ long subtends an angle of $$150^{\\circ}$$ at the centre of the circle. Find the radius of the circle.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3.0\\,cm$"
+        },
+        {
+          "id": "B",
+          "text": "$4.3\\,cm$"
+        },
+        {
+          "id": "C",
+          "text": "$6.0\\,cm$"
+        },
+        {
+          "id": "D",
+          "text": "$6.2\\,cm$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_42",
+      "topic": "Functions",
+      "question_number": 42,
+      "question_text": "The graph of $y = x^{2} - 5x + k$ passes through the point $(3, 1)$. Find the value of $k$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2$"
+        },
+        {
+          "id": "B",
+          "text": "$3$"
+        },
+        {
+          "id": "C",
+          "text": "$7$"
+        },
+        {
+          "id": "D",
+          "text": "$5$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_43",
+      "topic": "Algebra",
+      "question_number": 43,
+      "question_text": "Find the values of $x$ for which \\( \\frac{x+1}{3x^{2}-12} \\text{ is not defined.} \\)",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$x = 0, 2$"
+        },
+        {
+          "id": "B",
+          "text": "$x = -2, 2$"
+        },
+        {
+          "id": "C",
+          "text": "$x = 4, -4$"
+        },
+        {
+          "id": "D",
+          "text": "$x = 2, -4$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_44",
+      "topic": "Algebra",
+      "question_number": 44,
+      "question_text": "If $4x = -\\frac{1}{1024}$, find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$-10$"
+        },
+        {
+          "id": "B",
+          "text": "$8$"
+        },
+        {
+          "id": "C",
+          "text": "$4$"
+        },
+        {
+          "id": "D",
+          "text": "$-5$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_45",
+      "topic": "Trigonometry",
+      "question_number": 45,
+      "question_text": "A point on the ground is $5\\,m$ away from the foot of a vertical wall $12\\,m$ high. Calculate, correct to the nearest degree, the angle of depression of the point from the top of the wall.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$25^{\\circ}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$67^{\\circ}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$65^{\\circ}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$23^{\\circ}$$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

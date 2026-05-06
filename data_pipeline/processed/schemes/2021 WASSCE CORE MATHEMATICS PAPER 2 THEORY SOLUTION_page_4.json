@@ -1,0 +1,53 @@
+{
+  "schemes": [
+    {
+      "question_id": "4a",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Given \\( \\angle OAB = \\angle OBA = 34^{\\circ} \\) in a semi-circle triangle.",
+          "expected_equation": "\\angle OAB = \\angle OBA = 34^{\\circ}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "\\( \\angle OBA = 90^{\\circ} \\) because it's the angle in a semicircle.",
+          "expected_equation": "\\angle OBA = 90^{\\circ}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "4b",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate \\( \\angle OBD \\) using \\( \\angle ABD = 90^{\\circ} - \\angle OBA \\)",
+          "expected_equation": "\\angle OBD = 56^{\\circ}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Apply the angle sum of triangle \\( OBC \\): \\( \\angle BOC + \\angle OBC + \\angle OCB = 180^{\\circ} \\)",
+          "expected_equation": "\\angle BOC + \\angle OBC + \\angle OCB = 180^{\\circ}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Since \\( \\angle BOD = \\angle 2OAB = 68^{\\circ} \\), substitute and calculate \\( \\angle OCB \\)",
+          "expected_equation": "\\angle OCB = 22^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

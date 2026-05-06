@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_39",
+      "topic": "Geometry",
+      "question_number": 39,
+      "question_text": "In the diagram, line EC is a diameter of the circle ABCDE.\nIf angle ABC equals $158^{\\circ}$, find $\\angle ADE$",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$112$"
+        },
+        {
+          "id": "B",
+          "text": "$90$"
+        },
+        {
+          "id": "C",
+          "text": "$68$"
+        },
+        {
+          "id": "D",
+          "text": "$22$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_40",
+      "topic": "Statistics",
+      "question_number": 40,
+      "question_text": "The table shows the height of 37 players of a basketball team calculates correct to one decimal place the mean height of the players.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$163.0$"
+        },
+        {
+          "id": "B",
+          "text": "$162.0$"
+        },
+        {
+          "id": "C",
+          "text": "$160.0$"
+        },
+        {
+          "id": "D",
+          "text": "$165.0$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_41",
+      "topic": "Coordinate Geometry",
+      "question_number": 41,
+      "question_text": "XY is a line segments with the coordinates $X(-8,-12)$ and $Y(p,q)$. if the midpoint of $XY$ is $(-4,-2)$ find the coordinates of $Y$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$(-6,-2)$"
+        },
+        {
+          "id": "B",
+          "text": "$(0,8)$"
+        },
+        {
+          "id": "C",
+          "text": "$(4,10)$"
+        },
+        {
+          "id": "D",
+          "text": "$(0,4)$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

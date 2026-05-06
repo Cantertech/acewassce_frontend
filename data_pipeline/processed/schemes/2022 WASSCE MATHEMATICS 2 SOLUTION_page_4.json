@@ -1,0 +1,60 @@
+{
+  "schemes": [
+    {
+      "question_id": "4",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Either use (1) or (2) to express y in terms of m.",
+          "expected_equation": "y=180-x",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solving for y after substitution.",
+          "expected_equation": "y=196-7m",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Setting up the ratio.",
+          "expected_equation": "\\frac{x}{y}=\\frac{2}{7}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Equating expressions to find m.",
+          "expected_equation": "7m-16=\\frac{2}{7}(196-7m)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Substituting values into equations.",
+          "expected_equation": "49m-16=\\frac{2}{7}(196-7m)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Solving for m.",
+          "expected_equation": "63m=504",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Final value of m.",
+          "expected_equation": "m=8",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_maths_q35",
+      "topic": "Statistics",
+      "question_number": 35,
+      "question_text": "Find the first quartile of $7, 8, 7, 9, 11, 8, 7, 9, 6$ and $8$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "8.5"
+        },
+        {
+          "id": "B",
+          "text": "7.0"
+        },
+        {
+          "id": "C",
+          "text": "7.5"
+        },
+        {
+          "id": "D",
+          "text": "8.0"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_maths_q36",
+      "topic": "Geometry",
+      "question_number": 36,
+      "question_text": "In the diagram, PQRS is a circle. find the value of $x$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "50$^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "30$^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "80$^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "100$^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_maths_q37",
+      "topic": "Geometry",
+      "question_number": 37,
+      "question_text": "A cone has a base radius of $8\\text{ cm}$ and height $11\\text{ cm}$. Calculate, correct to $2$ decimal places, the curved surface area.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$341.98\\text{ cm}^2$"
+        },
+        {
+          "id": "B",
+          "text": "$276.57\\text{ cm}^2$"
+        },
+        {
+          "id": "C",
+          "text": "$201.14\\text{ cm}^2$"
+        },
+        {
+          "id": "D",
+          "text": "$477.71\\text{ cm}^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_maths_q38",
+      "topic": "Trigonometry",
+      "question_number": 38,
+      "question_text": "Given that $\\sin x = \\frac{3}{5}$, $0 \\leq x \\leq 90^{\\circ}$, evaluate $(\\tan x + 2 \\cos x)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2.35"
+        },
+        {
+          "id": "B",
+          "text": "1.75"
+        },
+        {
+          "id": "C",
+          "text": "3.25"
+        },
+        {
+          "id": "D",
+          "text": "2.50"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

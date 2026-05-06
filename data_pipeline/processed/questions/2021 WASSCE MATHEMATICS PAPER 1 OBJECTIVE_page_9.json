@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_33",
+      "topic": "Geometry",
+      "question_number": 33,
+      "question_text": "find the value of $(x+y)$",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "215°"
+        },
+        {
+          "id": "B",
+          "text": "70°"
+        },
+        {
+          "id": "C",
+          "text": "135°"
+        },
+        {
+          "id": "D",
+          "text": "145°"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_34",
+      "topic": "Circle Theorems",
+      "question_number": 34,
+      "question_text": "In the diagram, MP is a tangent to the circle NQR, $\\angle NQR, \\angle PNQ = 64$ and $| RQ | = | RN |$. Find the angle marked $t$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "130°"
+        },
+        {
+          "id": "B",
+          "text": "115°"
+        },
+        {
+          "id": "C",
+          "text": "58°"
+        },
+        {
+          "id": "D",
+          "text": "68°"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

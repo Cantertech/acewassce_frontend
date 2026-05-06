@@ -1,0 +1,179 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q4",
+      "topic": "Mensuration and Coordinate Geometry",
+      "question_number": 4,
+      "question_text": "Answer Question 4 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q4a",
+          "topic": "Geometric Applications",
+          "question_number": 4,
+          "question_text": "(a) The diagram is a cylindrical pipe with length $210\\,cm$. It has external diameter of $16\\,cm$ and is $1\\,cm$ thick. Find the volume of the metal in constructing the pipe. [Take $\\pi = \\frac{22}{7}]$",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q4b",
+          "topic": "Coordinate Geometry",
+          "question_number": 4,
+          "question_text": "(b) The coordinates of the points $M$ and $N$ are $(5, -7)$ and $(0, 5)$, respectively. Calculate the distance between $M$ and $N$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q5",
+      "topic": "Probability",
+      "question_number": 5,
+      "question_text": "Two dice are thrown once. Find the probability of obtaining:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q5a",
+          "topic": "Probability",
+          "question_number": 5,
+          "question_text": "(a) an odd number on the first die and $6$ on the second;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q5b",
+          "topic": "Probability",
+          "question_number": 5,
+          "question_text": "(b) a number greater than $4$ on each dice;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q5c",
+          "topic": "Probability",
+          "question_number": 5,
+          "question_text": "(c) a total of $9$ or $11$",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q6",
+      "topic": "Venn Diagrams",
+      "question_number": 6,
+      "question_text": "In a military camp, $50$ officers had a choice of beans, plantain and rice. Of these officers, $21$ chose beans, $24$ plantain and $18$ rice. Also $3$ chose beans only, $9$ plantain only, $2$ rice only and $5$ chose all these kinds of food.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q6a",
+          "topic": "Venn Diagrams",
+          "question_number": 6,
+          "question_text": "(a) Illustrate the information on a Venn diagram",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q6b",
+          "topic": "Venn Diagrams",
+          "question_number": 6,
+          "question_text": "(b) Use the Venn diagram to find the number of officers who chose:\ni) plantain and beans only;\nii) exactly two kinds of food;\niii) none of the three kinds of food",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q7",
+      "topic": "Graphing Quadratic Relations",
+      "question_number": 7,
+      "question_text": "Answer Question 7 parts (a), (b) and (c).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q7a",
+          "topic": "Graphing",
+          "question_number": 7,
+          "question_text": "(a) Copy and complete the table of values for the relation $y = 4 + 3x - 2x^{2}$, for $-4 \\leq x \\leq 4$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q7b",
+          "topic": "Graphing",
+          "question_number": 7,
+          "question_text": "(b) Using a scale of $2\\,cm$ to $1$ unit on the x-axis and $2\\,cm$ to $5$ units on the y-axis, draw the graph for the relation $y = 4 + 3x - 2x^{2}$, for $-4 \\leq x \\leq 4$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q7c",
+          "topic": "Graph Analysis",
+          "question_number": 7,
+          "question_text": "(c) using the graph, find the:\ni) equation of line of symmetry of the curve;\nii) maximum point of the curve;\niii) values of $x$ for which $y$ decreases as $x$ increases.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q8",
+      "topic": "Mensuration and Number Problems",
+      "question_number": 8,
+      "question_text": "Answer Question 8 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q8a",
+          "topic": "Volume",
+          "question_number": 8,
+          "question_text": "(a) A solid metal cylinder of height $6\\,m$ and diameter $28\\,cm$ is melted and recast into smaller solid cylinders. Each of the smaller cylinder is $14\\,cm$ high and $0.5\\,cm$ in diameter. How many smaller cylinders were obtained? [Take $\\pi = \\frac{22}{7}]$",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_2_q8b",
+          "topic": "Number Problems",
+          "question_number": 8,
+          "question_text": "(b) The unit digit of two digit number is $1$ less than the tens digit. If the number is increased by $8$ and then divided by the sum of the digits, the result is $8$. Find the number.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

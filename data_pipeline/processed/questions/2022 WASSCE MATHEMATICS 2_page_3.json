@@ -1,0 +1,170 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_2_q7",
+      "topic": "Cost Estimation",
+      "question_number": 7,
+      "question_text": "The estimated cost of building a two bedroom house is GH₵ 120,000.00. It is made up of labour, materials and consultancy fee in the ratio $5 : 12 : 3$ respectively. At the start of the construction, the labour cost increased by $2\frac{1}{2} \\,\text{ %}$, cost of materials increased by $2.5 \\,\text{ %}$ while consultancy fee remain unchanged. If the new cost of labour is two-fifth the new cost of materials, find the:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q7_a",
+          "topic": "Cost Estimation",
+          "question_number": 7,
+          "question_text": "(a) value of $y$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q7_b",
+          "topic": "Cost Estimation",
+          "question_number": 7,
+          "question_text": "(b) new cost of building the house.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_2_q8",
+      "topic": "Work Rate",
+      "question_number": 8,
+      "question_text": "Kojo can do a piece of work in $5$ hours. Edna can do the same piece of work in $4$ hours. How long will it take the two of them to do the same work together, if they worked at the same rate?",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q8_a",
+          "topic": "Work Rate",
+          "question_number": 8,
+          "question_text": "(a)",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q8_b",
+          "topic": "Geometry",
+          "question_number": 8,
+          "question_text": "(b) A solid right triangular prism of length $12 \\, \text{cm}$ and a cross-section which is an equilateral triangle of side $6 \\, \text{cm}$. Find, correct to four significant figures, the total surface area.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_2_q9",
+      "topic": "Trigonometric Functions",
+      "question_number": 9,
+      "question_text": "(a) Copy and complete the table of values for $y = \text{cos} \\,x - 3 \\,\text{sin} \\,x, \\,0^{\text{o}} \\,\text{<} \\,x \\,\text{<} \\,180^{\text{o}}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q9_b",
+          "topic": "Graphing",
+          "question_number": 9,
+          "question_text": "(b) Using a scale of $2 \\, \text{cm}$ to $20^{\text{o}}$ on the $x$ axis and $4 \\, \text{cm}$ to $1 \\, \text{unit}$ on the $y$ axis, draw the graph of $y = \text{cos} \\,x - 3 \\,\text{sin} \\,x$, $0^{\text{o}} \\,\text{<} \\,x \\,\text{<} \\,180^{\text{o}}$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2022_WASSCE_MATHEMATICS_2_q9_c",
+              "topic": "Graph Analysis",
+              "question_number": 9,
+              "question_text": "(c) Using the graph, find the:",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": [
+                {
+                  "question_id": "2022_WASSCE_MATHEMATICS_2_q9_c_i",
+                  "topic": "Graph Analysis",
+                  "question_number": 9,
+                  "question_text": "(i) truth set of $2 + \text{cos} \\,x = 3 \\,\text{sin} \\,x$;",
+                  "has_diagram": false,
+                  "is_mcq": false,
+                  "options": null,
+                  "sub_questions": null
+                },
+                {
+                  "question_id": "2022_WASSCE_MATHEMATICS_2_q9_c_ii",
+                  "topic": "Graph Analysis",
+                  "question_number": 9,
+                  "question_text": "(ii) range of values of $x$ for which $y$ increases as $x$ increases;",
+                  "has_diagram": false,
+                  "is_mcq": false,
+                  "options": null,
+                  "sub_questions": null
+                },
+                {
+                  "question_id": "2022_WASSCE_MATHEMATICS_2_q9_c_iii",
+                  "topic": "Graph Analysis",
+                  "question_number": 9,
+                  "question_text": "(iii) minimum point of the curve.",
+                  "has_diagram": false,
+                  "is_mcq": false,
+                  "options": null,
+                  "sub_questions": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_2_q10",
+      "topic": "Statistics",
+      "question_number": 10,
+      "question_text": "The table shows the ages in years of $42$ children at a birthday party.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q10_a",
+          "topic": "Statistics",
+          "question_number": 10,
+          "question_text": "(a) Find the value of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q10_b",
+          "topic": "Statistics",
+          "question_number": 10,
+          "question_text": "(b) Calculate, correct to the nearest whole number, the mean age.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_WASSCE_MATHEMATICS_2_q10_c",
+          "topic": "Probability",
+          "question_number": 10,
+          "question_text": "(c) Find the probability of selecting at random a child whose age is not less than $9$ years.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

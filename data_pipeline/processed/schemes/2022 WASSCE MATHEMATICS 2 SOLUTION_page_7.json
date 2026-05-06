@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "7(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate total ratio of parts of labour, material, and consultancy.",
+          "expected_equation": "5 + 12 + 3 = 20",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate labour cost based on total ratio.",
+          "expected_equation": "Labour = \\frac{5}{20} \\times 120,000",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate material cost based on total ratio.",
+          "expected_equation": "Material = \\frac{12}{20} \\times 120,000",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate consultancy cost based on total ratio.",
+          "expected_equation": "Consultancy = \\frac{3}{20} \\times 120,000",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate increase in labour using percentage increase.",
+          "expected_equation": "Increase = \\frac{2y}{100} \\times 30,000",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculate increase in materials using percentage increase.",
+          "expected_equation": "Increase = \\frac{2.5y}{100} \\times 72,000",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Set up equation for total cost after increases.",
+          "expected_equation": "30,000 + 600 = (72,000 + 1,800y)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Solve for y in the equation.",
+          "expected_equation": "y = 10",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculate new cost of building using updated figures.",
+          "expected_equation": "New cost = 18,000 + (30,000 + (600 \\times 10)) + (72,000 + (1800 \\times 10))",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Simplify final new cost of building.",
+          "expected_equation": "GHC144,000.00",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

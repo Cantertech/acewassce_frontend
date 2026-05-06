@@ -1,0 +1,118 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_2_1",
+      "topic": "Speed and Distance",
+      "question_number": 1,
+      "question_text": "Monica rode a bicycle for 45 minutes and walked for an hour to cover a total distance of $10.4$ km. If the riding speed is $3$ times the walking speed, find, correct to two significant figures, the:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_1a",
+          "topic": "Speed and Distance",
+          "question_number": 1,
+          "question_text": "(a) walking speed:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_1b",
+          "topic": "Speed and Distance",
+          "question_number": 1,
+          "question_text": "(b) distance travelled by riding.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_2_2",
+      "topic": "Trigonometry",
+      "question_number": 2,
+      "question_text": "In the diagram, $ABD$ is a triangle. $AC = 50$ cm and $CD = d$ cm. Find, correct to one decimal place:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_2a",
+          "topic": "Trigonometry",
+          "question_number": 2,
+          "question_text": "(a) the value of $d$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_2b",
+          "topic": "Trigonometry",
+          "question_number": 2,
+          "question_text": "(b) $|BD|$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_2_3",
+      "topic": "Bearings",
+      "question_number": 3,
+      "question_text": "A man travels $4\\text{ km}$ from a point $I$ on a bearing of $135^{\\circ}$ to $J$. He continues $13\\text{ km}$ on a bearing of $045^{\\circ}$ to $K$.",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_3a",
+          "topic": "Bearings",
+          "question_number": 3,
+          "question_text": "(a) Illustrate the information in a diagram.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_3b",
+          "topic": "Bearings",
+          "question_number": 3,
+          "question_text": "(b) Find:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_2_3bi",
+              "topic": "Bearings",
+              "question_number": 3,
+              "question_text": "(i) correct to two significant figures, $|IK|$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_2_3bii",
+              "topic": "Bearings",
+              "question_number": 3,
+              "question_text": "(ii) the bearing of $K$ from $I$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

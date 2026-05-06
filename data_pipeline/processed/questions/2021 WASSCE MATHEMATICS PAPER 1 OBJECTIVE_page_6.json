@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_wassce_math_21",
+      "topic": "Quadratic Equations",
+      "question_number": 21,
+      "question_text": "Find the quadratic equation whose roots are $-2q$ and $5q$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3x^{2} + 3qx - 10q^{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$x^{2} + 3qx + 10q^{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$x^{2} - 3qx + 10q^{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$x^{2} - 3qx - 10q^{2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_wassce_math_22",
+      "topic": "Trigonometric Functions",
+      "question_number": 22,
+      "question_text": "If $\\tan \\theta = \\frac{3}{4}$, $180^{\\circ} < \\theta < 270^{\\circ}$, find the value of $\\cos \\theta$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{4}{5}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{5}$"
+        },
+        {
+          "id": "C",
+          "text": "$-\\frac{4}{5}$"
+        },
+        {
+          "id": "D",
+          "text": "$-\\frac{3}{5}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_wassce_math_23",
+      "topic": "Algebra",
+      "question_number": 23,
+      "question_text": "If $\\frac{2}{x-3} - \\frac{3}{x-2} = \\frac{p}{(x-3)(x-2)}$, find $p$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$5 - x$"
+        },
+        {
+          "id": "B",
+          "text": "$-(x + 5)$"
+        },
+        {
+          "id": "C",
+          "text": "$13 - x$"
+        },
+        {
+          "id": "D",
+          "text": "$-(5x - 13)$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_wassce_math_24",
+      "topic": "Geometry",
+      "question_number": 24,
+      "question_text": "The diagonal of a rhombus are 12cm and 5cm. calculate its perimeter.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "26cm"
+        },
+        {
+          "id": "B",
+          "text": "24cm"
+        },
+        {
+          "id": "C",
+          "text": "30cm"
+        },
+        {
+          "id": "D",
+          "text": "34cm"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

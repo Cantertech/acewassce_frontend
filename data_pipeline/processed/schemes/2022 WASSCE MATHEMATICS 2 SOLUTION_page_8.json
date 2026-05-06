@@ -1,0 +1,102 @@
+{
+  "schemes": [
+    {
+      "question_id": "8(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Marks awarded for the correct values of work rates.",
+          "expected_equation": "B1 for \\frac{1}{5} \\text{ or } \\frac{1}{4}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Marks for forming the correct equation from the work rates.",
+          "expected_equation": "M1 for equation \\left( \\frac{1}{5} + \\frac{1}{4} = \\frac{1}{x} \\right)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Marks for correctly clearing fractions.",
+          "expected_equation": "M1 for clearing fractions",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Marks for solving the equation correctly.",
+          "expected_equation": "M1 for solving",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Marks for the correct answer in hours.",
+          "expected_equation": "A1 for \\frac{2}{9} \\text{ hours (Accept 2.22 hours)}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "8(b)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Marks for using Pythagoras theorem correctly.",
+          "expected_equation": "M1 for use of Pythagoras theorem",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Marks for correct numerical substitution.",
+          "expected_equation": "A1 for 5.196 \\text{ cm or } \\frac{\\sqrt{3}}{3} \\text{ cm}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Marks for calculating the area correctly.",
+          "expected_equation": "M1 for finding area",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Marks for area result correctness.",
+          "expected_equation": "A1 for 15.588 \\text{ cm}^2 \\text{ or } \\frac{9}{3} \\text{ cm}^2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Marks for calculating face area correctly.",
+          "expected_equation": "B1 for 72 \\text{ cm}^2",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Marks for calculating total surface area.",
+          "expected_equation": "M1 for finding total surface area",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Marks for the final total surface area result.",
+          "expected_equation": "A1 for 247.2 \\text{ cm}^2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

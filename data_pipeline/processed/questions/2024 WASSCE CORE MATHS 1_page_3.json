@@ -1,0 +1,166 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_9",
+      "topic": "Trigonometry",
+      "question_number": 9,
+      "question_text": "If $\\cos y$ is negative and $\\sin y$ is negative, in which quadrant would $y$ lie?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "First"
+        },
+        {
+          "id": "B",
+          "text": "Fourth"
+        },
+        {
+          "id": "C",
+          "text": "Third"
+        },
+        {
+          "id": "D",
+          "text": "Second"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_10",
+      "topic": "Mensuration",
+      "question_number": 10,
+      "question_text": "The volume of a cone is $264 \\text{ cm}^3$. If the base radius is $6 \\text{ cm}$, find the height. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$5 \\text{ cm}$"
+        },
+        {
+          "id": "B",
+          "text": "$8 \\text{ cm}$"
+        },
+        {
+          "id": "C",
+          "text": "$7 \\text{ cm}$"
+        },
+        {
+          "id": "D",
+          "text": "$6 \\text{ cm}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_11",
+      "topic": "Functions",
+      "question_number": 11,
+      "question_text": "Find the value of $x$ for which $\\frac{2x - 1}{x^2 + 2x + 1}$ is not defined.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$1$"
+        },
+        {
+          "id": "C",
+          "text": "$2$"
+        },
+        {
+          "id": "D",
+          "text": "$-1$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_12",
+      "topic": "Statistics",
+      "question_number": 12,
+      "question_text": "The range of a sample of $10$ numbers is $5$ and the largest value is $50$. What is the least value?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$40$"
+        },
+        {
+          "id": "B",
+          "text": "$60$"
+        },
+        {
+          "id": "C",
+          "text": "$55$"
+        },
+        {
+          "id": "D",
+          "text": "$45$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_13",
+      "topic": "Statistics",
+      "question_number": 13,
+      "question_text": "The mean of ten numbers is $16$. When another number, $k$, is added, the mean becomes $18$. Find the value of $k$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$38$"
+        },
+        {
+          "id": "B",
+          "text": "$32$"
+        },
+        {
+          "id": "C",
+          "text": "$34$"
+        },
+        {
+          "id": "D",
+          "text": "$36$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_14",
+      "topic": "Probability",
+      "question_number": 14,
+      "question_text": "The probabilities that John and James pass an examination are $\\frac{3}{4}$ and $\\frac{3}{5}$ respectively. Find the probability that both will fail.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{10}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{11}{20}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{9}{20}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3}{10}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

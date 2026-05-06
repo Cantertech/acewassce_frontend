@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_49",
+      "topic": "Undefined Expressions",
+      "question_number": 49,
+      "question_text": "For what value of $x$ is \\( \\frac{4 - 2x}{x + 1} \\) undefined?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "-1"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "-2"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_50",
+      "topic": "Statistics",
+      "question_number": 50,
+      "question_text": "The mean of five numbers is $12$. If four of the numbers are $10, 15, 8$ and $14$, find the fifth number.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "11"
+        },
+        {
+          "id": "B",
+          "text": "13"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

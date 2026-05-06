@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "6",
+      "total_marks": 13,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify students that study both subjects (x).",
+          "expected_equation": "x = \\text{students that study both}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Set up the equation from the problem's data.",
+          "expected_equation": "60 - x + x + 48 - x = 80",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Solve the equation to find x.",
+          "expected_equation": "x = 108 - 80",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Subtract to find the number of students that study both subjects.",
+          "expected_equation": "x = 28",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate the fraction of students that study Biology but not Physics.",
+          "expected_equation": "\\frac{(60 - 28)}{80}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Simplify the fraction.",
+          "expected_equation": "\\frac{32}{80} \\text{ or } \\frac{2}{5}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Calculate the area of the floor.",
+          "expected_equation": "\\text{Area of floor} = 15 \\times 8 = 120\\,\\text{m}^2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Calculate the cost of carpeting.",
+          "expected_equation": "\\text{Cost of carpeting} = 120 \\times GH\\unicode{20B5}\\, 890",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Calculate the cost of painting by subtracting carpeting cost from total cost.",
+          "expected_equation": "\\text{Cost of painting} = GH\\unicode{20B5}\\, 216,120 - 106,800",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Calculate the actual cost of painting.",
+          "expected_equation": "\\text{Cost of painting} = GH\\unicode{20B5}109,320.00",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

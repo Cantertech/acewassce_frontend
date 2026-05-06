@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_1_q46",
+      "topic": "Algebra",
+      "question_number": 46,
+      "question_text": "Simplify: $$\\frac{1}{6}\\left(11\\frac{2}{3} + 2\\frac{2}{3}\\right).$$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$\\frac{19}{21}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$\\frac{1}{21}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$\\frac{15}{24}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$\\frac{3}{24}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$\\frac{3}{24}$$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_1_q47",
+      "topic": "Probability",
+      "question_number": 47,
+      "question_text": "The probabilities of three independent events $X$, $Y$ and $Z$ occurring are $$\\frac{1}{2}$$, $$\\frac{2}{3}$$ and $$\\frac{1}{4}$$ respectively. What is the probability that only events $X$ and $Z$ are occurring?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$\\frac{1}{24}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$\\frac{3}{24}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$\\frac{1}{8}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$\\frac{3}{4}$$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_1_q48",
+      "topic": "Geometry",
+      "question_number": 48,
+      "question_text": "One side of a rectangle is $8$ cm and the diagonal is $10$ cm. Calculate the area of the rectangle.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$60\\ cm^{2}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$48\\ cm^{2}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$40\\ cm^{2}$$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_WASSCE_MATHEMATICS_1_q49",
+      "topic": "Circle Theorems",
+      "question_number": 49,
+      "question_text": "In the diagram, $EFGH$ are points on a circle centre $P$. If $\\angle EFG = 142^{\\circ}$ and $\\angle FGP = 63^{\\circ}$, find $\\angle FEP$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$63^{\\circ}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$76^{\\circ}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$79^{\\circ}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$89^{\\circ}$$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

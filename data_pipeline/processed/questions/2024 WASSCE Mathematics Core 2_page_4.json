@@ -1,0 +1,77 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_MathCore2_11",
+      "topic": "Geometry and Algebra",
+      "question_number": 11,
+      "question_text": "Answer Question 11 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_MathCore2_11a",
+          "topic": "Geometry",
+          "question_number": 11,
+          "question_text": "(a) In the diagram, $ABCD$ is a cyclic quadrilateral. $BC$ and $AD$ are produced to $E$. $\\angle ABC = 2t$, $\\angle CEF = 5t$ and $\\angle DCE = 51^{\\circ}$. Find:",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_MathCore2_11ai",
+              "topic": "Geometry",
+              "question_number": 11,
+              "question_text": "(i) the value of $t$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_MathCore2_11aii",
+              "topic": "Geometry",
+              "question_number": 11,
+              "question_text": "(ii) $\\angle ADC$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2024_MathCore2_11b",
+          "topic": "Algebra",
+          "question_number": 11,
+          "question_text": "(b) The graph of the relation $y = x^2 + ax + b$, where $a$ and $b$ are constants, cuts the $x$ axis at $3$ and the $y$ axis at $6$. Find:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_MathCore2_11bi",
+              "topic": "Algebra",
+              "question_number": 11,
+              "question_text": "(i) the values of $a$ and $b$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_MathCore2_11bii",
+              "topic": "Algebra",
+              "question_number": 11,
+              "question_text": "(ii) the solution to $x^2 + ax + b = 0$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

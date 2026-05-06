@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_37",
+      "topic": "Algebra",
+      "question_number": 37,
+      "question_text": "Simplify \\( \\frac{\\sqrt{3} + \\sqrt{48}}{\\sqrt{6}} \\).",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "\\( \\frac{5}{2} \\sqrt{2} \\)"
+        },
+        {
+          "id": "B",
+          "text": "\\( 5 \\sqrt{2} \\)"
+        },
+        {
+          "id": "C",
+          "text": "\\( 3 \\sqrt{2} \\)"
+        },
+        {
+          "id": "D",
+          "text": "\\( \\frac{3}{2} \\sqrt{2} \\)"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_38",
+      "topic": "Geometry",
+      "question_number": 38,
+      "question_text": "The length of a rectangular lawn is 3 cm longer than the width. If the perimeter is 42 cm, find the width.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "6 cm"
+        },
+        {
+          "id": "B",
+          "text": "9 cm"
+        },
+        {
+          "id": "C",
+          "text": "12 cm"
+        },
+        {
+          "id": "D",
+          "text": "15 cm"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_39",
+      "topic": "Algebra",
+      "question_number": 39,
+      "question_text": "Given that \\( P = \\frac{x}{y} - \\frac{1}{x} \\) and \\( q = x + \\frac{1}{x^2} \\), express \\( q \\) in terms of \\( p \\).",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "\\( q = (p + 2) \\)"
+        },
+        {
+          "id": "B",
+          "text": "\\( q = (p - 2)^2 \\)"
+        },
+        {
+          "id": "C",
+          "text": "\\( q = (p + 2)^2 \\)"
+        },
+        {
+          "id": "D",
+          "text": "\\( q = (p^2 - 2) \\)"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_40",
+      "topic": "Rate and Speed",
+      "question_number": 40,
+      "question_text": "A car moves at an average speed of 30 km/h. How long does it take to cover 200 metres?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2.4 seconds"
+        },
+        {
+          "id": "B",
+          "text": "24 seconds"
+        },
+        {
+          "id": "C",
+          "text": "144 seconds"
+        },
+        {
+          "id": "D",
+          "text": "240 seconds"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_41",
+      "topic": "Variations",
+      "question_number": 41,
+      "question_text": "If \\( y \\) varies as the square of \\( x \\), \\( y = 3 \\) when \\( x = \\sqrt{2} \\). Find the value of \\( y \\) when \\( x = 2 \\).",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

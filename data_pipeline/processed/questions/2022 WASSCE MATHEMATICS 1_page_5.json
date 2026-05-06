@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_18",
+      "topic": "Percentage",
+      "question_number": 18,
+      "question_text": "A market woman demands GHS $15.00$ for a tin of local rice. After some bargaining with a customer, she sells $5$ tins for GHS $20.00$. By what percentage did she reduce her original price?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "15 %"
+        },
+        {
+          "id": "B",
+          "text": "6 %"
+        },
+        {
+          "id": "C",
+          "text": "9 %"
+        },
+        {
+          "id": "D",
+          "text": "12 %"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_19",
+      "topic": "Graphing",
+      "question_number": 19,
+      "question_text": "The graph of $y = x^{2} + 4x - 6$ is drawn and a linear graph is drawn on the axes such that the intersection of the two graphs gives the solution to the equation $x^{2} + 4x - 7 = 0$. Find the equation for the linear graph.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$x = 1$"
+        },
+        {
+          "id": "B",
+          "text": "$x = -1$"
+        },
+        {
+          "id": "C",
+          "text": "$y = -1$"
+        },
+        {
+          "id": "D",
+          "text": "$y = 1$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_20",
+      "topic": "Geometry",
+      "question_number": 20,
+      "question_text": "The interior angle of a regular polygon is twice the exterior angle. How many sides has the polygon?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "8"
+        },
+        {
+          "id": "D",
+          "text": "9"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_21",
+      "topic": "Age Problem",
+      "question_number": 21,
+      "question_text": "Metuh is nine times as old as his cousin, Fafa. In six years time, he will be five times as old as Fafa. Find Fafa's present age.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "5 years"
+        },
+        {
+          "id": "B",
+          "text": "6 years"
+        },
+        {
+          "id": "C",
+          "text": "7 years"
+        },
+        {
+          "id": "D",
+          "text": "8 years"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_22",
+      "topic": "Algebra",
+      "question_number": 22,
+      "question_text": "If $A = \\frac{1}{b(a + b)}$, make $a$ the subject of the relation.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$a = b - \\frac{2A}{b}$"
+        },
+        {
+          "id": "B",
+          "text": "$a = \\frac{2A}{b} - b$"
+        },
+        {
+          "id": "C",
+          "text": "$a = \\frac{2A}{b} + b$"
+        },
+        {
+          "id": "D",
+          "text": "$a = \\frac{b}{2A} - b$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schemes": [
+    {
+      "question_id": "10(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Adding all the terms in the equation",
+          "expected_equation": "2x + 3x + (4x - 4) + x + (x - 2) + (x - 3) = 42",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Equating the sum to 42",
+          "expected_equation": "12x = 48",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Solving for x",
+          "expected_equation": "x = 4",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Finding the mean using the given formula",
+          "expected_equation": "Mean = \\frac{(7 \\times 8)+(8 \\times 12)+(9 \\times 15)+(10 \\times 4)+(11 \\times 2)+(12 \\times 1)}{42}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculating the sum for mean",
+          "expected_equation": "Mean = \\frac{56 + 96 + 135 + 40 + 22 + 12}{42}",
+          "mark_type": "A2",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Final computation of mean",
+          "expected_equation": "Mean = 8.595",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Children not less than 9 years calculation",
+          "expected_equation": "15 + 4 + 2 + 1 = 22",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Finding the probability of not less than 9 years",
+          "expected_equation": "P(not\\: less\\: than\\: 9) = \\frac{22}{42} = \\frac{11}{21}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Final value of probability",
+          "expected_equation": "= 0.52",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

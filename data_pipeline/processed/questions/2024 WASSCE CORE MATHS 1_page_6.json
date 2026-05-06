@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_22",
+      "topic": "Number Theory",
+      "question_number": 22,
+      "question_text": "Given that $6 \bigotimes 7 = y \\text{ (modulo 8)}$, find the value of $y$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2$"
+        },
+        {
+          "id": "B",
+          "text": "$5$"
+        },
+        {
+          "id": "C",
+          "text": "$4$"
+        },
+        {
+          "id": "D",
+          "text": "$3$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_23",
+      "topic": "Numerical Methods",
+      "question_number": 23,
+      "question_text": "Express $0.0063075$ correct to \\textbf{three} significant figures.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$0.0063$"
+        },
+        {
+          "id": "B",
+          "text": "$0.0063$"
+        },
+        {
+          "id": "C",
+          "text": "$0.00631$"
+        },
+        {
+          "id": "D",
+          "text": "$0.0060$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_24",
+      "topic": "Logic",
+      "question_number": 24,
+      "question_text": "Given the statements $p$ and $q$, the statement $p \\lor q$ is false only if",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$p$ is false and $q$ is true."
+        },
+        {
+          "id": "B",
+          "text": "$p$ is true and $q$ is true."
+        },
+        {
+          "id": "C",
+          "text": "$p$ is false and $q$ is false."
+        },
+        {
+          "id": "D",
+          "text": "$p$ is true and $q$ is false."
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_25",
+      "topic": "Linear Algebra",
+      "question_number": 25,
+      "question_text": "What is the gradient of the equation of the line?",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$-2$"
+        },
+        {
+          "id": "C",
+          "text": "$2$"
+        },
+        {
+          "id": "D",
+          "text": "$1$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_26",
+      "topic": "Linear Algebra",
+      "question_number": 26,
+      "question_text": "Find the equation of the line described in the table.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = 2x$"
+        },
+        {
+          "id": "B",
+          "text": "$2y = x +2$"
+        },
+        {
+          "id": "C",
+          "text": "$y = x$"
+        },
+        {
+          "id": "D",
+          "text": "$y = x + 1$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

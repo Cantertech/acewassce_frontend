@@ -1,0 +1,159 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_4",
+      "topic": "Geometry",
+      "question_number": 4,
+      "question_text": "In the diagram, $P$, $R$, $Q$ and $S$ are points on a circle centre $O$. $T$ is a point outside the circle such that $\\angle RTP = 20^{\\circ}$, $\\angle QSR = 30^{\\circ}$ and $PQ$ is a diameter. Calculate:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_4a",
+          "topic": "Geometry",
+          "question_number": 4,
+          "question_text": "$\\angle QRS$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_4b",
+          "topic": "Geometry",
+          "question_number": 4,
+          "question_text": "$\\angle PQS$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_5",
+      "topic": "Statistics",
+      "question_number": 5,
+      "question_text": "The mean age, in years, of $t$ girls in a class was $17.6$. At the end of the academic year, $4$ girls aged $16$, $19$, $20$ and $17$ were dismissed. The new mean age of girls in the class became $0.2$ less than the original mean. Find the value of $t$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_MathCore_6",
+      "topic": "Coordinates and Geometry",
+      "question_number": 6,
+      "question_text": "Answer Question 6 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_MathCore_6a",
+          "topic": "Coordinates and Geometry",
+          "question_number": 6,
+          "question_text": "(a) Two towns, $U$ and $V$ on the equator are on longitude $67^{\\circ} \\text{E}$ and $123^{\\circ} \\text{E}$ respectively.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_MathCore_6ai",
+              "topic": "Coordinates and Geometry",
+              "question_number": 6,
+              "question_text": "Illustrate the information in a diagram.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_MathCore_6aii",
+              "topic": "Coordinates and Geometry",
+              "question_number": 6,
+              "question_text": "Find the distance between $U$ and $V$ along the equator.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_MathCore_6aiii",
+              "topic": "Coordinates and Geometry",
+              "question_number": 6,
+              "question_text": "How far is $U$ from the North pole? [ Take $R = 6,400 \\text{ km}$ and $\\pi = \\frac{22}{7}$ ]",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2024_MathCore_6b",
+          "topic": "Coordinates and Geometry",
+          "question_number": 6,
+          "question_text": "(b) $L(2, -1)$, $M(3, 5)$, $N(-1, 6)$ are the coordinates of the vertices of triangle $LMN$. Find, correct to one decimal place, the perimeter of the triangle.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_MathCore_7",
+      "topic": "Rates and Ratios",
+      "question_number": 7,
+      "question_text": "Answer Question 7 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_MathCore_7a",
+          "topic": "Rates and Ratios",
+          "question_number": 7,
+          "question_text": "(a) The time a man takes to paint a room alone is an hour less than the time his apprentice takes to paint the same room. If both of them take $72$ minutes to paint the room, find the time that the apprentice takes to paint the room alone.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_MathCore_7b",
+          "topic": "Trigonometry",
+          "question_number": 7,
+          "question_text": "(b) The angle of elevation of the top of a tower from the top of a building, $5 \\text{ m}$ high is $30^{\\circ}$. If on the horizontal ground, the building is $40 \\text{ m}$ away from the foot of the tower:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_MathCore_7bi",
+              "topic": "Trigonometry",
+              "question_number": 7,
+              "question_text": "illustrate the information in a diagram;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_MathCore_7bii",
+              "topic": "Trigonometry",
+              "question_number": 7,
+              "question_text": "calculate, correct to three significant figures, the height of the tower.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

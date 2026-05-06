@@ -1,0 +1,67 @@
+{
+  "schemes": [
+    {
+      "question_id": "2(a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculating 12.5% of votes = 275",
+          "expected_equation": "$\\frac{12.5}{100} \\times 275$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculating total votes",
+          "expected_equation": "$\\frac{100}{12.5} \\times 275$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculating votes obtained by winner",
+          "expected_equation": "$\\frac{87.1}{100} \\times 2200$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculating votes by alternative method",
+          "expected_equation": "$2200 - 275$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Votes obtained by winner = 1925",
+          "expected_equation": "$1,925$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculating 55% of votes = 2200",
+          "expected_equation": "$\\frac{55}{100} \\times 2200$",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Total number of eligible voters calculation",
+          "expected_equation": "$\\frac{100 \\times 2200}{55}$",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Total eligible voters = 4000",
+          "expected_equation": "$4000$",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

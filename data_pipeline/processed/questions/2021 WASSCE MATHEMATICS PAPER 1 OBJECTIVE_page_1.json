@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_wassce_math_1_1",
+      "topic": "Significant Figures",
+      "question_number": 1,
+      "question_text": "correct $0.007985$ to three significant figures.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$0.0109$"
+        },
+        {
+          "id": "B",
+          "text": "$0.0800$"
+        },
+        {
+          "id": "C",
+          "text": "$0.00799$"
+        },
+        {
+          "id": "D",
+          "text": "$0.008$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_wassce_math_1_2",
+      "topic": "Binary Numbers",
+      "question_number": 2,
+      "question_text": "Simplify: $(11_{2})^{2}$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$100_{12}$"
+        },
+        {
+          "id": "B",
+          "text": "$110_{12}$"
+        },
+        {
+          "id": "C",
+          "text": "$101_{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$1000_{12}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_wassce_math_1_3",
+      "topic": "Algebra",
+      "question_number": 3,
+      "question_text": "Solve: $2^{(2x+1)} = 32$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_wassce_math_1_4",
+      "topic": "Logarithms",
+      "question_number": 4,
+      "question_text": "If $log_{10} 2 = m$ and $log_{10} 3 = n$, find $log_{10} 24$ in terms of $m$ and $n$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3m + n$"
+        },
+        {
+          "id": "B",
+          "text": "$m + 3n$"
+        },
+        {
+          "id": "C",
+          "text": "$4mn$"
+        },
+        {
+          "id": "D",
+          "text": "$3n$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

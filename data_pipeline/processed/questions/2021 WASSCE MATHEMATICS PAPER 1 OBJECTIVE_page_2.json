@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_5",
+      "topic": "Sequences",
+      "question_number": 5,
+      "question_text": "Find the 5th term of the sequence $2,5,10,17,....?$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "22"
+        },
+        {
+          "id": "B",
+          "text": "24"
+        },
+        {
+          "id": "C",
+          "text": "36"
+        },
+        {
+          "id": "D",
+          "text": "26"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_6",
+      "topic": "Set Theory",
+      "question_number": 6,
+      "question_text": "If $P = \\{-3 < x < 1\\}$ and $Q = \\{-1 < x < 3\\}$, where $x$ is a real number, find $P \\cap Q$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "-3, -2, -1, 0 and 1"
+        },
+        {
+          "id": "C",
+          "text": "-2, -1 and 0"
+        },
+        {
+          "id": "D",
+          "text": "-1, 0 and 1"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_7",
+      "topic": "Algebra",
+      "question_number": 7,
+      "question_text": "Factorize $6pq - 3rs - 3ps + 6qr$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "3(r - p)(2q + s)"
+        },
+        {
+          "id": "B",
+          "text": "3(p + r)(2q - 2q - s)"
+        },
+        {
+          "id": "C",
+          "text": "3(2q - s)(p + r)"
+        },
+        {
+          "id": "D",
+          "text": "3(r - p)(s - 2q)"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_8",
+      "topic": "Fractions",
+      "question_number": 8,
+      "question_text": "What number should be subtracted from the sum of $2 \\frac{1}{6}$ and $2 \\frac{7}{12}$ to give $3 \\frac{1}{4}$?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{1\\frac{1}{2}}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

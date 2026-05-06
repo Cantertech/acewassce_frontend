@@ -1,0 +1,67 @@
+{
+  "schemes": [
+    {
+      "question_id": "5(a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Either cos y = \\frac{12}{13} or tan y = \\frac{5}{12}",
+          "expected_equation": "cos y = \\frac{12}{13}, tan y = \\frac{5}{12}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Substituting in the equation",
+          "expected_equation": "3\\cos y - 2\\sin y = 3\\left(\\frac{12}{13}\\right) - 2\\left(\\frac{5}{12}\\right)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Simplifying the expression",
+          "expected_equation": "6\\tan y = 6\\left(\\frac{5}{12}\\right)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Final simplification to get the result",
+          "expected_equation": "= \\frac{4}{5}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Listing the multiples of 3",
+          "expected_equation": "Multiples of 3 = \\{12, 15, 18, 21, 24, 27, 30\\}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Listing the multiples of 4",
+          "expected_equation": "Multiples of 4 = \\{12, 16, 20, 24, 28\\}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Finding the union of the multiples of 3 and 4",
+          "expected_equation": "Multiples of 3 and 4 = \\{12, 24\\}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Calculating the probability of selecting a multiple of 3 or 4",
+          "expected_equation": "P(multiples of 3 or 4) = \\frac{10}{21}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

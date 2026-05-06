@@ -1,0 +1,67 @@
+{
+  "schemes": [
+    {
+      "question_id": "3(a)",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculating the volume of the tank",
+          "expected_equation": "\text{volume of tank} = 1.2 \times 1.2 \times 1.2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Final volume in cubic meters",
+          "expected_equation": "= 1.728 m^3",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Converting cubic meters to liters",
+          "expected_equation": "1.728 \times 1000",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Final volume in liters",
+          "expected_equation": "= 1,728 liters",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculating the number of containers needed",
+          "expected_equation": "\text{Number of containers} = \frac{1,728}{54}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Final number of containers",
+          "expected_equation": "= 32",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Calculating the amount paid",
+          "expected_equation": "= 32 \times 1.75",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Final amount paid in GHC",
+          "expected_equation": "= GHC 56.00",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

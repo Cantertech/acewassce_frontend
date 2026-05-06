@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_CORE_MATHS_46",
+      "topic": "Geometry",
+      "question_number": 46,
+      "question_text": "In the diagram, $PR$ is a diameter of the circle $PQRS$ with centre $O$. Find the value of $\\angle PQS$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$37^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$90^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$55^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$45^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_CORE_MATHS_47",
+      "topic": "Coordinate Geometry",
+      "question_number": 47,
+      "question_text": "If $P(-7, 8)$ is reflected in the line $x - 2 = 0$, find the coordinates of the image of $P$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\begin{pmatrix} 5 \\\\ 8 \\end{pmatrix}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\begin{pmatrix} 8 \\\\ -7 \\end{pmatrix}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\begin{pmatrix} -11 \\\\ -8 \\end{pmatrix}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\begin{pmatrix} 11 \\\\ 8 \\end{pmatrix}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_CORE_MATHS_48",
+      "topic": "Number Bases",
+      "question_number": 48,
+      "question_text": "Find the product of $124_{seven}$ and $23_{seven}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3125_{seven}$"
+        },
+        {
+          "id": "B",
+          "text": "$3215_{seven}$"
+        },
+        {
+          "id": "C",
+          "text": "$3211_{seven}$"
+        },
+        {
+          "id": "D",
+          "text": "$3115_{seven}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_9",
+      "topic": "Ratio and Probability",
+      "question_number": 9,
+      "question_text": "Answer Question 9 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_9a",
+          "topic": "Ratio and Proportions",
+          "question_number": 9,
+          "question_text": "(a) The ratio of cars to motorcycles sold at a garage is $5:7$. If a dealer sold $142$ more motorcycles than cars in a particular month, find the number of each type of vehicle sold.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_9b",
+          "topic": "Probability",
+          "question_number": 9,
+          "question_text": "(b) The probabilities of an athlete’s two independent events are $\\frac{3}{5}$ and $\\frac{2}{9}$. Find the probabilities of winning:\ni) only one event;\nii) none of the events.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_10",
+      "topic": "Bearing and Statistics",
+      "question_number": 10,
+      "question_text": "Answer Question 10 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_10a",
+          "topic": "Bearing and Distance",
+          "question_number": 10,
+          "question_text": "(a) A cyclist sets out from a town $P$ on the bearing of $060^{\\circ}$ to a town $Q$, $5\\text{ km}$ away. He then moves on the bearing of $345^{\\circ}$ to a town $R$, $6\\text{ km}$ from $Q$.\ni) Represent the information on a diagram,\nii) Calculate, correct to two decimal places\n$\\alpha$) $|PR|$;\n$\\beta$) The bearing of $R$ from $P$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_10b",
+          "topic": "Median and Averages",
+          "question_number": 10,
+          "question_text": "(b) The following are arranged in order of size $(x - 2), 4, (x + 2), (2x + 1)$ and $9$. If the median is equal to the mean, find the value of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_WASSCE_CORE_MATHEMATICS_11",
+      "topic": "Statistics and Circle Theorems",
+      "question_number": 11,
+      "question_text": "Answer Question 11 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_11a",
+          "topic": "Statistics",
+          "question_number": 11,
+          "question_text": "(a) The average of refuse generated in a community in a week contains $35\\%$ plastic, $27.5\\%$ liquid, $17.5\\%$ metal, $12.5\\%$ vegetable matter and others $7.5\\%$. Draw a pie chart to illustrate the information.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_WASSCE_CORE_MATHEMATICS_11b",
+          "topic": "Circle Theorems",
+          "question_number": 11,
+          "question_text": "(b) In the diagram, $PQ$ touches the circle $MNOP$ at $P$ and $NP$ is a diameter. $\\angle MPQ = 33^{\\circ}$ and $\\angle PMO = 67^{\\circ}$. Find:\ni) $\\angle NMO$;\nii) $\\angle MPO$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

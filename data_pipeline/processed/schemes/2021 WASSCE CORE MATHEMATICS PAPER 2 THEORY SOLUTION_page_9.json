@@ -1,0 +1,88 @@
+{
+  "schemes": [
+    {
+      "question_id": "10a",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Use Pythagorean theorem to find distance between farms.",
+          "expected_equation": "\\sqrt{3^2 + 5^2}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate the distance.",
+          "expected_equation": "5.83\\text{ km or }5.8\\text{ km}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate angle using tangent function.",
+          "expected_equation": "\\tan(\\theta) = 0.6",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Find angle using inverse tangent.",
+          "expected_equation": "\\theta = \\tan^{-1}(0.6) = 30.96^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate the bearing.",
+          "expected_equation": "30.96^\\circ + 200^\\circ = 230.96^\\circ",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Round bearing to nearest degree.",
+          "expected_equation": "231^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "10b",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Formulate quadratic equation from given lengths.",
+          "expected_equation": "x^2 + (x + 2)^2 = 102",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Expand and simplify equation.",
+          "expected_equation": "2x^2 + 4x - 96 = 0",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Solve quadratic equation by factorization.",
+          "expected_equation": "(x - 6)(x + 8) = 0",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Select valid solution for x (length cannot be negative).",
+          "expected_equation": "x = 6",
+          "mark_type": "A1",
+          "marks_awarded": 0
+        }
+      ]
+    }
+  ]
+}

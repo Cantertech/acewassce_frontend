@@ -1,0 +1,46 @@
+{
+  "schemes": [
+    {
+      "question_id": "2",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate time spent traveling after subtracting meeting time.",
+          "expected_equation": "\\text{Time spent traveling} = 3 \\text{ hours } 55 \\text{ minutes} - 2 \\text{ hours}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Convert time into hours and minutes format.",
+          "expected_equation": "\\text{Time spent traveling} = 1 \\text{ hour } 55 \\text{ minutes}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Let x be the distance from M to N and set up time for the car.",
+          "expected_equation": "t = \\frac{x}{72}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Find time for the return journey and set equations for travel.",
+          "expected_equation": "\\text{Return time} = \\frac{23}{12} - t",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Solve the equation to find x.",
+          "expected_equation": "x = 48 \\text{ km}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

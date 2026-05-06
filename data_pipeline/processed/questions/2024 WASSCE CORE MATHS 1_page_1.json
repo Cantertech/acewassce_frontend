@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_1",
+      "topic": "Geometry",
+      "question_number": 1,
+      "question_text": "The sum of the interior angles of a polygon is $1260^{\\circ}$. Find the number of sides.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$9$"
+        },
+        {
+          "id": "B",
+          "text": "$6$"
+        },
+        {
+          "id": "C",
+          "text": "$7$"
+        },
+        {
+          "id": "D",
+          "text": "$8$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_2",
+      "topic": "Trigonometry",
+      "question_number": 2,
+      "question_text": "A building is $12 \\text{ m}$ high. A football on the ground floor is $30 \\text{ m}$ away from the foot of the building. Find, correct to the nearest degree, the angle of depression of the ball from the top of the building.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$22^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$68^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$66^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$24^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_3",
+      "topic": "Probability",
+      "question_number": 3,
+      "question_text": "A number is chosen at random from the set $\\{13, 14, \\ldots, 30\\}$. What is the probability that it is a prime number?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{5}{16}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{5}{18}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3}{8}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

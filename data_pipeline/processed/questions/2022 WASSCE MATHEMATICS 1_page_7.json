@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_MATHEMATICS_28",
+      "topic": "Trigonometry",
+      "question_number": 28,
+      "question_text": "The shadow of a vertical pole is $50 \\text{ cm}$. If the height of the pole is $2 \\text{ m}$, find, correct to the nearest degree, the angle of elevation of the sun from the ground level.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$45^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$56^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$60^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$76^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_29",
+      "topic": "Logic",
+      "question_number": 29,
+      "question_text": "Consider the following statements:  \\[  \\text{I: Helena studies hard.}  \\text{II: Helena passes her examination.}  \\] If $I \\neq N$, which of the following is a valid conclusion?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "If Helena does not study hard, then she will pass her examination."
+        },
+        {
+          "id": "B",
+          "text": "If Helena does not study hard, then she will not pass her examination."
+        },
+        {
+          "id": "C",
+          "text": "If Helena passes her examination, then she had not studied hard."
+        },
+        {
+          "id": "D",
+          "text": "If Helena does not pass her examination, then she had not studied hard."
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_30",
+      "topic": "Area of Sector",
+      "question_number": 30,
+      "question_text": "The area of a sector of a circle is $40 \\text{ cm}^{2}$. If the sector subtends an angle of $140^{\\circ}$ at the center, find the area of the circle.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$102.86 \\text{ cm}^{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$111.56 \\text{ cm}^{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$120.38 \\text{ cm}^{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$132.06 \\text{ cm}^{2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_31",
+      "topic": "Logarithms",
+      "question_number": 31,
+      "question_text": "Given that $x = \\log_{2} 64$, find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$4$"
+        },
+        {
+          "id": "B",
+          "text": "$6$"
+        },
+        {
+          "id": "C",
+          "text": "$2$"
+        },
+        {
+          "id": "D",
+          "text": "$-4$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_32",
+      "topic": "Probability",
+      "question_number": 32,
+      "question_text": "A die is rolled once. Find the probability of obtaining a number less than $3$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{5}{6}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

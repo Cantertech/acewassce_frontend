@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_CORE_MATH_15",
+      "topic": "Probability",
+      "question_number": 15,
+      "question_text": "In a hall, there are 175 persons. 12\\% are children, 56 are men and the rest are women. If one person is selected at random from the hall, find the probability that a woman is selected.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{8}{25}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{25}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{14}{25}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{11}{25}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATH_16",
+      "topic": "Trigonometry",
+      "question_number": 16,
+      "question_text": "Given that $\\tan x = \\frac{12}{5}$, find the value of $(\\sin x \\cos x)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{165}{60}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{60}{169}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{169}{65}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{65}{169}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATH_17",
+      "topic": "Algebra",
+      "question_number": 17,
+      "question_text": "Given that $x^2 - 11x + m$ is a perfect square, find the value of $m$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{11}{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$121$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{121}{4}$"
+        },
+        {
+          "id": "D",
+          "text": "$121$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATH_18",
+      "topic": "Ratio and Proportion",
+      "question_number": 18,
+      "question_text": "If $x : y : z = 2 : 3 : 4$, evaluate $\\frac{9x + 3y}{6z - 2y}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$1.5$"
+        },
+        {
+          "id": "B",
+          "text": "$3.0$"
+        },
+        {
+          "id": "C",
+          "text": "$2.0$"
+        },
+        {
+          "id": "D",
+          "text": "$2.5$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_43",
+      "topic": "Geometry - Circles and Angles",
+      "question_number": 43,
+      "question_text": "The diagram shows a triangle $MNP$ inscribed in a circle. $MQ$ is a tangent to the circle at $M$. Find $\\angle MPN$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$49^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$131^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$73^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$58^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_44",
+      "topic": "Statistics - Probability and Sets",
+      "question_number": 44,
+      "question_text": "In an examination taken by $120$ students, $90$ passed Mathematics, $40$ passed Science and $5$ failed both subjects. Use the information to answer questions $44$ and $45$. How many students passed Science only?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$15$"
+        },
+        {
+          "id": "B",
+          "text": "$75$"
+        },
+        {
+          "id": "C",
+          "text": "$25$"
+        },
+        {
+          "id": "D",
+          "text": "$20$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_45",
+      "topic": "Statistics - Probability and Sets",
+      "question_number": 45,
+      "question_text": "Find the probability that a student selected at random passed only one subject.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{19}{24}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{5}{6}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{7}{24}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

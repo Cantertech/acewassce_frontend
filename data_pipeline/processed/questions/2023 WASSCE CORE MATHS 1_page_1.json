@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_1",
+      "topic": "Mathematics",
+      "question_number": 1,
+      "question_text": "If $\\frac{1}{2}$ and $-3$ are the roots of $px^{2} + qx + r = 0$, find the values of $p$, $q$ and $r$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$p = -2, q = 5, r = 3$"
+        },
+        {
+          "id": "B",
+          "text": "$p = 2, q = 5, r = -3$"
+        },
+        {
+          "id": "C",
+          "text": "$p = 2, q = -\\frac{5}{2}, r = 3$"
+        },
+        {
+          "id": "D",
+          "text": "$p = 2, q = 5, r = 3$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_1_2",
+      "topic": "Mathematics",
+      "question_number": 2,
+      "question_text": "In the diagram, $MNPQ$ is a circle, centre $O$. $\\angle LMN = $43^{\\circ}$$ and $\\angle LQNP = $57^{\\circ}$$. Find the value of $y$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$100^{\\circ}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$80^{\\circ}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$90^{\\circ}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$70^{\\circ}$$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

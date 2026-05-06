@@ -1,0 +1,116 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_wassce_core_maths_1_46",
+      "topic": "Statistics",
+      "question_number": 46,
+      "question_text": "Find the mean of $(x + y)$, $(2x + 3y)$, $(2x - 2y)$ and $(3x - 2y)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2x$"
+        },
+        {
+          "id": "B",
+          "text": "$4x$"
+        },
+        {
+          "id": "C",
+          "text": "$3x$"
+        },
+        {
+          "id": "D",
+          "text": "$x$"
+        },
+        {
+          "id": "E",
+          "text": "None of the above"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_wassce_core_maths_1_47",
+      "topic": "Geometry",
+      "question_number": 47,
+      "question_text": "Find the value of $x$ in the diagram.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$95^{\text{o}}$"
+        },
+        {
+          "id": "B",
+          "text": "$165^{\text{o}}$"
+        },
+        {
+          "id": "C",
+          "text": "$85^{\text{o}}$"
+        },
+        {
+          "id": "D",
+          "text": "$50^{\text{o}}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_wassce_core_maths_1_48",
+      "topic": "Statistics",
+      "question_number": 48,
+      "question_text": "Find the median.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2$"
+        },
+        {
+          "id": "B",
+          "text": "$5$"
+        },
+        {
+          "id": "C",
+          "text": "$8$"
+        },
+        {
+          "id": "D",
+          "text": "$3$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_wassce_core_maths_1_49",
+      "topic": "Statistics",
+      "question_number": 49,
+      "question_text": "Calculate the mean of the distribution.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3$"
+        },
+        {
+          "id": "B",
+          "text": "$5$"
+        },
+        {
+          "id": "C",
+          "text": "$8$"
+        },
+        {
+          "id": "D",
+          "text": "$2$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

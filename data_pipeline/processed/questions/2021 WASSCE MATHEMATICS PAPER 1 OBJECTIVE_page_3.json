@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_9",
+      "topic": "Mathematics",
+      "question_number": 9,
+      "question_text": "If $16 \\cdot 2^{(x+1)} = 4^{x} \\cdot 8(1-x)$, find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "-4"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "-1"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_10",
+      "topic": "Mathematics",
+      "question_number": 10,
+      "question_text": "The circumference of a circular track is $9km$. A cyclist rides round it a number of times and stops after covering a distance of $302km$. How far is the cyclist from the starting point?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "5km"
+        },
+        {
+          "id": "B",
+          "text": "6km"
+        },
+        {
+          "id": "C",
+          "text": "7km"
+        },
+        {
+          "id": "D",
+          "text": "3km"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_11",
+      "topic": "Surds",
+      "question_number": 11,
+      "question_text": "Simplify $\\frac{\\sqrt{3}}{\\sqrt{7}}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{\\sqrt{21}}{7}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{\\sqrt{7}}{21}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{\\sqrt{21}}{3}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{\\sqrt{3}}{21}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_12",
+      "topic": "Mathematics",
+      "question_number": 12,
+      "question_text": "If $4x+2y=16$ and $6x-2y=4$, find the value of $(y-x)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

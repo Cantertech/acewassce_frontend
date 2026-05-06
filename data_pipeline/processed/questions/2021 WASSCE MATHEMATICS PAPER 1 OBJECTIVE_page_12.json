@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_PAPER_1_OBJECTIVE_q42",
+      "topic": "Commerce",
+      "question_number": 42,
+      "question_text": "500 tickets were sold for a concert. Tickets for adults and children were sold at \\$4.50 and \\$3.00 respectively. If the total receipts for the concert was \\$1,987.50, how many tickets for adults were sold?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "325"
+        },
+        {
+          "id": "B",
+          "text": "235"
+        },
+        {
+          "id": "C",
+          "text": "175"
+        },
+        {
+          "id": "D",
+          "text": "400"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_PAPER_1_OBJECTIVE_q43",
+      "topic": "Inequalities",
+      "question_number": 43,
+      "question_text": "The distance $d$ between two villages is more than $18\\text{ km}$ but not more than $23\\text{ km}$. Which of these inequalities represents the statement?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$18 \\leq d \\leq 23$"
+        },
+        {
+          "id": "B",
+          "text": "$18 < d < 23$"
+        },
+        {
+          "id": "C",
+          "text": "$18 \\leq d < 23$"
+        },
+        {
+          "id": "D",
+          "text": "$18 < d \\leq 23$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_WASSCE_MATHEMATICS_PAPER_1_OBJECTIVE_q44",
+      "topic": "Statistics",
+      "question_number": 44,
+      "question_text": "The pie chart represents the distribution of fruits on display in a shop. If there are 60 apples on display, how many oranges are there?",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "80"
+        },
+        {
+          "id": "B",
+          "text": "270"
+        },
+        {
+          "id": "C",
+          "text": "120"
+        },
+        {
+          "id": "D",
+          "text": "90"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

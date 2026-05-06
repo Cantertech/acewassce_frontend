@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_11",
+      "topic": "Geometry and Measurement",
+      "question_number": 11,
+      "question_text": "A rectangular tank of sides $4 \textrm{ m}$ by $8 \textrm{ m}$ by $11 \textrm{ m}$ has the same volume as a cylindrical tank of height $7 \textrm{ m}$. Calculate the base radius of the cylindrical tank. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$22 \textrm{ m}$"
+        },
+        {
+          "id": "B",
+          "text": "$8 \textrm{ m}$"
+        },
+        {
+          "id": "C",
+          "text": "$4 \textrm{ m}$"
+        },
+        {
+          "id": "D",
+          "text": "$88 \textrm{ m}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_12",
+      "topic": "Work Problems",
+      "question_number": 12,
+      "question_text": "Abudu can do a piece of work in $6$ days and Efah can do the same work in $3$ days. What fraction of the work can both do together in a day?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{8}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_13",
+      "topic": "Geometry (Locus)",
+      "question_number": 13,
+      "question_text": "Describe the locus, $l$ in the diagram.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "Locus of points equidistant from $x$ and $y$."
+        },
+        {
+          "id": "B",
+          "text": "Locus of points equidistant from $x$ and $z$."
+        },
+        {
+          "id": "C",
+          "text": "Locus of points equidistant from $xy$ and $zy$."
+        },
+        {
+          "id": "D",
+          "text": "Locus of points equidistant from $zx$ and $zy$."
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_WASSCE_CORE_MATHS_14",
+      "topic": "Geometry and Measurement",
+      "question_number": 14,
+      "question_text": "The base radius and slant height of a solid cone are $8 \textrm{ cm}$ and $14 \textrm{ cm}$ respectively. Calculate, correct to two decimal places, its volume. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$838.67 \\textrm{ cm}^3$"
+        },
+        {
+          "id": "B",
+          "text": "$553.14 \\textrm{ cm}^3$"
+        },
+        {
+          "id": "C",
+          "text": "$640.87 \\textrm{ cm}^3$"
+        },
+        {
+          "id": "D",
+          "text": "$770.32 \\textrm{ cm}^3$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

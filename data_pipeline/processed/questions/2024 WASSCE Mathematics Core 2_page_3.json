@@ -1,0 +1,170 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_8",
+      "topic": "Probability and Motion",
+      "question_number": 8,
+      "question_text": "Answer Question 8 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_8a",
+          "topic": "Probability",
+          "question_number": 8,
+          "question_text": "(a) A company bids for two contracts $G$ and $H$. The probabilities that it will win contracts $G$ and $H$ are $\\frac{1}{5}$ and $\\frac{3}{8}$ respectively. Find the probability that the company wins:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_8ai",
+              "topic": "Probability",
+              "question_number": 8,
+              "question_text": "both contracts;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_8aii",
+              "topic": "Probability",
+              "question_number": 8,
+              "question_text": "only one contract.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_8b",
+          "topic": "Speed and Distance",
+          "question_number": 8,
+          "question_text": "(b) Amaka drove a car from Samoa to Mepeasem at an average speed of $60 \\text{ km/h}$ in $135$ minutes. On her return journey, she took $3$ minutes less to arrive at Samoa. Find correct to one decimal place the:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_8bi",
+              "topic": "Speed and Distance",
+              "question_number": 8,
+              "question_text": "distance between Samoa and Mepeasem;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_8bii",
+              "topic": "Speed and Distance",
+              "question_number": 8,
+              "question_text": "the return speed.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_9",
+      "topic": "Geometry",
+      "question_number": 9,
+      "question_text": "Answer Question 9 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_9a",
+          "topic": "Geometry",
+          "question_number": 9,
+          "question_text": "(a) In the diagram, $EH$ is an arc of a circle centre $Q$. $FH$ is a tangent to the circle at $H$ and $QF$ is a straight line. $|QH| = 8\\sqrt{3}$ cm and $\\angle EQH = 60^{\\circ}$. Calculate the length of $EF$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_9b",
+          "topic": "Geometry",
+          "question_number": 9,
+          "question_text": "(b) Calculate, correct to three significant figures, the area of the shaded portion. $\\left[ \\text{Take } \\pi = \\frac{22}{7} \\right]$",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_10",
+      "topic": "Set Theory and Geometry",
+      "question_number": 10,
+      "question_text": "Answer Question 10 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_10a",
+          "topic": "Set Theory",
+          "question_number": 10,
+          "question_text": "(a) At a sports festival, the number of individuals who like football is thrice the number who like basketball. Those who like both games is one-third those who like basketball. If $139$ out of the $1,382$ persons at the festival did not like any of the two games, find the number of persons who like:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_10ai",
+              "topic": "Set Theory",
+              "question_number": 10,
+              "question_text": "(i) Illustrate the information in a Venn diagram.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_10aii",
+              "topic": "Set Theory",
+              "question_number": 10,
+              "question_text": "(ii) football;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_10aiii",
+              "topic": "Set Theory",
+              "question_number": 10,
+              "question_text": "(iii) one type of game only.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_10b",
+          "topic": "Geometry",
+          "question_number": 10,
+          "question_text": "(b) In the diagram $MZ \\parallel NV$. If $\\angle QPZ = 110^{\\circ}$ and $\\angle TQV = 80^{\\circ}$. Find $\\angle PQM$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

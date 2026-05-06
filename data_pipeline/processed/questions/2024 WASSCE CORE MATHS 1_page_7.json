@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_27",
+      "topic": "Geometric Progression",
+      "question_number": 27,
+      "question_text": "The second term of a Geometric Progression (G.P.) is $9$. If the fourth term is $81$, find the common ratio.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$4$"
+        },
+        {
+          "id": "B",
+          "text": "$1$"
+        },
+        {
+          "id": "C",
+          "text": "$2$"
+        },
+        {
+          "id": "D",
+          "text": "$3$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_28",
+      "topic": "Geometry - Similar Triangles",
+      "question_number": 28,
+      "question_text": "In the diagram, $\\triangle PQR$ is similar to $\\triangle PWY$. $\\frac{WY}{QR} = \\frac{\\lvert QR \\rvert}{\\lvert WY \\rvert}, \\lvert QR \\rvert = 15\\, \\text{cm}, \\lvert WY \\rvert = 6\\, \\text{cm}$ and $\\lvert WP \\rvert = 4\\, \\text{cm}$. Find $\\lvert WQ \\rvert$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$6\\, \\text{cm}$"
+        },
+        {
+          "id": "B",
+          "text": "$12\\, \\text{cm}$"
+        },
+        {
+          "id": "C",
+          "text": "$10\\, \\text{cm}$"
+        },
+        {
+          "id": "D",
+          "text": "$8\\, \\text{cm}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_29",
+      "topic": "Geometry - Surface Area of Cylinder",
+      "question_number": 29,
+      "question_text": "A cylindrical container closed at both ends has a radius of $3\\, \\text{cm}$ and height $4\\, \\text{cm}$. What is the total surface area of the container? $\\left[ \\text{Take } \\pi = \\frac{22}{7} \\right]$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$103.7\\, \\text{cm}^2$"
+        },
+        {
+          "id": "B",
+          "text": "$132.0\\, \\text{cm}^2$"
+        },
+        {
+          "id": "C",
+          "text": "$125.7\\, \\text{cm}^2$"
+        },
+        {
+          "id": "D",
+          "text": "$113.1\\, \\text{cm}^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_30",
+      "topic": "Geometry - Circumference and Distance",
+      "question_number": 30,
+      "question_text": "The diameter of a bicycle wheel is $21\\, \\text{cm}$. If the wheel makes $8$ complete revolutions, what will be total distance covered by the wheel? $\\left[ \\text{Take } \\pi = \\frac{22}{7} \\right]$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$132\\, \\text{cm}$"
+        },
+        {
+          "id": "B",
+          "text": "$1,386\\, \\text{cm}$"
+        },
+        {
+          "id": "C",
+          "text": "$1,056\\, \\text{cm}$"
+        },
+        {
+          "id": "D",
+          "text": "$528\\, \\text{cm}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

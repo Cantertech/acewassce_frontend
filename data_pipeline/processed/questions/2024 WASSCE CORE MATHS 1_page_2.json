@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_4",
+      "topic": "Proportions",
+      "question_number": 4,
+      "question_text": "Regina is $34$ years old and her daughter is $5$ years. In $n$ years, Regina will be twice as old as her daughter. Find the value of $n$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$23$"
+        },
+        {
+          "id": "B",
+          "text": "$30$"
+        },
+        {
+          "id": "C",
+          "text": "$29$"
+        },
+        {
+          "id": "D",
+          "text": "$24$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_5",
+      "topic": "Coordinate Geometry",
+      "question_number": 5,
+      "question_text": "If $P(-7, 8)$ is reflected in the line $x - 2 = 0$, find the coordinates of the image of $P$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$(5, 8)$"
+        },
+        {
+          "id": "B",
+          "text": "$(8, -7)$"
+        },
+        {
+          "id": "C",
+          "text": "$(11, -8)$"
+        },
+        {
+          "id": "D",
+          "text": "$(11, 8)$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_6",
+      "topic": "Inverse Proportion",
+      "question_number": 6,
+      "question_text": "If the variable $P$ is inversely proportional to $Q^2$ and $P = 2.25$ when $Q = 6$, find $P$ when $Q = 3$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$9.5$"
+        },
+        {
+          "id": "B",
+          "text": "$7.5$"
+        },
+        {
+          "id": "C",
+          "text": "$8.5$"
+        },
+        {
+          "id": "D",
+          "text": "$9.0$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_7",
+      "topic": "Algebra",
+      "question_number": 7,
+      "question_text": "Make $x$ the subject of the relation $y=\\sqrt{\\frac{px}{r} - r^2x}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$x = \\frac{ry^2}{p - r^3}$"
+        },
+        {
+          "id": "B",
+          "text": "$x = \\frac{p - r^3}{ry^2}$"
+        },
+        {
+          "id": "C",
+          "text": "$x = \\frac{ry}{p - r^3}$"
+        },
+        {
+          "id": "D",
+          "text": "$x = \\frac{y^2}{p - r^2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_1_8",
+      "topic": "Work and Time",
+      "question_number": 8,
+      "question_text": "Seven men complete a certain work schedule in $6$ days. How long will it take two of the men to complete the same work schedule if they work at the same rate?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$42$ days"
+        },
+        {
+          "id": "B",
+          "text": "$35$ days"
+        },
+        {
+          "id": "C",
+          "text": "$21$ days"
+        },
+        {
+          "id": "D",
+          "text": "$14$ days"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

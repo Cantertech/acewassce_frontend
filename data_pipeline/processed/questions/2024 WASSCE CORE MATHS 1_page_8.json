@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_wassce_core_maths_31",
+      "topic": "Geometry",
+      "question_number": 31,
+      "question_text": "Find the value of $x$ in the diagram.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$16$"
+        },
+        {
+          "id": "B",
+          "text": "$44$"
+        },
+        {
+          "id": "C",
+          "text": "$36$"
+        },
+        {
+          "id": "D",
+          "text": "$28$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_wassce_core_maths_32",
+      "topic": "Geometry",
+      "question_number": 32,
+      "question_text": "The interior angles of a triangle are $(y + 10)^{\\circ}$, $(2y - 40)^{\\circ}$ and $(3y - 90)^{\\circ}$. Which of the following accurately describes the triangle?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "isoceles triangle"
+        },
+        {
+          "id": "B",
+          "text": "right-angled triangle"
+        },
+        {
+          "id": "C",
+          "text": "equilateral triangle"
+        },
+        {
+          "id": "D",
+          "text": "scalene triangle"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_wassce_core_maths_33",
+      "topic": "Trigonometry",
+      "question_number": 33,
+      "question_text": "Given that $\\sin A = \\frac{3}{5}$, $0^{\\circ} \\leq A \\leq 90^{\\circ}$, find the value of $(\\tan A - \\cos A)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$-\\frac{1}{20}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{7}{20}$"
+        },
+        {
+          "id": "C",
+          "text": "$-\\frac{3}{20}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{20}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

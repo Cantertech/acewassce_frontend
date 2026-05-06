@@ -1,0 +1,130 @@
+{
+  "schemes": [
+    {
+      "question_id": "12(a)(i)",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Prime numbers are to be correctly identified.",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Probability of selecting a prime number should be calculated correctly.",
+          "expected_equation": "P(Prime) = \\frac{6}{15}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Final answer should be presented in simplest form, accepting equivalent fractions.",
+          "expected_equation": "\\frac{2}{5}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "12(a)(ii)",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Multiples of 3 are to be correctly identified.",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Probability of selecting a multiple of 3 should be calculated correctly.",
+          "expected_equation": "P(multiples\\ of\\ 3) = \\frac{5}{15}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Final answer should be presented in simplest form, accepting equivalent fractions.",
+          "expected_equation": "\\frac{1}{3}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "12(a)(iii)",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Numbers divisible by 5 are to be correctly identified.",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Probability of selecting a number divisible by 5 should be calculated correctly.",
+          "expected_equation": "P(nos.\\ divisible\\ by\\ 5) = \\frac{3}{15}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Final answer should be presented in simplest form, accepting equivalent fractions.",
+          "expected_equation": "\\frac{1}{5}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "12(b)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Correctly substitute values into the equation.",
+          "expected_equation": "OQ = 4SR",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Correctly simplify the expression after substitution.",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Correctly solve the equations to find Q.",
+          "expected_equation": "OQ = (20,4)",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Final answer for Q should be presented in the correct format.",
+          "expected_equation": "Q = (20, 4)",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Present final answer in correct format.",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

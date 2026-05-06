@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_CORE_MATHS_33",
+      "topic": "Salary Increment",
+      "question_number": 33,
+      "question_text": "In the first year, Mr. Kwakye’s annual salary was $1,560.00. His salary was increased each year by a constant value, $y$ until it was $13,980.00$ in the 13th year. Calculate the value of $y$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$1,129.09$"
+        },
+        {
+          "id": "B",
+          "text": "$1,035.00$"
+        },
+        {
+          "id": "C",
+          "text": "$955.38$"
+        },
+        {
+          "id": "D",
+          "text": "$1,230.00$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_34",
+      "topic": "Logarithms",
+      "question_number": 34,
+      "question_text": "If $\text{log } x = 2 - 3\text{log } 2$, find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{2}{5}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{25}{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{2}{25}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{5}{2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_35",
+      "topic": "Currency Conversion",
+      "question_number": 35,
+      "question_text": "A woman bought a washing machine for $18,000.00$. If the exchange rate is $0.045$ to ₦1.00, find in ₦, the cost of the machine.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "₦600,000.00"
+        },
+        {
+          "id": "B",
+          "text": "₦250,000.00"
+        },
+        {
+          "id": "C",
+          "text": "₦300,000.00"
+        },
+        {
+          "id": "D",
+          "text": "₦400,000.00"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_36",
+      "topic": "Base Conversion",
+      "question_number": 36,
+      "question_text": "Evaluate: $141_{six} + 233_{six} - 102_{six}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$412_{six}$"
+        },
+        {
+          "id": "B",
+          "text": "$405_{six}$"
+        },
+        {
+          "id": "C",
+          "text": "$312_{six}$"
+        },
+        {
+          "id": "D",
+          "text": "$305_{six}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_core_maths_3",
+      "topic": "Algebra",
+      "question_number": 3,
+      "question_text": "If $\\frac{4m+3n}{4m-3n} = \\frac{5}{2}$, find the ratio $m : n$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {"id": "A", "text": "$3 : 2$"},
+        {"id": "B", "text": "$9 : 4$"},
+        {"id": "C", "text": "$2 : 3$"},
+        {"id": "D", "text": "$4 : 9$"}
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_core_maths_4",
+      "topic": "Geometry",
+      "question_number": 4,
+      "question_text": "When the point (4, 5) is rotated through an angle in the anticlockwise direction about the origin, its image is (–5, 4). What is the angle of rotation?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "90°"
+        },
+        {
+          "id": "B",
+          "text": "300°"
+        },
+        {
+          "id": "C",
+          "text": "180°"
+        },
+        {
+          "id": "D",
+          "text": "270°"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_core_maths_5",
+      "topic": "Statistics",
+      "question_number": 5,
+      "question_text": "The ratio of girls to boys in a certain committee is 5 : 2. If there are 35 members in the committee, how many more boys must be added to the committee to have the ratio of girls to boys as 5 : 4?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "15"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_core_maths_6",
+      "topic": "Probability",
+      "question_number": 6,
+      "question_text": "A box contains 2 red, 6 white and 5 black balls, all of the same size. If a ball is selected at random, what is the probability that it is black?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "\\( \\frac{2}{13} \\)"
+        },
+        {
+          "id": "B",
+          "text": "\\( \\frac{5}{13} \\)"
+        },
+        {
+          "id": "C",
+          "text": "\\( \\frac{11}{13} \\)"
+        },
+        {
+          "id": "D",
+          "text": "\\( \\frac{5}{11} \\)"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_core_maths_7",
+      "topic": "Algebra",
+      "question_number": 7,
+      "question_text": "Given that $p + q + r = 50$, $p = 5$ and $\\sqrt{q} = 2$, find the positive value of $r$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {"id": "A", "text": "$41$"},
+        {"id": "B", "text": "$25$"},
+        {"id": "C", "text": "$29$"},
+        {"id": "D", "text": "$45$"}
+      ],
+      "sub_questions": null
+    }
+  ]
+}

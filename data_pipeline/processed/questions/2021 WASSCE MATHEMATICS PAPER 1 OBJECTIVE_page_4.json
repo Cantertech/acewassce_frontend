@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_13",
+      "topic": "Sets",
+      "question_number": 13,
+      "question_text": "In a class of $40$ students, $25$ speak Hausa, $16$ speak Igbo and $7$ speak both languages. How many students speak neither Hausa nor Igbo?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "11"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_14",
+      "topic": "Geometry",
+      "question_number": 14,
+      "question_text": "In the diagram, $\\angle ABC$ and $\\angle BCD$ are right angles, $\\angle BAD = t$ and $\\angle EDF = 70^{\\circ}$. Find the value of $t$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$70^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$165^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$140^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$110^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_15",
+      "topic": "Geometry",
+      "question_number": 15,
+      "question_text": "The sum of the interior angles of a regular polygon with $k$ sides is $(3k-10)$ right angles. Find the size of the exterior angle?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$60^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$40^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$90^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$120^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_16",
+      "topic": "Algebra",
+      "question_number": 16,
+      "question_text": "make $u$ the subject in $x = \\frac{2u-3}{3u+2}$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$u = \\frac{2x+3}{3x-2}$"
+        },
+        {
+          "id": "B",
+          "text": "$u = \\frac{3x-2}{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$u = \\frac{2x-3}{3x-2}$"
+        },
+        {
+          "id": "D",
+          "text": "$u = \\frac{2x+3}{3x+1}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_17",
+      "topic": "Word Problems",
+      "question_number": 17,
+      "question_text": "A trader paid import duty of 38 kobo in the naira on the cost of an engine. If a total of ₦22,800.00 was paid as import duty, calculate the cost of the engine.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "₦60,000.00"
+        },
+        {
+          "id": "B",
+          "text": "₦45,000.00"
+        },
+        {
+          "id": "C",
+          "text": "₦50,000.00"
+        },
+        {
+          "id": "D",
+          "text": "₦55,000.00"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

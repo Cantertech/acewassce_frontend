@@ -33,8 +33,25 @@
       "question_number": 24,
       "question_text": "The straight line $3y + bx - 6 = 0$ passes through $(3, 4)$. Find the value of $b$.",
       "has_diagram": false,
-      "is_mcq": false,
-      "options": null,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "-2"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "-1"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
       "sub_questions": null
     },
     {

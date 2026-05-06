@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_core_math_19",
+      "topic": "Geometry",
+      "question_number": 19,
+      "question_text": "In the diagram, $O$ is the centre of the circle $WXY$.\\ |WX| = |XZ|$ and $\\angle ZXY = $26^{\\circ}$$. Find $\\angle XYZ$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$62^{\\circ}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$42^{\\circ}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$32^{\\circ}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$52^{\\circ}$$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_core_math_20",
+      "topic": "Sequences",
+      "question_number": 20,
+      "question_text": "Given that $\\frac{16}{9}$, $x$, $1$, $y$ is a Geometric Progression (G.P.), find the value of $xy$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{9}{16}$"
+        },
+        {
+          "id": "B",
+          "text": "$1$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{25}{12}$"
+        },
+        {
+          "id": "D",
+          "text": "$2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_core_math_21",
+      "topic": "Surface Area",
+      "question_number": 21,
+      "question_text": "A cylindrical container closed at both ends has radius $5$ cm and height $10$ cm. Calculate, correct to two decimal places, the total surface area. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$456.43 cm^{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$460.43 cm^{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$470.43 cm^{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$471.43 cm^{2}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

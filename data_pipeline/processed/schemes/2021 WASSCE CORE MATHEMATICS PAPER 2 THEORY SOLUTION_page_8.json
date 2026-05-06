@@ -1,0 +1,95 @@
+{
+  "schemes": [
+    {
+      "question_id": "a",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Given information and ratio of lengths.",
+          "expected_equation": "\\frac{|PQ|}{|QR|} = \\frac{3}{4}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Relate PQ and QR using ratio.",
+          "expected_equation": "PQ = \\frac{3}{4}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Apply area formula for triangles.",
+          "expected_equation": "\\frac{1}{2} \\times \\frac{3}{4} \\times |QR| \\times |QR| = 216",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Solve for |QR|^2.",
+          "expected_equation": "|QR|^2 = \\frac{216 \\times 4 \\times 2}{3}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate |QR| from |QR|^2.",
+          "expected_equation": "|QR| = \\sqrt{576} = 24\\text{cm}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Calculate |PQ| from ratio.",
+          "expected_equation": "|PQ| = \\frac{3}{4} \\times 24 = 18\\text{cm}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Use Pythagoras' theorem.",
+          "expected_equation": "|PR| = \\sqrt{24^2 + 18^2} = 30\\text{cm}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "b",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Set up equation from problem statement.",
+          "expected_equation": "47 + m = 2(17+m)",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Expand and simplify equation.",
+          "expected_equation": "47 + m = 34 + 2m",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Rearrange and solve for m.",
+          "expected_equation": "2m - m = 47 - 34",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Solve for m.",
+          "expected_equation": "m = 13\\text{ years}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

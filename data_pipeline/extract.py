@@ -88,8 +88,9 @@ async def process_question_image(image_path: str, filename_context: str, model="
                     "content": (
                         "You are an expert WAEC data extractor. Read this math question image. "
                         "IMPORTANT: Extract EVERY SINGLE question found on this page into the 'questions' list. "
-                        "NESTING RULE: If a question has sub-parts (like (a), (b), (i), (ii)), keep the main preamble as the parent 'question_text' "
-                        "and NEST those sub-parts exactly as they appear into the 'sub_questions' list of that parent. "
+                        "NESTING RULE: Identify the 'Main Preamble' (the starting text that provides context for sub-parts). "
+                        "All sub-parts (like (a), (b), (i), (ii)) MUST be nested within the 'sub_questions' list of that parent preamble object. "
+                        "CRITICAL: Never treat a sub-part as a top-level question. If a page starts with a sub-part like '(b)' that belongs to a question from a previous page, use context to keep it consistent. "
                         "LATEX STRICT RULE 1: Use LaTeX for ALL mathematical expressions, equations, numbers, percentages, currency, and symbols. "
                         "LATEX STRICT RULE 2: EVERY SINGLE NUMBER or expression MUST be wrapped in '$' (e.g., '$16,800.00$', '$85\%$', '$125^{\circ}$', '$x = 5$'). Never leave math outside of '$'. "
                         "LATEX STRICT RULE 3: NEVER use '\(' or '\)' or '\[' or '\]' for math. Only use '$' and '$$'. "
@@ -211,14 +212,20 @@ async def run_batch_processing(folder_path, output_path, processor_func):
     files = [f for f in os.listdir(folder_path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
     
     for filename in files:
+        output_filename = os.path.splitext(filename)[0] + ".json"
+        output_full_path = os.path.join(output_path, output_filename)
+        
+        if os.path.exists(output_full_path):
+            print(f"⏩ Skipping {filename} (JSON already exists)")
+            continue
+            
         full_path = os.path.join(folder_path, filename)
         result = await processor_func(full_path, filename)
         
         if result:
-            output_filename = os.path.splitext(filename)[0] + ".json"
-            async with aiofiles.open(os.path.join(output_path, output_filename), mode='w', encoding='utf-8') as f:
+            async with aiofiles.open(output_full_path, mode='w', encoding='utf-8') as f:
                 await f.write(result.model_dump_json(indent=2))
-            print(f"Saved: {output_filename}")
+            print(f"✅ Saved: {output_filename}")
 
 async def main():
     script_dir = Path(__file__).parent
@@ -234,7 +241,7 @@ async def main():
     await run_batch_processing(
         script_dir / "raw_schemes", 
         script_dir / "processed" / "schemes", 
-        process_scheme_image
+        lambda path, ctx: process_mcq_solutions(path, ctx) if 'PAPER 1' in ctx.upper() or 'MATHS 1' in ctx.upper() or 'OBJECTIVE' in ctx.upper() else process_scheme_image(path, ctx)
     )
 
 if __name__ == "__main__":

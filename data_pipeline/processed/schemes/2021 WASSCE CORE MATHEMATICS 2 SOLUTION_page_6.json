@@ -1,0 +1,60 @@
+{
+  "schemes": [
+    {
+      "question_id": "10",
+      "total_marks": 0,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Use the cosine rule to find PR.",
+          "expected_equation": "|PR|^2 = 5^2 + 6^2 - 2(6)(5)\\cos 105",
+          "mark_type": "",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate the value inside the square root.",
+          "expected_equation": "61 + 15.529",
+          "mark_type": "",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Find the square root to get PR.",
+          "expected_equation": "PR = \\sqrt{76.529} = 8.75\\ km",
+          "mark_type": "",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Use the sine rule to find \\theta.",
+          "expected_equation": "\\frac{6}{\\sin \\theta} = \\frac{8.75}{\\sin 105}",
+          "mark_type": "",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate \\sin \\theta.",
+          "expected_equation": "\\sin \\theta = 0.6625",
+          "mark_type": "",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Find \\theta.",
+          "expected_equation": "\\theta = 41.49",
+          "mark_type": "",
+          "marks_awarded": 0
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Calculate the bearing.",
+          "expected_equation": "\\text{Bearing} = 60 - 41.49",
+          "mark_type": "",
+          "marks_awarded": 0
+        }
+      ]
+    }
+  ]
+}

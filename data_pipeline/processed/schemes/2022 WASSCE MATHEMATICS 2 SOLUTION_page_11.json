@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "11(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Applying the cosine rule for angles",
+          "expected_equation": "cos(2x + 15) = cos(90 - (x - 30))",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Rearranging and solving for x",
+          "expected_equation": "2x + x = 120 - 15",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Identifying the value of x",
+          "expected_equation": "x = 35°",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Identifying angles in triangle",
+          "expected_equation": "∠CBD = ∠FCE",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Substituting known values to solve for x",
+          "expected_equation": "180 - (2x + 34) = 48",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Rearranging the equation",
+          "expected_equation": "180 - 2 - 34 = 48",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Solving for angle",
+          "expected_equation": "x = 49°",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Forming an equation for sum of angles",
+          "expected_equation": "1/3 (∠BDC + ∠BDC + ∠CDB) + 48 = 180",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Solving for ∠BDC",
+          "expected_equation": "4/3 ∠BDC = 132 × 3",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Finding the final value of ∠BDC",
+          "expected_equation": "∠BDC = 990°",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

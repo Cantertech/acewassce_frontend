@@ -1,0 +1,46 @@
+{
+  "schemes": [
+    {
+      "question_id": "7",
+      "total_marks": 11,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Plotting the points on the graph.",
+          "expected_equation": "(x, y) = (-4, -40), (-3, -23), ..., (4, -16)",
+          "mark_type": "M1",
+          "marks_awarded": 4
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Drawing the graph through the plotted points.",
+          "expected_equation": "Smooth curve through (0, 5) and other points.",
+          "mark_type": "A1",
+          "marks_awarded": 3
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Explanation for symmetry, if any.",
+          "expected_equation": "No symmetry",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Stating the range of values for uniform scale.",
+          "expected_equation": "(0.75 \\pm 0.1)",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Reading range for coordinates on graph.",
+          "expected_equation": "0.75 \\pm 0.05 \\leq x \\leq 4",
+          "mark_type": "B1",
+          "marks_awarded": 2
+        }
+      ]
+    }
+  ]
+}

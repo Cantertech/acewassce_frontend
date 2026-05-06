@@ -1,0 +1,81 @@
+{
+  "schemes": [
+    {
+      "question_id": "a",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate angle for Ann",
+          "expected_equation": "\\frac{5}{100} \\times 360^\\circ = 18^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate angle for Afia",
+          "expected_equation": "\\frac{15}{100} \\times 360^\\circ = 54^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate angle for Kojo",
+          "expected_equation": "\\frac{10}{100} \\times 360^\\circ = 36^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate angle for Nuno",
+          "expected_equation": "\\frac{45}{100} \\times 360^\\circ = 162^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate angle for Akosua",
+          "expected_equation": "\\frac{25}{100} \\times 360^\\circ = 90^\\circ",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Sum of angles",
+          "expected_equation": "\\text{Total} = 360^\\circ",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "b",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate probability of first red bead",
+          "expected_equation": "P(\\text{1st red}) = \\frac{5}{12}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate probability of second red bead",
+          "expected_equation": "P(\\text{2nd red}) = \\frac{4}{11}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate total probability for two red beads",
+          "expected_equation": "\\frac{5}{12} \\times \\frac{4}{11} = \\frac{5}{33}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

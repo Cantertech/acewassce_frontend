@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_mathematics_18",
+      "topic": "Geometry",
+      "question_number": 18,
+      "question_text": "The height of an equilateral triangle of side is $10 \\sqrt{3}\\: cm$. calculate its perimeter.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$20\\:cm$"
+        },
+        {
+          "id": "B",
+          "text": "$60\\:cm$"
+        },
+        {
+          "id": "C",
+          "text": "$40\\:cm$"
+        },
+        {
+          "id": "D",
+          "text": "$30\\:cm$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_19",
+      "topic": "Trigonometry",
+      "question_number": 19,
+      "question_text": "In $\\triangle LMN, |LM| = 6cm, \\angle LNM = x$ and $\\sin x = \\frac{3}{5}$. Find the area of $\\triangle LMN$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$60\\text{ cm}^2$"
+        },
+        {
+          "id": "B",
+          "text": "$48\\text{ cm}^2$"
+        },
+        {
+          "id": "C",
+          "text": "$24\\text{ cm}^2$"
+        },
+        {
+          "id": "D",
+          "text": "$30\\text{ cm}^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2021_mathematics_20",
+      "topic": "Venn Diagrams",
+      "question_number": 20,
+      "question_text": "Consider the statements:\nP = All students offering Literature(L) also offer History(H);\nQ = Students offering History(H) do not offer Geography(G).\nWhich of the Venn diagram correctly illustrate the two statements?",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "A"
+        },
+        {
+          "id": "B",
+          "text": "B"
+        },
+        {
+          "id": "C",
+          "text": "C"
+        },
+        {
+          "id": "D",
+          "text": "D"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

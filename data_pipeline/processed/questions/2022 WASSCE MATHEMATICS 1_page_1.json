@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_1_q1",
+      "topic": "Basic Number Theory",
+      "question_number": 1,
+      "question_text": "Find the number of even integers between $11$ and $97$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$43$"
+        },
+        {
+          "id": "B",
+          "text": "$44$"
+        },
+        {
+          "id": "C",
+          "text": "$45$"
+        },
+        {
+          "id": "D",
+          "text": "$53$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_1_q2",
+      "topic": "Algebra",
+      "question_number": 2,
+      "question_text": "Find the values of $x$ for which $2x^{2} - 13x + 15$ is not defined.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$5$"
+        },
+        {
+          "id": "B",
+          "text": "$1,\frac{13}{15}$"
+        },
+        {
+          "id": "C",
+          "text": "$2, 15$"
+        },
+        {
+          "id": "D",
+          "text": "$13, 15$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_1_q3",
+      "topic": "Circle Geometry",
+      "question_number": 3,
+      "question_text": "In the diagram $P, Q, R, S$ are points on the circle. If $\triangle PQS = 32^{\theta}$ and $\triangle PRQ = 61^{\theta}$, find $\triangle QPS$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$32^{\theta}$"
+        },
+        {
+          "id": "B",
+          "text": "$61^{\theta}$"
+        },
+        {
+          "id": "C",
+          "text": "$87^{\theta}$"
+        },
+        {
+          "id": "D",
+          "text": "$90^{\theta}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

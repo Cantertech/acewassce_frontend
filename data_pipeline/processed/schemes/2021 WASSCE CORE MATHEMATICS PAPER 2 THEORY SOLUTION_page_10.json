@@ -1,0 +1,67 @@
+{
+  "schemes": [
+    {
+      "question_id": "1a",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate total frequency \\(\\Sigma f = 50\\)",
+          "expected_equation": "\\Sigma f = 50",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate total of \\(fx\\)",
+          "expected_equation": "\\Sigma fx = 365",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate mean using \\( \\frac{\\Sigma fx}{\\Sigma f} \\)",
+          "expected_equation": "\\frac{365}{50} = 7.30",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "1b",
+      "total_marks": 4,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate total of \\(fx^2\\)",
+          "expected_equation": "\\Sigma fx^2 = 2873",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Use formula for standard deviation",
+          "expected_equation": "\\sqrt{\\frac{2873}{50} - (7.3)^2 }",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Calculate intermediate result",
+          "expected_equation": "\\sqrt{4.17} = 2.0421",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Round to two decimal places",
+          "expected_equation": "2.04",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemes": [
+    {
+      "question_id": "9(a)",
+      "total_marks": 0,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Plot the given points on the graph accurately",
+          "expected_equation": "",
+          "mark_type": "B2",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Graph should have proper labels and scales",
+          "expected_equation": "",
+          "mark_type": "B3",
+          "marks_awarded": 3
+        }
+      ]
+    },
+    {
+      "question_id": "9(b)",
+      "total_marks": 0,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Evidence of reading a value from the graph",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Correct reading of the one value",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "All correct values shown in brackets",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "9(c)(i)",
+      "total_marks": 0,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the correct interval for x",
+          "expected_equation": "x = 58°±20°, 160°±20°",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "9(c)(ii)",
+      "total_marks": 0,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Find the correct range for x",
+          "expected_equation": "110° < x ≤ 180°",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "9(c)(iii)",
+      "total_marks": 0,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Give the minimum point in brackets with appropriate values",
+          "expected_equation": "(110°±2°, -3.15±0.05)",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

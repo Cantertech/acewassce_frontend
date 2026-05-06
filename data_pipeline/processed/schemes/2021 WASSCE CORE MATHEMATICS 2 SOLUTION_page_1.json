@@ -1,0 +1,60 @@
+{
+  "schemes": [
+    {
+      "question_id": "1",
+      "total_marks": 10,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Identify the elements to be operated on in the matrix using m=7.",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Perform the specified matrix operations as per the question requirements.",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Validate the given relationship and identify the inner properties of the sets shown.",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "2",
+      "total_marks": 8,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Set the problem statement to check for given equations.",
+          "expected_equation": "",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solve the equation step-by-step, ensuring to simplify correctly.",
+          "expected_equation": "",
+          "mark_type": "A1",
+          "marks_awarded": 3
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Verify the solution with logical reasoning, checking validity of the hypothesis provided.",
+          "expected_equation": "",
+          "mark_type": "B1",
+          "marks_awarded": 2
+        }
+      ]
+    }
+  ]
+}

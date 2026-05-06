@@ -1,0 +1,66 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_core_mathematics_12",
+      "topic": "Geometry and Kinematics",
+      "question_number": 12,
+      "question_text": "Answer Question 12 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_core_mathematics_12a",
+          "topic": "Geometry",
+          "question_number": 12,
+          "question_text": "(a) In the diagram, $PQR$ is a circle with centre $O$. If $\\angle RQP = 46^{\\circ}$, find $\\angle RPQ$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_core_mathematics_12b",
+          "topic": "Speed and Distance",
+          "question_number": 12,
+          "question_text": "(b) A train is scheduled to cover a distance of $120\\text{ km}$ at a certain average speed, $r$. Due to some technical challenges the average speed is reduced by $5\\text{ \text{km/h}}$ thereby increasing the scheduled time by $20$ minutes. Find the average speed, $r$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_core_mathematics_13",
+      "topic": "Functions and Sequences",
+      "question_number": 13,
+      "question_text": "Answer Question 13 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_core_mathematics_13a",
+          "topic": "Functions",
+          "question_number": 13,
+          "question_text": "(a) A function $g$ is defined on the set of real numbers, $R$, by $g(x) = \\frac{1+3x}{x-1}, \\ x \\neq 1$. Find:\ni) image of $-1$ under the function $g$;\nii) value of $x$ for which $g(x) = 7$;\niii) value of $g(-3)$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_core_mathematics_13b",
+          "topic": "Arithmetic Progression",
+          "question_number": 13,
+          "question_text": "(b) The sum of the first ten terms of an Arithmetic Progression (A.P) is $120$. If the fifth term is $6$ less than the eighth; find the:\ni) common difference;\nii) first term;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

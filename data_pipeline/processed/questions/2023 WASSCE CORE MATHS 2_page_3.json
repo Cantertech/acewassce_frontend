@@ -1,0 +1,87 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_wassce_maths_2_9",
+      "topic": "Circle Theorems",
+      "question_number": 9,
+      "question_text": "In the diagram, $A$, $B$, $C$, $D$ are points on a circle. $ADE$ and $BCE$ are straight lines. $\\angle DCE = $56^{\\circ}$$, $\\angle BAE = (5x - 16)^{\\circ}$ and $\\angle BDE = \\left(\\frac{3}{2}x + 4y\\right)^{\\circ}$. If $\\frac{\\angle DCE}{\\angle LDE} = 7:8$; find:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_wassce_maths_2_9_a",
+          "topic": "Circle Theorems",
+          "question_number": 9,
+          "question_text": "(a) $\\angle AEB$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_wassce_maths_2_9_b",
+          "topic": "Circle Theorems",
+          "question_number": 9,
+          "question_text": "(b) the values of $x$ and $y$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_wassce_maths_2_10",
+      "topic": "Probability and Geometry",
+      "question_number": 10,
+      "question_text": "Answer Question 10 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_wassce_maths_2_10_a",
+          "topic": "Probability and Algebra",
+          "question_number": 10,
+          "question_text": "(a) A cupboard contains three kinds of notebooks: $D$, $E$ and $F$, all of the same size. The number of book $D$ is $3$ more than half of book $F$. The number of $E$ is one-third the number of $F$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2023_wassce_maths_2_10_a_i",
+              "topic": "Probability and Algebra",
+              "question_number": 10,
+              "question_text": "(i) If there are $25$ books in the cupboard, find the number of each kind of book.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2023_wassce_maths_2_10_a_ii",
+              "topic": "Probability and Algebra",
+              "question_number": 10,
+              "question_text": "(ii) If a book is picked at random from the cupboard, what is the probability that it is $E$ or $F$?",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2023_wassce_maths_2_10_b",
+          "topic": "Circle Theorems",
+          "question_number": 10,
+          "question_text": "(b) In the diagram $PQRS$ is a circle with centre $O$. $POR$ and $QOT$ are straight lines, $QT \\| RS$, $\\angle RQT = $33^{\\circ}$$ and $|RS| = |ST|$. Find $\\angle RST$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

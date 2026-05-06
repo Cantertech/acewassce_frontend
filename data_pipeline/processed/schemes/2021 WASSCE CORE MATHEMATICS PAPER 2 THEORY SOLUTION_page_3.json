@@ -1,0 +1,46 @@
+{
+  "schemes": [
+    {
+      "question_id": "3a",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate \\(|YZ|^2\\) using Pythagoras' theorem.",
+          "expected_equation": "|YZ|^2 = 15^2 + 20^2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify to find \\(Y\\) distance.",
+          "expected_equation": "YZ = \\sqrt{625} = 25",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "3b",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Use tangent to find angle. \\(\\tan \\theta = \\frac{15}{20}\\).",
+          "expected_equation": "\\tan \\theta = 0.75",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate \\(\\theta\\) and find bearing by adding 90°.",
+          "expected_equation": "\\theta = \\tan^{-1}(0.75) = 36.87^\\circ, \\text{Bearing} = 90 + 36.87",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

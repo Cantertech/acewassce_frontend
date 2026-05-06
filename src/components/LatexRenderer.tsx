@@ -31,7 +31,7 @@ const LatexRenderer: React.FC<LatexRendererProps> = ({ text }) => {
             // This is a math block
             const cleanedBlock = blockPart.replace(/___ESC_DOLLAR___/g, '\\$');
             return (
-              <div key={i} className="my-3 overflow-x-auto overflow-y-hidden py-2 scrollbar-hide text-center">
+              <div key={i} className="my-3 overflow-x-auto overflow-y-hidden py-2 scrollbar-hide">
                  <BlockMath math={cleanMath(cleanedBlock)} />
               </div>
             );

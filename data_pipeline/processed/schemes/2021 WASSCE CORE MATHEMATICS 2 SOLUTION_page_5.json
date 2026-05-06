@@ -1,0 +1,102 @@
+{
+  "schemes": [
+    {
+      "question_id": "8",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Let x be the tens digit and y be the unit digit.",
+          "expected_equation": "x = y + 1",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Form the equation for the two-digit number.",
+          "expected_equation": "10x + y + 8 = 8x + 8y",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Simplify the equation.",
+          "expected_equation": "2x - 7y = 0",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Solve for x and y.",
+          "expected_equation": "x = 3, y = 2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Determine the number.",
+          "expected_equation": "Number = 32",
+          "mark_type": "A1",
+          "marks_awarded": 2
+        }
+      ]
+    },
+    {
+      "question_id": "9a",
+      "total_marks": 7,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Let x represent cars and y represent motorcycles.",
+          "expected_equation": "x : y = 5 : 7",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Express relationship in terms of x and y.",
+          "expected_equation": "y = x - 142",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Set up ratio equation for cars and motorcycles.",
+          "expected_equation": "x/y = 5/7",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Express x in terms of y.",
+          "expected_equation": "x = 5/7y",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Calculate y.",
+          "expected_equation": "y = 357",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Substitute to find x.",
+          "expected_equation": "x = 255",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Verification and conclusion.",
+          "expected_equation": "Cars sold = 255",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

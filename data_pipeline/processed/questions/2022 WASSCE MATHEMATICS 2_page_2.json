@@ -1,0 +1,96 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_wassce_mathematics_2_q5",
+      "topic": "Trigonometry and Probability",
+      "question_number": 5,
+      "question_text": "Answer Question 5 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_wassce_mathematics_2_q5a",
+          "topic": "Trigonometry",
+          "question_number": 5,
+          "question_text": "(a) Given that $\\sin y = \\frac{5}{13}$, $0^{\\circ} \\leq y \\leq 90^{\\circ}$, evaluate $\\frac{3\\cos y - 2\\sin y}{6\\tan y}$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_wassce_mathematics_2_q5b",
+          "topic": "Probability",
+          "question_number": 5,
+          "question_text": "(b) A number is chosen at random from the set of integers, 10 to 30 inclusive. Find the probability that the number is a multiple of 3 or 4.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_wassce_mathematics_2_q6a",
+      "topic": "Graph Interpretation",
+      "question_number": 6,
+      "question_text": "The graph shows the relation of the form $y = ax^2 + bx + c$, where $a, b$ and $c$ are constants.",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_wassce_mathematics_2_q6a_a",
+          "topic": "Graph Interpretation",
+          "question_number": 6,
+          "question_text": "State the scale used for each axes.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_wassce_mathematics_2_q6a_b",
+          "topic": "Graph Interpretation",
+          "question_number": 6,
+          "question_text": "Find the values of $a$, $b$ and $c$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_wassce_mathematics_2_q6a_c",
+          "topic": "Graph Interpretation",
+          "question_number": 6,
+          "question_text": "Find the values of $x$ when $y = 7$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_wassce_mathematics_2_q6a_d",
+          "topic": "Graph Interpretation",
+          "question_number": 6,
+          "question_text": "Write the coordinates of the minimum point.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_wassce_mathematics_2_q6a_e",
+          "topic": "Graph Interpretation",
+          "question_number": 6,
+          "question_text": "State the range of values of $x$ for which $y < 0$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "questions": [
+    {
+      "question_id": "2021_MATHS_1",
+      "topic": "Modulo Arithmetic and Logic",
+      "question_number": 1,
+      "question_text": "Answer Question 1 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_MATHS_1_a",
+          "topic": "Modulo Arithmetic",
+          "question_number": 1,
+          "question_text": "(a) i) Draw the multiplication $\\otimes$ table in modulo $9$ on $\\{2,3,7,8\\}$.\nii) Use the table to find the truth set of $8 \\otimes m = 2$",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_MATHS_1_b",
+          "topic": "Logic and Venn Diagrams",
+          "question_number": 1,
+          "question_text": "(b) Consider the following statements:\nX: All policemen wear uniform;\nY: Civil servants do not wear uniform\nIf $P = \\{\\text{Policemen}\\}, T = \\{\\text{people who wear uniform}\\}, \\text{ and } C = \\{\\text{civil servants}\\}$,\ni) draw a Venn diagram to illustrate X and Y;\nii) Use the Venn diagram to determine which of the following implications are valid or not valid conclusion from X and Y;\n$\\alpha$) Adu wears uniform $\\to$ Adu is policeman;\n$\\beta$) Ofei is a policeman $\\to$ Ofei is not a Civil Servant;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_MATHS_2",
+      "topic": "Algebra and Simplification",
+      "question_number": 2,
+      "question_text": "Answer Question 2 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_MATHS_2_a",
+          "topic": "Change of Subject",
+          "question_number": 2,
+          "question_text": "(a) Given that $p = \\frac{q - t}{t + 1}$\ni) Make $t$ the subject of the relation\nii) Find the value of $t$ when $p = \\frac{2}{3}$ and $q = \\frac{3}{4}$",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_MATHS_2_b",
+          "topic": "Simplification",
+          "question_number": 2,
+          "question_text": "(b) Given that $m = \\frac{2x}{1 - x^{2}}$, express, in simplest form, $(2m - n)$ in terms of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2021_MATHS_3",
+      "topic": "Circle Geometry and Pythagoras",
+      "question_number": 3,
+      "question_text": "Answer Question 3 parts (a) and (b).",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2021_MATHS_3_a",
+          "topic": "Circle Geometry",
+          "question_number": 3,
+          "question_text": "(a) In the diagram is a circle $MNPR$ with center $O$. The reflex angle at $O$ is $240^{\\circ}$, $\\angle NMO = 52^{\\circ}$. Find the value of $m$.",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2021_MATHS_3_b",
+          "topic": "Pythagoras Theorem",
+          "question_number": 3,
+          "question_text": "(b) A ladder of length $6.5\\text{ m}$ leans against a vertical wall. If the top of the ladder is $6.0\\text{ m}$ from the ground, calculate, correct to two decimal places, the distance from the wall to the foot of the ladder.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

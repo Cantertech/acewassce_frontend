@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_42",
+      "topic": "Geometry",
+      "question_number": 42,
+      "question_text": "In the diagram, O is the centre of the circle $PQR$. $\\angle S\\text{P}| = |\\text{P}O|$ and $\\angle RQS = 23^{\\circ}$. Find the value of $x$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$23^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$38^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$46^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$67^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_43",
+      "topic": "Statistics",
+      "question_number": 43,
+      "question_text": "Find the range.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "21"
+        },
+        {
+          "id": "B",
+          "text": "36"
+        },
+        {
+          "id": "C",
+          "text": "46"
+        },
+        {
+          "id": "D",
+          "text": "52"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_44",
+      "topic": "Statistics",
+      "question_number": 44,
+      "question_text": "Find the mean.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "45"
+        },
+        {
+          "id": "B",
+          "text": "55"
+        },
+        {
+          "id": "C",
+          "text": "61"
+        },
+        {
+          "id": "D",
+          "text": "71"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_45",
+      "topic": "Trigonometry",
+      "question_number": 45,
+      "question_text": "Evaluate $\\tan 30^{\\circ} - 2 \\sin 60^{\\circ}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$-\\frac{2\\sqrt{3}}{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{2\\sqrt{3}}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{\\sqrt{3}}{3} - 1$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{\\sqrt{3}}{3}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

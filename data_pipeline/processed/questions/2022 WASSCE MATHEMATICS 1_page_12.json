@@ -1,0 +1,31 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_50",
+      "topic": "Circle Theorems",
+      "question_number": 50,
+      "question_text": "In the diagram $\\overline{PQ}$ is the diameter of circle $PQR$ with centre $O$ and $\\overline{RS}$ meets $\\overline{PQ}$ at $S$. If $\\angle RQP = 64^{\\circ}$ and $\\angle RSQ = 36^{\\circ}$, find $\\angle PRS$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$22^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$18^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$16^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$10^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

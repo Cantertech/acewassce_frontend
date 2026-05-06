@@ -1,0 +1,53 @@
+{
+  "schemes": [
+    {
+      "question_id": "3a",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate \\( \\angle MNP \\) using the formula: \\( \\frac{156}{2} \\)",
+          "expected_equation": "\\angle MNP = \\frac{156}{2} = 78^{\\circ}",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Solve equation: \\( m + 204 + 78 + 52 = 360 \\degree \\) to find m",
+          "expected_equation": "m + 204 + 78 + 52 = 360^{\\circ}",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Find the value of m",
+          "expected_equation": "m = 360 - 334 = 26^{\\circ}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "3b",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate Distance using \\( \\sqrt{6.5^2 - 3.6^2} \\)",
+          "expected_equation": "\\text{Distance} = \\sqrt{6.5^2 - 3.6^2} = \\sqrt{29.29}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify to find the distance in meters",
+          "expected_equation": "= 5.413 \\approx 5.41 \\text{ m}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

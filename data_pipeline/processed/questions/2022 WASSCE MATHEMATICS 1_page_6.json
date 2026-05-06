@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_mathematics_23",
+      "topic": "Standard Form",
+      "question_number": 23,
+      "question_text": "Evaluate $\\frac{53,000,000 \\times 0.002}{0.0004}$ and express the answer in standard form.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2.65 \\times 10^{8}$"
+        },
+        {
+          "id": "B",
+          "text": "$2.65 \\times 10^{7}$"
+        },
+        {
+          "id": "C",
+          "text": "$2.65 \\times 10^{-7}$"
+        },
+        {
+          "id": "D",
+          "text": "$2.65 \\times 10^{-8}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_24",
+      "topic": "Ratio",
+      "question_number": 24,
+      "question_text": "If $\\frac{y + y}{5} = \\frac{x - y}{3}$, find $x : y$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$5 : 3$"
+        },
+        {
+          "id": "B",
+          "text": "$4 : 1$"
+        },
+        {
+          "id": "C",
+          "text": "$3 : 5$"
+        },
+        {
+          "id": "D",
+          "text": "$1 : 4$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_25",
+      "topic": "Equations of Lines",
+      "question_number": 25,
+      "question_text": "Find the equation of the line passing through $P(4, 1)$ and parallel to $2x + 5y = -10$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$5x + 2y = 13$"
+        },
+        {
+          "id": "B",
+          "text": "$5x - 2y = 10$"
+        },
+        {
+          "id": "C",
+          "text": "$2x - 5y = 10$"
+        },
+        {
+          "id": "D",
+          "text": "$2x + 5y = 13$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_26",
+      "topic": "Exterior Angles of Quadrilateral",
+      "question_number": 26,
+      "question_text": "The exterior angles of a quadrilateral are $61^{\\circ}, 76^{\\circ}, (x + 10)^{\\circ}$ and $(2x + 45)^{\\circ}$. Find the value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "45"
+        },
+        {
+          "id": "B",
+          "text": "60"
+        },
+        {
+          "id": "C",
+          "text": "66"
+        },
+        {
+          "id": "D",
+          "text": "56"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_mathematics_27",
+      "topic": "Modular Arithmetic",
+      "question_number": 27,
+      "question_text": "If $17 \\equiv 3 \\mod x$, find the least value of $x$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "9"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

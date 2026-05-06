@@ -1,0 +1,95 @@
+{
+  "schemes": [
+    {
+      "question_id": "13(a)",
+      "total_marks": 12,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate time duration between 17:45 and 13:15.",
+          "expected_equation": "17:45 - 13:15 = 4 \text{ hours } 30 \text{ min}",
+          "mark_type": "B1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Calculate angle gained using the formula.",
+          "expected_equation": "(4 \times 30) + 15",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "State the calculated angle in degrees.",
+          "expected_equation": "= 135^{\text{o}}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Calculate area swept using the angle in degrees.",
+          "expected_equation": "\frac{135}{360} \times \frac{22}{7} \times 3.5^{2}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Simplify the area swept calculation.",
+          "expected_equation": "= 14.4375",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "State the final area in cm².",
+          "expected_equation": "= 14.4 \text{ cm}^{2}",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Calculate distance using the expression given.",
+          "expected_equation": "\frac{\text{(6 - 3)} + (x + 4)}{\text{logical expression}} = \frac{3}{\text{sqrt}{10}}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Simplify the expression calculated.",
+          "expected_equation": "9 + (x + 4) = 3/\text{sqrt}{10}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 9,
+          "expected_logic": "Set up the quadratic equation correctly.",
+          "expected_equation": "x^{2} + 8x + 25 - 90 = 0",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 10,
+          "expected_logic": "Write out the factors of the quadratic equation.",
+          "expected_equation": "(x + 13)(x - 5) = 0",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 11,
+          "expected_logic": "State the first root of the quadratic equation.",
+          "expected_equation": "x = 5",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 12,
+          "expected_logic": "State the second root of the quadratic equation.",
+          "expected_equation": "x = -13",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

@@ -71,8 +71,44 @@ const TheoryExam = () => {
         .eq('is_mcq', false);
         
       if (data) {
-        const sorted = data.sort((a, b) => parseInt(a.question_number) - parseInt(b.question_number));
-        setQuestions(sorted);
+        // Smart Merge Logic: Detects if questions share numbers or look like sub-parts
+        const mergeQuestions = (rawQuestions: any[]) => {
+          const merged: any[] = [];
+          
+          rawQuestions.forEach((q) => {
+            const text = q.question_text?.trim() || "";
+            const qNum = parseInt(q.question_number);
+            
+            // 1. Check if this question number matches the previous one
+            const last = merged.length > 0 ? merged[merged.length - 1] : null;
+            const isSameNumber = last && parseInt(last.question_number) === qNum;
+            
+            // 2. Check if text starts with (a), (b), (i), etc.
+            const isSubPart = /^\s*(\([a-z]\)|\([ivx]+\))/i.test(text);
+            
+            if ((isSameNumber || isSubPart) && last) {
+              if (!last.sub_questions) last.sub_questions = [];
+              
+              // Only add if it's not a direct text duplicate
+              const isDuplicateText = last.question_text.includes(text);
+              if (!isDuplicateText) {
+                last.sub_questions.push(q);
+              }
+            } else {
+              merged.push({ ...q });
+            }
+          });
+          
+          return merged;
+        };
+
+        const sorted = data.sort((a, b) => {
+          const numA = parseInt(a.question_number);
+          const numB = parseInt(b.question_number);
+          if (numA !== numB) return numA - numB;
+          return (a.question_id || "").localeCompare(b.question_id || "");
+        });
+        setQuestions(mergeQuestions(sorted));
       }
       setIsLoading(false);
     }
@@ -380,8 +416,8 @@ const TheoryExam = () => {
             )}
 
             {/* Question text */}
-            <div className="rounded-2xl bg-white/[0.02] border border-white/5 p-5 sm:p-6">
-              <div className="text-base sm:text-lg text-white/90 whitespace-pre-wrap leading-relaxed font-medium tracking-wide break-words">
+            <div className="rounded-2xl bg-white/[0.02] border border-white/5 p-5 sm:p-6 overflow-hidden">
+              <div className="text-base sm:text-lg text-white/90 whitespace-pre-wrap leading-relaxed font-medium tracking-wide break-words overflow-x-auto">
                 <LatexRenderer text={question?.question_text || ""} />
               </div>
             </div>
@@ -391,8 +427,8 @@ const TheoryExam = () => {
               <div className="space-y-3 pl-2">
                 {question.sub_questions.map((sub: any, idx: number) => (
                   <div key={idx} className="space-y-2">
-                    <div className="flex gap-3 items-start pl-3 border-l-2 border-primary/20">
-                      <div className="text-sm sm:text-base text-white/80 whitespace-pre-wrap leading-relaxed font-medium break-words flex-1 py-1">
+                    <div className="flex gap-3 items-start pl-3 border-l-2 border-primary/20 overflow-hidden">
+                      <div className="text-sm sm:text-base text-white/80 whitespace-pre-wrap leading-relaxed font-medium break-words flex-1 py-1 overflow-x-auto">
                         <LatexRenderer text={sub.question_text || sub.text || ""} />
                       </div>
                     </div>
@@ -401,8 +437,8 @@ const TheoryExam = () => {
                     {sub.sub_questions?.length > 0 && (
                       <div className="ml-6 space-y-2">
                         {sub.sub_questions.map((subsub: any, subIdx: number) => (
-                          <div key={subIdx} className="pl-3 border-l-2 border-white/5 py-1">
-                            <div className="text-sm text-white/65 whitespace-pre-wrap leading-relaxed font-medium break-words">
+                          <div key={subIdx} className="pl-3 border-l-2 border-white/5 py-1 overflow-hidden">
+                            <div className="text-sm text-white/65 whitespace-pre-wrap leading-relaxed font-medium break-words overflow-x-auto">
                               <LatexRenderer text={subsub.question_text || subsub.text || ""} />
                             </div>
                           </div>

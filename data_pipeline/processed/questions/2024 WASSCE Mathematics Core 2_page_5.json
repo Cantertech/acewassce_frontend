@@ -1,0 +1,108 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_2_12",
+      "topic": "Business Mathematics and Geometry",
+      "question_number": 12,
+      "question_text": "Answer Question 12 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_12a",
+          "topic": "Business Mathematics",
+          "question_number": 12,
+          "question_text": "(a) Abiola starts a business with $GH₵ 1,250.00$. Frances joins the business later with a capital of $GH₵ 1,875.00$. At the end of the first year, profits are shared equally between Abiola and Frances. When did Frances join the business?",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_12b",
+          "topic": "Geometry",
+          "question_number": 12,
+          "question_text": "(b) In the diagram, $CE \\parallel AD$ and $|ED| = |EB| = |AB|$, find the value of:",
+          "has_diagram": true,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_2_12b_i",
+              "topic": "Geometry",
+              "question_number": 12,
+              "question_text": "(i) $n$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_2_12b_ii",
+              "topic": "Geometry",
+              "question_number": 12,
+              "question_text": "(ii) $m$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2024_WASSCE_Mathematics_Core_2_13",
+      "topic": "Statistics",
+      "question_number": 13,
+      "question_text": "Answer Question 13 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_13a",
+          "topic": "Statistics",
+          "question_number": 13,
+          "question_text": "(a) The table shows the height (m) of $30$ selected buildings in a town.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|} \\hline \\text{Height (m)} & 9 & 10 & 11 & 12 & 13 & 14 \\\\ \\hline \\text{Number of buildings} & 5 & 4 & 6 & 5 & 6 & 4 \\\\ \\hline \\end{array}$$\n\nFind the mean height of the buildings.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_WASSCE_Mathematics_Core_2_13b",
+          "topic": "Statistics",
+          "question_number": 13,
+          "question_text": "(b) Calculate, correct to one decimal place, the:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_2_13bi",
+              "topic": "Statistics",
+              "question_number": 13,
+              "question_text": "(i) median;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2024_WASSCE_Mathematics_Core_2_13bii",
+              "topic": "Statistics",
+              "question_number": 13,
+              "question_text": "(ii) mean deviation.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

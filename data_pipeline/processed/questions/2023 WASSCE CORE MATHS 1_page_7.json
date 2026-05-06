@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_CORE_MATHS_22",
+      "topic": "Geometry",
+      "question_number": 22,
+      "question_text": "The height of a square base pyramid is thrice the length of a side of its base. If the base area is $324 \\, cm^2$, find the volume of the pyramid.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$17,496 \\, cm^3$"
+        },
+        {
+          "id": "B",
+          "text": "$972 \\, cm^3$"
+        },
+        {
+          "id": "C",
+          "text": "$5,832 \\, cm^3$"
+        },
+        {
+          "id": "D",
+          "text": "$324 \\, cm^3$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_23",
+      "topic": "Geometry",
+      "question_number": 23,
+      "question_text": "The sides of a scalene triangle are $4 \\, cm$, $9 \\, cm$ and $11 \\, cm$. Calculate, correct to the nearest whole number, the area of the triangle.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$19 \\, cm^2$"
+        },
+        {
+          "id": "B",
+          "text": "$21 \\, cm^2$"
+        },
+        {
+          "id": "C",
+          "text": "$13 \\, cm^2$"
+        },
+        {
+          "id": "D",
+          "text": "$17 \\, cm^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_24",
+      "topic": "Algebra",
+      "question_number": 24,
+      "question_text": "Determine the least value of $x$ such that $7 + x = 3(mod \\, 8)$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$3$"
+        },
+        {
+          "id": "B",
+          "text": "$6$"
+        },
+        {
+          "id": "C",
+          "text": "$4$"
+        },
+        {
+          "id": "D",
+          "text": "$5$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_25",
+      "topic": "Trigonometry",
+      "question_number": 25,
+      "question_text": "The angle of elevation of the top of a vertical pole from a point, $P$ on level ground is $60^{\text{°}}$. The distance from $P$ to the foot of the pole is $55 \\, m$. Find the height of the pole.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{55\\sqrt{3}}{2} \\, m$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{55\\sqrt{3}}{3} \\, m$"
+        },
+        {
+          "id": "C",
+          "text": "$55\\sqrt{3} \\, m$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{55}{2} \\, m$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_CORE_MATHS_26",
+      "topic": "Geometry",
+      "question_number": 26,
+      "question_text": "One side of a gutter is $15 \\, cm$ lower than the other side. A plank of wood which is laid across the gutter to form a bridge, slopes at an angle of $35^{\text{°}}$ to the horizontal. How wide is the gutter?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$10.50 \\, cm$"
+        },
+        {
+          "id": "B",
+          "text": "$18.31 \\, cm$"
+        },
+        {
+          "id": "C",
+          "text": "$21.42 \\, cm$"
+        },
+        {
+          "id": "D",
+          "text": "$26.15 \\, cm$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

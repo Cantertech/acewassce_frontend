@@ -4,7 +4,7 @@
       "question_id": "2025_mathematics_1",
       "topic": "Mathematics",
       "question_number": 1,
-      "question_text": "Mr. Gyan bought a car for $16,800.00 and later sold it at 85\text{ %} of the original cost. He spent $3,930.75 from the money he received from the sale of the car and invested the remaining at 18\text{ % per annum simple interest. How much interest did he earn in 9\text{ years}?",
+      "question_text": "Mr. Gyan bought a car for $GH? 16,800.00$ and later sold it at $85\\%$ of the original cost. He spent $GH? 3,930.75$ from the money he received from the sale of the car and invested the remaining at $18\\%$ per annum simple interest. How much interest did he earn in $9$ years?",
       "has_diagram": false,
       "is_mcq": true,
       "options": [
@@ -58,7 +58,7 @@
       "question_id": "2025_mathematics_3",
       "topic": "Mathematics",
       "question_number": 3,
-      "question_text": "A town $P$ is due south of town $Q$ and town $R$ is on a bearing of $125^{\text{ } \bullet}$ from $Q$. If town $R$ is $20$ km due east of $P$, find $|PQ|$.",
+      "question_text": "A town $P$ is due south of town $Q$ and town $R$ is on a bearing of $125^{\\circ}$ from $Q$. If town $R$ is $20$ km due east of $P$, find $|PQ|$.",
       "has_diagram": false,
       "is_mcq": true,
       "options": [

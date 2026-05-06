@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_wassce_core_maths_1_q8",
+      "topic": "Geometry",
+      "question_number": 8,
+      "question_text": "In the diagram, $MOP$ is the diameter of the circle $MNP$ centre $O$. $\\angle NMP = (2x)^{\\circ}$ and $\\angle EPM = (5x+18)^{\\circ}$. Find the value of $x$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$72^{\\circ}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$18^{\\circ}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$48^{\\circ}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$24^{\\circ}$$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_wassce_core_maths_1_q9",
+      "topic": "Geometry",
+      "question_number": 9,
+      "question_text": "In the diagram, $p + q = $250^{\\circ}$$. Find the angle marked $s$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$$110^{\\circ}$$"
+        },
+        {
+          "id": "B",
+          "text": "$$70^{\\circ}$$"
+        },
+        {
+          "id": "C",
+          "text": "$$290^{\\circ}$$"
+        },
+        {
+          "id": "D",
+          "text": "$$250^{\\circ}$$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_wassce_core_maths_1_q10",
+      "topic": "Circumference and Area",
+      "question_number": 10,
+      "question_text": "A sector which subtends an angle $$150^{\\circ}$$ is cut from a circular plate of radius $14 cm$. Find, correct to one decimal place, the perimeter of the remaining plate. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$128.7$ cm"
+        },
+        {
+          "id": "B",
+          "text": "$123.3$ cm"
+        },
+        {
+          "id": "C",
+          "text": "$115.5$ cm"
+        },
+        {
+          "id": "D",
+          "text": "$101.2$ cm"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

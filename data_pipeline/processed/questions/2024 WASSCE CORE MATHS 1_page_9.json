@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_34",
+      "topic": "Logarithms",
+      "question_number": 34,
+      "question_text": "Simplify: $3 \\log x + \\log y - 2 \\log z$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\log \\left( x^3 y z^{-2} \\right)$"
+        },
+        {
+          "id": "B",
+          "text": "$\\log \\left( \\frac{3xy}{2z} \\right)$"
+        },
+        {
+          "id": "C",
+          "text": "$\\log \\left( \\frac{3xy}{z^2} \\right)$"
+        },
+        {
+          "id": "D",
+          "text": "$\\log \\left( \\frac{x^3 y}{z^2} \\right)$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_35",
+      "topic": "Exponents",
+      "question_number": 35,
+      "question_text": "Simplify: $\\frac{a^{\\frac{1}{4}}}{a^{\\frac{3}{4}}} \\times a^{\\frac{1}{2}}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{3}{a^4}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{a^{\\frac{1}{4}}}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{a^{\\frac{1}{2}}}$"
+        },
+        {
+          "id": "D",
+          "text": "$a^{\\frac{1}{2}}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_36",
+      "topic": "Geometry",
+      "question_number": 36,
+      "question_text": "The area of a square parcel of land is $256 \\ \\text{m}^2$. A rectangular field of length $20 \\ \\text{m}$ has the same perimeter as the parcel of land. Find the area of the field.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$144 \\ \\text{m}^2$"
+        },
+        {
+          "id": "B",
+          "text": "$400 \\ \\text{m}^2$"
+        },
+        {
+          "id": "C",
+          "text": "$320 \\ \\text{m}^2$"
+        },
+        {
+          "id": "D",
+          "text": "$240 \\ \\text{m}^2$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_WASSCE_CORE_MATHS_37",
+      "topic": "Compound Interest",
+      "question_number": 37,
+      "question_text": "Mr. Abban invested $\\$1,200.00$ for $3$ years at $5\\%$ per annum compound interest. Find the interest earned at the end of three years.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\$189.15$"
+        },
+        {
+          "id": "B",
+          "text": "$\\$1,389.15$"
+        },
+        {
+          "id": "C",
+          "text": "$\\$1,380.00$"
+        },
+        {
+          "id": "D",
+          "text": "$\\$180.00$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

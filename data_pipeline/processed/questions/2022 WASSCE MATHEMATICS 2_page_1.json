@@ -1,0 +1,117 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_math_1",
+      "topic": "Geometric Progression",
+      "question_number": 1,
+      "question_text": "The third and eighth terms of a Geometric Progression (G.P) are $4$ and $\\frac{1}{256}$ respectively. Find the:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_math_1_a",
+          "topic": "Geometric Progression",
+          "question_number": 1,
+          "question_text": "(a) common ratio;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_math_1_b",
+          "topic": "Geometric Progression",
+          "question_number": 1,
+          "question_text": "(b) first term;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_math_1_c",
+          "topic": "Geometric Progression",
+          "question_number": 1,
+          "question_text": "(c) sum of the first and second terms.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_math_2",
+      "topic": "Election Votes",
+      "question_number": 2,
+      "question_text": "In a school election for the position of SRC President, one candidate obtained $87.5\\%$ of the votes cast. The other candidates obtained a total of $275$ votes. Find:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_math_2_a",
+          "topic": "Election Votes",
+          "question_number": 2,
+          "question_text": "(a) how many votes did the winner obtain;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_math_2_b",
+          "topic": "Election Votes",
+          "question_number": 2,
+          "question_text": "(b) If the voter turnout was $55\\%$, find the total number of eligible voters in the school.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2022_math_3",
+      "topic": "Mensuration",
+      "question_number": 3,
+      "question_text": "A cone has a base radius of $r$ cm and a slant height of $l$ cm. The total surface area of the cone is $462$ cm$^2$. Given that $\\frac{l}{r} = \\frac{5}{2}$, find the base radius, $r$. [Take $\\pi = \\frac{22}{7}$]",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_math_4",
+      "topic": "Algebra and Simultaneous Equations",
+      "question_number": 4,
+      "question_text": "Answer Question 4 parts (a) and (b).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2022_math_4_a",
+          "topic": "Simplification",
+          "question_number": 4,
+          "question_text": "(a) Simplify $\\frac{\\sqrt{8} + \\sqrt{2}}{\\sqrt{8} - \\sqrt{2}}$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2022_math_4_b",
+          "topic": "Simultaneous Equations",
+          "question_number": 4,
+          "question_text": "(b) Using the substitution method or otherwise, solve the simultaneous equations:\n$2x + 3y = 7$\n$3x - 2y = 4$",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_MATHEMATICS_33",
+      "topic": "Geometry",
+      "question_number": 33,
+      "question_text": "If the area of the trapezium $MNOP$ is $300$ cm$^{2}$, find the value of $x$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "15 cm"
+        },
+        {
+          "id": "B",
+          "text": "12 cm"
+        },
+        {
+          "id": "C",
+          "text": "10 cm"
+        },
+        {
+          "id": "D",
+          "text": "20 cm"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_34",
+      "topic": "Sequences",
+      "question_number": 34,
+      "question_text": "Find the 11$^{th}$ term of $\\frac{1}{4}, \\frac{5}{8}, 1, \\frac{3}{8}, \\ldots$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_35",
+      "topic": "Statistics",
+      "question_number": 35,
+      "question_text": "In a class of $30$ students, $18$ take Mathematics, $5$ take both Mathematics and Biology and $8$ take neither Mathematics nor Biology. Find the number of students that take Biology.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "6"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "9"
+        },
+        {
+          "id": "D",
+          "text": "13"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_36",
+      "topic": "Angles",
+      "question_number": 36,
+      "question_text": "In the diagram, $MN \\parallel PQ$. Find the value of $(x + y)$.",
+      "has_diagram": true,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "90$^{\bullet}$"
+        },
+        {
+          "id": "B",
+          "text": "60$^{\bullet}$"
+        },
+        {
+          "id": "C",
+          "text": "40$^{\bullet}$"
+        },
+        {
+          "id": "D",
+          "text": "30$^{\bullet}$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

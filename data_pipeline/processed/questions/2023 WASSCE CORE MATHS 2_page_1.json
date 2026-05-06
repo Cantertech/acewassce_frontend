@@ -1,0 +1,180 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_wassce_maths_2_1",
+      "topic": "Sets and Venn Diagrams",
+      "question_number": 1,
+      "question_text": "In a talent hunt competition of $35$ artistes, they indicated their interest in playing Piano, Bagpipes, and Guitar. Out of the number, $24$ preferred Piano, $16$ Bagpipes and $18$ Guitar. $8$ preferred Piano only, $2$ Bagpipes only and $6$ Guitar only. $4$ played all the three instruments while $7$ preferred Piano and Bagpipes only.",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_wassce_maths_2_1_a",
+          "topic": "Sets and Venn Diagrams",
+          "question_number": 1,
+          "question_text": "(a) Illustrate the information in a Venn diagram.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_wassce_maths_2_1_b",
+          "topic": "Sets and Venn Diagrams",
+          "question_number": 1,
+          "question_text": "(b) Find the number of artistes who preferred:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2023_wassce_maths_2_1_b_i",
+              "topic": "Sets and Venn Diagrams",
+              "question_number": 1,
+              "question_text": "(i) only two types of instruments;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2023_wassce_maths_2_1_b_ii",
+              "topic": "Sets and Venn Diagrams",
+              "question_number": 1,
+              "question_text": "(ii) only one type of instrument.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2023_wassce_maths_2_2",
+      "topic": "Bearings and Trigonometry",
+      "question_number": 2,
+      "question_text": "Araba walked $2$ km from a village, $S$ to visit a friend in another village, $T$ on a bearing of $$065^{\\circ}$$. After spending some time with her friend, she continued to a nearby town, $U$, $3$ km away on a bearing of $$155^{\\circ}$$. If the distance between $S$ and $U$ is $6\\sqrt{13}$ km:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_wassce_maths_2_2_a",
+          "topic": "Bearings and Trigonometry",
+          "question_number": 2,
+          "question_text": "(a) illustrate the information in a diagram;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_wassce_maths_2_2_b",
+          "topic": "Bearings and Trigonometry",
+          "question_number": 2,
+          "question_text": "(b) calculate, correct to the nearest whole number, the:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2023_wassce_maths_2_2_b_i",
+              "topic": "Bearings and Trigonometry",
+              "question_number": 2,
+              "question_text": "(i) value of $r$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2023_wassce_maths_2_2_b_ii",
+              "topic": "Bearings and Trigonometry",
+              "question_number": 2,
+              "question_text": "(ii) bearing of $U$ from $S$.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "2023_wassce_maths_2_3",
+      "topic": "Mensuration",
+      "question_number": 3,
+      "question_text": "In the frustum of a cone, the bottom diameter is thrice the top diameter.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_wassce_maths_2_3_a",
+          "topic": "Mensuration",
+          "question_number": 3,
+          "question_text": "(a) If the height of the frustum is $12$ cm, calculate the height of the whole cone.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_wassce_maths_2_3_b",
+          "topic": "Mensuration",
+          "question_number": 3,
+          "question_text": "(b) Given that the volume of the whole cone is $39,600 \\text{ cm}^3$, find, correct to four significant figures, the radius. [Take $\\pi = \\frac{22}{7}$]",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_wassce_maths_2_4",
+      "topic": "Geometry \u2014 Polygons",
+      "question_number": 4,
+      "question_text": "In the diagram, $JKLMN$ is a regular pentagon and $KOPQRL$ is a regular hexagon. Find:",
+      "has_diagram": true,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_wassce_maths_2_4_a",
+          "topic": "Geometry \u2014 Polygons",
+          "question_number": 4,
+          "question_text": "(a) $\\angle JNM$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_wassce_maths_2_4_b",
+          "topic": "Geometry \u2014 Polygons",
+          "question_number": 4,
+          "question_text": "(b) $\\angle KOP$;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_wassce_maths_2_4_c",
+          "topic": "Geometry \u2014 Polygons",
+          "question_number": 4,
+          "question_text": "(c) $\\angle MLR$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

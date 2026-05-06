@@ -1,0 +1,53 @@
+{
+  "schemes": [
+    {
+      "question_id": "b",
+      "total_marks": 6,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Equate the expressions on both sides.",
+          "expected_equation": "a + 4d = a + 7d - 6",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Simplify and solve for $d$.",
+          "expected_equation": "3d = 6",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Divide by 3 to find $d$.",
+          "expected_equation": "d = 2",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Substitute the values into the equation and solve.",
+          "expected_equation": "5(2a + (10 - 1)2) = 120",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Simplify the expression.",
+          "expected_equation": "5(2a + 18) = 120",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Expand and solve for $a$.",
+          "expected_equation": "a = 3",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    }
+  ]
+}

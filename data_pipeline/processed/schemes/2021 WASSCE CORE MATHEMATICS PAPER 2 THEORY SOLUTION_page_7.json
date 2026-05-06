@@ -1,0 +1,123 @@
+{
+  "schemes": [
+    {
+      "question_id": "1(a)",
+      "total_marks": 5,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Calculate $y$ for each $x$ using the relation $y=2x^2-x-2$.",
+          "expected_equation": "y=2(-4)^2-(-4)-2",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Substitute $x=-3$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(-3)^2-(-3)-2=19",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Substitute $x=-2$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(-2)^2-(-2)-2=8",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 4,
+          "expected_logic": "Substitute $x=0$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(0)^2-(0)-2=1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 5,
+          "expected_logic": "Substitute $x=1$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(1)^2-(1)-2=-1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 6,
+          "expected_logic": "Substitute $x=2$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(2)^2-(2)-2=4",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 7,
+          "expected_logic": "Substitute $x=3$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(3)^2-(3)-2=13",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 8,
+          "expected_logic": "Substitute $x=4$ into $y=2x^2-x-2$.",
+          "expected_equation": "y=2(4)^2-(4)-2=26",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "1(c)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Graph $y=2x+3$ along given scale.",
+          "expected_equation": "y=2x+3",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        }
+      ]
+    },
+    {
+      "question_id": "1(d)(i)",
+      "total_marks": 3,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Find roots of $2x^2-3x-5=0$ using the quadratic formula.",
+          "expected_equation": "x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}",
+          "mark_type": "M1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 2,
+          "expected_logic": "Compute $x_1$ using quadratic formula.",
+          "expected_equation": "x=-1\\pm0.1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        },
+        {
+          "step_order": 3,
+          "expected_logic": "Compute $x_2$ using quadratic formula.",
+          "expected_equation": "x=2.5\\pm0.1",
+          "mark_type": "A1",
+          "marks_awarded": 1
+        }
+      ]
+    },
+    {
+      "question_id": "1(d)(ii)",
+      "total_marks": 2,
+      "penalties": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "expected_logic": "Find range of $x$ for which $2x^2-x-2<0$.",
+          "expected_equation": "(-0.7\\pm0.1)<x<(1.3\\pm0.1)",
+          "mark_type": "M1",
+          "marks_awarded": 2
+        }
+      ]
+    }
+  ]
+}

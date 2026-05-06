@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_math_37",
+      "topic": "Algebra",
+      "question_number": 37,
+      "question_text": "Badu is four times as old as Juliet. In 10 years Badu will be twice as old as Juliet. Find Juliet's age.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "6 years"
+        },
+        {
+          "id": "B",
+          "text": "5 years"
+        },
+        {
+          "id": "C",
+          "text": "3 years"
+        },
+        {
+          "id": "D",
+          "text": "8 years"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_math_38",
+      "topic": "Algebra",
+      "question_number": 38,
+      "question_text": "Make $u$ the subject of the relation \\( \\frac{t}{s+u} = \\frac{s}{t-u} \\)",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$u = t - s$"
+        },
+        {
+          "id": "B",
+          "text": "$u = \\frac{s}{t}$"
+        },
+        {
+          "id": "C",
+          "text": "$u = s - t$"
+        },
+        {
+          "id": "D",
+          "text": "$u = t + s$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_math_39",
+      "topic": "Speed and Distance",
+      "question_number": 39,
+      "question_text": "A car covers the first $80\\text{ km}$ of a journey in 2 hours and completes the journey by travelling further for 2.5 hours at $50\\text{ km}$/h. What is the average speed of the entire journey?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{44}{9}$ km/h"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{63}{4}$ km/h"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{47}{4}$ km/h"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{45}{9}$ km/h"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_math_40",
+      "topic": "Logic",
+      "question_number": 40,
+      "question_text": "Consider these two statements:\nP: N is an odd number\nQ: N is a prime number greater than 2.\nExpress \"If N is not an odd number then N is not a prime number greater than 2\" in symbolic form.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\neg P \\land \\neg Q$"
+        },
+        {
+          "id": "B",
+          "text": "$\\neg P \\Rightarrow \\neg Q$"
+        },
+        {
+          "id": "C",
+          "text": "$\\neg P \\Rightarrow Q$"
+        },
+        {
+          "id": "D",
+          "text": "$P \\Rightarrow Q$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

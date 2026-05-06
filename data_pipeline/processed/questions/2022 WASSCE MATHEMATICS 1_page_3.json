@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "question_id": "2022_MATHEMATICS_9",
+      "topic": "Average Cost",
+      "question_number": 9,
+      "question_text": "A woman buys 3 exercise books at GH₵ 0.4 each and 9 exercise books at GH₵ 0.2 each. What is the average cost of an exercise book?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "GH₵ 0.35"
+        },
+        {
+          "id": "B",
+          "text": "GH₵ 0.30"
+        },
+        {
+          "id": "C",
+          "text": "GH₵ 0.22"
+        },
+        {
+          "id": "D",
+          "text": "GH₵ 0.25"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_10",
+      "topic": "Algebraic Equations",
+      "question_number": 10,
+      "question_text": "Given that 4x + 6y = 5 and 2x + 4y = 3, find the value of (x + 2y).",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "- \\frac{1}{2}"
+        },
+        {
+          "id": "B",
+          "text": "- 1"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "\\frac{1}{2}"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_11",
+      "topic": "Simplification",
+      "question_number": 11,
+      "question_text": "Simplify \\frac{9 - x^{2}}{3x - x^{2}}, where x \\neq 0, 3.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "\\frac{3 - x}{x}"
+        },
+        {
+          "id": "B",
+          "text": "\\frac{3 + x}{x}"
+        },
+        {
+          "id": "C",
+          "text": "\\frac{3}{y}"
+        },
+        {
+          "id": "D",
+          "text": "x - 3"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2022_MATHEMATICS_12",
+      "topic": "Direct Proportion",
+      "question_number": 12,
+      "question_text": "Given that p \\alpha \\frac{1}{x} and x \\alpha y, express p in terms of y and l.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "\\frac{p}{y}"
+        },
+        {
+          "id": "B",
+          "text": "p \\alpha \\frac{y}{l}"
+        },
+        {
+          "id": "C",
+          "text": "p \\alpha vl"
+        },
+        {
+          "id": "D",
+          "text": "p \\alpha \\frac{1}{l}"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}
