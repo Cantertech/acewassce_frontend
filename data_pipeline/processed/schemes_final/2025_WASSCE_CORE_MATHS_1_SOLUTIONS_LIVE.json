@@ -994,22 +994,22 @@
     "options": [
       {
         "id": "A",
-        "text": "$5p - q$"
+        "text": "$\\frac{5p-q}{p-q}$"
       },
       {
         "id": "B",
-        "text": "$5p - q$"
+        "text": "$\\frac{5p-q}{p+q}$"
       },
       {
         "id": "C",
-        "text": "$5p + q$"
+        "text": "$\\frac{5p+q}{p-q}$"
       },
       {
         "id": "D",
-        "text": "$5p + q$"
+        "text": "$\\frac{5p+q}{p+q}$"
       }
     ],
-    "solution": "Correct Option: A\nExplanation: To simplify the expression \\( \\frac{25p^{2} - q^{2}}{5p^{2} + 6pq + q^{2}} \\), we can factor both the numerator and the denominator. The numerator is a difference of squares and can be factored as: \\( 25p^{2} - q^{2} = (5p - q)(5p + q) \\). The denominator can be factored as: \\( 5p^{2} + 6pq + q^{2} = (5p + q)(p + q) \\). Thus, the expression simplifies to:  \\( \\frac{(5p - q)(5p + q)}{(5p + q)(p + q)} \\). After canceling out \\( 5p + q \\), we are left with: \\( \\frac{5p - q}{p + q} \\), which could be expressed in simplest terms but doesn't match any options verbatim. However, checking the given answers, we can see that both options A and B are the same, which is \\( 5p - q \\), hence the correct answer is A."
+    "solution": "Correct Option: B\nExplanation: To simplify the expression $\\frac{25p^{2} - q^{2}}{5p^{2} + 6pq + q^{2}}$, we factor both the numerator and the denominator step-by-step:\n\n1. **Factor the Numerator:**\nThe numerator is a difference of two squares:\n$$25p^{2} - q^{2} = (5p)^{2} - q^{2} = (5p - q)(5p + q)$$\n\n2. **Factor the Denominator:**\nWe can factor the quadratic expression $5p^{2} + 6pq + q^{2}$ by splitting the middle term:\n$$5p^{2} + 6pq + q^{2} = 5p^{2} + 5pq + pq + q^{2}$$\n$$= 5p(p + q) + q(p + q) = (5p + q)(p + q)$$\n\n3. **Simplify the Fraction:**\nSubstitute the factored forms back into the fraction:\n$$\\frac{25p^{2} - q^{2}}{5p^{2} + 6pq + q^{2}} = \\frac{(5p - q)(5p + q)}{(5p + q)(p + q)}$$\n\nCancel the common factor $(5p + q)$ from the numerator and denominator:\n$$= \\frac{5p - q}{p + q}$$\n\nThis matches **Option B** perfectly."
   },
   {
     "question_number": "5",
