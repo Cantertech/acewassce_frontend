@@ -142,27 +142,52 @@ async def aggregate_and_finalize_scores(attempt_id: str, db):
         return 0
 
 async def process_full_attempt_grading(attempt_id: str, submissions: List[dict], db):
+    import traceback
+    print("\n" + "="*80)
+    print(f"[AI GRADER INFO] Starting forensic theory grading process for attempt_id: {attempt_id}")
+    print(f"[AI GRADER INFO] Number of submissions loaded: {len(submissions)}")
+    print("="*80)
+    
     try:
+        # 1. Fetch Attempt Metadata
+        print(f"[AI GRADER DATABASE] Fetching metadata for attempt {attempt_id} from 'exam_attempts'...")
         attempt_res = db.table("exam_attempts").select("exam_id, status, mcq_completed_at").eq("id", attempt_id).execute()
         if not attempt_res.data:
-            print(f"Theory Grading Error: Attempt {attempt_id} not found in database.")
-            return
+            print(f"[AI GRADER ERROR] Attempt {attempt_id} was NOT found in 'exam_attempts' table!")
+            raise ValueError(f"Attempt {attempt_id} not found in database.")
+            
         attempt_data = attempt_res.data[0]
         exam_id = attempt_data.get("exam_id")
         current_status = attempt_data.get("status")
+        mcq_completed_at = attempt_data.get("mcq_completed_at")
+        print(f"[AI GRADER INFO] Current attempt status: '{current_status}'")
+        print(f"[AI GRADER INFO] MCQ completed at: {mcq_completed_at}")
         
+        # 2. Fetch Compulsory Count
         compulsory_count = 5
         if exam_id:
+            print(f"[AI GRADER DATABASE] Fetching exam settings for exam_id: {exam_id}...")
             exam_res = db.table("exams").select("compulsory_questions").eq("id", exam_id).execute()
             if exam_res.data:
                 compulsory_count = exam_res.data[0].get('compulsory_questions', 5)
+        print(f"[AI GRADER INFO] Compulsory questions count: {compulsory_count}")
         
-        result = await run_grader(attempt_id=attempt_id, submissions=submissions)
-        grading_results = result.get("grading_results", [])
-        
+        # 3. Call AI Grader LangGraph Graph
+        print(f"[AI GRADER AGENT] Invoking LangGraph AI Grader model workflow...")
+        try:
+            result = await run_grader(attempt_id=attempt_id, submissions=submissions)
+            grading_results = result.get("grading_results", [])
+            print(f"[AI GRADER AGENT] LangGraph execution returned {len(grading_results)} grading results.")
+        except Exception as graph_err:
+            print(f"[AI GRADER ERROR] Graph execution failed critically!")
+            traceback.print_exc()
+            raise graph_err
+            
+        # 4. Save and Update Results per Question
         part_a_score = 0
         part_b_scores = []
-        for res in grading_results:
+        
+        for idx, res in enumerate(grading_results):
             try:
                 q_num_str = str(res.get("question_number", ""))
                 q_num = int(q_num_str) if q_num_str.isdigit() else 0
@@ -170,20 +195,23 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                 score = int(round(float(raw_score))) if raw_score is not None else 0
                 reasoning = res.get("summative_reasoning", "")
                 
-                # IMPROVED UPDATE LOGIC:
+                print(f"[AI GRADER SAVE] Processing result {idx + 1}: Question {q_num_str} -> Score: {score}")
+                
                 saved = False
                 
-                # 1. Try to update a row that explicitly has this question_number
+                # Step 1: Update existing row with matching question_number
                 update_res = db.table("theory_submissions").update({
                     "marks_attained": score,
                     "feedback": reasoning
                 }).eq("attempt_id", attempt_id).eq("question_number", q_num_str).execute()
                 
                 if update_res.data:
+                    print(f"[AI GRADER DATABASE] Successfully updated existing theory_submission row for Q{q_num_str}")
                     saved = True
-
-                # 2. If no rows updated, try to find a NULL row to "adopt" this question
+                
+                # Step 2: Try NULL row adoption if not saved
                 if not saved:
+                    print(f"[AI GRADER DATABASE] No matching Q{q_num_str} row found. Checking for NULL/Unknown placeholder row...")
                     null_row = db.table("theory_submissions").select("id").eq("attempt_id", attempt_id).is_("question_number", "null").limit(1).execute()
                     if null_row.data:
                         target_id = null_row.data[0]["id"]
@@ -192,11 +220,12 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                             "feedback": reasoning,
                             "question_number": q_num_str
                         }).eq("id", target_id).execute()
+                        print(f"[AI GRADER DATABASE] Successfully adopted NULL row {target_id} for Q{q_num_str}")
                         saved = True
                 
-                # 3. If STILL no rows (all filled or none exist), INSERT a new row
+                # Step 3: Insert new row if still not saved
                 if not saved:
-                    # Find an image URL from existing submissions to link to
+                    print(f"[AI GRADER DATABASE] No placeholder row found. Inserting a new theory_submission row for Q{q_num_str}...")
                     image_url = submissions[0].get("image_url") if submissions else None
                     db.table("theory_submissions").insert({
                         "attempt_id": attempt_id,
@@ -205,37 +234,82 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                         "feedback": reasoning,
                         "image_url": image_url
                     }).execute()
+                    print(f"[AI GRADER DATABASE] Successfully inserted new row for Q{q_num_str}")
 
                 if 1 <= q_num <= compulsory_count:
                     part_a_score += score
+                    print(f"[AI GRADER SAVE] Question {q_num} is COMPULSORY (Part A). Cumulative Part A: {part_a_score}")
                 else:
                     part_b_scores.append(score)
+                    print(f"[AI GRADER SAVE] Question {q_num} is OPTIONAL (Part B). Optional scores so far: {part_b_scores}")
                     
-            except Exception as e:
-                print(f"Error saving question {res.get('question_number')}: {e}")
+            except Exception as item_err:
+                print(f"[AI GRADER ERROR] Error saving question {res.get('question_number')}: {item_err}")
+                traceback.print_exc()
                 continue
         
+        # 5. Calculate Final Scores
+        print(f"[AI GRADER SCORE] Part A total score: {part_a_score}")
         part_b_scores.sort(reverse=True)
-        part_b_score = sum(part_b_scores[:5])
-        ai_theory_score = part_a_score + part_b_score
+        # Select top 5 optional answers
+        top_part_b = part_b_scores[:5]
+        part_b_score = sum(top_part_b)
+        print(f"[AI GRADER SCORE] Part B optional answers sorted: {part_b_scores}. Top 5 chosen: {top_part_b}. Part B Total: {part_b_score}")
         
-        # Determine final status based on MCQ completion
+        ai_theory_score = part_a_score + part_b_score
+        print(f"[AI GRADER SCORE] Calculated overall AI Theory Score: {ai_theory_score} / 100")
+        
+        # 6. Determine status transition
         final_status = "theory_marked"
-        if current_status == "mcq_marked" or attempt_data.get("mcq_completed_at"):
+        if current_status == "mcq_marked" or mcq_completed_at:
             final_status = "graded"
-            
+        print(f"[AI GRADER STATUS] Attempt status transitioning from '{current_status}' -> '{final_status}'")
+        
+        # 7. Write to exam_attempts table
+        print(f"[AI GRADER DATABASE] Writing final scores and status to 'exam_attempts'...")
         db.table("exam_attempts").update({
             "theory_score": ai_theory_score,
             "total_theory": 100,
             "theory_completed_at": datetime.utcnow().isoformat(),
             "status": final_status
         }).eq("id", attempt_id).execute()
+        print(f"[AI GRADER DATABASE] Successfully updated 'exam_attempts' record.")
         
+        # 8. Check for Grand Total Aggregation
+        print(f"[AI GRADER DATABASE] Checking for companion MCQ responses to calculate grand total...")
         resp_res = db.table("exam_responses").select("id", count="exact").eq("attempt_id", attempt_id).execute()
-        if (resp_res.count or 0) > 0 or current_status == "mcq_marked":
+        has_responses = (resp_res.count or 0) > 0
+        print(f"[AI GRADER DATABASE] Companion exam_responses count: {resp_res.count}. Status: '{current_status}'")
+        
+        if has_responses or current_status == "mcq_marked" or mcq_completed_at:
+            print(f"[AI GRADER SCORE] MCQ responses/completion detected. Running grand total score aggregation...")
             await aggregate_and_finalize_scores(attempt_id, db)
+            print(f"[AI GRADER SCORE] Grand total aggregation completed.")
+        else:
+            print(f"[AI GRADER SCORE] MCQ not completed yet. Skipping grand total aggregation.")
+            
+        print("\n" + "="*80)
+        print(f"[AI GRADER INFO] Forensics Theory Grading completed SUCCESSFULY for {attempt_id}!")
+        print("="*80 + "\n")
+        
     except Exception as e:
-        print(f"Theory Grading Error: {e}")
+        print("\n" + "!"*80)
+        print(f"[AI GRADER CRITICAL ERROR] Failed during process_full_attempt_grading for {attempt_id}!")
+        print(f"Error Message: {e}")
+        print("!"*80)
+        traceback.print_exc()
+        print("!"*80 + "\n")
+        
+        # Make sure the status is reverted to a clean error state rather than getting stuck
+        try:
+            print(f"[AI GRADER DATABASE] Reverting attempt {attempt_id} status to 'theory_failed' for client visibility...")
+            db.table("exam_attempts").update({
+                "status": "theory_failed"
+            }).eq("id", attempt_id).execute()
+        except Exception as db_err:
+            print(f"[AI GRADER DATABASE] Revert status update failed: {db_err}")
+            
+        raise e
 
 @router.post("/{attempt_id}/grade-mcq")
 async def grade_mcq(attempt_id: str, db=Depends(get_db)):
