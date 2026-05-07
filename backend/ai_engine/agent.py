@@ -112,11 +112,10 @@ async def batch_grade_node(state: GradingState):
         eval_prompt = (
             f"You are a Senior WAEC Examiner. Grade the following questions based on the attached images and official rubrics.\n\n"
             f"{rubrics_text}\n"
-            "CRITICAL IMAGE DISTINCTION RULE:\n"
-            "The attached images contain TWO distinct types of documents:\n"
-            "1. STUDENT SUBMISSIONS: Hand-written answers (using blue/black pen on lined/white paper, captured via phone photos). You MUST only grade the student based on what is hand-written here.\n"
-            "2. OFFICIAL RUBRICS / DIAGRAMS: Typed, printed digital documents or tables (which may have clear columns, diagrams, printed labels, or watermark texts like 'SyllabusGH.com').\n"
-            "WARNING: Do NOT mistake typed marking-scheme answers or diagram illustrations inside printed rubrics as the student's own handwritten work! Acknowledge that the student did NOT draw or write anything that only appears on the printed rubric/scheme sheet.\n\n"
+            "CRITICAL GRADING PRINCIPLES:\n"
+            "1. STRICTNESS: WAEC is a highly rigorous exam. Be strict, precise, and fair. Do NOT be overly lenient.\n"
+            "2. DRAWINGS & DIAGRAMS: If a mark is for 'labeling a diagram' or 'drawing a graph/triangle' (like B1 in Part a), the student MUST have actually drawn that diagram or graph. Writing variables or parameters in an algebraic formula (like |AB| + |BC| = Perimeter) does NOT earn the drawing/labeling mark. If there is no handwritten drawing, award 0 for that drawing/labeling mark.\n"
+            "3. MATHEMATICAL TOTAL: Double check your addition! The final 'score' must be exactly equal to the sum of the positive marks (M1, A1, B1) you awarded in your summative reasoning.\n\n"
             "INSTRUCTIONS:\n"
             "1. TRANSCRIBE the student's hand-written work for each question accurately from the handwritten photo pages.\n"
             "2. Award marks (M1, A1, B1) based on the specific rubric compared ONLY to the student's hand-written transcription. "
@@ -128,8 +127,9 @@ async def batch_grade_node(state: GradingState):
         
         messages = [
             SystemMessage(content=(
-                "Output JSON only: { 'results': [ "
-                "{ 'question_number': int, 'score': int, 'summative_reasoning': 'string', 'ocr_transcript': 'string' } "
+                "Output JSON only, placing the 'score' key at the very end of each object to calculate it after the reasoning:\n"
+                "{ 'results': [ "
+                "{ 'question_number': int, 'summative_reasoning': 'string', 'ocr_transcript': 'string', 'score': int } "
                 "] }"
             )),
             HumanMessage(content=[{"type": "text", "text": eval_prompt}])
