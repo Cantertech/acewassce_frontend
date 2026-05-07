@@ -202,10 +202,16 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                 
                 saved = False
                 
+                # Get the correct image_url from the LangGraph grading result!
+                image_url = res.get("image_url")
+                if not image_url:
+                    image_url = submissions[0].get("image_url") if submissions else None
+
                 # Step 1: Update existing row with matching question_number
                 update_res = db.table("theory_submissions").update({
                     "marks_attained": score,
-                    "feedback": reasoning
+                    "feedback": reasoning,
+                    "image_url": image_url
                 }).eq("attempt_id", attempt_id).eq("question_number", q_num_str).execute()
                 
                 if update_res.data:
@@ -221,7 +227,8 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                         db.table("theory_submissions").update({
                             "marks_attained": score,
                             "feedback": reasoning,
-                            "question_number": q_num_str
+                            "question_number": q_num_str,
+                            "image_url": image_url
                         }).eq("id", target_id).execute()
                         print(f"[AI GRADER DATABASE] Successfully adopted NULL row {target_id} for Q{q_num_str}")
                         saved = True
@@ -229,7 +236,6 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
                 # Step 3: Insert new row if still not saved
                 if not saved:
                     print(f"[AI GRADER DATABASE] No placeholder row found. Inserting a new theory_submission row for Q{q_num_str}...")
-                    image_url = submissions[0].get("image_url") if submissions else None
                     db.table("theory_submissions").insert({
                         "attempt_id": attempt_id,
                         "question_number": q_num_str,

@@ -167,7 +167,8 @@ async def batch_grade_node(state: GradingState):
                         "question_number": qn,
                         "score": score,
                         "summative_reasoning": reasoning,
-                        "ocr": ocr
+                        "ocr": ocr,
+                        "image_url": urls[0] if urls else None
                     })
                 break
             except Exception as e:
