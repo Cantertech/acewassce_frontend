@@ -75,8 +75,10 @@ async def batch_grade_node(state: GradingState):
     total_score = 0
     
     # 1. Get Exam ID
-    attempt_res = db.table("exam_attempts").select("exam_id").eq("id", state["attempt_id"]).single().execute()
-    exam_id = attempt_res.data["exam_id"]
+    attempt_res = db.table("exam_attempts").select("exam_id").eq("id", state["attempt_id"]).execute()
+    if not attempt_res.data:
+        raise ValueError(f"Attempt {state['attempt_id']} not found in database.")
+    exam_id = attempt_res.data[0]["exam_id"]
     
     # 2. Fetch all theory questions
     q_res = db.table("questions").select("*").eq("exam_id", exam_id).eq("is_mcq", False).execute()

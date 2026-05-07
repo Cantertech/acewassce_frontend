@@ -119,9 +119,13 @@ async def get_theory_submissions(attempt_id: str, db=Depends(get_db)):
 
 async def aggregate_and_finalize_scores(attempt_id: str, db):
     try:
-        attempt_res = db.table("exam_attempts").select("mcq_score, theory_score, exam_id").eq("id", attempt_id).single().execute()
-        mcq_raw = attempt_res.data.get("mcq_score") or 0
-        theory_raw = attempt_res.data.get("theory_score") or 0
+        attempt_res = db.table("exam_attempts").select("mcq_score, theory_score, exam_id").eq("id", attempt_id).execute()
+        if not attempt_res.data:
+            print(f"Aggregation Error: Attempt {attempt_id} not found in database.")
+            return 0
+        attempt_data = attempt_res.data[0]
+        mcq_raw = attempt_data.get("mcq_score") or 0
+        theory_raw = attempt_data.get("theory_score") or 0
         raw_grand_total = mcq_raw + theory_raw
         
         total_possible = 150
@@ -139,12 +143,19 @@ async def aggregate_and_finalize_scores(attempt_id: str, db):
 
 async def process_full_attempt_grading(attempt_id: str, submissions: List[dict], db):
     try:
-        attempt_res = db.table("exam_attempts").select("exam_id, status").eq("id", attempt_id).single().execute()
-        exam_id = attempt_res.data.get("exam_id")
-        current_status = attempt_res.data.get("status")
+        attempt_res = db.table("exam_attempts").select("exam_id, status, mcq_completed_at").eq("id", attempt_id).execute()
+        if not attempt_res.data:
+            print(f"Theory Grading Error: Attempt {attempt_id} not found in database.")
+            return
+        attempt_data = attempt_res.data[0]
+        exam_id = attempt_data.get("exam_id")
+        current_status = attempt_data.get("status")
         
-        exam_res = db.table("exams").select("compulsory_questions").eq("id", exam_id).single().execute()
-        compulsory_count = exam_res.data.get('compulsory_questions', 5)
+        compulsory_count = 5
+        if exam_id:
+            exam_res = db.table("exams").select("compulsory_questions").eq("id", exam_id).execute()
+            if exam_res.data:
+                compulsory_count = exam_res.data[0].get('compulsory_questions', 5)
         
         result = await run_grader(attempt_id=attempt_id, submissions=submissions)
         grading_results = result.get("grading_results", [])
@@ -210,7 +221,7 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
         
         # Determine final status based on MCQ completion
         final_status = "theory_marked"
-        if current_status == "mcq_marked" or attempt_res.data.get("mcq_completed_at"):
+        if current_status == "mcq_marked" or attempt_data.get("mcq_completed_at"):
             final_status = "graded"
             
         db.table("exam_attempts").update({
@@ -234,9 +245,12 @@ async def grade_mcq(attempt_id: str, db=Depends(get_db)):
         if not responses:
             return {"status": "success", "mcq_score": 0, "total_mcq": 0}
 
-        attempt_res = db.table("exam_attempts").select("exam_id, status").eq("id", attempt_id).single().execute()
-        exam_id = attempt_res.data["exam_id"]
-        current_status = attempt_res.data["status"]
+        attempt_res = db.table("exam_attempts").select("exam_id, status").eq("id", attempt_id).execute()
+        if not attempt_res.data:
+            raise HTTPException(status_code=404, detail=f"Attempt {attempt_id} not found")
+        attempt_data = attempt_res.data[0]
+        exam_id = attempt_data["exam_id"]
+        current_status = attempt_data["status"]
         
         q_res = db.table("questions").select("id, marking_scheme, question_number, options").eq("exam_id", exam_id).eq("is_mcq", True).execute()
         questions_map = {q["id"]: q for q in q_res.data}
