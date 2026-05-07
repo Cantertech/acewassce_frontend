@@ -4,7 +4,7 @@
       "question_id": "2024_WASSCE_CORE_MATHS_1_22",
       "topic": "Number Theory",
       "question_number": 22,
-      "question_text": "Given that $6 \bigotimes 7 = y \\text{ (modulo 8)}$, find the value of $y$.",
+      "question_text": "Given that $6 \\bigotimes 7 = y \\text{ (modulo 8)}$, find the value of $y$.",
       "has_diagram": false,
       "is_mcq": true,
       "options": [
