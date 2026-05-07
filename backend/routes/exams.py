@@ -89,21 +89,24 @@ async def upload_working(
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/{attempt_id}/grade")
-async def grade_full_exam(attempt_id: str, db=Depends(get_db)):
+async def grade_full_exam(attempt_id: str, background_tasks: BackgroundTasks, db=Depends(get_db)):
     """
-    Triggers the full AI forensic grading workflow (Synchronous to avoid cancellation).
+    Triggers the full AI forensic grading workflow asynchronously using FastAPI BackgroundTasks.
+    This guarantees execution is immune to Render 30s timeouts or client disconnect cancellation.
     """
     try:
+        print(f"\n[HTTP POST] Triggering background AI grading task for attempt {attempt_id}...")
         # 1. Fetch theory submissions
         res = db.table("theory_submissions").select("*").eq("attempt_id", attempt_id).execute()
-        submissions = res.data
+        submissions = res.data or []
         
-        # 2. Run process synchronously
-        await process_full_attempt_grading(attempt_id, submissions or [], db)
+        # 2. Add grading process to BackgroundTasks
+        background_tasks.add_task(process_full_attempt_grading, attempt_id, submissions, db)
+        print(f"[HTTP POST] AI grading successfully scheduled as BackgroundTask. Returning 202 instantly.")
         
-        return {"status": "success", "message": "Grading complete"}
+        return {"status": "success", "message": "Grading started in background"}
     except Exception as e:
-        print(f"Error in grade_full_exam: {str(e)}")
+        print(f"Error in scheduling grade_full_exam: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/{attempt_id}/theory-submissions")
