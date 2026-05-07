@@ -29,22 +29,35 @@ const TheorySubmitSuccess = () => {
 
     const fetchData = async () => {
       try {
+        console.log(`%c[FRONTEND POLLING] Checking status for attempt ${attemptId}...`, 'color: #3b82f6; font-weight: bold;');
         const { data, error: fetchError } = await supabase
           .from('exam_attempts')
           .select('status, exam_id, mcq_completed_at')
           .eq('id', attemptId)
           .single();
 
-        if (fetchError) throw fetchError;
+        if (fetchError) {
+          console.error(`%c[FRONTEND POLLING ERROR] Fetch failed: ${fetchError.message}`, 'color: #ef4444; font-weight: bold;');
+          throw fetchError;
+        }
 
-        setMarkingStatus(data.status);
-        if (!examId) setExamId(data.exam_id);
-        if (data.mcq_completed_at) setMcqCompleted(true);
+        if (data) {
+          console.log(`%c[FRONTEND POLLING SUCCESS] Database Status: "${data.status}" | MCQ Completed: ${!!data.mcq_completed_at}`, 'color: #10b981; font-weight: bold;');
+          setMarkingStatus(data.status);
+          if (!examId) setExamId(data.exam_id);
+          if (data.mcq_completed_at) setMcqCompleted(true);
 
-        // Auto-redirect when fully graded
-        if (data.status === 'graded') {
-          navigate("/exam/results", { state: { attemptId } });
-          return;
+          if (data.status === 'theory_failed') {
+             console.error(`%c[FRONTEND POLLING ERROR] AI Grading returned theory_failed. Reverting or showing error.`, 'color: #ef4444; font-weight: bold;');
+             setError("AI grading failed. Please check your image clarity or retry.");
+          }
+
+          // Auto-redirect when fully graded
+          if (data.status === 'graded') {
+            console.log(`%c[FRONTEND POLLING] Status is "graded"! Redirecting to results...`, 'color: #8b5cf6; font-weight: bold; font-size: 14px;');
+            navigate("/exam/results", { state: { attemptId } });
+            return;
+          }
         }
       } catch (err: any) {
         console.error("Fetch error:", err.message);

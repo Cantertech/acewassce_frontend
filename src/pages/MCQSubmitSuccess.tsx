@@ -29,18 +29,25 @@ const MCQSubmitSuccess = () => {
     }
 
     const checkStatus = async () => {
-      const { data } = await supabase
+      console.log(`%c[FRONTEND MCQ POLLING] Checking status for attempt ${attemptId}...`, 'color: #3b82f6; font-weight: bold;');
+      const { data, error } = await supabase
         .from('exam_attempts')
         .select('status, theory_completed_at, mcq_completed_at')
         .eq('id', attemptId)
         .single();
 
+      if (error) {
+        console.error(`%c[FRONTEND MCQ POLLING ERROR] Fetch failed: ${error.message}`, 'color: #ef4444; font-weight: bold;');
+      }
+
       if (data) {
+        console.log(`%c[FRONTEND MCQ POLLING SUCCESS] Database Status: "${data.status}" | Theory Completed: ${!!data.theory_completed_at}`, 'color: #10b981; font-weight: bold;');
         setStatus(data.status);
         setTheoryCompleted(!!data.theory_completed_at);
         
         // Auto-redirect when fully graded
         if (data.status === 'graded') {
+          console.log(`%c[FRONTEND MCQ POLLING] Status is "graded"! Redirecting to results...`, 'color: #8b5cf6; font-weight: bold; font-size: 14px;');
           navigate("/exam/results", { state: { attemptId } });
           return;
         }
