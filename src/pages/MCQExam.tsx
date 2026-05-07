@@ -151,34 +151,22 @@ const MCQExam = () => {
         if (resError) throw resError;
       }
 
-      // 2. Call the Python backend to grade the exam instantly
-      const backendUrl = 'https://acewassce-backend.onrender.com';
-      const gradeResponse = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade-mcq`, {
-        method: 'POST'
-      });
-
-      if (!gradeResponse.ok) {
-        throw new Error("Failed to trigger MCQ grading on backend");
-      }
-
-      // 3. Update database statuses immediately on client side
-      const { data: latestAttempt } = await supabase
-        .from('exam_attempts')
-        .select('status, theory_completed_at')
-        .eq('id', attemptId)
-        .single();
-
-      const nextStatus = (latestAttempt?.theory_completed_at || latestAttempt?.status === 'theory_marked') ? 'graded' : 'mcq_marked';
-
+      // 2. Update database status to 'grading_mcq' on client side
       await supabase
         .from('exam_attempts')
         .update({ 
           mcq_completed_at: new Date().toISOString(),
-          status: nextStatus 
+          status: 'grading_mcq' 
         })
         .eq('id', attemptId);
 
-      // 4. Success!
+      // 3. Call the Python backend to grade the MCQ exam in the background (Non-blocking)
+      const backendUrl = 'https://acewassce-backend.onrender.com';
+      fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade-mcq`, {
+        method: 'POST'
+      }).catch(err => console.error("MCQ grading trigger error:", err));
+
+      // 4. Success! Instantly transition to MCQ success screen
       const answeredCount = Object.keys(answers).length;
       navigate("/exam/mcq-success", {
         state: {

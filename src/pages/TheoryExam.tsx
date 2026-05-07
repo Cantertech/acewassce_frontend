@@ -243,30 +243,22 @@ const TheoryExam = () => {
     localStorage.removeItem(`acewassce_theory_mode_${attemptId}`);
     
     try {
-      // 1. Update database statuses immediately on client side
-      const { data: latestAttempt } = await supabase
-        .from('exam_attempts')
-        .select('status, mcq_completed_at')
-        .eq('id', attemptId)
-        .single();
-
-      const nextStatus = (latestAttempt?.mcq_completed_at || latestAttempt?.status === 'mcq_marked') ? 'graded' : 'theory_marked';
-
+      // 1. Update database statuses immediately on client side to start AI grading
       await supabase
         .from('exam_attempts')
         .update({ 
           theory_completed_at: new Date().toISOString(),
-          status: nextStatus 
+          status: 'grading_theory' 
         })
         .eq('id', attemptId);
 
-      // 2. Call the Python backend to grade the exam in the background
+      // 2. Call the Python backend to grade the exam in the background (Non-blocking)
       const backendUrl = 'https://acewassce-backend.onrender.com';
-      const response = await fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade`, {
+      fetch(`${backendUrl}/api/v1/attempts/${attemptId}/grade`, {
         method: 'POST'
-      });
+      }).catch(err => console.error("Grading trigger error:", err));
       
-      if (!response.ok) throw new Error("Failed to trigger AI grading");
+      // 3. Instantly redirect to success visual loading pipeline!
       navigate("/exam/theory-success", { state: { attemptId } });
     } catch (err) {
       console.error("Finalization error:", err);

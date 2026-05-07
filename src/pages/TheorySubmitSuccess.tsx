@@ -81,7 +81,7 @@ const TheorySubmitSuccess = () => {
   // ─────────────────────────────────────────
   // STATE 1: THEORY MARKED → PROMPT MCQ
   // ─────────────────────────────────────────
-  if (isTheoryMarked || (markingStatus !== 'pending' && !mcqCompleted)) {
+  if (isTheoryMarked) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-5 overflow-hidden relative">
         <div className="pointer-events-none fixed inset-0">
