@@ -14,18 +14,21 @@ import {
   Smartphone,
   Star,
   GraduationCap,
-  Loader2
+  Loader2,
+  Coins
 } from "lucide-react";
 import Skeleton from "@/components/Skeleton";
 import BottomNav from "@/components/BottomNav";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
+import WalletModal from "@/components/WalletModal";
 
 const Profile = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<any>(null);
+  const [showWalletModal, setShowWalletModal] = useState(false);
 
   useEffect(() => {
     fetchProfile();
@@ -169,7 +172,7 @@ const Profile = () => {
           </div>
         </section>
 
-        <section className="grid grid-cols-3 gap-3 mb-10 animate-fade-up" style={{ animationDelay: "100ms" }}>
+        <section className="grid grid-cols-3 gap-3 mb-6 animate-fade-up" style={{ animationDelay: "100ms" }}>
           {[
             { label: "LEVEL", value: profile?.level || 1, color: "text-blue-400" },
             { label: "RANK", value: `#${profile?.rank || 1}`, color: "text-amber-400" },
@@ -180,6 +183,30 @@ const Profile = () => {
               <p className={`text-xl font-display font-black ${stat.color}`}>{stat.value}</p>
             </div>
           ))}
+        </section>
+
+        {/* WALLET DYNAMIC BALANCE CARD */}
+        <section className="mb-10 animate-fade-up" style={{ animationDelay: "150ms" }}>
+          <button 
+            onClick={() => setShowWalletModal(true)}
+            className="w-full relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-500/5 border border-amber-500/30 p-5 hover:bg-white/5 transition-all flex items-center justify-between group shadow-glow"
+          >
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform shrink-0">
+                <Coins className="h-6 w-6" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-black text-amber-400 uppercase tracking-widest">Active Balance</p>
+                <h4 className="font-display text-lg font-black text-white">
+                  {profile?.wallet_points !== undefined && profile?.wallet_points !== null ? profile.wallet_points : 10} Wallet Points
+                </h4>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 px-4 h-10 rounded-full bg-amber-500 text-black font-black text-xs hover:bg-amber-600 transition-colors shadow-elevated shrink-0">
+              Buy Points
+              <ChevronRight className="h-4 w-4 stroke-[3px]" />
+            </div>
+          </button>
         </section>
 
         <section className="space-y-8">
@@ -232,6 +259,12 @@ const Profile = () => {
       </main>
 
       <BottomNav />
+
+      <WalletModal 
+        isOpen={showWalletModal} 
+        onClose={() => setShowWalletModal(false)}
+        onSuccess={fetchProfile}
+      />
     </div>
   );
 };

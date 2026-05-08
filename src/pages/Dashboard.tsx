@@ -13,10 +13,12 @@ import {
   User,
   Sparkles,
   Brain,
-  Loader2
+  Loader2,
+  Coins
 } from "lucide-react";
 import Skeleton from "@/components/Skeleton";
 import logo from "@/assets/ace_logo.png";
+import WalletModal from "@/components/WalletModal";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from "recharts";
 import { Button } from "@/components/ui/button";
 import BottomNav from "@/components/BottomNav";
@@ -32,6 +34,8 @@ const Dashboard = () => {
   const [percentile, setPercentile] = useState(0);
   const [dailyGoalProgress, setDailyGoalProgress] = useState(0);
   const [userRank, setUserRank] = useState(0);
+  const [walletPoints, setWalletPoints] = useState<number | null>(null);
+  const [showWalletModal, setShowWalletModal] = useState(false);
   const [stats, setStats] = useState([
     { label: "Mocks Taken", value: "0", icon: ClipboardList, color: "text-blue-400" },
     { label: "Average Grade", value: "-", icon: Award, color: "text-amber-400" },
@@ -60,6 +64,7 @@ const Dashboard = () => {
 
       if (profile) {
         setStudentName(profile.full_name?.split(" ")[0] || "Student");
+        setWalletPoints(profile.wallet_points !== undefined && profile.wallet_points !== null ? profile.wallet_points : 10);
         
         // Calculate Rank
         const { count: rankCount } = await supabase
@@ -223,12 +228,20 @@ const Dashboard = () => {
             </div>
           </Link>
           <div className="flex items-center gap-3">
+            <button 
+              onClick={() => setShowWalletModal(true)}
+              className="flex items-center gap-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 text-xs font-bold text-amber-400 hover:bg-amber-500/20 transition-all shadow-glow"
+            >
+              <Coins className="h-3.5 w-3.5 text-amber-400" />
+              <span>{walletPoints !== null ? `${walletPoints} Pts` : "10 Pts"}</span>
+            </button>
             <button className="hidden sm:flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-bold text-muted-foreground hover:bg-white/10 hover:text-foreground transition-all">
               <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
               <span>Rank: #{userRank || 0}</span>
             </button>
             <button
               aria-label="Profile"
+              onClick={() => navigate("/profile")}
               className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-muted-foreground hover:bg-white/10 hover:text-foreground transition-all overflow-hidden"
             >
               <User className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -450,6 +463,12 @@ const Dashboard = () => {
 
       {/* ── 8. BOTTOM NAV ── */}
       <BottomNav />
+
+      <WalletModal 
+        isOpen={showWalletModal} 
+        onClose={() => setShowWalletModal(false)}
+        onSuccess={fetchDashboardData}
+      />
     </div>
   );
 };

@@ -25,6 +25,27 @@ class AttemptResponse(BaseModel):
 @router.post("/start", response_model=AttemptResponse)
 async def start_attempt(request: AttemptStartRequest, db=Depends(get_db)):
     try:
+        # 1. Check and deduct student wallet points (10 points per attempt)
+        student_res = db.table("students").select("wallet_points").eq("id", request.student_id).execute()
+        if not student_res.data:
+            raise HTTPException(status_code=404, detail="Student profile not found")
+        
+        wallet_points = student_res.data[0].get("wallet_points")
+        if wallet_points is None:
+            wallet_points = 10
+            db.table("students").update({"wallet_points": 10}).eq("id", request.student_id).execute()
+
+        if wallet_points < 10:
+            raise HTTPException(
+                status_code=402,
+                detail="Insufficient points. You need 10 points to start an exam attempt. Please purchase a points package."
+            )
+
+        # Subtract 10 points from student's wallet balance
+        new_points = wallet_points - 10
+        db.table("students").update({"wallet_points": new_points}).eq("id", request.student_id).execute()
+
+        # 2. Insert new attempt record
         data = {
             "student_id": request.student_id,
             "exam_id": request.exam_id,
@@ -33,8 +54,12 @@ async def start_attempt(request: AttemptStartRequest, db=Depends(get_db)):
         }
         response = db.table("exam_attempts").insert(data).execute()
         if not response.data:
+            # Revert points if attempt creation fails
+            db.table("students").update({"wallet_points": wallet_points}).eq("id", request.student_id).execute()
             raise HTTPException(status_code=400, detail="Failed to create attempt")
         return response.data[0]
+    except HTTPException as he:
+        raise he
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

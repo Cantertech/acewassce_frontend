@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import exams
+from routes import exams, payments
 
 app = FastAPI(
     title="AceWassce Backend API",
@@ -20,6 +20,7 @@ app.add_middleware(
 
 # Include Routes
 app.include_router(exams.router)
+app.include_router(payments.router)
 
 @app.get("/")
 async def root():

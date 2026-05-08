@@ -4,6 +4,10 @@ import { ArrowLeft, Clock, AlertTriangle, CheckCircle2, ShieldAlert, UploadCloud
 import Skeleton from "../components/Skeleton";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
+import WalletModal from "@/components/WalletModal";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://acewassce-backend.onrender.com";
 
 const Instructions = () => {
   const navigate = useNavigate();
@@ -13,6 +17,7 @@ const Instructions = () => {
   const [exam, setExam] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showPicker, setShowPicker] = useState(false);
+  const [showWalletModal, setShowWalletModal] = useState(false);
 
   useEffect(() => {
     if (!state?.examId) {
@@ -50,19 +55,31 @@ const Instructions = () => {
         return;
       }
 
-      // 1. Create the Attempt Record
-      const { data: attempt, error } = await supabase
-        .from('exam_attempts')
-        .insert({
+      // 1. Create the Attempt Record via backend (deducts 10 points)
+      const response = await fetch(`${backendUrl}/api/v1/attempts/start`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
           student_id: user.id,
-          exam_id: exam.id,
-          status: 'in_progress',
-          start_time: new Date().toISOString()
+          exam_id: exam.id
         })
-        .select()
-        .single();
+      });
 
-      if (error) throw error;
+      if (response.status === 402) {
+        toast.error("Insufficient points! You need 10 points to start an exam.");
+        setShowPicker(false);
+        setShowWalletModal(true);
+        return;
+      }
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.detail || "Failed to start exam attempt");
+      }
+
+      const attempt = await response.json();
 
       // 2. Navigate with Attempt ID
       if (mode === 'mcq') {
@@ -73,6 +90,7 @@ const Instructions = () => {
       setShowPicker(false);
     } catch (error: any) {
       console.error("Error starting exam:", error.message);
+      toast.error(error.message || "Failed to start exam");
     }
   };
 
@@ -271,6 +289,11 @@ const Instructions = () => {
           </div>
         </div>
       )}
+
+      <WalletModal 
+        isOpen={showWalletModal} 
+        onClose={() => setShowWalletModal(false)} 
+      />
     </div>
   );
 };
