@@ -17,6 +17,7 @@ import ExamResults from "./pages/ExamResults.tsx";
 import ResumeExam from "./pages/ResumeExam.tsx";
 import Profile from "./pages/Profile.tsx";
 import History from "./pages/History.tsx";
+import Pricing from "./pages/Pricing.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/exam/resume" element={<ResumeExam />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/history" element={<History />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

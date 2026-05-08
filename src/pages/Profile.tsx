@@ -134,6 +134,12 @@ const Profile = () => {
       ]
     },
     { 
+      title: "Billing & Wallet", 
+      items: [
+        { icon: Coins, label: "Points Wallet & Top-up", desc: "View package pricing & top up points", color: "text-amber-400", onClick: () => navigate("/pricing") }
+      ]
+    },
+    { 
       title: "Account Settings", 
       items: [
         { icon: Bell, label: "Notifications", desc: "Exam alerts & updates", color: "text-purple-400" },
@@ -188,7 +194,7 @@ const Profile = () => {
         {/* WALLET DYNAMIC BALANCE CARD */}
         <section className="mb-10 animate-fade-up" style={{ animationDelay: "150ms" }}>
           <button 
-            onClick={() => setShowWalletModal(true)}
+            onClick={() => navigate("/pricing")}
             className="w-full relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-500/5 border border-amber-500/30 p-5 hover:bg-white/5 transition-all flex items-center justify-between group shadow-glow"
           >
             <div className="flex items-center gap-4">
@@ -218,7 +224,7 @@ const Profile = () => {
               <div className="glass-card rounded-[2rem] overflow-hidden border border-white/5">
                 {section.items.map((item, i) => (
                   <button 
-                    key={item.label}
+                    key={item.label} onClick={item.onClick}
                     className={`w-full flex items-center justify-between p-5 hover:bg-white/5 transition-colors border-white/5 ${i !== section.items.length - 1 ? 'border-b' : ''}`}
                   >
                     <div className="flex items-center gap-4">

@@ -229,7 +229,7 @@ const Dashboard = () => {
           </Link>
           <div className="flex items-center gap-3">
             <button 
-              onClick={() => setShowWalletModal(true)}
+              onClick={() => navigate("/pricing")}
               className="flex items-center gap-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 text-xs font-bold text-amber-400 hover:bg-amber-500/20 transition-all shadow-glow"
             >
               <Coins className="h-3.5 w-3.5 text-amber-400" />
