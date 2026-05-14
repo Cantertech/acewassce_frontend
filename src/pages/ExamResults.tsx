@@ -277,10 +277,19 @@ const ExamResults = () => {
     return null;
   };
 
+  const getExplanation = (marking: string) => {
+    if (!marking) return null;
+    const parts = marking.split(/Explanation:\s*/i);
+    return parts.length > 1 ? parts[1].trim() : null;
+  };
+
   const selectedQ = mcqQuestions.find(q => q.id === selectedMcqId);
   const selectedResp = responses.find(r => r.question_id === selectedMcqId);
   const correctText = selectedQ ? getCorrectOptionText(selectedQ.marking_scheme, selectedQ.options || []) : null;
-  const isSelectedCorrect = selectedResp && correctText && (selectedResp.selected_option === correctText);
+  
+  const cleanStr = (s: string) => String(s || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const isSelectedCorrect = selectedResp && correctText && (cleanStr(selectedResp.selected_option) === cleanStr(correctText));
+  
   const currentMcqIdx = mcqQuestions.findIndex(q => q.id === selectedMcqId);
 
   const selectedTheory = theorySubmissions.find(s => s.id === selectedTheoryId);
@@ -311,10 +320,16 @@ const ExamResults = () => {
 
       {showDebug && (
         <div className="bg-black/90 backdrop-blur-md border-b border-white/10 p-6 font-mono text-[10px] text-emerald-400 overflow-y-auto max-h-60 animate-in slide-in-from-top-4 duration-300 shadow-2xl relative z-[100]">
-           <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center mb-4">
               <span className="text-slate-500 font-bold uppercase tracking-widest">Diagnostic Console</span>
-              <Button onClick={() => setDebugLog([])} className="h-6 px-3 bg-white/5 text-[10px] rounded-md">Clear</Button>
-           </div>
+              <div className="flex gap-2">
+                <Button onClick={handleRegradeMcq} disabled={gradingMcq} className="h-6 px-3 bg-primary/20 text-primary text-[10px] rounded-md hover:bg-primary/30">
+                  {gradingMcq ? <RefreshCw className="h-3 w-3 animate-spin mr-1" /> : <ShieldCheck className="h-3 w-3 mr-1" />}
+                  Regrade MCQ
+                </Button>
+                <Button onClick={() => setDebugLog([])} className="h-6 px-3 bg-white/5 text-[10px] rounded-md">Clear</Button>
+              </div>
+            </div>
            {debugLog.map((log, i) => <div key={i} className="mb-1 border-l border-white/10 pl-2">{log}</div>)}
         </div>
       )}
@@ -635,6 +650,26 @@ const ExamResults = () => {
                       <span className="block text-[9px] font-black text-emerald-400 uppercase tracking-widest mb-1">Correct answer</span>
                       <div className="text-sm font-bold text-emerald-200 leading-snug">
                         <LatexRenderer text={correctText} />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* AI Explanation Card */}
+                {selectedQ.marking_scheme && (
+                  <div className="p-6 sm:p-8 rounded-[2rem] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 shadow-xl shadow-primary/5 relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity">
+                      <Sparkles className="h-20 w-20 text-primary" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-5">
+                        <div className="h-8 w-8 rounded-xl bg-primary/20 flex items-center justify-center">
+                          <Sparkles className="h-4 w-4 text-primary animate-pulse" />
+                        </div>
+                        <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Forensic Logic & Explanation</span>
+                      </div>
+                      <div className="text-sm sm:text-base font-medium text-slate-300 leading-relaxed space-y-4">
+                        <LatexRenderer text={getExplanation(selectedQ.marking_scheme) || selectedQ.marking_scheme} />
                       </div>
                     </div>
                   </div>
