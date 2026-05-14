@@ -656,7 +656,7 @@ const ExamResults = () => {
                 )}
 
                 {/* AI Explanation Card */}
-                {selectedQ.marking_scheme && (
+                {selectedQ.marking_scheme && getExplanation(selectedQ.marking_scheme) && (
                   <div className="p-6 sm:p-8 rounded-[2rem] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 shadow-xl shadow-primary/5 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity">
                       <Sparkles className="h-20 w-20 text-primary" />
@@ -669,7 +669,7 @@ const ExamResults = () => {
                         <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Forensic Logic & Explanation</span>
                       </div>
                       <div className="text-sm sm:text-base font-medium text-slate-300 leading-relaxed space-y-4">
-                        <LatexRenderer text={getExplanation(selectedQ.marking_scheme) || selectedQ.marking_scheme} />
+                        <LatexRenderer text={getExplanation(selectedQ.marking_scheme)!} />
                       </div>
                     </div>
                   </div>
