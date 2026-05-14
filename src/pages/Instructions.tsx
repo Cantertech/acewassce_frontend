@@ -18,6 +18,7 @@ const Instructions = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showPicker, setShowPicker] = useState(false);
   const [showWalletModal, setShowWalletModal] = useState(false);
+  const [isLaunching, setIsLaunching] = useState<string | null>(null);
 
   useEffect(() => {
     if (!state?.examId) {
@@ -48,6 +49,8 @@ const Instructions = () => {
   };
 
   const launchExam = async (mode: string) => {
+    if (isLaunching) return;
+    setIsLaunching(mode);
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
@@ -91,6 +94,8 @@ const Instructions = () => {
     } catch (error: any) {
       console.error("Error starting exam:", error.message);
       toast.error(error.message || "Failed to start exam");
+    } finally {
+      setIsLaunching(null);
     }
   };
 
@@ -259,24 +264,38 @@ const Instructions = () => {
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => launchExam('mcq')}
-                className="group relative flex items-center justify-between overflow-hidden rounded-2xl bg-blue-500/10 border border-blue-500/30 p-4 hover:bg-blue-500/20 transition-all text-left"
+                disabled={isLaunching !== null}
+                className={`group relative flex items-center justify-between overflow-hidden rounded-2xl bg-blue-500/10 border border-blue-500/30 p-4 transition-all text-left ${isLaunching !== null ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-500/20'}`}
               >
                 <div>
-                  <p className="font-bold text-blue-400 text-sm">Multiple Choice (MCQs)</p>
+                  <p className="font-bold text-blue-400 text-sm">
+                    {isLaunching === 'mcq' ? 'Starting Attempt...' : 'Multiple Choice (MCQs)'}
+                  </p>
                   <p className="text-xs text-muted-foreground mt-0.5">50 Questions • {(exam?.mcq_duration / 3600).toFixed(1)} hrs</p>
                 </div>
-                <Play className="h-5 w-5 text-blue-400 opacity-50 group-hover:opacity-100 transition-opacity" />
+                {isLaunching === 'mcq' ? (
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-blue-400 border-t-transparent" />
+                ) : (
+                  <Play className="h-5 w-5 text-blue-400 opacity-50 group-hover:opacity-100 transition-opacity" />
+                )}
               </button>
               
               <button 
                 onClick={() => launchExam('theory')}
-                className="group relative flex items-center justify-between overflow-hidden rounded-2xl bg-purple-500/10 border border-purple-500/30 p-4 hover:bg-purple-500/20 transition-all text-left"
+                disabled={isLaunching !== null}
+                className={`group relative flex items-center justify-between overflow-hidden rounded-2xl bg-purple-500/10 border border-purple-500/30 p-4 transition-all text-left ${isLaunching !== null ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-500/20'}`}
               >
                 <div>
-                  <p className="font-bold text-purple-400 text-sm">Theory / Written</p>
+                  <p className="font-bold text-purple-400 text-sm">
+                    {isLaunching === 'theory' ? 'Starting Attempt...' : 'Theory / Written'}
+                  </p>
                   <p className="text-xs text-muted-foreground mt-0.5">Written workings • {(exam?.theory_duration / 3600).toFixed(1)} hrs</p>
                 </div>
-                <Play className="h-5 w-5 text-purple-400 opacity-50 group-hover:opacity-100 transition-opacity" />
+                {isLaunching === 'theory' ? (
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-purple-400 border-t-transparent" />
+                ) : (
+                  <Play className="h-5 w-5 text-purple-400 opacity-50 group-hover:opacity-100 transition-opacity" />
+                )}
               </button>
             </div>
             
