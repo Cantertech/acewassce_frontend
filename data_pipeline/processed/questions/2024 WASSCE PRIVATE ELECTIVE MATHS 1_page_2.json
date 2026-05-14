@@ -18,7 +18,7 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{1}{3}$"
+          "text": "$1\\frac{1}{3}$"
         },
         {
           "id": "D",
@@ -37,11 +37,11 @@
       "options": [
         {
           "id": "A",
-          "text": "$\\frac{3}{1}$"
+          "text": "$3\\frac{1}{3}$"
         },
         {
           "id": "B",
-          "text": "$\\frac{2}{3}$"
+          "text": "$1\\frac{2}{3}$"
         },
         {
           "id": "C",
@@ -118,11 +118,11 @@
       "options": [
         {
           "id": "A",
-          "text": "$\\sqrt{2}$"
+          "text": "$\\sqrt[3]{2}$"
         },
         {
           "id": "B",
-          "text": "$\\sqrt{4}$"
+          "text": "$\\sqrt[3]{4}$"
         },
         {
           "id": "C",
@@ -166,7 +166,7 @@
       "question_id": "2024_private_elective_maths_q11",
       "topic": "Integration",
       "question_number": 11,
-      "question_text": "Evaluate: $\\int_{1}^{1} \\frac{x^{3} + 1}{x^{2}} dx$.",
+      "question_text": "Evaluate: $\\int_{1}^{2} \\frac{x^{3} + 1}{x^{2}} dx$.",
       "has_diagram": false,
       "is_mcq": true,
       "options": [
