@@ -285,10 +285,11 @@ async def process_full_attempt_grading(attempt_id: str, submissions: List[dict],
         # 5. Calculate Final Scores
         print(f"[AI GRADER SCORE] Part A total score: {part_a_score}")
         part_b_scores.sort(reverse=True)
-        # Select top 5 optional answers
-        top_part_b = part_b_scores[:5]
+        # Select optional answers based on exam rules (4 for Elective Maths, 5 for Core Maths)
+        optional_count = 4 if compulsory_count == 8 else 5
+        top_part_b = part_b_scores[:optional_count]
         part_b_score = sum(top_part_b)
-        print(f"[AI GRADER SCORE] Part B optional answers sorted: {part_b_scores}. Top 5 chosen: {top_part_b}. Part B Total: {part_b_score}")
+        print(f"[AI GRADER SCORE] Part B optional answers sorted: {part_b_scores}. Top {optional_count} chosen: {top_part_b}. Part B Total: {part_b_score}")
         
         ai_theory_score = part_a_score + part_b_score
         print(f"[AI GRADER SCORE] Calculated overall AI Theory Score: {ai_theory_score} / 100")
