@@ -1,0 +1,128 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_mathematics_9",
+      "topic": "Combinatorics",
+      "question_number": 9,
+      "question_text": "A committee of five teachers is to be chosen from six French teachers and six Music teachers. In how many ways can this be done so that the committee will consist of:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_mathematics_9_a",
+          "topic": "Combinatorics",
+          "question_number": 9,
+          "question_text": "four French teachers;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_9_b",
+          "topic": "Combinatorics",
+          "question_number": 9,
+          "question_text": "at least one French teacher;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_9_c",
+          "topic": "Combinatorics",
+          "question_number": 9,
+          "question_text": "at most two Music teachers?",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_mathematics_10",
+      "topic": "Calculus",
+      "question_number": 10,
+      "question_text": "If the volume of a hemisphere is increasing at the rate of $21\tr{cm}^3\tr{s}^{-1}$, find the rate at which the radius is increasing when the radius is $5\tr{cm}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_mathematics_10_a",
+          "topic": "Calculus",
+          "question_number": 10,
+          "question_text": "Solve $3v - w = 4$ and $v^2 + 2vw - w^2 = -2$, simultaneously.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_mathematics_11",
+      "topic": "Polynomials",
+      "question_number": 11,
+      "question_text": "If the roots of $3x^2 + 4x - 5 = 0$ are $\\alpha$ and $\\beta$, find the equation whose roots are $\\alpha^3$ and $\\beta^3$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_mathematics_11_a",
+          "topic": "Polynomials",
+          "question_number": 11,
+          "question_text": "Given that $5^x \\times 5^{1} = 5^{3 - x} + (125^{-1} \\times 5^{-x - 1})$, find the value of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2023_mathematics_12",
+      "topic": "Probability",
+      "question_number": 12,
+      "question_text": "The probability that an ape will die when given a newly discovered drug is $\\frac{1}{3}$. If 6 of such apes were selected for a trial, find the probabilities that:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_mathematics_12_a",
+          "topic": "Probability",
+          "question_number": 12,
+          "question_text": "half of them survived;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_12_b",
+          "topic": "Probability",
+          "question_number": 12,
+          "question_text": "more than two-third survived;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_12_c",
+          "topic": "Probability",
+          "question_number": 12,
+          "question_text": "less than one-third died.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

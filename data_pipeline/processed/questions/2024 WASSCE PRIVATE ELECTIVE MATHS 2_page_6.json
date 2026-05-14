@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_private_maths_8",
+      "topic": "Physics/Acceleration",
+      "question_number": 8,
+      "question_text": "The acceleration of a lorry at any time $t$ seconds from rest is given by $a = \\left( \\frac{3}{2} - \\frac{1}{10} \\right) \\ ms^{-2}$. Find its:\n(a) velocity after 10 seconds;\n(b) distance at time $t$ seconds.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_private_maths_8_a",
+          "topic": "Physics/Velocity Calculation",
+          "question_number": 8,
+          "question_text": "velocity after 10 seconds;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_private_maths_8_b",
+          "topic": "Physics/Distance Calculation",
+          "question_number": 8,
+          "question_text": "distance at time $t$ seconds.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_MATHEMATICS_13",
+      "topic": "",
+      "question_number": 13,
+      "question_text": "The first and fifth terms of a linear sequence (A.P) are $2$ and $-50$ respectively. Find the sum of first $21$ terms.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$-5229$"
+        },
+        {
+          "id": "B",
+          "text": "$-3614$"
+        },
+        {
+          "id": "C",
+          "text": "$-2688$"
+        },
+        {
+          "id": "D",
+          "text": "$-1344$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_14",
+      "topic": "",
+      "question_number": 14,
+      "question_text": "Given that $r = (12 N, 300^{\text{o}})$, express $r$ in the form $\\frac{p}{q}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\left( \\frac{6 \\sqrt{3}}{6} \\right) N$"
+        },
+        {
+          "id": "B",
+          "text": "$\\left( \\frac{-12 \\sqrt{3}}{12} \\right) N$"
+        },
+        {
+          "id": "C",
+          "text": "$\\left( \\frac{-6 \\sqrt{3}}{6} \\right) N$"
+        },
+        {
+          "id": "D",
+          "text": "$\\left( \\frac{6}{-6 \\sqrt{3}} \\right) N$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_15",
+      "topic": "",
+      "question_number": 15,
+      "question_text": "If the mean of $9, 4, 9, x, 16, 6$ and $19$ is $13$, find the median.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$9$"
+        },
+        {
+          "id": "B",
+          "text": "$16$"
+        },
+        {
+          "id": "C",
+          "text": "$19$"
+        },
+        {
+          "id": "D",
+          "text": "$28$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_16",
+      "topic": "",
+      "question_number": 16,
+      "question_text": "Given that $r = 3i - 5j$ and $n = -2i - 9j$, find $r \bullet n$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$51$"
+        },
+        {
+          "id": "B",
+          "text": "$39$"
+        },
+        {
+          "id": "C",
+          "text": "$37$"
+        },
+        {
+          "id": "D",
+          "text": "$-51$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_17",
+      "topic": "",
+      "question_number": 17,
+      "question_text": "Evaluate: $\\int_{0}^{3} (4 - 2x)(x + 3)dx$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$18$"
+        },
+        {
+          "id": "B",
+          "text": "$9$"
+        },
+        {
+          "id": "C",
+          "text": "$6$"
+        },
+        {
+          "id": "D",
+          "text": "$3$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_18",
+      "topic": "",
+      "question_number": 18,
+      "question_text": "Find the range of values of $x$ for which $2x^{2} + 7x - 15 > 0$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$x < -\\frac{3}{2}$ or $x > 5$"
+        },
+        {
+          "id": "B",
+          "text": "$x < -5$ or $x > \\frac{3}{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$-\\frac{3}{2} < x < 5$"
+        },
+        {
+          "id": "D",
+          "text": "$-5 < x < \\frac{3}{2}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_19",
+      "topic": "",
+      "question_number": 19,
+      "question_text": "If $\\alpha$ and $\\beta$ are the roots of $x^{2} - 2x + 1 = 0$, find the value of $\\alpha^{2} - 3\\alpha\\beta + \\beta^{2}$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$-2$"
+        },
+        {
+          "id": "B",
+          "text": "$-1$"
+        },
+        {
+          "id": "C",
+          "text": "$1$"
+        },
+        {
+          "id": "D",
+          "text": "$2$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

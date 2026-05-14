@@ -1,0 +1,193 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_private_maths_34",
+      "topic": "Trigonometry",
+      "question_number": 34,
+      "question_text": "Find the value of $\\sin 165^{\\circ}$ leaving the answer in surd form (radicals).",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{\\sqrt{2} - \\sqrt{6}}{4}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{-\\sqrt{2} - \\sqrt{6}}{4}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_private_maths_35",
+      "topic": "Mechanics",
+      "question_number": 35,
+      "question_text": "A force of $24\\text{ N}$ acts on a body of mass $3\\text{ kg}$ which is at rest. How far will the body move in $4$ seconds?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$24\\text{ m}$"
+        },
+        {
+          "id": "B",
+          "text": "$32\\text{ m}$"
+        },
+        {
+          "id": "C",
+          "text": "$48\\text{ m}$"
+        },
+        {
+          "id": "D",
+          "text": "$64\\text{ m}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_private_maths_36",
+      "topic": "Probability",
+      "question_number": 36,
+      "question_text": "Two hunters aim at a target. The probabilities that the first will hit the target is $\\frac{1}{3}$ and the second will miss is $\\frac{3}{4}$. Find the probability that only the second will hit the target.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{11}{12}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{6}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_private_maths_37",
+      "topic": "Trigonometry",
+      "question_number": 37,
+      "question_text": "Find the acute angle between $2x - y = 4$ and $x - y = 3$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$18.43^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "$36.69^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "$63.43^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "$71.57^{\\circ}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_private_maths_38",
+      "topic": "Logic",
+      "question_number": 38,
+      "question_text": "The table represents the truth table on $P$ and $Q$.\\n\\n$$\\begin{array}{|c|c|c|}\\hline P & Q & X \\\\\\hline T & T & T \\\\ T & F & T \\\\ F & T & T \\\\ F & F & F \\\\\\hline\\end{array}$$\\n\\nIf the relationship between $P$ and $Q$ is represented by $X$, what is $X$?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$P \\Rightarrow Q$"
+        },
+        {
+          "id": "B",
+          "text": "$P \\land Q$"
+        },
+        {
+          "id": "C",
+          "text": "$P \\lor Q$"
+        },
+        {
+          "id": "D",
+          "text": "$P \\Leftrightarrow Q$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_private_maths_39",
+      "topic": "Equilibrium",
+      "question_number": 39,
+      "question_text": "Three forces $(10i + 5j)\\text{ N}$, $(2i - j)\\text{ N}$ and $(-8i - 7j)\\text{ N}$ act on a body. Find the single force $F$ that will keep the body in equilibrium.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$(4i + 3j)\\text{ N}$"
+        },
+        {
+          "id": "B",
+          "text": "$(4i - 3j)\\text{ N}$"
+        },
+        {
+          "id": "C",
+          "text": "$(-4i + 3j)\\text{ N}$"
+        },
+        {
+          "id": "D",
+          "text": "$(-i - 3j)\\text{ N}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_private_maths_40",
+      "topic": "Polynomial Functions",
+      "question_number": 40,
+      "question_text": "If $(2x + 1)$ is a factor of $f(x) = 2x^{3} + x^{2} - 8x + k$, find the value of $k$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$-4$"
+        },
+        {
+          "id": "B",
+          "text": "$-\\frac{1}{4}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "id": "D",
+          "text": "$4$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

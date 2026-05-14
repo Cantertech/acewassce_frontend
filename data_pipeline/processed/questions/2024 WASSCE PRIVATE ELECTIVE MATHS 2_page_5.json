@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_PRIVATE_MATHS_6b",
+      "topic": "Statistics",
+      "question_number": 6,
+      "question_text": "Use the histogram in 6(a) to estimate the mode of the distribution.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_MATHS_7",
+      "topic": "Dynamics",
+      "question_number": 7,
+      "question_text": "Three forces $\\mathbf{F}_1 = (2\\mathbf{m} + \\mathbf{n})$, $\\mathbf{F}_2 = (-3\\mathbf{m} + 4\\mathbf{n})$ and $\\mathbf{F}_3 = (4\\mathbf{m} - 6\\mathbf{n})$ act on a body with mass $12 \\text{ kg}$. Find the magnitude of the acceleration of the body.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    }
+  ]
+}

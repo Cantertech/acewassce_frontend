@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_wassce_private_elective_maths_6",
+      "topic": "Statistics",
+      "question_number": 6,
+      "question_text": "The table shows the distribution of heights (in cm) of students in a class.\\n\\n$$\\begin{array}{|l|c|c|c|c|c|}\\hline \\text{Heights (in cm)} & 125 - 129 & 130 - 134 & 135 - 139 & 140 - 144 & 145 - 149 \\\\\\hline \\text{Number of students} & 5 & 21 & 23 & 7 & 4 \\\\\\hline \\end{array}$$\\n\\n(a) Draw a histogram for the distribution.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": []
+    }
+  ]
+}

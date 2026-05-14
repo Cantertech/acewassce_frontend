@@ -1,0 +1,128 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_wassce_private_elective_maths_9",
+      "topic": "Pure Mathematics",
+      "question_number": 9,
+      "question_text": "A committee of five teachers is to be chosen from six French teachers and six Music teachers. In how many ways can this be done so that the committee will consist of:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_wassce_private_elective_maths_9a",
+          "topic": "Pure Mathematics",
+          "question_number": 9,
+          "question_text": "four French teachers;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_wassce_private_elective_maths_9b",
+          "topic": "Pure Mathematics",
+          "question_number": 9,
+          "question_text": "at least one French teacher;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_wassce_private_elective_maths_9c",
+          "topic": "Pure Mathematics",
+          "question_number": 9,
+          "question_text": "at most two Music teachers?",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_wassce_private_elective_maths_10",
+      "topic": "Pure Mathematics",
+      "question_number": 10,
+      "question_text": "(a) If the volume of a hemisphere is increasing at the rate of $21\text{cm}^3\text{s}^{-1}$, find the rate at which the radius is increasing when the radius is $5\text{cm}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_wassce_private_elective_maths_10a",
+          "topic": "Pure Mathematics",
+          "question_number": 10,
+          "question_text": "Solve $3y - w = 4$ \n$y^2 + 2wv - w^2 = -2$, \nsimultaneously.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_wassce_private_elective_maths_11",
+      "topic": "Pure Mathematics",
+      "question_number": 11,
+      "question_text": "(a) If the roots of $3x^2 + 4x - 5 = 0$ are $\\alpha$ and $\\beta$, find the equation whose roots are $\\alpha^3$ and $\\beta^3$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_wassce_private_elective_maths_11a",
+          "topic": "Pure Mathematics",
+          "question_number": 11,
+          "question_text": "(b) Given that $5^x \\times 5^1 = 5^{x-1} \\times (125^{-1} \\times 5^{-x - 1})$, find the value of $x$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    },
+    {
+      "question_id": "2024_wassce_private_elective_maths_12",
+      "topic": "Statistics and Probability",
+      "question_number": 12,
+      "question_text": "The probability that an ape will die when given a newly discovered drug is $\\frac{1}{3}$. If $6$ of such apes were selected for a trial, find the probabilities that:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2024_wassce_private_elective_maths_12a",
+          "topic": "Statistics and Probability",
+          "question_number": 12,
+          "question_text": "(a) half of them survived;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_wassce_private_elective_maths_12b",
+          "topic": "Statistics and Probability",
+          "question_number": 12,
+          "question_text": "(b) more than two-third survived;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2024_wassce_private_elective_maths_12c",
+          "topic": "Statistics and Probability",
+          "question_number": 12,
+          "question_text": "(c) less than one-third died.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

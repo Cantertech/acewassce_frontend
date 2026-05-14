@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_maths_6",
+      "topic": "Statistics",
+      "question_number": 6,
+      "question_text": "The table shows the distribution of heights (in cm) of students in a class: \n\n\\begin{array}{|c|c|}\n\\hline\n\\text{Heights (in cm)} & \\text{Number of students} \\\\\n\\hline\n125 - 129 & 5 \\\\\n130 - 134 & 21 \\\\\n135 - 139 & 23 \\\\\n140 - 144 & 7 \\\\\n145 - 149 & 4 \\\\\n\\hline\n\\end{array}\n\n(a) Draw a histogram for the distribution.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    }
+  ]
+}

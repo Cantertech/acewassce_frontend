@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_maths_1",
+      "topic": "Differentiation",
+      "question_number": 1,
+      "question_text": "If $2x^{2} + xy - 3y^{2} = 9$, find $\\frac{dy}{dx}$ at $(1, 6)$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_maths_2",
+      "topic": "Geometric Progression",
+      "question_number": 2,
+      "question_text": "The first term and sum to infinity of an exponential sequence (G.P.) are $54$ and $162$ respectively. Find the sum of the $5^{th}$ and $6^{th}$ terms.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    }
+  ]
+}

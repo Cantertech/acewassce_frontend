@@ -1,0 +1,193 @@
+{
+  "questions": [
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_20",
+      "topic": "Binomial Expansion",
+      "question_number": 20,
+      "question_text": "Find the fifth term in the binomial expansion of $(2x - 3)^{7}$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "-22680$x^{3}$"
+        },
+        {
+          "id": "B",
+          "text": "-20412$x^{2}$"
+        },
+        {
+          "id": "C",
+          "text": "20412$x^{2}$"
+        },
+        {
+          "id": "D",
+          "text": "22680$x^{3}$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_21",
+      "topic": "Gradient Function",
+      "question_number": 21,
+      "question_text": "The gradient function of a curve which passes through $P(-1, 2)$ is $3x^{2} + 7x - 3$. Find the equation of the curve.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$2y = 2x^3 - 7x^2 - 6x - 2$"
+        },
+        {
+          "id": "B",
+          "text": "$2y = 2x^3 + 7x^2 - 6x - 7$"
+        },
+        {
+          "id": "C",
+          "text": "$y = 2x^3 + 7x^2 - 6x - 2$"
+        },
+        {
+          "id": "D",
+          "text": "$y = 2x^3 - 7x^2 - 6x - 7$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_22",
+      "topic": "Set Theory",
+      "question_number": 22,
+      "question_text": "Which of the following statements is false about the set $P = \\{-1, 0, 1\\}$?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "P is closed under multiplication"
+        },
+        {
+          "id": "B",
+          "text": "The number of subsets of set P is 8"
+        },
+        {
+          "id": "C",
+          "text": "$n(P) = 2$"
+        },
+        {
+          "id": "D",
+          "text": "$\\{-1, 0\\} \\subset P$"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_23",
+      "topic": "Arithmetic Progression",
+      "question_number": 23,
+      "question_text": "Find the sum of the linear series $(A.P.) \\ 7 + 9 + 11 + 13 + ... + 407.$",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "41607"
+        },
+        {
+          "id": "B",
+          "text": "40700"
+        },
+        {
+          "id": "C",
+          "text": "40607"
+        },
+        {
+          "id": "D",
+          "text": "40904"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_24",
+      "topic": "Kinematics",
+      "question_number": 24,
+      "question_text": "The distance, $S$ metres covered by a body thrown vertically upwards at any time $t$ seconds is given by $S = 32t - 4t^{2}$. Use this information to answer questions 24 and 25.\\n\\nFind the greatest height reached by the body.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "44 m"
+        },
+        {
+          "id": "B",
+          "text": "48 m"
+        },
+        {
+          "id": "C",
+          "text": "64 m"
+        },
+        {
+          "id": "D",
+          "text": "68 m"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_25",
+      "topic": "Kinematics",
+      "question_number": 25,
+      "question_text": "Calculate the time taken to reach the greatest height.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "2 seconds"
+        },
+        {
+          "id": "B",
+          "text": "3 seconds"
+        },
+        {
+          "id": "C",
+          "text": "4 seconds"
+        },
+        {
+          "id": "D",
+          "text": "5 seconds"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2024_PRIVATE_ELECTIVE_MATHS_26",
+      "topic": "Circle Geometry",
+      "question_number": 26,
+      "question_text": "Find the radius and coordinates of the centre of $2x^{2} + 2y^{2} - 7x + 5y + 11 = 0$.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{9\\sqrt{2}}{4}$ units and $\\left(-\\frac{7}{4}, -\\frac{5}{4}\\right)$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{9\\sqrt{2}}{4}$ units and $\\left(\\frac{7}{4}, -\\frac{5}{4}\\right)$"
+        },
+        {
+          "id": "C",
+          "text": "$9\\sqrt{2}$ units and $\\left(\\frac{7}{4}, -\\frac{5}{4}\\right)$"
+        },
+        {
+          "id": "D",
+          "text": "$9\\sqrt{2}$ units and $\\left(-\\frac{7}{4}, -\\frac{5}{4}\\right)$"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}

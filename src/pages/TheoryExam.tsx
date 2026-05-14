@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import LatexRenderer from "@/components/LatexRenderer";
 import Skeleton from "@/components/Skeleton";
 import { supabase } from "@/lib/supabase";
+import { EXAM_SECTIONS } from "@/data/exam_instructions";
 
 const TheoryExam = () => {
   const navigate = useNavigate();
@@ -86,7 +87,7 @@ const TheoryExam = () => {
             // 2. Check if text starts with (a), (b), (i), etc.
             const isSubPart = /^\s*(\([a-z]\)|\([ivx]+\))/i.test(text);
             
-            if ((isSameNumber || isSubPart) && last) {
+            if (isSameNumber && last) {
               if (!last.sub_questions) last.sub_questions = [];
               
               // Only add if it's not a direct text duplicate
@@ -375,28 +376,53 @@ const TheoryExam = () => {
             })}
           </div>
 
-          {/* ── INSTRUCTIONS (collapsible) ── */}
-          <div className={`rounded-2xl overflow-hidden border transition-all duration-300 mb-5 ${showInstructions ? 'bg-blue-500/5 border-blue-500/10' : 'bg-white/[0.02] border-white/5'}`}>
-            <button
-              onClick={() => setShowInstructions(!showInstructions)}
-              className="w-full flex items-center justify-between p-3 text-left hover:bg-white/[0.03] transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <span className="shrink-0 h-5 w-5 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400">
-                  <span className="font-black text-[8px]">i</span>
-                </span>
-                <p className="font-bold text-blue-400 text-[10px] uppercase tracking-widest">Instructions</p>
+
+          {/* ── SECTION & PART HEADERS ── */}
+          {(() => {
+            const examConfig = EXAM_SECTIONS[examId || ""];
+            if (!examConfig) return null;
+
+            const qNum = parseInt(question?.question_number);
+            const section = examConfig.find(s => qNum >= s.questionRange[0] && qNum <= s.questionRange[1]);
+            const part = section?.parts?.find(p => qNum >= p.questionRange[0] && qNum <= p.questionRange[1]);
+
+            // Only show section header if it's the first question of the section
+            const isFirstInSection = qNum === section?.questionRange[0];
+            // Only show part header if it's the first question of the part
+            const isFirstInPart = qNum === part?.questionRange[0];
+
+            return (
+              <div className="space-y-4 mb-6">
+                {section && isFirstInSection && (
+                  <div className="rounded-3xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 p-6 shadow-2xl backdrop-blur-xl animate-fade-down">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                      <h2 className="text-2xl sm:text-3xl font-black text-white italic tracking-tighter uppercase">
+                        {section.title}
+                      </h2>
+                      {section.marks && (
+                        <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold text-white/60 tracking-widest uppercase">
+                          {section.marks}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-blue-100/70 font-medium leading-relaxed italic border-l-4 border-blue-500 pl-4 py-1">
+                      {section.instructions}
+                    </p>
+                  </div>
+                )}
+                
+                {part && isFirstInPart && (
+                  <div className="flex items-center gap-4 py-2 animate-fade-in">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                    <h3 className="text-xs font-black text-blue-400 uppercase tracking-[0.3em] bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20 shadow-glow-sm">
+                      {part.title}
+                    </h3>
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  </div>
+                )}
               </div>
-              {showInstructions ? <ChevronUp className="h-3.5 w-3.5 text-blue-400" /> : <ChevronDown className="h-3.5 w-3.5 text-blue-400" />}
-            </button>
-            {showInstructions && (
-              <div className="px-3 pb-3">
-                <p className="text-[11px] text-blue-100/60 leading-relaxed pl-7 border-l border-blue-500/15">
-                  {examMetadata?.theory_instructions || "Answer all compulsory questions. Choose from the optional section as required."}
-                </p>
-              </div>
-            )}
-          </div>
+            );
+          })()}
 
           {/* ── QUESTION CONTENT ── */}
           <div className="space-y-5">

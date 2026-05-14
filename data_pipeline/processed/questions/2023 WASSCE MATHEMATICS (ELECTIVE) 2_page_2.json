@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_mathematics_1",
+      "topic": "Algebra",
+      "question_number": 3,
+      "question_text": "If $\\sqrt{q - 3} + \\sqrt{q + 2} = 5$, find $q$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_mathematics_2",
+      "topic": "Trigonometry",
+      "question_number": 4,
+      "question_text": "Solve: $9 \\sin 20^{\\circ} - 28 \\cos 20^{\\circ} = 0$, $0^{\\circ} \\leq \\theta \\leq 90^{\\circ}$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    }
+  ]
+}

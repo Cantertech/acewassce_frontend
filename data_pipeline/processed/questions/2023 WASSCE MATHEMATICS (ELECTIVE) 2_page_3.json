@@ -1,0 +1,45 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_MATHEMATICS_2_q5(b)",
+      "topic": "Binomial Expansion",
+      "question_number": 5,
+      "question_text": "Find the binomial expansion of $(3r - 2s^{4})$.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_MATHEMATICS_2_q5",
+      "topic": "Probability",
+      "question_number": 5,
+      "question_text": "In a town, $15\\%$ of the people speak Twi. If four people are selected at random from the town, find the probability that:",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_MATHEMATICS_2_q5(a)",
+          "topic": "Probability",
+          "question_number": 5,
+          "question_text": "more than half speak Twi;",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_MATHEMATICS_2_q5(b)",
+          "topic": "Probability",
+          "question_number": 5,
+          "question_text": "at most $2$ speak Twi.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

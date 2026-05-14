@@ -1,0 +1,117 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_mathematics_13",
+      "topic": "Statistics",
+      "question_number": 13,
+      "question_text": "The table shows the length (in cm) of 45 pieces of wood in a factory.\n\nLength 30-34 35-39 40-44 45-49 50-54 55-59 60-64 65-69 70-74\nNumber of 2 2 q - 1 4 3q - 5 q^{2} - 3 10 3 1\n\n(a) Find the value of $q$.\n(b) Using the value of $q$ in 13 (a), draw a cumulative frequency curve for the distribution.\n(c) Using the curve in 13 (b), find the:\n(i) median length;\n(ii) $90^{th}$ percentile of the distribution.",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": [
+        {
+          "question_id": "2023_mathematics_13_a",
+          "topic": "Statistics",
+          "question_number": 13,
+          "question_text": "Find the value of $q$.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_13_b",
+          "topic": "Statistics",
+          "question_number": 13,
+          "question_text": "Using the value of $q$ in 13 (a), draw a cumulative frequency curve for the distribution.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_13_c",
+          "topic": "Statistics",
+          "question_number": 13,
+          "question_text": "Using the curve in 13 (b), find the:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2023_mathematics_13_c_i",
+              "topic": "Statistics",
+              "question_number": 13,
+              "question_text": "(i) median length;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2023_mathematics_13_c_ii",
+              "topic": "Statistics",
+              "question_number": 13,
+              "question_text": "(ii) $90^{th}$ percentile of the distribution.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2023_mathematics_14",
+          "topic": "Vectors and Mechanics",
+          "question_number": 14,
+          "question_text": "The vertices of a quadrilateral are $K(-1, 3), L(2, 5), Q(6, -3)$ and $R(m - 1, n - 2)$.\nIf $KL$ is equal to $RQ$, find:",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": [
+            {
+              "question_id": "2023_mathematics_14_a",
+              "topic": "Vectors and Mechanics",
+              "question_number": 14,
+              "question_text": "(a) the values of $m$ and $n$;",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            },
+            {
+              "question_id": "2023_mathematics_14_b",
+              "topic": "Vectors and Mechanics",
+              "question_number": 14,
+              "question_text": "(b) angle $LKR$, correct to the nearest degree.",
+              "has_diagram": false,
+              "is_mcq": false,
+              "options": null,
+              "sub_questions": null
+            }
+          ]
+        },
+        {
+          "question_id": "2023_mathematics_15",
+          "topic": "Vectors and Mechanics",
+          "question_number": 15,
+          "question_text": "(a) An object of mass $20 kg$ is suspended at a point $G$ by two light inextensible strings $XG$ and $YG$. The strings are inclined at $55^{\textcirc}$ and $35^{\textcirc}$ respectively to the downward vertical. Find, correct to four significant figures, the tensions in the strings.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "question_id": "2023_mathematics_15_b",
+          "topic": "Mechanics",
+          "question_number": 15,
+          "question_text": "(b) A bullet of mass $180 g$ is fired horizontally into a fixed wooden block with a speed of $24 ms^{-1}$. If the bullet is brought to rest in $0.4$ sec by a constant resistance, calculate the distance moved by the bullet in the wood.",
+          "has_diagram": false,
+          "is_mcq": false,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
+    }
+  ]
+}

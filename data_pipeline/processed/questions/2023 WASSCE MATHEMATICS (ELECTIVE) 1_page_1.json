@@ -1,0 +1,122 @@
+{
+  "questions": [
+    {
+      "question_id": "2023_mathematics_1",
+      "topic": "Arithmetic Means",
+      "question_number": 1,
+      "question_text": "The ages, in years, of four boys are 10, 12, 14 and 16.  What is the mean age of the boys?",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "12 years"
+        },
+        {
+          "id": "B",
+          "text": "12^{\frac{1}{2}} years"
+        },
+        {
+          "id": "C",
+          "text": "13 years"
+        },
+        {
+          "id": "D",
+          "text": "13^{\frac{1}{2}} years"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_mathematics_2",
+      "topic": "Binary Operations",
+      "question_number": 1,
+      "question_text": "A binary operation * is defined on the set of real numbers, R, by p * q = \\frac{p + q}{pq}. Evaluate (-2) * (-1).",
+      "has_diagram": false,
+      "is_mcq": false,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_mathematics_3",
+      "topic": "Simplification",
+      "question_number": 3,
+      "question_text": "Simplify: \\frac{6}{\\sqrt{2} - 2} + \\frac{2}{\\sqrt{2} + 2}",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "-4 - 4 \\sqrt{2}"
+        },
+        {
+          "id": "B",
+          "text": "-4 - \\sqrt{2}"
+        },
+        {
+          "id": "C",
+          "text": "4 + 4 \\sqrt{2}"
+        },
+        {
+          "id": "D",
+          "text": "4 + 4 \\sqrt{2}"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_mathematics_4",
+      "topic": "Trigonometry",
+      "question_number": 2,
+      "question_text": "Express 300^{\\circ} in radians.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "\\frac{5\\pi}{3}"
+        },
+        {
+          "id": "B",
+          "text": "\\frac{2\\pi}{3}"
+        },
+        {
+          "id": "C",
+          "text": "\\frac{1\\pi}{3}"
+        },
+        {
+          "id": "D",
+          "text": "\\frac{4\\pi}{3}"
+        }
+      ],
+      "sub_questions": null
+    },
+    {
+      "question_id": "2023_mathematics_5",
+      "topic": "Algebra",
+      "question_number": 4,
+      "question_text": "Given that \\sqrt{3}(5x - 4) = 9x^{2} + 1, find the value of x.",
+      "has_diagram": false,
+      "is_mcq": true,
+      "options": [
+        {
+          "id": "A",
+          "text": "-\\frac{8}{13}"
+        },
+        {
+          "id": "B",
+          "text": "-\\frac{2}{3}"
+        },
+        {
+          "id": "C",
+          "text": "\\frac{2}{3}"
+        },
+        {
+          "id": "D",
+          "text": "\\frac{8}{13}"
+        }
+      ],
+      "sub_questions": null
+    }
+  ]
+}
